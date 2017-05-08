@@ -1,0 +1,3 @@
+greenlistApp.service("UserInfo", function() {
+
+});
