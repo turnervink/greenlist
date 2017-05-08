@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="greenlistApp">
+<head>
+    <!-- Angular -->
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/lib/angular-route.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <!-- Init Firebase -->
+    <script src="app/firebaseinfo.js"></script>
+    <!-- Angular files -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/AuthCtrl.js"></script>
+    <script src="app/controllers/HistoryListCtrl.js"></script>
+    <script src="app/controllers/ReportCtrl.js"></script>
+    <script src="app/controllers/ShoppingListCtrl.js"></script>
+    <script src="app/services/QueryService.js"></script>
+    <script src="app/services/ReferenceService.js"></script>
+    <script src="app/services/UserInfoService.js"></script>
+</head>
+<body>
+    <ng-view></ng-view>
+</body>
+</html>
