@@ -1,0 +1,3 @@
+greenlistApp.controller("ReportCtrl", [function() {
+
+}]);

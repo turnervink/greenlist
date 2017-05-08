@@ -1,0 +1,3 @@
+greenlistApp.controller("HistoryListCtrl", [function() {
+
+}]);
