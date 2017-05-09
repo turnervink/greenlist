@@ -10,7 +10,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
         var push = DatabaseRef.wasteData(item).push();
         push.set(wasteScore);
-
+        updateWasteDataStatus(item.name, true);
     }
 
     // TODO (Turner) Add a new item
@@ -42,13 +42,17 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
                        if (!dataUpdated) {
                            // TODO Show modal and ask user for waste data
                            updateWasteScore(newItem, prompt("Waste?"));
+                       } else {
+
                        }
                     });
                 } else {
                     console.log(newItem.name + " is brand new!");
                     DatabaseRef.items().child(newItem.name).set(newItem);
-                    wasteDataStatus(newItem, false); // TODO Only do this after items have been checked and archived
                 }
+
+                setItemList(newItem, "shopping");
+                // updateWasteDataStatus(newItem, false); // TODO Only do this after items have been checked and archived
             });
     }
 
@@ -56,7 +60,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
     // TODO check if data needs to be updated
     function setItemList(item, list) {
         DatabaseRef.items()
-            .child(item)
+            .child(item.name)
             .child("list")
             .set(list);
 
