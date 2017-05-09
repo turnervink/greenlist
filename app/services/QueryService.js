@@ -69,14 +69,20 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
         var check = wasteDataStatus(item)
         check.once("value")
             .then(function(value){
-                
+                if (value.val()){
+                    return true;
+                }
+                else return false;
 
             })
     }
 
     return {
         addItem: addItem,
-        setItemList: setItemList
+        setItemList: setItemList,
+        updateWasteScore: updateWasteScore,
+        wasteDataStatus: wasteDataStatus,
+        checkWasteDataStatus: checkWasteDataStatus
     }
 
 }]);
