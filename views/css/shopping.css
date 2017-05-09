@@ -4,6 +4,23 @@
 
 .itemrow {
     height: 75px;
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-top: 5px;
+    border-top-style: solid;
+    border-top-color: black;
+}
+
+/**
+.emptycb, .fullcb{
+    border-left: 5px;
+    border-left-style: solid;
+    border-left-color: black;
+}**/
+
+.topurchase {
+    border-type: solid;
 }
 
 .addrow {
@@ -14,6 +31,10 @@
     margin: 0;
     width: 100%;
     padding: 0;
+}
+
+.addbar {
+    width: 100%;
 }
 
 .row.no-gutter {
