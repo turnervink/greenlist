@@ -38,17 +38,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
                        if true do not update and add to list
                        if false update waste data, flip to true, and add to list
                     */
-                    var check = DatabaseRef.items().child(newItem.name).child("dataUpdated");
-                    check.once("value")
-                        .then(function(value){
 
-                            if (!value.val()) {
-                                // TODO update waste data
-                                // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem, prompt("Waste?"));
-                            }
-
-                        })
+                    checkWasteDataStatus(newItem, function(dataUpdated) {
+                       if (!dataUpdated) {
+                           updateWasteScore(newItem, prompt("Waste?"));
+                       }
+                    });
                 } else {
                     console.log(newItem.name + " is brand new!");
                     DatabaseRef.items().child(newItem.name).set(newItem);
@@ -69,7 +64,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
     }
 
     // TODO (Steven) Update wasteDataStatus for an item
-    function wasteDataStatus(item, status){
+    function updateWasteDataStatus(item, status){
         var nameSet = {};
         var nameItem = item.name;
         nameSet[nameItem] = status;
@@ -77,11 +72,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
         // DatabaseRef.database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").update(nameSet);
     }
 
+    function checkWasteDataStatus(item, callback){
+        var check = DatabaseRef.wasteDataStatus(item);
+        check.once("value")
+            .then(function(value){
+
+                callback(value.val());
+
+            })
+    }
+
     return {
         addItem: addItem,
         setItemList: setItemList,
         updateWasteScore: updateWasteScore,
-        wasteDataStatus: wasteDataStatus
+        updateWasteDataStatus: updateWasteDataStatus,
+        checkWasteDataStatus: checkWasteDataStatus
     }
 
 }]);
