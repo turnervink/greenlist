@@ -1,3 +1,3 @@
-greenlistApp.controller("ReportCtrl", ["$scope", "UserInfo", function($scope, UserInfo) {
+greenlistApp.controller("ReportCtrl", ["CurrentAuth", "$scope", "UserInfo", function(CurrentAuth, $scope, UserInfo) {
 
 }]);

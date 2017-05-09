@@ -1,3 +1,3 @@
-greenlistApp.controller("ShoppingListCtrl", ["$scope", "UserInfo", function($scope, UserInfo) {
+greenlistApp.controller("ShoppingListCtrl", ["CurrentAuth", "$scope", "UserInfo", function(CurrentAuth, $scope, UserInfo) {
 
 }]);
