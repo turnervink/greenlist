@@ -1,0 +1,16 @@
+.google-button{
+    margin: auto;
+}
+
+#login-background{
+    background-color: #278518;
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+#logo{
+    margin: 20% 10% 10% 10%;
+    display: block;
+}
