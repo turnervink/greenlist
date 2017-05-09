@@ -11,4 +11,6 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.updateList = function() {
             DatabaseQuery.setItemList($scope.itemName, "history");
         }
+
+        DatabaseQuery.updateWasteScore($scope.itemName, $scope.wasteScore);
 }]);

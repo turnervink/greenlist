@@ -2,17 +2,21 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
     // TODO (Steven) Log waste score for an item
     function updateWasteScore(item, score) {
+
         var wasteScore = {
             wasteScore: score
         }
         DatabaseRef.wasteData(item).push().set(wasteScore)
+
     }
+    
     // TODO (Turner) Add a new item
     function addItem(itemName) {
         var newItem = {
             list: "shopping",
             name: itemName,
             dataUpdated: false,
+            checked: false,
             average: 0
         }
 
