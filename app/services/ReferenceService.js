@@ -16,8 +16,8 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(UserInfo.getCurrentUser().uid + "/overallAverage");
     }
 
-    function wasteDataStatus() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus");
+    function wasteDataStatus(item) {
+        return database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").child(item);
     }
 
     function wasteData(item){
