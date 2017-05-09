@@ -2,14 +2,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
     // TODO (Steven) Log waste score for an item
     function updateWasteScore(item, score) {
-
-        // TODO Popup and ask user for waste data
+        // TODO Show modal and ask user for waste data
 
         var wasteScore = {
-            wasteScore: score
+            date: Date.now(),
+            score: score
         }
 
-        DatabaseRef.wasteData(item).push().set(wasteScore)
+        var push = DatabaseRef.wasteData(item).push();
+        push.set(wasteScore);
 
     }
     
@@ -37,12 +38,14 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
                        if true do not update and add to list
                        if false update waste data, flip to true, and add to list
                     */
-                    var check = wasteDataStatus(item)
+                    var check = DatabaseRef.items().child(newItem.name).child("dataUpdated");
                     check.once("value")
                         .then(function(value){
 
                             if (!value.val()) {
                                 // TODO update waste data
+                                // TODO Show modal and ask user for waste data
+                                updateWasteScore(newItem, prompt("Waste?"));
                             }
 
                         })
@@ -55,6 +58,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
     }
 
     // TODO (Turner) Move item from history to shopping
+    // TODO check if data needs to be updated
     function setItemList(item, list) {
         DatabaseRef.items()
             .child(item)
@@ -69,16 +73,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
         var nameSet = {};
         var nameItem = item.name;
         nameSet[nameItem] = status;
-        DatabaseRef.getRefToSpecificList(nameItem).update({"dataUpdated":status});
-        DatabaseRef.database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").update(nameSet);
+        DatabaseRef.items().child(nameItem).update({"dataUpdated":status});
+        // DatabaseRef.database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").update(nameSet);
     }
 
     return {
         addItem: addItem,
         setItemList: setItemList,
         updateWasteScore: updateWasteScore,
-        wasteDataStatus: wasteDataStatus,
-        checkWasteDataStatus: checkWasteDataStatus
+        wasteDataStatus: wasteDataStatus
     }
 
 }]);
