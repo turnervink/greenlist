@@ -1,0 +1,28 @@
+.clearicon {
+    margin: 0 auto;
+}
+
+.itemrow {
+    height: 75px;
+}
+
+.addrow {
+    height: 100px;
+}
+
+.icon {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+    padding-right: 0;
+    padding-left: 0;
+}
