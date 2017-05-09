@@ -2,7 +2,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
     // TODO (Steven) Log waste score for an item
     function updateWasteScore(item, score) {
-        // TODO Show modal and ask user for waste data
 
         var wasteScore = {
             date: Date.now(),
@@ -41,6 +40,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
                     checkWasteDataStatus(newItem, function(dataUpdated) {
                        if (!dataUpdated) {
+                           // TODO Show modal and ask user for waste data
                            updateWasteScore(newItem, prompt("Waste?"));
                        }
                     });
