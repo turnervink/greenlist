@@ -1,11 +1,11 @@
 greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
     // TODO (Steven) Log waste score for an item
-    function updateWasteScore(item) {
+    function updateWasteScore(item, score) {
         var wasteScore = {
-            wasteScore: $scope.wasteScore
+            wasteScore: score
         }
-        wasteData(item).push().set(wasteData())
+        DatabaseRef.wasteData(item).push().set(wasteScore)
     }
     // TODO (Turner) Add a new item
     function addItem(itemName) {
@@ -50,14 +50,25 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
 
     // TODO (Steven) Update wasteDataStatus for an item
     function wasteDataStatus(item, status){
+        var nameSet = {};
+        var nameItem = item.name;
+        nameSet[nameItem] = status;
+        DatabaseRef.getRefToSpecificList(nameItem).update({"dataUpdated":status});
+        DatabaseRef.database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").update(nameSet);
 
-        getRefToSpecificList(item).update({"dataUpdated":status})
-        wasteDataStatus(item).
 
     }
 
 
     // TODO (Steven) Check wasteDataStatus for an item
+    function checkWasteDataStatus(item){
+        var check = wasteDataStatus(item)
+        check.once("value")
+            .then(function(value){
+                
+
+            })
+    }
 
     return {
         addItem: addItem,
