@@ -12,7 +12,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
         push.set(wasteScore);
 
     }
-    
+
     // TODO (Turner) Add a new item
     function addItem(itemName) {
         var newItem = {
