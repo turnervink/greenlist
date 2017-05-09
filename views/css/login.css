@@ -1,16 +1,24 @@
-.google-button{
-    margin: auto;
+#logo {
+    width: 30%;
+    height: 30%;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    margin: inherit;
 }
 
-#login-background{
+
+
+#login-page{
     background-color: #278518;
     color: #ffffff;
-    height: 100%;
-    width: 100%;
-    margin: auto;
+    text-align: center;
+    margin:auto;
+    padding-bottom: 2%;
 }
 
-#logo{
-    margin: 20% 10% 10% 10%;
+#sign-in{
     display: block;
+    margin: inherit;
+    width: 15%;
+    height: 15%;
 }
