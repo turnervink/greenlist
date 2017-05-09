@@ -1,14 +1,23 @@
 greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
 
     var database = firebase.database();
-    var items = database.ref(UserInfo.getCurrentUser().uid + "/items");
-    var overallAverage = database.ref(UserInfo.getCurrentUser().uid + "/overallAverage");
-    var wasteDataStatus = database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus");
+
+    function items() {
+        return database.ref(UserInfo.getCurrentUser().uid + "/items");
+    }
 
     function getRefToSpecificList(list) {
         return database.ref(UserInfo.getCurrentUser().uid + "/items")
             .orderByChild("list")
             .equalTo(list);
+    }
+
+    function overallAverage() {
+        return database.ref(UserInfo.getCurrentUser().uid + "/overallAverage");
+    }
+
+    function wasteDataStatus() {
+        return database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus");
     }
 
     return {
