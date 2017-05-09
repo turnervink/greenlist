@@ -1,9 +1,9 @@
 greenlistApp.service("UserInfo", function() {
     var currentUser = {};
 
-    function initUser(userName, uid, photoUrl) {
+    function initUser(displayName, uid, photoUrl) {
         console.log("Setting up user");
-        currentUser.userName = userName;
+        currentUser.displayName = displayName;
         currentUser.uid = uid;
         currentUser.photoUrl = photoUrl;
     }
