@@ -1,6 +1,6 @@
 #logo {
-    width: 30%;
-    height: 30%;
+    width: 50%;
+    height: 50%;
     padding-top: 5%;
     padding-bottom: 2%;
     margin: inherit;
@@ -14,11 +14,23 @@
     text-align: center;
     margin:auto;
     padding-bottom: 2%;
+
+}
+
+#login-page p{
+    font-size: 400%;
+    width: 75%;
+    margin:inherit;
+}
+
+#login-page h1{
+    font-size: 700%;
+    font-weight: bold;
 }
 
 #sign-in{
     display: block;
     margin: inherit;
-    width: 15%;
-    height: 15%;
+    width: 55%;
+    height: 55%;
 }
