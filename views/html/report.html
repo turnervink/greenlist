@@ -1,4 +1,10 @@
+<ng-include src="'views/partials/header.html'"></ng-include>
+
+<div id="report-background">
+<div id="report-page">
+
 <!-- Placeholder, will use Angular -->
+    <div id="scores-section">
 <h2>Your efficiency rating</h2>
 <h1><span id="elo-rating">1756</span></h1>
 <br>
@@ -7,15 +13,20 @@
 
 <!-- Display ELO here, temporary -->
 
-<h5> Your green-list rating is: <span id="efficiency-pct">76.2%</span></h5>
-
+<h4>You've used  <span id="efficiency-pct">76.2%</span> of your groceries. <br>
+Keep it up!</h4>
+    </div>
 <!-- Solid line here -->
 
 <div id="top-food">
-    <ul>
+
+    <h3>Food items you could improve upon</h3>
+    <ol>
         <!-- Placeholder -->
         <li>Carrots <span>12%</span></li>
         <li>Milk <span>16%</span></li>
         <li>Eggs<span>24%</span></li>
-    </ul>
+    </ol>
+</div>
+</div>
 </div>
