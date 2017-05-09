@@ -3,9 +3,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
     // TODO (Steven) Log waste score for an item
     function updateWasteScore(item, score) {
 
+        // TODO Popup and ask user for waste data
+
         var wasteScore = {
             wasteScore: score
         }
+
         DatabaseRef.wasteData(item).push().set(wasteScore)
 
     }
@@ -34,10 +37,19 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
                        if true do not update and add to list
                        if false update waste data, flip to true, and add to list
                     */
+                    var check = wasteDataStatus(item)
+                    check.once("value")
+                        .then(function(value){
+
+                            if (!value.val()) {
+                                // TODO update waste data
+                            }
+
+                        })
                 } else {
                     console.log(newItem.name + " is brand new!");
-                    // TODO Set wasteDataStatus to false
                     DatabaseRef.items().child(newItem.name).set(newItem);
+                    wasteDataStatus(newItem, false); // TODO Only do this after items have been checked and archived
                 }
             });
     }
@@ -59,22 +71,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", function(DatabaseRef) {
         nameSet[nameItem] = status;
         DatabaseRef.getRefToSpecificList(nameItem).update({"dataUpdated":status});
         DatabaseRef.database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").update(nameSet);
-
-
-    }
-
-
-    // TODO (Steven) Check wasteDataStatus for an item
-    function checkWasteDataStatus(item){
-        var check = wasteDataStatus(item)
-        check.once("value")
-            .then(function(value){
-                if (value.val()){
-                    return true;
-                }
-                else return false;
-
-            })
     }
 
     return {
