@@ -2,13 +2,12 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
 
     var database = firebase.database();
     var items = database.ref(UserInfo.getCurrentUser().uid + "/items");
-    var shoppinglist = database.ref(UserInfo.getCurrentUser().uid + "/items")
-        .orderByChild("list");
     var overallAverage = database.ref(UserInfo.getCurrentUser().uid + "/overallAverage");
     var wasteDataStatus = database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus");
 
     function getRefToSpecificList(list) {
-        return shoppinglist
+        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+            .orderByChild("list")
             .equalTo(list);
     }
 
@@ -17,7 +16,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         overallAverage: overallAverage,
         getRefToSpecificList: getRefToSpecificList,
         wasteDataStatus: wasteDataStatus,
-        database: database,
+        database: database
 
     }
 
