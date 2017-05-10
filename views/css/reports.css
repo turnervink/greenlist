@@ -1,0 +1,39 @@
+#report-page{
+    margin: inherit;
+    width: 100%;
+    padding: 0% 10%;
+    background-color: #ffffff;
+}
+
+#scores-section{
+    margin: inherit;
+
+    text-align: center;
+    border-bottom: grey solid 1px;
+}
+
+#top-food{
+    margin: inherit;
+}
+
+#elo-rating{
+    font-weight: bold;
+    color:  #278518;
+}
+
+#efficiency-pct{
+    font-weight: bold;
+    color:  #278518;
+}
+
+.bad-item1{
+    color: red;
+}
+
+.bad-item2{
+    color: red;
+}
+
+.bad-item3{
+    color: orange;
+}

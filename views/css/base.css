@@ -1,0 +1,17 @@
+body{
+    font-family: 'Asap', sans-serif;
+    background-color: #278518;
+}
+
+#header{
+    background-color: black;
+    color: white;
+}
+
+nav{
+    background-color: black;
+    color: white;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+}
