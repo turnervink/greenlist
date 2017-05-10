@@ -17,6 +17,12 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/html/report.html",
             controller: "ReportCtrl"
         })
+
+        .when("/affiliates", {
+            templateUrl: "views/html/affiliates.html",
+            controller: "AffiliatesCtrl"
+        })
+
         .otherwise({
             redirectTo: "/list"
         });
