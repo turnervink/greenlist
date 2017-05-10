@@ -3,7 +3,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
     // TODO (Steven) Log waste score for an item
     function updateWasteScore(item) {
         // open modal
-        var score;
         var modalInstance = $modal.open({
             templateUrl: 'views/partials/modal.html',
             controller: 'ModalCtrl',
@@ -11,10 +10,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
 
         // get score from modal
         modalInstance.result.then(function (data) {
-            score = data;
             var wasteScore = {
-                //date: Date.now(),
-                score: data        };
+                date: Date.now(),
+                score: parseInt(data)
+            };
 
             var push = DatabaseRef.wasteData(item).push();
             push.set(wasteScore);
