@@ -1,4 +1,4 @@
-var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase"]);
+var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase", "ui.bootstrap"]);
 
 greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
@@ -33,6 +33,13 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when('/ctrl', {
+            templateUrl: "views/partials/modal.html",
+            controller: 'ModalCtrl'
+
+        })
+
         .when("/reports", {
             templateUrl: "views/html/report.html",
             controller: "ReportCtrl",
@@ -42,13 +49,31 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when("/affiliates", {
+            templateUrl: "views/html/affiliates.html",
+            controller: "AffiliatesCtrl"
+        })
+
         .otherwise({
             redirectTo: "/login"
         });
 
 }]);
 
+/*
+    This controller listens for route changes and assigns a class to the body in order to
+    have a different background colour for each view. A value of "undefined-page" is used for
+    the login view as there is not controller associated with it.
+ */
+greenlistApp.controller("GlobalCtrl", ["$scope", "$rootScope", function($scope, $rootScope) {
+    $rootScope.$on("$routeChangeStart", function(event, toState, toParams) {
+        $scope.bodyClass = toState.$$route.controller + "-page";
+    });
+}]);
+
 greenlistApp.factory("Auth", ["$firebaseAuth",
     function($firebaseAuth) {
         return $firebaseAuth();
     }]);
+

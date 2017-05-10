@@ -1,14 +1,13 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "DatabaseQuery", "$firebaseObject",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, DatabaseQuery, $firebaseObject) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$modal", "$window","DatabaseQuery",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $modal, $window,DatabaseQuery) {
 
     UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
-        $scope.addItem = function() {
-            DatabaseQuery.addItem($scope.itemName);
-        }
+    <!-- modal test -->
+    $scope.nameYour = "MODAL TEST";
+        $scope.clickmeModal = function() {
+            DatabaseQuery.updateWasteScore("milk")
 
-        $scope.updateList = function() {
-            DatabaseQuery.setItemList($scope.itemName, "history");
         }
 }]);
