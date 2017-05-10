@@ -10,4 +10,8 @@ greenlistApp.controller("ShoppingListCtrl",
             DatabaseQuery.updateWasteScore({name: "milk"});
 
         }
+
+        $scope.checkItem = function() {
+            DatabaseQuery.updateCheckedStatus({name: "milk"}, false);
+        }
 }]);

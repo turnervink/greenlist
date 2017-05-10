@@ -113,13 +113,18 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             });
     }
 
+    function updateCheckedStatus(item, status) {
+        DatabaseRef.items().child(item.name).update({"checked": status});
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
         setItemList: setItemList,
         updateWasteDataStatus: updateWasteDataStatus,
         checkWasteDataStatus: checkWasteDataStatus,
-        itemIsInHistory: itemIsInHistory
+        itemIsInHistory: itemIsInHistory,
+        updateCheckedStatus: updateCheckedStatus
     }
 
 }]);
