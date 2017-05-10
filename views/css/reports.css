@@ -3,6 +3,12 @@
     width: 100%;
     padding: 0% 10%;
     background-color: #ffffff;
+
+}
+
+#efficiency-message {
+    font-size: 500%;
+    font-weight: bold;
 }
 
 #scores-section{
@@ -16,9 +22,25 @@
     margin: inherit;
 }
 
+#report-page p{
+    font-size: 300%;
+    font-weight: bold;
+}
+
+#improvement-message{
+    font-size: 400%;
+    font-weight: bold;
+}
+
 #elo-rating{
     font-weight: bold;
+    font-size: 300%;
     color:  #278518;
+}
+
+#report-page ol{
+    font-weight: bold;
+    font-size: 350%;
 }
 
 #efficiency-pct{
