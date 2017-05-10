@@ -14,4 +14,9 @@ greenlistApp.controller("ShoppingListCtrl",
         DatabaseQuery.updateCheckedStatus(item, status);
     }
 
+    $scope.addItem = function(item) {
+        DatabaseQuery.addItem(item);
+        $scope.newItemName = "";
+    }
+
 }]);
