@@ -55,6 +55,7 @@
 .addrow-row {
     position: fixed;
     bottom: 0;
+    padding-bottom: 120px;
 }
 
 .icon {
