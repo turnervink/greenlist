@@ -9,6 +9,5 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.clickmeModal = function() {
             DatabaseQuery.updateWasteScore("milk")
 
-
         }
 }]);
