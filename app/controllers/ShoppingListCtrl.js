@@ -4,5 +4,10 @@ greenlistApp.controller("ShoppingListCtrl",
 
     UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
+    var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());
+    uncheckedItems.$bindTo($scope, "uncheckedItems");
+
+    var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
+    checkedItems.$bindTo($scope, "checkedItems");
 
 }]);
