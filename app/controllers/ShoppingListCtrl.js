@@ -10,4 +10,8 @@ greenlistApp.controller("ShoppingListCtrl",
     var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
     checkedItems.$bindTo($scope, "checkedItems");
 
+    $scope.toggleCheck = function(item, status) {
+        DatabaseQuery.updateCheckedStatus(item, status);
+    }
+
 }]);

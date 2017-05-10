@@ -9,7 +9,7 @@
 				<!--an individal item -->
 				<div ng-repeat="item in uncheckedItems" class="row topurchase">
 					<div class="col-xs-2 emptycb itemrow">
-						<input type="image" src="images/emptybox.png" class="icon"/>
+						<input type="image" src="images/emptybox.png" class="icon" ng-click="toggleCheck(item, true)"/>
 					</div>
 					<div class="col-xs-8 itemname itemrow">
 						<p>{{item.name}}</p>
@@ -37,7 +37,7 @@
 			<div class="container-fluid">
 				<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
 					<div class="col-xs-2 itemrow fullcb">
-						<img src="images/checkedbox.png" alt="checkbox" class="icon">
+						<img src="images/checkedbox.png" alt="checkbox" class="icon" ng-click="toggleCheck(item, false)">
 					</div>
 					<div class="col-xs-10 itemrow purchased">
 						<p>{{item.name}}</p>
