@@ -33,6 +33,13 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when('/ctrl', {
+            templateUrl: "views/partials/modal.html",
+            controller: 'ModalCtrl'
+
+        })
+
         .when("/reports", {
             templateUrl: "views/html/report.html",
             controller: "ReportCtrl",
