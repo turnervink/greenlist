@@ -7,7 +7,7 @@ greenlistApp.controller("ShoppingListCtrl",
     <!-- modal test -->
     $scope.nameYour = "MODAL TEST";
         $scope.clickmeModal = function() {
-            DatabaseQuery.updateWasteScore("milk")
+            DatabaseQuery.updateWasteScore({name: "milk"});
 
         }
 }]);
