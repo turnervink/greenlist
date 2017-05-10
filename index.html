@@ -3,6 +3,7 @@
 <head>
 	<!-- Bootstrap and jQuery -->
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- Angular -->
@@ -18,6 +19,7 @@
     <script src="app/app.js"></script>
     <script src="app/controllers/AuthCtrl.js"></script>
     <script src="app/controllers/HistoryListCtrl.js"></script>
+    <script src="app/controllers/PanelCtrl.js"></script>
     <script src="app/controllers/ReportCtrl.js"></script>
     <script src="app/controllers/ShoppingListCtrl.js"></script>
     <script src="app/controllers/AffiliatesCtrl.js"></script>
@@ -29,10 +31,13 @@
     <link href="views/css/login.css" rel="stylesheet" type="text/css">
     <link href="views/css/reports.css" rel="stylesheet" type="text/css">
     <link href="views/css/base.css" rel="stylesheet" type="text/css">
+    <link href="views/css/shopping.css" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
+  
 </head>
 <body class="{{bodyClass}}" ng-controller="GlobalCtrl">
-    <ng-view></ng-view>
+    <header ng-include="'views/partials/panel.html'" ng-controller="PanelCtrl"></header>
+    <main class="content" ng-view></main>
 </body>
 </html>
