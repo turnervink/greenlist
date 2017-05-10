@@ -4,14 +4,5 @@ greenlistApp.controller("ShoppingListCtrl",
 
     UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
-    <!-- modal test -->
-    $scope.nameYour = "MODAL TEST";
-        $scope.clickmeModal = function() {
-            DatabaseQuery.updateWasteScore({name: "milk"});
 
-        }
-
-        $scope.checkItem = function() {
-            DatabaseQuery.updateCheckedStatus({name: "milk"}, false);
-        }
 }]);
