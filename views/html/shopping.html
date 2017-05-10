@@ -1,3 +1,6 @@
+<ng-include src="'views/partials/panel.html'" ng-controller="PanelCtrl"></ng-include>
+
+<div id="shopping-list">
 <div ng-init="tempfood=['banana', 'potato', 'rice']">
 	<div class="container-fluid">
 		<!--First section for items in list -->
@@ -60,8 +63,3 @@
 		</div>
 	</div>
 </div>
-<form ng-submit="addItem()">
-    <input type="text" ng-model="itemName">
-    <input type="submit">
-</form>
-<button ng-click="updateList()"></button>
