@@ -2,12 +2,33 @@
     margin: 0 auto;
 }
 
+.clearlist {
+    background: lightslategray;
+}
+
+.colourbar {
+    background-color: darkgrey;
+    margin: auto;
+    padding: 3px;
+}
+
+.innerbar {
+    background-color: lightgreen;
+    width: 80%;
+    padding: 3px;
+    margin-left: 3px;
+}
+
+.purchased, .fullcb {
+    background-color: lightgrey;
+}
+
 .itemrow {
-    height: 75px;
-    border-bottom: 5px;
+    height: 50px;
+    border-bottom: 2px;
     border-bottom-style: solid;
     border-bottom-color: black;
-    border-top: 5px;
+    border-top: 2px;
     border-top-style: solid;
     border-top-color: black;
 }
@@ -24,18 +45,38 @@
 }
 
 .addrow {
-    height: 100px;
+    height: 75px;
+}
+
+.addrow-row {
+    position: fixed;
+    bottom: 0;
 }
 
 .icon {
     margin: 0;
-    width: 100%;
+    width: 40px;
+    height: 40px;
     padding: 0;
+    margin-top: 3px;
 }
 
 .addbar {
     width: 100%;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 2px 2px 3px #666;
+    -webkit-box-shadow: 2px 2px 3px #666;
+    box-shadow: 2px 2px 3px #666;
+    font-size: 20px;
+    padding: 4px 7px;
+    outline: 0;
+    -webkit-appearance: none;
 }
+
+
 
 .row.no-gutter {
     margin-left: 0;
@@ -46,4 +87,11 @@
 .row.no-gutter [class*='col-']:not(:last-child) {
     padding-right: 0;
     padding-left: 0;
+}
+
+.stickyfooter {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
 }

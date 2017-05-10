@@ -1,59 +1,65 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../css/shopping.css" rel="stylesheet">
-	</head>
-	<body>
+<ng-include src="'views/partials/header.html'"></ng-include>
+
+<div class="container-fluid">
+	<!--First section for items in list -->
+	<div class="row no-gutter">
 		<div class="container-fluid">
-			<!--First section for items in list -->
-			<div class="row no-gutter">
-				<div class="container-fluid">
-					<!--an individal item -->
-					<div class="row topurchase">
-						<div class="col-xs-1 emptycb itemrow" style="background: gold">
-							<input type="image" src="../../images/emptycheckboxPLACEHOLDER.png" class="icon"/>
-						</div>
-						<div class="col-xs-10 itemname itemrow" style="background: green">
-							<p>Banana</p>
-						</div>
-						<div class="col-xs-1 garbage itemrow" style="background: red">
-							<input type="image" src="../../images/garbagePLACEHOLDER.png" class="icon"/>
+			<!--an individal item -->
+			<div class="row topurchase">
+				<div class="col-xs-2 emptycb itemrow">
+					<input type="image" src="../../images/emptybox.png" class="icon"/>
+				</div>
+				<div class="col-xs-8 itemname itemrow">
+					<p>Banana</p>
+					<!-- Tempo waste bar -->
+					<div class="col-xs-12 colourbar">
+						<div class="innerbar">
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--Second section for the clear list button -->
-			<div class="row no-gutter clearlist" style="background: gray">
-				<div class="col-xs-5"></div>
-				<div class="col-xs-2">
-					<input type="image" src="../../images/archivePLACEHOLDER.png" class="icon"/>
+				<div class="col-xs-2 garbage itemrow">
+					<input type="image" src="../../images/garbagecan.png" class="icon"/>
 				</div>
-			</div>
-			<!--Third section for the items purchased -->
-			<div class="row">
-				<div class="container-fluid">
-					<div class="row no-gutter purchased">
-						<div class="col-xs-1 itemrow fullcb" style="background: gold">
-							<img src="../../images/fullcheckboxPLACEHOLDER.png" alt="checkbox" class="icon">
-						</div>
-						<div class="col-xs-11 itemrow" style="background: green">
-							<p>Potato</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--Fourth section for adding new items -->
-			<div class="row no-gutter">
-				<form>
-					<div class="col-xs-11 addrow">
-						<input type="text" name="item" class="addbar">
-					</div>
-					<div class="col-xs-1 addrow">
-						<input type="image" src="../../images/plusPLACEHOLDER.png" class="icon">
-					</div>
-				</form>
 			</div>
 		</div>
-	</body>
-</html>
+	</div>
+	<!--Second section for the clear list button -->
+	<div class="row no-gutter clearlist"">
+		<div class="col-xs-5"></div>
+		<div class="col-xs-2">
+			<input type="image" src="../../images/archive2.png" class="icon"/>
+		</div>
+	</div>
+	<!--Third section for the items purchased -->
+	<div class="row">
+		<div class="container-fluid">
+			<div class="row no-gutter purchased">
+				<div class="col-xs-2 itemrow fullcb">
+					<img src="../../images/checkedbox.png" alt="checkbox" class="icon">
+				</div>
+				<div class="col-xs-10 itemrow purchased">
+					<p>Potato</p>
+					<!-- Tempo waste bar -->
+					<div class="col-xs-10 colourbar">
+						<div class="innerbar">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Fourth section for adding new items -->
+	<div class="row no-gutter addrow-row">
+		<form>
+			<div class="col-xs-10 addrow">
+				<input type="text" name="item" placeholder="Add an item" class="addbar">
+			</div>
+			<div class="col-xs-1 addrow">
+				<input type="image" src="../../images/plusPLACEHOLDER.png" class="icon">
+			</div>
+		</form>
+	</div>
+</div>
+<div class="stickyfooter">
+	<ng-include src="'views/partials/header.html'"></ng-include>
+</div>
