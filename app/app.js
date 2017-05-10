@@ -1,4 +1,4 @@
-var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase"]);
+var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase", "ui.bootstrap"]);
 
 greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
@@ -33,6 +33,13 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when('/ctrl', {
+            templateUrl: "views/partials/modal.html",
+            controller: 'ModalCtrl'
+
+        })
+
         .when("/reports", {
             templateUrl: "views/html/report.html",
             controller: "ReportCtrl",
