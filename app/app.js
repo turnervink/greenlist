@@ -21,4 +21,15 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
             redirectTo: "/list"
         });
 
-}])
+}]);
+
+/*
+    This controller listens for route changes and assigns a class to the body in order to
+    have a different background colour for each view. A value of "undefined-page" is used for
+    the login view as there is not controller associated with it.
+ */
+greenlistApp.controller("GlobalCtrl", ["$scope", "$rootScope", function($scope, $rootScope) {
+    $rootScope.$on("$routeChangeStart", function(event, toState, toParams) {
+        $scope.bodyClass = toState.$$route.controller + "-page";
+    });
+}]);
