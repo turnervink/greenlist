@@ -20,13 +20,19 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus");
     }
 
+    function wasteData(item){
+        return database.ref(UserInfo.getCurrentUser().uid + "/wasteData").child(item);
+    }
+
     return {
         items: items,
         overallAverage: overallAverage,
         getRefToSpecificList: getRefToSpecificList,
         wasteDataStatus: wasteDataStatus,
+        wasteData: wasteData,
         database: database
 
     }
+
 
 }]);
