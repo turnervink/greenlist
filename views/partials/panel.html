@@ -4,6 +4,7 @@
 			<img ng-click="toggleMenu()" src="images/greenlist-no-bkgrnd.png" width="50" height="50">
 			<h3>{{heading}}</h3>
 		</div>
+
 	</div>
 
 	<div class="slidemenu" id="slidemenu" ng-class="{hide:!showmenu, slide:showmenu}">
@@ -25,9 +26,9 @@
 <nav class="nav-bar">
 	<div class="nav-bar-content">
 		<ul class="col-xs-12">
-			<a href="#!/list" ng-click="heading = 'Shopping List'"><li class="col-xs-4">Shopping List</li></a>
-			<a href="#!/history" ng-click="heading = 'History'"><li class="col-xs-4">History</li></a>
-			<a href="#!/reports" ng-click="heading = 'Report'"><li class="col-xs-4">Report</li></a>
+			<a href="#!/list"><li class="col-xs-4" style="background-color: {{listBtnColor}}; color: {{listColor}}">Shopping List</li></a>
+			<a href="#!/history"><li class="col-xs-4" style="background-color: {{histBtnColor}}; color: {{histColor}}">History</li></a>
+			<a href="#!/reports"><li class="col-xs-4" style="background-color: {{reptBtnColor}}; color: {{reptColor}}">Report</li></a>
 		</ul>
 	</div>
 </nav>
