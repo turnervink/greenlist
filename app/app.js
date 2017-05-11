@@ -7,8 +7,11 @@ greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
         if (error === "AUTH_REQUIRED") {
             $location.path("/login");
         }
+
     });
 }]);
+
+//Slide menu code
 
 greenlistApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
