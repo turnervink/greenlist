@@ -1,0 +1,40 @@
+#affiliates-page{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10%;
+}
+
+#first-affiliate{
+
+    display: block;
+    margin: inherit;
+    text-align: center;
+}
+
+#affiliates-page h1{
+    font-size: 350%;
+    font-weight: bold;
+    border-bottom: #000000 solid 2px;
+    width: 60%;
+    margin: inherit;
+}
+
+#affiliates-page p{
+    font-size: 350%;
+    width: 90%;
+    margin: inherit;
+}
+
+#affiliates-page a{
+    font-size: 350%;
+    width: 90%;
+    margin: inherit;
+    text-align: center;
+    border-top: black thin solid;
+}
+
+#affiliates-page img{
+    margin-top: 2%;
+    width: 25%;
+    height: 25%;
+}
