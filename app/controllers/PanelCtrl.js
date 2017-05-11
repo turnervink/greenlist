@@ -1,4 +1,4 @@
-greenlistApp.controller("PanelCtrl", ["$scope", "$rootScope", function($scope, $rootScope) {
+greenlistApp.controller("PanelCtrl", ["$scope", "$rootScope", "UserInfo", function($scope, $rootScope, UserInfo) {
 
 	$scope.heading = 'Shopping List';
 
@@ -7,5 +7,7 @@ greenlistApp.controller("PanelCtrl", ["$scope", "$rootScope", function($scope, $
 	$scope.toggleMenu = function(){
 		$scope.showmenu=($scope.showmenu) ? false : true;
 	}
+
+	$scope.DisplayPicture = UserInfo.getCurrentUser().photoUrl;
 
 }]);
