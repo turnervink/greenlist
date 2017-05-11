@@ -2,7 +2,9 @@ greenlistApp.controller("ReportCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject",
     function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject) {
 
-    	$scope.heading = 'Report';
+    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+
+        $scope.heading = 'Report';
 
     	$scope.listBtnColor = 'white';
 
@@ -15,8 +17,5 @@ greenlistApp.controller("ReportCtrl",
     	$scope.histColor = 'black';
 
     	$scope.reptColor = 'white';
-
-
-    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
 }]);

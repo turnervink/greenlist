@@ -2,6 +2,8 @@ greenlistApp.controller("ShoppingListCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$modal", "$window","DatabaseQuery",
     function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $modal, $window,DatabaseQuery) {
 
+        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+
     	$scope.heading = 'Shopping List';
 
     	$scope.listBtnColor = 'green';
@@ -15,8 +17,5 @@ greenlistApp.controller("ShoppingListCtrl",
     	$scope.histColor = 'black';
 
     	$scope.reptColor = 'black';
-
-    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
-
 
 }]);

@@ -2,6 +2,9 @@ greenlistApp.controller("HistoryListCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "DatabaseQuery",
     function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, DatabaseQuery) {
 
+        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+
+
         $scope.heading = 'History';
 
         $scope.listBtnColor = 'white';
@@ -29,6 +32,5 @@ greenlistApp.controller("HistoryListCtrl",
         	DatabaseQuery.setItemList(food, "shopping")
         }
 
-        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
 }]);
