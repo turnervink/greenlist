@@ -7,8 +7,11 @@ greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
         if (error === "AUTH_REQUIRED") {
             $location.path("/login");
         }
+
     });
 }]);
+
+//Slide menu code
 
 greenlistApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
@@ -54,9 +57,12 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
             templateUrl: "views/html/affiliates.html",
             controller: "AffiliatesCtrl"
         })
+        .when("/loading", {
+            templateUrl: "views/html/loading.html"
+        })
 
         .otherwise({
-            redirectTo: "/login"
+            redirectTo: "/list"
         });
 
 }]);

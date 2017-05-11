@@ -30,6 +30,7 @@
     width: 90%;
     margin: inherit;
     text-align: center;
+    border-top: black thin solid;
 }
 
 #affiliates-page img{
