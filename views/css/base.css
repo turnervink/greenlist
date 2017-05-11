@@ -21,6 +21,17 @@ body.HistoryListCtrl-page {
     background-color: white;
 }
 
+.sidebar {
+    text-align: right;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    background-color: black;
+    z-index: 2;
+}
+
 .modal-dialog {
 	margin-top: 550px;
 	border-radius: 50px;
