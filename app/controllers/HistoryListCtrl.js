@@ -4,19 +4,12 @@ greenlistApp.controller("HistoryListCtrl",
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
-
         $scope.heading = 'History';
-
         $scope.listBtnColor = 'white';
-
         $scope.histBtnColor = 'green';
-
         $scope.reptBtnColor = 'white';
-
         $scope.listColor = 'black';
-
         $scope.histColor = 'white';
-
         $scope.reptColor = 'black';
 
 
