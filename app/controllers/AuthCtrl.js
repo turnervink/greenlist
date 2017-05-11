@@ -2,7 +2,7 @@ greenlistApp.controller("AuthCtrl", ["$scope", "$route", "$location", "UserInfo"
     var auth = $firebaseAuth();
 
     $scope.signIn = function() {
-        // TODO direct to loading page
+        $location.url("/list");
         auth.$signInWithRedirect("google").then(function(firebaseUser) {
             console.log("Signed in as " + firebaseUser.user.displayName);
             UserInfo.initUser(firebaseUser.user.displayName, firebaseUser.user.uid, firebaseUser.user.photoURL);
@@ -27,7 +27,6 @@ greenlistApp.controller("AuthCtrl", ["$scope", "$route", "$location", "UserInfo"
                 UserInfo.initUser(firebaseUser.displayName, firebaseUser.uid, firebaseUser.photoURL);
             } else {
                 console.error("Could not auth user");
-                $location.url("/login");
             }
         });
 }]);
