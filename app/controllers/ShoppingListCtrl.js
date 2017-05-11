@@ -27,4 +27,27 @@ greenlistApp.controller("ShoppingListCtrl",
         }
     }
 
+    $scope.archive = function() {
+        DatabaseRef.getCheckedItems()
+            .once("value")
+            .then(function(data) {
+
+                data.forEach(function(item) {
+                    DatabaseQuery.updateWasteDataStatus(item.val(), false);
+                    DatabaseQuery.setItemList(item.val(), "history");
+                });
+
+            });
+
+        DatabaseRef.getUncheckedItems()
+            .once("value")
+            .then(function(data) {
+
+                data.forEach(function(item) {
+                    DatabaseQuery.setItemList(item.val(), "history");
+                });
+
+            });
+    }
+
 }]);
