@@ -20,3 +20,20 @@ body.ReportCtrl-page {
 body.HistoryListCtrl-page {
     background-color: white;
 }
+
+.modal-dialog {
+	margin-top: 350px;
+}
+
+.modal-dialog h4 {
+	font-size: 300%;
+	text-align: center;
+}
+
+.modal-dialog button {
+	font-size: 300%;
+	display: inline-block;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
