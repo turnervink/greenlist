@@ -55,6 +55,7 @@
 	margin-right: auto;
 	padding-top: 0px;
 	text-align: left;
+	border: #ffffff 2px solid;
 }
 
 .header-content img {
@@ -63,8 +64,9 @@
 
 .header-content h3 {
 	color: white;
-	font-size: 300%;
+	font-size: 400%;
 	text-align: center;
 	margin: 0;
 	padding: 60px;
+	font-weight: bold;
 }
