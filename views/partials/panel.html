@@ -1,36 +1,20 @@
-<div ng-controller="PanelCtrl">
-	<div class="header">
-		<div class="header-content">
-			<img  ng-click="toggleMenu()" ng-src="{{DisplayPicture}}">
-			<h3>{{heading}}</h3>
+	<div ng-controller="PanelCtrl">
+		<div class="header">
+			<div class="header-content">
+				<img  ng-click="openAside('left', true)" src="images/greenlist-no-bkgrnd.png" width="150" height="150">
+				<h3>{{heading}}</h3>
+			</div>
 		</div>
 
+		<nav class="nav-bar">
+			<div class="nav-bar-content">
+				<ul class="col-xs-12">
+					<a href="#!/list"><li class="col-xs-4" style="background-color: {{listBtnColor}}; color: {{listColor}}">Shopping List</li></a>
+					<a href="#!/history"><li class="col-xs-4" style="background-color: {{histBtnColor}}; color: {{histColor}}">History</li></a>
+					<a href="#!/reports"><li class="col-xs-4" style="background-color: {{reptBtnColor}}; color: {{reptColor}}">Report</li></a>
+				</ul>
+			</div>
+		</nav>
 	</div>
-
-	<div class="slidemenu" id="slidemenu" ng-class="{hide:!showmenu, slide:showmenu}">
-		<h1>Menu</h1>
-		<ul>
-			<li><a ng-click="toggleMenu()">Close Menu</a></li>
-			<li><a href="#!/affiliates" ng-click="toggleMenu()">Affiliates</a></li>
-			<li><a ng-controller="AuthCtrl" ng-click="signOut()" >Log out</a></li>
-		</ul>
-	</div>
-<!--
-	<div id="all" ng-class="{hide:showmenu,slide:!showmenu}">
-		<div id="header">
-			<button ng-click="toggleMenu()"></button>
-			<h1>testerino</h1>
-		</div>
-</div>
--->
-<nav class="nav-bar">
-	<div class="nav-bar-content">
-		<ul class="col-xs-12">
-			<a href="#!/list"><li class="col-xs-4" style="background-color: {{listBtnColor}}; color: {{listColor}}">Shopping List</li></a>
-			<a href="#!/history"><li class="col-xs-4" style="background-color: {{histBtnColor}}; color: {{histColor}}">History</li></a>
-			<a href="#!/reports"><li class="col-xs-4" style="background-color: {{reptBtnColor}}; color: {{reptColor}}">Report</li></a>
-		</ul>
-	</div>
-</nav>
 
 
