@@ -44,7 +44,13 @@ greenlistApp.controller("ShoppingListCtrl",
             .then(function(data) {
 
                 data.forEach(function(item) {
-                    DatabaseQuery.setItemList(item.val(), "history");
+
+                    if (item.val().dataUpdated == undefined) {
+                        DatabaseQuery.deleteItem(item.val());
+                    } else {
+                        DatabaseQuery.setItemList(item.val(), "history");
+                    }
+
                 });
 
             });
