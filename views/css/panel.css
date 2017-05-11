@@ -1,4 +1,9 @@
 
+#menuleft.slide{left:0}
+#all.hide{position:fixed;left:50%;top:0;width:100%}
+#all.slide{position:relative;}
+.slide,.hide{transition: all 0.2s ease;}
+
 .content {
 	background-color: white;
 	width: 100%;
