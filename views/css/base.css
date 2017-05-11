@@ -3,19 +3,6 @@ body{
     /*background-color: #278518;*/
 }
 
-#header{
-    background-color: black;
-    color: white;
-}
-
-nav{
-    background-color: black;
-    color: white;
-    bottom: 0px;
-    position: fixed;
-    width: 100%;
-}
-
 body.undefined-page {
     background-color: #278518;
 }
@@ -32,4 +19,29 @@ body.ReportCtrl-page {
 
 body.HistoryListCtrl-page {
     background-color: white;
+}
+
+.modal-dialog {
+	margin-top: 550px;
+	border-radius: 50px;
+}
+
+.modal-dialog h4 {
+	font-size: 300%;
+	text-align: center;
+	padding: 50px;
+}
+
+.modal-dialog input {
+	font-size: 300%;
+	margin: 50px;
+}
+
+.modal-dialog button {
+	font-size: 300%;
+	border: none;
+	background-color: green;
+	color: white;
+	display: inline-block;
+	width: 100%;
 }

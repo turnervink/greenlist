@@ -57,7 +57,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
 
     // TODO (Turner) Move item from history to shopping
     function setItemList(item, list) {
-
         if (list == "history") {
             DatabaseRef.items()
                 .child(item.name)

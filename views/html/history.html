@@ -1,6 +1,39 @@
-<ng-include src="'views/partials/panel.html'" ng-controller="PanelCtrl"></ng-include>
-
+<ng-include src="'views/partials/panel.html'"></ng-include>
 
 <div>
-	history
+	<div class="container-fluid">
+		
+		<div class="row no-gutter">
+			<div class="container-fluid">
+				<!--an individal item -->
+				<div ng-repeat="food in historyItem" class="row topurchase">
+					<div class="col-xs-2 emptycb itemrow">
+						<input type="image" src="images/plusPLACEHOLDER.png" class="icon" ng-click="addToList(food)"/>
+					</div>
+					<div class="col-xs-8 itemname itemrow">
+						<p>{{food.name}}</p>
+						<!-- Tempo waste bar -->
+						<div class="col-xs-12 colourbar">
+							<div class="innerbar">
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-2 garbage itemrow">
+						<input type="image" src="images/log-waste.png" class="icon" ng-click="logWaste(food)"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row no-gutter addrow-row">
+			<form>
+				<div class="col-xs-10 addrow">
+					<input type="text" name="item" placeholder="Add an item" class="addbar">
+				</div>
+				<div class="col-xs-1 addrow">
+					<input type="image" src="images/plusPLACEHOLDER.png" class="icon">
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
