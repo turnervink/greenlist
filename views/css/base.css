@@ -1,6 +1,5 @@
 body{
     font-family: 'Asap', sans-serif;
-    /*background-color: #278518;*/
 }
 
 body.undefined-page {
@@ -55,4 +54,9 @@ body.HistoryListCtrl-page {
 	color: white;
 	display: inline-block;
 	width: 100%;
+}
+
+
+.page-content{
+	padding-top: 1%;
 }
