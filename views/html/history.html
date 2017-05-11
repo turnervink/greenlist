@@ -1,17 +1,17 @@
 <ng-include src="'views/partials/panel.html'"></ng-include>
 
-<div ng-init="tempfood=['banana', 'potato', 'rice']">
+<div>
 	<div class="container-fluid">
 		
 		<div class="row no-gutter">
 			<div class="container-fluid">
 				<!--an individal item -->
-				<div ng-repeat="food in tempfood" class="row topurchase">
+				<div ng-repeat="food in historyItem" class="row topurchase">
 					<div class="col-xs-2 emptycb itemrow">
-						<input type="image" src="images/plusPLACEHOLDER.png" class="icon"/>
+						<input type="image" src="images/plusPLACEHOLDER.png" class="icon" ng-click="addToList(food)"/>
 					</div>
 					<div class="col-xs-8 itemname itemrow">
-						<p>{{food}}</p>
+						<p>{{food.name}}</p>
 						<!-- Tempo waste bar -->
 						<div class="col-xs-12 colourbar">
 							<div class="innerbar">
@@ -19,7 +19,7 @@
 						</div>
 					</div>
 					<div class="col-xs-2 garbage itemrow">
-						<input type="image" src="images/log-waste.png" class="icon"/>
+						<input type="image" src="images/log-waste.png" class="icon" ng-click="logWaste(food)"/>
 					</div>
 				</div>
 			</div>

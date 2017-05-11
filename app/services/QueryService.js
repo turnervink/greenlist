@@ -80,10 +80,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
 
     // TODO (Turner) Move item from history to shopping
     function setItemList(item, list) {
-        DatabaseRef.items()
-            .child(item.name)
-            .child("list")
-            .set(list);
+        if (list == "history") {
+            DatabaseRef.items()
+                .child(item.name)
+                .child("checked")
+                .remove();
+        }
+        if (list == "shopping") {
+            DatabaseRef.items()
+                .child(item.name)
+                .child("checked")
+                .set(false);
+                DatabaseRef.items()
+                .child(item.name)
+                .child("list")
+                .set("shopping");
+        }
     }
 
     // TODO (Steven) Update wasteDataStatus for an item
