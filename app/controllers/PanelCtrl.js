@@ -1,4 +1,6 @@
-greenlistApp.controller('PanelCtrl', function($scope, $aside) {
+greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
+
+    $scope.userPic = UserInfo.getCurrentUser().photoUrl;
 
     $scope.asideState = {
         open: false
