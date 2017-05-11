@@ -4,7 +4,19 @@ greenlistApp.controller("ShoppingListCtrl",
 
     	$scope.heading = 'Shopping List';
 
-    UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+    	$scope.listBtnColor = 'green';
+
+    	$scope.histBtnColor = 'white';
+
+    	$scope.reptBtnColor = 'white';
+
+    	$scope.listColor = 'white';
+
+    	$scope.histColor = 'black';
+
+    	$scope.reptColor = 'black';
+
+    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
 
 }]);

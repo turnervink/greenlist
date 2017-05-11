@@ -2,20 +2,33 @@ greenlistApp.controller("HistoryListCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "DatabaseQuery",
     function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, DatabaseQuery) {
 
-    $scope.heading = 'History';
+        $scope.heading = 'History';
 
-    var historyFood = $firebaseObject(DatabaseRef.getRefToSpecificList('history'));
+        $scope.listBtnColor = 'white';
 
-    $scope.historyItem = historyFood;
+        $scope.histBtnColor = 'green';
 
-    $scope.logWaste = function(food) {
-    	DatabaseQuery.updateWasteScore(food);
-    }
+        $scope.reptBtnColor = 'white';
 
-    $scope.addToList = function(food) {
-    	DatabaseQuery.setItemList(food, "shopping")
-    }
+        $scope.listColor = 'black';
 
-    UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+        $scope.histColor = 'white';
+
+        $scope.reptColor = 'black';
+
+
+        var historyFood = $firebaseObject(DatabaseRef.getRefToSpecificList('history'));
+
+        $scope.historyItem = historyFood;
+
+        $scope.logWaste = function(food) {
+        	DatabaseQuery.updateWasteScore(food);
+        }
+
+        $scope.addToList = function(food) {
+        	DatabaseQuery.setItemList(food, "shopping")
+        }
+
+        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
 }]);
