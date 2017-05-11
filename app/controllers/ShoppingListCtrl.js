@@ -19,4 +19,12 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.newItemName = "";
     }
 
+    $scope.deleteItem = function(item) {
+        if (item.dataUpdated == undefined) {
+            DatabaseQuery.deleteItem(item);
+        } else {
+            DatabaseQuery.setItemList(item, "history");
+        }
+    }
+
 }]);

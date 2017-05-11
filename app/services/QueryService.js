@@ -28,7 +28,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         var newItem = {
             list: "shopping",
             name: itemName,
-            dataUpdated: false,
             checked: false,
             average: 0
         };
@@ -132,6 +131,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         DatabaseRef.items().child(item.name).update({"checked": status});
     }
 
+    function deleteItem(item) {
+        DatabaseRef.items().child(item.name).remove();
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -139,7 +142,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         updateWasteDataStatus: updateWasteDataStatus,
         checkWasteDataStatus: checkWasteDataStatus,
         itemIsInHistory: itemIsInHistory,
-        updateCheckedStatus: updateCheckedStatus
+        updateCheckedStatus: updateCheckedStatus,
+        deleteItem: deleteItem
     }
 
 }]);
