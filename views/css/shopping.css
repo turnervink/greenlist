@@ -9,13 +9,13 @@
 .colourbar {
     background-color: darkgrey;
     margin: auto;
-    padding: 3px;
+    padding: 7px;
 }
 
 .innerbar {
     background-color: lightgreen;
     width: 80%;
-    padding: 3px;
+    padding: 7px;
     margin-left: 3px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .itemrow {
-    height: 50px;
+    height: 100px;
     border-bottom: 2px;
     border-bottom-style: solid;
     border-bottom-color: black;
@@ -56,10 +56,11 @@
 
 .icon {
     margin: 0;
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
     padding: 0;
     margin-top: 3px;
+    margin-left: 35px;
 }
 
 .addbar {
@@ -95,4 +96,9 @@
     bottom: 0px;
     left: 0;
     right: 0;
+}
+
+.shopping-item{
+    font-size: 300%;
+    font-weight: bold;
 }
