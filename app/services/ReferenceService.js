@@ -12,24 +12,12 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
             .equalTo(list);
     }
 
-    function getUncheckedItems() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items")
-            .orderByChild("checked")
-            .equalTo(false);
-    }
-
-    function getCheckedItems() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items")
-            .orderByChild("checked")
-            .equalTo(true);
-    }
-
     function overallAverage() {
         return database.ref(UserInfo.getCurrentUser().uid + "/overallAverage");
     }
 
     function wasteDataStatus(item) {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items").child(item.name);
+        return database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").child(item.name);
     }
 
     function wasteData(item){
@@ -41,8 +29,6 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         items: items,
         overallAverage: overallAverage,
         getRefToSpecificList: getRefToSpecificList,
-        getUncheckedItems: getUncheckedItems,
-        getCheckedItems: getCheckedItems,
         wasteDataStatus: wasteDataStatus,
         wasteData: wasteData,
         database: database
