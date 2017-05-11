@@ -25,7 +25,6 @@ greenlistApp.controller("AuthCtrl", ["$scope", "$route", "$location", "UserInfo"
             if (firebaseUser) {
                 console.log("User is auth'd as " + firebaseUser.displayName);
                 UserInfo.initUser(firebaseUser.displayName, firebaseUser.uid, firebaseUser.photoURL);
-                $location.url("/list");
             } else {
                 console.error("Could not auth user");
                 $location.url("/login");
