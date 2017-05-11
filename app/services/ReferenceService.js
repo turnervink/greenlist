@@ -29,7 +29,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
     }
 
     function wasteDataStatus(item) {
-        return database.ref(UserInfo.getCurrentUser().uid + "/wasteDataStatus").child(item.name);
+        return database.ref(UserInfo.getCurrentUser().uid + "/items").child(item.name);
     }
 
     function wasteData(item){

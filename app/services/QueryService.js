@@ -33,26 +33,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         };
 
         console.log("Looking for " + newItem.name + " in history...");
-        // var isInHistory;
-        // DatabaseRef.items().once("value")
-        //     .then(function(data) {
-        //         console.log("Got data");
-        //         itemIsInHistory(newItem, function(historical) {
-        //             if (historical) {
-        //                 console.log(newItem.name + " exists in history!");
-        //                 checkWasteDataStatus(newItem, function(dataUpdated) {
-        //                     if (!dataUpdated) {
-        //                         // TODO Show modal and ask user for waste data
-        //                         updateWasteScore(newItem, prompt("Waste?"));
-        //                     } else {
-        //
-        //                     }
-        //                 });
-        //             } else {
-        //                 console.log(newItem.name + " is brand new!");
-        //                 DatabaseRef.items().child(newItem.name).set(newItem);
-        //             }
-        //         });
 
                 itemIsInHistory(newItem, function(historical) {
                     if (historical === true) {
@@ -61,7 +41,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
                         checkWasteDataStatus(newItem, function(dataUpdated) {
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem, prompt("Waste?"));
+                                updateWasteScore(newItem);
                                 setItemList(newItem, "shopping");
                             } else {
                                 setItemList(newItem, "shopping");
@@ -72,8 +52,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
                         DatabaseRef.items().child(newItem.name).set(newItem);
                     }
                 });
-
-                // updateWasteDataStatus(newItem, false); // TODO Only do this after items have been checked and archived
 
     }
 
@@ -112,7 +90,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         var check = DatabaseRef.wasteDataStatus(item);
         check.once("value")
             .then(function(value){
-                callback(value.val());
+                console.log("Got " + value.val().dataUpdated);
+                callback(value.val().dataUpdated);
             });
     }
 
