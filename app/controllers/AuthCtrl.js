@@ -3,9 +3,11 @@ greenlistApp.controller("AuthCtrl", ["$scope", "$route", "$location", "UserInfo"
 
     $scope.signIn = function() {
         // TODO direct to loading page
+        $location.url("list");
         auth.$signInWithRedirect("google").then(function(firebaseUser) {
             console.log("Signed in as " + firebaseUser.user.displayName);
             UserInfo.initUser(firebaseUser.user.displayName, firebaseUser.user.uid, firebaseUser.user.photoURL);
+            $location.url("/list");
         }).catch(function(error) {
             console.error("Auth failed:", error);
         });
