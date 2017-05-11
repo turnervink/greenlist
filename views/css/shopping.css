@@ -1,7 +1,3 @@
-#shopping-list{
-    padding-top: 7%;
-}
-
 .clearicon {
     margin: 0 auto;
 }
@@ -55,6 +51,7 @@
 .addrow-row {
     position: fixed;
     bottom: 0;
+    padding-bottom: 120px;
 }
 
 .icon {
