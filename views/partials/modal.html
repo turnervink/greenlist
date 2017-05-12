@@ -1,5 +1,8 @@
 <h4>How much did you use?</h4>
 
-<input type="text" ng-model="test.input" placeholder="Type somthing here" style="width:80%"/>
+<!--<input type="text" ng-model="test.input" placeholder="Type somthing here" style="width:80%"/>-->
+<div id="slider">
+    <span uib-rating ng-model="test.input" max="10"></span>
+</div>
 
 <button ng-click="back()">Submit</button>

@@ -60,3 +60,26 @@ body.HistoryListCtrl-page {
 .page-content{
 	padding-top: 1%;
 }
+
+#slider {
+	text-align: center;
+	font-size: 3em;
+}
+
+.modal-dialog span {
+	margin: auto;
+}
+
+.bar-on {
+	height: 16px;
+	width: 16px;
+	background-size: contain;
+	background-image: url("../../images/bar-on.png");
+}
+
+.bar-off {
+	height: 16px;
+	width: 16px;
+	background-size: contain;
+	background-image: url("../../images/bar-off.png");
+}
