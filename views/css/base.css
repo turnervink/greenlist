@@ -32,8 +32,14 @@ body.HistoryListCtrl-page {
 }
 
 /* Log waste popup */
-.modal-dialog {
+#logwaste-popup {
 	margin-top: 650px !important;
+	background: white;
+}
+
+.modal-content {
+	background-color: transparent !important;
+	border: none !important;
 }
 
 .modal-dialog h4 {
@@ -56,6 +62,12 @@ body.HistoryListCtrl-page {
 	width: 100%;
 }
 
+#aside-background {
+	background-color: white;
+	height: 100%;
+	margin-top: 0;
+	border: white solid 1px;
+}
 
 .page-content{
 	padding-top: 1%;
