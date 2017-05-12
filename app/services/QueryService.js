@@ -1,6 +1,10 @@
 greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  function(DatabaseRef, $modal, $window) {
 
-    // TODO (Steven) Log waste score for an item
+    /**
+     * Updates waste score and brings out the modal for entering scores.
+     *
+     * @param item user input object
+     */
     function updateWasteScore(item) {
         // open modal
         var modalInstance = $modal.open({
@@ -77,7 +81,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             .set(list);
     }
 
-    // TODO (Steven) Update wasteDataStatus for an item
+    /**
+     * Sets the waste data status based the on the.
+     *
+     * @param item user input of object to be querried
+     * @param status set to true of false
+     */
     function updateWasteDataStatus(item, status){
         var nameSet = {};
         var nameItem = item.name;
@@ -85,6 +94,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         DatabaseRef.items().child(nameItem).update({"dataUpdated":status});
     }
 
+    /**
+     * Checks to waste data status.
+     *
+     * @param item user input object
+     * @param callback wait for promise
+     */
     function checkWasteDataStatus(item, callback){
         var check = DatabaseRef.wasteDataStatus(item);
         check.once("value")
@@ -94,6 +109,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             });
     }
 
+    /**
+     * All the items with value "history".
+     *
+     * @param item user input object
+     * @param callback wait for promise
+     */
     function itemIsInHistory(item, callback) {
         DatabaseRef.items().once("value")
             .then(function(data) {
@@ -105,10 +126,21 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             });
     }
 
+    /**
+     * update checked status.
+     *
+     * @param item user input object
+     * @param status user input for true or false
+     */
     function updateCheckedStatus(item, status) {
         DatabaseRef.items().child(item.name).update({"checked": status});
     }
 
+    /**
+     * Deletes an item on the server.
+     *
+     * @param item user input object
+     */
     function deleteItem(item) {
         DatabaseRef.items().child(item.name).remove();
     }
