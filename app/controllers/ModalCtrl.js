@@ -1,7 +1,11 @@
+/**
+* Close modal when the back is clicked.
+*/
 greenlistApp.controller('ModalCtrl', function($scope, $modalInstance) {
-
-         $scope.test = {};
-         $scope.back = function() {
-           	$modalInstance.close($scope.test.input);
-     	};
+    /**
+    * Close the modal.
+    */
+     $scope.back = function() {
+      	$modalInstance.close($scope.test.input);
+   	};
 });
