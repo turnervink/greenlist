@@ -1,3 +1,6 @@
+/**
+ * Brings out side nav by injecting new view with modal.
+ */
 greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
 
     $scope.userPic = UserInfo.getCurrentUser().photoUrl;
