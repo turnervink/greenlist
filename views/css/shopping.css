@@ -6,15 +6,17 @@
     background: lightslategray;
 }
 
+/* for the progress bar*/
 .colourbar {
     background-color: darkgrey;
     margin: auto;
     padding: 7px;
 }
 
+/* also for the progress bar*/
 .innerbar {
     background-color: lightgreen;
-    width: 80%;
+    width: 80%; /* edit this with JS based on user's waste percentage*/
     padding: 7px;
     margin-left: 3px;
 }
@@ -23,6 +25,7 @@
     background-color: lightgrey;
 }
 
+/* affects all rows where an item is in the list*/
 .itemrow {
     height: 200px;
     border-bottom: 2px;
@@ -32,13 +35,6 @@
     border-top-style: solid;
     border-top-color: black;
 }
-
-/**
-.emptycb, .fullcb{
-    border-left: 5px;
-    border-left-style: solid;
-    border-left-color: black;
-}**/
 
 .topurchase {
     border-type: solid;
@@ -57,6 +53,7 @@
     margin-top: -25px;
 }
 
+/* css for the images */
 .icon {
     margin: 0;
     width: 125px;
@@ -66,6 +63,7 @@
     margin-left: 20px;
 }
 
+/* makes the add bar rounded and cool in firefox and chrome*/
 .addbar {
     width: 100%;
     border: 1px solid #ccc;
@@ -83,13 +81,16 @@
     height: 100px;
 }
 
+
+/* needed for the guttering to be removed. idk why*/
 .row.no-gutter {
     margin-left: 0;
     margin-right: 0;
 }
 
-.row.no-gutter [class*='col-']:not(:first-child),
-.row.no-gutter [class*='col-']:not(:last-child) {
+/* removes the spaces between bootstrap columns*/
+.row.no-gutter [class*='col-'],
+.row.no-gutter [class*='col-'] {
     padding-right: 0;
     padding-left: 0;
 }
