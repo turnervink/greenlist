@@ -9,12 +9,20 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
         open: false
     };
 
+    /**
+     * Change state of the side nav to true and set position
+     *
+     * @param position set position
+     * @param backdrop set the backdrop
+     */
     $scope.openAside = function(position, backdrop) {
         $scope.asideState = {
             open: true,
             position: position
         };
-
+        /**
+         * close the side nav
+         */
         function postClose() {
             $scope.asideState.open = false;
         }
