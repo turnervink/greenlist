@@ -1,6 +1,14 @@
+/**
+ * Contains functions to perform common database
+ * related tasks.
+ */
 greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  function(DatabaseRef, $modal, $window) {
 
-    // TODO (Steven) Log waste score for an item
+    /**
+     * Adds a new waste score for an item.
+     *
+     * @param item The item to add a waste score for
+     */
     function updateWasteScore(item) {
         // open modal
         var modalInstance = $modal.open({
@@ -23,7 +31,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
 
     }
 
-    // TODO (Turner) Add a new item
+    /**
+     * Adds a new item to a user's list. First looks
+     * for the item in the user's history and if it
+     * is found checks to see if the user needs to
+     * update the waste data. If the item is brand
+     * new it is simple added to the shopping list.
+     *
+     * @param itemName The name of the new item
+     */
     function addItem(itemName) {
         var newItem = {
             list: "shopping",
@@ -55,7 +71,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
 
     }
 
-    // TODO (Turner) Move item from history to shopping
+    /**
+     * Moves an item to a different list by updating the
+     * value of the list key. Checks which list the item
+     * is moving to and updates or removes the checked key
+     * accordingly.
+     *
+     * @param item The item to move
+     * @param list The list to move the item to
+     */
     function setItemList(item, list) {
         if (list == "history") {
             DatabaseRef.items()
@@ -77,7 +101,14 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             .set(list);
     }
 
-    // TODO (Steven) Update wasteDataStatus for an item
+    /**
+     * Updates the waste data status of an item.
+     * True indicates the item has had its data updated
+     * since the last purchase.
+     *
+     * @param item The item to update
+     * @param status The status to set
+     */
     function updateWasteDataStatus(item, status){
         var nameSet = {};
         var nameItem = item.name;
@@ -85,6 +116,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         DatabaseRef.items().child(nameItem).update({"dataUpdated":status});
     }
 
+    /**
+     * Checks the waste data status of an item.
+     *
+     * @param item The item to check the status of
+     * @param callback Callback function
+     */
     function checkWasteDataStatus(item, callback){
         var check = DatabaseRef.wasteDataStatus(item);
         check.once("value")
@@ -94,6 +131,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             });
     }
 
+    /**
+     * Checks if an item is currently in the history
+     * list.
+     *
+     * @param item The item to look for
+     * @param callback Callback function
+     */
     function itemIsInHistory(item, callback) {
         DatabaseRef.items().once("value")
             .then(function(data) {
@@ -105,10 +149,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
             });
     }
 
+    /**
+     * Marks and item as checked or unchecked. True
+     * indicates checked.
+     *
+     * @param item The item to update
+     * @param status The status to set
+     */
     function updateCheckedStatus(item, status) {
         DatabaseRef.items().child(item.name).update({"checked": status});
     }
 
+    /**
+     * Deletes an item from a user's list
+     *
+     * @param item The item to delete
+     */
     function deleteItem(item) {
         DatabaseRef.items().child(item.name).remove();
     }
