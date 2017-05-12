@@ -1,7 +1,7 @@
-greenlistApp.controller('ModalCtrl', function($scope, $modalInstance) {
+greenlistApp.controller('ModalCtrl', function($scope, $uibModalInstance) {
 
          $scope.test = {};
          $scope.back = function() {
-           	$modalInstance.close($scope.test.input);
+           	$uibModalInstance.close($scope.test.input);
      	};
 });
