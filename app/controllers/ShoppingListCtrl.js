@@ -5,17 +5,11 @@ greenlistApp.controller("ShoppingListCtrl",
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
     	$scope.heading = 'Shopping List';
-
     	$scope.listBtnColor = 'green';
-
     	$scope.histBtnColor = 'white';
-
     	$scope.reptBtnColor = 'white';
-
     	$scope.listColor = 'white';
-
     	$scope.histColor = 'black';
-
     	$scope.reptColor = 'black';
       
     var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());

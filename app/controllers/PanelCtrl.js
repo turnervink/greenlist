@@ -1,13 +1,36 @@
-greenlistApp.controller("PanelCtrl", ["$scope", "$rootScope", "UserInfo", function($scope, $rootScope, UserInfo) {
+greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
 
-	$scope.heading = 'Shopping List';
+    $scope.userPic = UserInfo.getCurrentUser().photoUrl;
 
-//slide menu code
-	$scope.showmenu = false;
-	$scope.toggleMenu = function(){
-		$scope.showmenu=($scope.showmenu) ? false : true;
-	}
+    $scope.asideState = {
+        open: false
+    };
 
-	$scope.DisplayPicture = UserInfo.getCurrentUser().photoUrl;
+    $scope.openAside = function(position, backdrop) {
+        $scope.asideState = {
+            open: true,
+            position: position
+        };
 
-}]);
+        function postClose() {
+            $scope.asideState.open = false;
+        }
+
+        $aside.open({
+            templateUrl: 'views/html/aside.html',
+            placement: position,
+            size: 'sm',
+            backdrop: backdrop,
+            controller: function($scope, $uibModalInstance) {
+                $scope.ok = function(e) {
+                    $uibModalInstance.close();
+                    e.stopPropagation();
+                };
+                $scope.cancel = function(e) {
+                    $uibModalInstance.dismiss();
+                    e.stopPropagation();
+                };
+            }
+        }).result.then(postClose, postClose);
+    }
+});
