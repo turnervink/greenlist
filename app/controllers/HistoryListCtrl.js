@@ -4,6 +4,7 @@ greenlistApp.controller("HistoryListCtrl",
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
+        // Setting history page heading content and nav bar button style
         $scope.heading = 'History';
         $scope.listBtnColor = 'white';
         $scope.histBtnColor = 'green';
@@ -11,6 +12,9 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.listColor = 'black';
         $scope.histColor = 'white';
         $scope.reptColor = 'black';
+        $scope.listBgImg = 'images/list-icon-off.png';
+        $scope.histBgImg = 'images/hist-icon-on.png';
+        $scope.reptBgImg = 'images/rept-icon-off.png';
 
 
         var historyFood = $firebaseObject(DatabaseRef.getRefToSpecificList('history'));

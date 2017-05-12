@@ -45,11 +45,12 @@
 }
 
 .addrow-row {
-    bottom: 0;
+    width: 80%;
+    bottom: 10px;
     padding-bottom: 120px;
     position: fixed;
-    width: 80%;
-    margin-bottom:50px;
+    margin-bottom: 50px;
+    z-index: 98;
 }
 
 .add-item-button{
@@ -81,9 +82,6 @@
     bottom: 0px;
     height: 100px;
 }
-
-
-
 
 .row.no-gutter {
     margin-left: 0;

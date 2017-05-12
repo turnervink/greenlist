@@ -1,69 +1,67 @@
 <ng-include src="'views/partials/panel.html'"></ng-include>
 
-<div class="page-content">
-<div>
-	<div class="container-fluid">
-		<!--First section for items in list -->
-		<div class="row no-gutter">
-			<div class="container-fluid">
-				<!--an individal item -->
-				<div ng-repeat="item in uncheckedItems" class="row topurchase">
-					<div class="col-xs-2 emptycb itemrow">
-						<input type="image" src="images/emptybox.png" class="icon" ng-click="toggleCheck(item, true)"/>
-					</div>
-					<div class="col-xs-8 itemname itemrow">
-						<p class="shopping-item">{{item.name}}</p>
-						<!-- Tempo waste bar -->
-						<div class="col-xs-12 colourbar">
-							<div class="innerbar">
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-2 garbage itemrow">
-						<input type="image" src="images/garbagecan.png" class="icon" ng-click="deleteItem(item)"/>
-					</div>
+<div class="container-fluid">
+
+	<!--First section for items in list -->
+	<div class="row no-gutter">
+		<div class="container-fluid">
+			<!--an individal item -->
+			<div ng-repeat="item in uncheckedItems" class="row topurchase">
+				<div class="col-xs-2 emptycb itemrow">
+					<input type="image" src="images/emptybox.png" class="icon" ng-click="toggleCheck(item, true)"/>
 				</div>
-			</div>
-		</div>
-		<!--Second section for the clear list button -->
-		<div class="row no-gutter clearlist"ng-click="archive()">
-			<div class="col-xs-5"></div>
-			<div class="col-xs-2">
-				<input type="image" src="images/archive2.png" class="icon" />
-			</div>
-		</div>
-		<!--Third section for the items purchased -->
-		<div class="row">
-			<div class="container-fluid">
-				<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
-					<div class="col-xs-2 itemrow fullcb">
-						<img src="images/checkedbox.png" alt="checkbox" class="icon" ng-click="toggleCheck(item, false)">
-					</div>
-					<div class="col-xs-10 itemrow purchased">
-						<p class="shopping-item">{{item.name}}</p>
-						<!-- Tempo waste bar -->
-						<div class="col-xs-10 colourbar">
-							<div class="innerbar">
-							</div>
+				<div class="col-xs-8 itemname itemrow">
+					<p class="shopping-item">{{item.name}}</p>
+					<!-- Tempo waste bar -->
+					<div class="col-xs-12 colourbar">
+						<div class="innerbar">
 						</div>
 					</div>
 				</div>
+				<div class="col-xs-2 garbage itemrow">
+					<input type="image" src="images/garbagecan.png" class="icon" ng-click="deleteItem(item)"/>
+				</div>
 			</div>
-		</div>
-		<!--Fourth section for adding new items -->
-
-		<div class="row no-gutter addrow-row">
-			<form>
-
-				<div class="col-xs-1"></div>
-				<div class="col-xs-10 addrow">
-					<input ng-model="newItemName" type="text" name="item" placeholder="Add an item" class="addbar" style="font-size: 300%">
-				</div>
-				<div class="col-xs-1 addrow add-item-button">
-					<input type="image" src="images/plusPLACEHOLDER.png" class="icon" ng-click="addItem(newItemName)">
-				</div>
-			</form>
 		</div>
 	</div>
 
+	<!--Second section for the clear list button -->
+	<div class="row no-gutter clearlist"ng-click="archive()">
+		<div class="col-xs-5"></div>
+		<div class="col-xs-2">
+			<input type="image" src="images/archive2.png" class="icon" />
+		</div>
+	</div>
+
+	<!--Third section for the items purchased -->
+	<div class="row">
+		<div class="container-fluid">
+			<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
+				<div class="col-xs-2 itemrow fullcb">
+					<img src="images/checkedbox.png" alt="checkbox" class="icon" ng-click="toggleCheck(item, false)">
+				</div>
+				<div class="col-xs-10 itemrow purchased">
+					<p class="shopping-item">{{item.name}}</p>
+					<!-- Tempo waste bar -->
+					<div class="col-xs-10 colourbar">
+						<div class="innerbar">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--Fourth section for adding new items -->
+	<div class="row no-gutter addrow-row">
+		<form>
+			<div class="col-xs-1"></div>
+			<div class="col-xs-10 addrow">
+				<input ng-model="newItemName" type="text" name="item" placeholder=" Add an item" class="addbar">
+			</div>
+			<div class="col-xs-1 addrow add-item-button">
+				<input type="image" src="images/plusPLACEHOLDER.png" class="icon" ng-click="addItem(newItemName)">
+			</div>
+		</form>
+	</div>
 </div>
