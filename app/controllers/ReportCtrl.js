@@ -4,6 +4,7 @@ greenlistApp.controller("ReportCtrl",
 
     	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
+        // Setting report page heading content and nav bar button style
         $scope.heading = 'Report';
     	$scope.listBtnColor = 'white';
     	$scope.histBtnColor = 'white';
@@ -11,5 +12,8 @@ greenlistApp.controller("ReportCtrl",
     	$scope.listColor = 'black';
     	$scope.histColor = 'black';
     	$scope.reptColor = 'white';
+        $scope.listBgImg = 'images/list-icon-off.png';
+        $scope.histBgImg = 'images/hist-icon-off.png';
+        $scope.reptBgImg = 'images/rept-icon-on.png';
 
 }]);
