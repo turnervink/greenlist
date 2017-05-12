@@ -1,0 +1,74 @@
+/* App views backgroud */ 
+body{
+    font-family: 'Asap', sans-serif;
+}
+
+body.undefined-page {
+    background-color: #278518;
+}
+
+body.ShoppingListCtrl-page {
+    background-color: white;
+}
+
+body.ReportCtrl-page {
+    background-color: white;
+}
+
+body.HistoryListCtrl-page {
+    background-color: white;
+}
+
+/* Side menu */
+.sidebar {
+    text-align: right;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    background-color: black;
+    z-index: 2;
+}
+
+/* Log waste popup */
+#logwaste-popup {
+	margin-top: 650px !important;
+	background: white;
+}
+
+.modal-content {
+	background-color: transparent !important;
+	border: none !important;
+}
+
+.modal-dialog h4 {
+	font-size: 300%;
+	text-align: center;
+	padding: 50px;
+}
+
+.modal-dialog input {
+	font-size: 300%;
+	margin: 50px;
+}
+
+.modal-dialog button {
+	font-size: 300%;
+	border: none;
+	background-color: green;
+	color: white;
+	display: inline-block;
+	width: 100%;
+}
+
+#aside-background {
+	background-color: white;
+	height: 100%;
+	margin-top: 0;
+	border: white solid 1px;
+}
+
+.page-content{
+	padding-top: 1%;
+}

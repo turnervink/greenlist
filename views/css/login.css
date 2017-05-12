@@ -1,0 +1,42 @@
+
+/* Logo css */
+#logo {
+    width: 50%;
+    height: 50%;
+    padding-left: 50px;
+    padding-top: 5%;
+    padding-bottom: 2%;
+    margin: inherit;
+}
+
+/* CSS for the entire page, */
+
+#login-page{
+    background-color: #278518;
+    color: #ffffff;
+    text-align: center;
+    margin:auto;
+    padding-bottom: 2%;
+
+}
+
+/* Page text CSS */
+#login-page p{
+    font-size: 400%;
+    width: 75%;
+    margin:inherit;
+}
+
+/* Header CSS */
+#login-page h1{
+    font-size: 700%;
+    font-weight: bold;
+}
+
+/* CSS for sign in button. */
+#sign-in{
+    display: block;
+    margin: inherit;
+    width: 55%;
+    height: 55%;
+}
