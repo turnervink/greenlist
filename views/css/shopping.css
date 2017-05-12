@@ -44,14 +44,16 @@
     border-type: solid;
 }
 
-.addrow {
-    height: 75px;
-}
-
 .addrow-row {
-    position: fixed;
     bottom: 0;
     padding-bottom: 120px;
+    position: fixed;
+    width: 80%;
+    margin-bottom:50px;
+}
+
+.add-item-button{
+    margin-top: -25px;
 }
 
 .icon {
