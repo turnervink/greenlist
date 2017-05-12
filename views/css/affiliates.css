@@ -1,16 +1,18 @@
+
+/* page CSS */
 #affiliates-page{
     margin-left: auto;
     margin-right: auto;
-    padding-top: 10%;
 }
 
-#first-affiliate{
+/* Content CSS */
+.affiliate-content{
 
     display: block;
     margin: inherit;
     text-align: center;
 }
-
+/* Header CSS */
 #affiliates-page h1{
     font-size: 350%;
     font-weight: bold;
@@ -19,12 +21,14 @@
     margin: inherit;
 }
 
+/* text css */
 #affiliates-page p{
     font-size: 350%;
     width: 90%;
     margin: inherit;
 }
 
+/* anchor link css */
 #affiliates-page a{
     font-size: 350%;
     width: 90%;
@@ -33,6 +37,7 @@
     border-top: black thin solid;
 }
 
+/* logo css */
 #affiliates-page img{
     margin-top: 2%;
     width: 25%;
