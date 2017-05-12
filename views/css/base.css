@@ -1,3 +1,4 @@
+/* App views backgroud */ 
 body{
     font-family: 'Asap', sans-serif;
 }
@@ -14,12 +15,11 @@ body.ReportCtrl-page {
     background-color: white;
 }
 
-
-
 body.HistoryListCtrl-page {
     background-color: white;
 }
 
+/* Side menu */
 .sidebar {
     text-align: right;
     position: fixed;
@@ -31,9 +31,9 @@ body.HistoryListCtrl-page {
     z-index: 2;
 }
 
+/* Log waste popup */
 .modal-dialog {
-	margin-top: 550px;
-	border-radius: 50px;
+	margin-top: 650px !important;
 }
 
 .modal-dialog h4 {
