@@ -26,10 +26,10 @@
 			</div>
 		</div>
 		<!--Second section for the clear list button -->
-		<div class="row no-gutter clearlist"">
+		<div class="row no-gutter clearlist"ng-click="archive()">
 			<div class="col-xs-5"></div>
 			<div class="col-xs-2">
-				<input type="image" src="images/archive2.png" class="icon" ng-click="archive()"/>
+				<input type="image" src="images/archive2.png" class="icon" />
 			</div>
 		</div>
 		<!--Third section for the items purchased -->
@@ -51,13 +51,15 @@
 			</div>
 		</div>
 		<!--Fourth section for adding new items -->
+
 		<div class="row no-gutter addrow-row">
 			<form>
-				<div class="col-xs-10 addrow">
+
+				<div class="col-xs-11 addrow">
 					<input ng-model="newItemName" type="text" name="item" placeholder="Add an item" class="addbar">
 				</div>
 				<div class="col-xs-1 addrow">
-					<input type="image" src="images/plusPLACEHOLDER.png" class="icon" ng-click="addItem(newItemName)">
+					<input type="image" src="images/plusPLACEHOLDER.png" class="add-icon" ng-click="addItem(newItemName)">
 				</div>
 			</form>
 		</div>
