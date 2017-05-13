@@ -43,7 +43,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
     function addItem(itemName) {
         var newItem = {
             list: "shopping",
-            name: itemName,
+            name: itemName.toLowerCase(),
             checked: false,
             average: 0
         };
