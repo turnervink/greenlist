@@ -57,5 +57,15 @@ greenlistApp.controller("HistoryListCtrl",
         	DatabaseQuery.setItemList(food, "shopping");
         }
 
+        $scope.getWasteData = function(item) {
+            DatabaseQuery.setItemAverage(item);
+        }
+
+        $scope.getAverage = function(item) {
+            DatabaseQuery.getItemAverage(item, function(avg) {
+               console.log(avg);
+            });
+        }
+
 
 }]);
