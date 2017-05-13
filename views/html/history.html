@@ -1,7 +1,6 @@
 <ng-include src="'views/partials/panel.html'"></ng-include>
 
-<div class="container-fluid">
-	
+<div class="container-fluid">	
 	<div class="row no-gutter">
 		<div class="container-fluid">
 			<!--an individal item -->
@@ -23,17 +22,19 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Search bar -->
 	<div class="row no-gutter addrow-row">
 		<form>
-			<div class="col-xs-1"></div>
-			<div class="col-xs-10 addrow">
-				<input type="text" name="item" placeholder=" Search" class="addbar">
+			<div class="col-xs-11">
+				<input type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" class="addbar">
 			</div>
-			<div class="col-xs-1 addrow add-item-button">
-				<input type="image" src="images/search-icon.png" class="icon">
+			<div class="col-xs-1">
+				<button class="add-item-button">Search</button>
 			</div>
 		</form>
 	</div>
 </div>
+
+<!-- Input area background -->
+<div class="input-bg"></div>
