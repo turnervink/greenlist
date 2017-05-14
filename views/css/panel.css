@@ -72,8 +72,8 @@
 
 .header-content img {
 	float: left;
-	width: 15%;
-	height: 15%;
+	width: 150px;
+	height: 150px;
 	margin-left: 20px;
 	margin-top: 18px;
 	border-radius: 100%;
@@ -110,7 +110,7 @@
 
 .input-bg li {
 	display: inline-block;
-	width: 150px;
+	width: 15.5%;
 	text-align: center;
 	border-left: gray solid 1px;
 }
