@@ -41,16 +41,21 @@
 }
 
 .addrow-row {
-    width: 80%;
+    width: 100%;
     bottom: 210px;
     position: fixed;
     transition: 0.3s;
     z-index: 98;
 }
 
+.button-to-right {
+    text-align: right;
+}
+
 .add-item-button{
     width: 200px;
-    padding: 15%;
+    margin-right: 60px;
+    padding: 8px 0;
     font-size: 300%;
     border: black solid 1px;
     border-radius: 10px;
