@@ -8,4 +8,11 @@ greenlistApp.controller('ModalCtrl', function($scope, $uibModalInstance) {
      $scope.back = function() {
       	$uibModalInstance.close($scope.test.input);
    	};
+
+    /**
+     * close without logging waste
+     */
+    $scope.later = function() {
+         $uibModalInstance.close();
+     }
 });
