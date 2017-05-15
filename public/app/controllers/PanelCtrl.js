@@ -33,7 +33,10 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
             windowClass: 'aside-popup',
             size: 'sm',
             backdrop: backdrop,
-            controller: function($scope, $uibModalInstance) {
+            controller: function($scope, $uibModalInstance, UserInfo) {
+                $scope.userPic = UserInfo.getCurrentUser().photoUrl;
+                $scope.userName = UserInfo.getCurrentUser().displayName;
+                $scope.email = UserInfo.getCurrentUser().email;
                 $scope.ok = function(e) {
                     $uibModalInstance.close();
                     e.stopPropagation();

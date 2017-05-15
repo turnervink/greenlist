@@ -2,7 +2,7 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  function(DatabaseRef, $modal, $window) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  function(DatabaseRef, $uibModal, $window) {
 
     /**
      * Adds a new waste score for an item.
@@ -11,7 +11,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
      */
     function updateWasteScore(item) {
         // open modal
-        var modalInstance = $modal.open({
+        var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
             controller: 'ModalCtrl',
             windowClass: 'logwaste-popup'
@@ -223,6 +223,21 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         });
     }
 
+    function setOverallAverage() {
+        // TODO Use CalculationService to calculate average of all item averages and set in database
+    }
+
+    /**
+     * Gets the current user's overall average
+     *
+     * @param callback The callback function
+     */
+    function getOverallAverage(callback) {
+        DatabaseRef.overallAverage().once("value").then(function(data) {
+           callback(data.val());
+        });
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -234,7 +249,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         deleteItem: deleteItem,
         getWasteData: getWasteData,
         setItemAverage: setItemAverage,
-        getItemAverage: getItemAverage
+        getItemAverage: getItemAverage,
+        getOverallAverage: getOverallAverage
     }
 
 }]);
