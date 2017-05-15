@@ -37,23 +37,23 @@ body.HistoryListCtrl-page {
 	background: white;
 }
 
-.modal-content {
+.logwaste-popup .modal-content {
 	background-color: transparent !important;
 	border: none !important;
 }
 
-.modal-dialog h4 {
+.logwaste-popup .modal-dialog h4 {
 	font-size: 300%;
 	text-align: center;
 	padding: 50px;
 }
 
-.modal-dialog input {
+.logwaste-popup .modal-dialog input {
 	font-size: 300%;
 	margin: 50px;
 }
 
-.modal-dialog button {
+.logwaste-popup .modal-dialog button {
 	font-size: 300%;
 	border: none;
 	background-color: green;

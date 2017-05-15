@@ -131,3 +131,16 @@ p.addbar {
     height: 50px;
     width: 50px;
 }
+
+/* css for the confirmation modal */
+.confirmation {
+    text-align: center;
+    margin-top: 650px;
+}
+
+.confirmation button {
+    height: 50px;
+    width: 100px;
+    border-width: 5px;
+    margin-bottom: 20px;
+}
