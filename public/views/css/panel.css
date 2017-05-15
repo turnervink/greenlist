@@ -1,4 +1,3 @@
-
 #menuleft.slide {
 	left:0
 }
@@ -73,8 +72,8 @@
 
 .header-content img {
 	float: left;
-	width: 15%;
-	height: 15%;
+	width: 150px;
+	height: 150px;
 	margin-left: 20px;
 	margin-top: 18px;
 	border-radius: 100%;
@@ -90,12 +89,31 @@
 	font-weight: bold;
 }
 
-/* empty background */
-.empty {
+.input-bg {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 	height: 320px;
 	background-color: white;
+	border-top: gray solid 1px;
+	transition: 0.3s;
 	z-index: 97;
+}
+
+.input-bg ul {
+	padding: 0;
+	font-size: 300%;
+	list-style-type: none;
+	margin-top: 160px;
+}
+
+.input-bg li {
+	display: inline-block;
+	width: 15.5%;
+	text-align: center;
+	border-left: gray solid 1px;
+}
+
+.input-bg li:first-child {
+	border: none;
 }

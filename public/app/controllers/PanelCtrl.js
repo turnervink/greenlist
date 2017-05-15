@@ -30,6 +30,7 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
         $aside.open({
             templateUrl: 'views/html/aside.html',
             placement: position,
+            windowClass: 'aside-popup',
             size: 'sm',
             backdrop: backdrop,
             controller: function($scope, $uibModalInstance) {

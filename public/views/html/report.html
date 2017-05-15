@@ -1,31 +1,54 @@
 <ng-include src="'views/partials/panel.html'"></ng-include>
-<div id="report-background">
-<div id="report-page">
+<div class="container-fluid">
+    
+    <div id="report-page" ng-click="hideDateMenu()">
 
-<!-- Placeholder, will use Angular -->
-    <div id="scores-section">
-<h2 id="efficiency-message">Your efficiency rating</h2>
-    <h1><span id="elo-rating">1756</span></h1>
-<br>
+        <!-- Placeholder, will use Angular -->
+        <div id="scores-section">
+            <h2 id="efficiency-message">Your efficiency rating</h2>
+            <h1><span id="elo-rating">1756</span></h1>
+            <br>
 
-<!-- Improvement stats -->
+            <!-- Improvement stats -->
 
-<!-- Display ELO here, temporary -->
+            <!-- Display ELO here, temporary -->
+            <p>You've used  <span id="efficiency-pct">76.2%</span> of your groceries. <br>
+            Keep it up!</p>
+        </div>
+        
+        <!-- Solid line here -->
 
-<p>You've used  <span id="efficiency-pct">76.2%</span> of your groceries. <br>
-Keep it up!</p>
+        <div id="top-food">
+            <h3 id="improvement-message">Food items you could improve upon</h3>
+            <ol>
+                <!-- Placeholder -->
+                <li>Carrots <span class="bad-item1">12%</span></li>
+                <li>Milk <span class="bad-item2">16%</span></li>
+                <li>Eggs <span class="bad-item3">34%</span></li>
+            </ol>
+        </div>
     </div>
-<!-- Solid line here -->
 
-<div id="top-food">
+    <!-- Select data range -->
+    <div class="row no-gutter addrow-row" style="margin-bottom: {{menuMargin}}">
+        <div class="col-xs-9">
+            <p class="addbar">Period: {{dateRange}}</p>
+        </div>
+        <div class="col-xs-3 button-to-right">
+            <button class="add-item-button" ng-click="showDateMenu()">Change</button>
+        </div>
+    </div>
+</div>
 
-    <h3 id="improvement-message">Food items you could improve upon</h3>
-    <ol>
-        <!-- Placeholder -->
-        <li>Carrots </t><span class="bad-item1">12%</span></li>
-        <li>Milk <span class="bad-item2">16%</span></li>
-        <li>Eggs<span class="bad-item3">34%</span></li>
-    </ol>
-</div>
-</div>
+<!-- Input area background -->
+<div class="input-bg" style="height: {{menuHeight}}">
+    <!-- Data range list -->
+    <ul ng-modle="dateRange">
+        <li ng-click="dateRange = 'Last 2 Weeks'; hideDateMenu()">2wks</li>
+        <li ng-click="dateRange = 'Last Month'; hideDateMenu()">1m</li>
+        <li ng-click="dateRange = 'Last 3 Months'; hideDateMenu()">3m</li>
+        <li ng-click="dateRange = 'Last 6 Months'; hideDateMenu()">6m</li>
+        <li ng-click="dateRange = 'Last Year'; hideDateMenu()">12m</li>
+        <li ng-click="dateRange = 'All Time'; hideDateMenu()">All</li>
+    </ul>
 </div>

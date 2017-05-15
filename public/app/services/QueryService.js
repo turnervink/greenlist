@@ -14,6 +14,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         var modalInstance = $modal.open({
             templateUrl: 'views/partials/modal.html',
             controller: 'ModalCtrl',
+            windowClass: 'logwaste-popup'
         });
 
         // get score from modal
@@ -43,7 +44,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
     function addItem(itemName) {
         var newItem = {
             list: "shopping",
-            name: itemName,
+            name: itemName.toLowerCase(),
             checked: false,
             average: 0
         };
