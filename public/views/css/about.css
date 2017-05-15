@@ -45,6 +45,12 @@
     margin: inherit;
 }
 
+#about-page .summary {
+    font-size: 350%;
+    width: 90%;
+    text-align: left;
+}
+
 /* anchor link css */
 #about-page .return-link{
     font-size: 350%;
@@ -57,6 +63,6 @@
 /* logo css */
 #about-page img{
     margin-top: 2%;
-    width: 25%;
-    height: 25%;
+    width: 40%;
+    height: 40%;
 }
