@@ -248,15 +248,27 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
-    function getTopEfficient() {
+    function getTopEfficient(callback) {
         DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
-           console.log(data.val());
+            var dataArray = [];
+
+            data.forEach(function(item) {
+                dataArray.push(item.val().name);
+            });
+
+            callback(dataArray);
         });
     }
 
-    function getBottomEfficient() {
+    function getBottomEfficient(callback) {
         DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
-            console.log(data.val());
+            var dataArray = [];
+
+            data.forEach(function(item) {
+                dataArray.push(item.val().name);
+            });
+
+            callback(dataArray);
         });
     }
 

@@ -57,4 +57,15 @@ greenlistApp.controller("HistoryListCtrl",
         	DatabaseQuery.setItemList(food, "shopping");
         }
 
+        // Testing code
+        $scope.test = function() {
+            DatabaseQuery.getTopEfficient(function(data) {
+                console.log(data);
+            });
+
+            DatabaseQuery.getBottomEfficient(function(data) {
+                console.log(data);
+            });
+        }
+
 }]);
