@@ -74,6 +74,14 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(UserInfo.getCurrentUser().uid + "/wasteData").child(item.name);
     }
 
+    function leaderBoard() {
+        return database.ref("leaderboard");
+    }
+
+    function leaderBoardScore() {
+        return database.ref("leaderboard").child(UserInfo.getCurrentUser().uid);
+    }
+
     /**
      * return all the functions
      */
@@ -85,6 +93,8 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         getCheckedItems: getCheckedItems,
         wasteDataStatus: wasteDataStatus,
         wasteData: wasteData,
+        leaderBoard: leaderBoard,
+        leaderBoardScore: leaderBoardScore,
         database: database
 
     }

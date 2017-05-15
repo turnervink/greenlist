@@ -56,6 +56,5 @@ greenlistApp.controller("HistoryListCtrl",
 
         	DatabaseQuery.setItemList(food, "shopping");
         }
-
-
+        
 }]);
