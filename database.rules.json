@@ -1,0 +1,16 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "$userid": {
+      "items": {
+        ".indexOn": "list"
+      },
+      "wasteData": {
+        "$item": {
+          ".indexOn": "date"
+        }
+      }
+    }
+  }
+}
