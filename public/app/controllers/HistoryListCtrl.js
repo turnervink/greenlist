@@ -2,8 +2,8 @@
  * Controller for the history view.
  */
 greenlistApp.controller("HistoryListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, DatabaseQuery) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "DatabaseQuery", "DateRange",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, DatabaseQuery, DateRange) {
 
         // Set up user info with the UserInfo service
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
@@ -57,5 +57,12 @@ greenlistApp.controller("HistoryListCtrl",
         	DatabaseQuery.setItemList(food, "shopping");
         }
 
+
+        // Date testing code
+        $scope.getRangeData = function(item) {
+            DateRange.getWasteScoresForRange(item, 365, function(data) {
+                console.log(data);
+            });
+        }
 
 }]);
