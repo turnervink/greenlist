@@ -41,16 +41,26 @@
 }
 
 .addrow-row {
-    width: 80%;
-    bottom: 10px;
-    padding-bottom: 120px;
+    width: 100%;
+    bottom: 210px;
     position: fixed;
-    margin-bottom: 50px;
+    transition: 0.3s;
     z-index: 98;
 }
 
+.button-to-right {
+    text-align: right;
+}
+
 .add-item-button{
-    margin-top: -25px;
+    width: 200px;
+    padding: 0;
+    margin-right: 60px;
+    height: 80px;
+    font-size: 300%;
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: transparent;
 }
 
 /* css for the images */
@@ -63,22 +73,21 @@
     margin-left: 20px;
 }
 
-/* makes the add bar rounded and cool in firefox and chrome*/
+/* makes the add bar cool */
 .addbar {
     width: 100%;
-    border: 1px solid #ccc;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -moz-box-shadow: 2px 2px 3px #666;
-    -webkit-box-shadow: 2px 2px 3px #666;
-    box-shadow: 2px 2px 3px #666;
-    font-size: 50px;
-    padding: 4px 7px;
-    outline: 0;
-    -webkit-appearance: none;
-    bottom: 0px;
-    height: 100px;
+    border: none;
+    height: 80px;
+    padding-left: 20px;
+    font-size: 380%;
+}
+
+p.addbar {
+    margin: 0;
+}
+
+.addbar:focus {
+    outline-width: 0;
 }
 
 

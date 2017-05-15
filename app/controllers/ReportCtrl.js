@@ -16,4 +16,19 @@ greenlistApp.controller("ReportCtrl",
         $scope.histBgImg = 'images/hist-icon-off.png';
         $scope.reptBgImg = 'images/rept-icon-on.png';
 
+        $scope.menuHeight = '320px';
+        $scope.menuMargin = '0';
+
+        $scope.dateRange = 'Last 2 Weeks';
+
+        $scope.showDateMenu = function() {
+            $scope.menuHeight = '470px';
+            $scope.menuMargin = '150px';
+        }
+
+        $scope.hideDateMenu = function() {
+            $scope.menuHeight = '320px';
+            $scope.menuMargin = '0';
+        }
+
 }]);
