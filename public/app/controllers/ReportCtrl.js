@@ -1,6 +1,6 @@
 greenlistApp.controller("ReportCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "DatabaseQuery", "$firebaseObject",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, DatabaseQuery, $firebaseObject) {
 
     	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
@@ -25,8 +25,15 @@ greenlistApp.controller("ReportCtrl",
             $scope.menuMargin = '150px';
         }
 
-        $scope.hideDateMenu = function() {
+        $scope.hideDateMenu = function(range) {
             $scope.menuHeight = '320px';
             $scope.menuMargin = '0';
+
+            if (range == null) {
+                console.log("Doing nothing");
+            } else {
+                // TODO get average for passed range
+                console.log("Range: " + range);
+            }
         }
 }]);

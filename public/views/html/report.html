@@ -1,7 +1,7 @@
 <ng-include src="'views/partials/panel.html'"></ng-include>
 <div class="container-fluid">
     
-    <div id="report-page" ng-click="hideDateMenu()">
+    <div id="report-page" ng-click="hideDateMenu(null)">
 
         <!-- Placeholder, will use Angular -->
         <div id="scores-section">
@@ -44,11 +44,11 @@
 <div class="input-bg" style="height: {{menuHeight}}">
     <!-- Data range list -->
     <ul ng-modle="dateRange">
-        <li ng-click="dateRange = 'Last 2 Weeks'; hideDateMenu()">2wks</li>
-        <li ng-click="dateRange = 'Last Month'; hideDateMenu()">1m</li>
-        <li ng-click="dateRange = 'Last 3 Months'; hideDateMenu()">3m</li>
-        <li ng-click="dateRange = 'Last 6 Months'; hideDateMenu()">6m</li>
-        <li ng-click="dateRange = 'Last Year'; hideDateMenu()">12m</li>
-        <li ng-click="dateRange = 'All Time'; hideDateMenu()">All</li>
+        <li ng-click="dateRange = 'Last 2 Weeks'; hideDateMenu(14)">2wks</li>
+        <li ng-click="dateRange = 'Last Month'; hideDateMenu(30)">1m</li>
+        <li ng-click="dateRange = 'Last 3 Months'; hideDateMenu(90)">3m</li>
+        <li ng-click="dateRange = 'Last 6 Months'; hideDateMenu(180)">6m</li>
+        <li ng-click="dateRange = 'Last Year'; hideDateMenu(365)">12m</li>
+        <li ng-click="dateRange = 'All Time'; hideDateMenu(10000)">All</li>
     </ul>
 </div>
