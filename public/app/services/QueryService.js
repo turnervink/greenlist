@@ -248,6 +248,18 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
+    function getTopEfficient() {
+        DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
+           console.log(data.val());
+        });
+    }
+
+    function getBottomEfficient() {
+        DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
+            console.log(data.val());
+        });
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -263,7 +275,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         setOverallAverage: setOverallAverage,
         getOverallAverage: getOverallAverage,
         setRank: setRank,
-        getRank: getRank
+        getRank: getRank,
+        getTopEfficient: getTopEfficient,
+        getBottomEfficient: getBottomEfficient
     }
 
 }]);
