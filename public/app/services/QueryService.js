@@ -2,7 +2,7 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  function(DatabaseRef, $modal, $window) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  function(DatabaseRef, $uibModal, $window) {
 
     /**
      * Adds a new waste score for an item.
@@ -11,7 +11,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
      */
     function updateWasteScore(item) {
         // open modal
-        var modalInstance = $modal.open({
+        var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
             controller: 'ModalCtrl',
             windowClass: 'logwaste-popup'

@@ -29,7 +29,7 @@
 }
 
 /* anchor link css */
-#affiliates-page a{
+#affiliates-page .return-link{
     font-size: 350%;
     width: 90%;
     margin: inherit;
