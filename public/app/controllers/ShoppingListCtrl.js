@@ -1,6 +1,6 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$modal", "$window","DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $modal, $window,DatabaseQuery) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$uibModal", "$window","DatabaseQuery",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $uibModal, $window,DatabaseQuery) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
 
@@ -22,6 +22,57 @@ greenlistApp.controller("ShoppingListCtrl",
 
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
         checkedItems.$bindTo($scope, "checkedItems");
+
+
+        // Bring up the modal for confirming the user wants to clear their list
+        $scope.confirmModal = function() {
+            var modalInstance = $uibModal.open({
+                templateUrl: 'views/html/confirmation.html',
+                windowClass: 'confirmation',
+
+                //controller for the modal
+                controller: function($scope, $uibModalInstance){
+                    //archives the list items
+                    $scope.archive = function() {
+                        //send items to history set the flag to require them to be updated
+                        DatabaseRef.getCheckedItems()
+                            .once("value")
+                            .then(function(data) {
+
+                                data.forEach(function(item) {
+                                    DatabaseQuery.updateWasteDataStatus(item.val(), false);
+                                    DatabaseQuery.setItemList(item.val(), "history");
+                                });
+
+                            });
+                        //with the unchecked items, if they are new delete them. otherwise, send back to history and do
+                        //not require them to be updated
+                        DatabaseRef.getUncheckedItems()
+                            .once("value")
+                            .then(function(data) {
+
+                                data.forEach(function(item) {
+
+                                    if (item.val().dataUpdated == undefined) {
+                                        DatabaseQuery.deleteItem(item.val());
+                                    } else {
+                                        DatabaseQuery.setItemList(item.val(), "history");
+                                    }
+
+                                });
+
+                            });
+                        $uibModalInstance.close();
+                    }
+
+                    //function for if the user does not want to archive their items
+                    $scope.mistake = function() {
+                        $uibModalInstance.close();
+                    }
+                }
+
+            })
+        }
 
         $scope.toggleCheck = function(item, status) {
             DatabaseQuery.updateCheckedStatus(item, status);
