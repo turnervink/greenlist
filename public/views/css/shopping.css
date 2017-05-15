@@ -41,16 +41,6 @@
 }
 
 .addrow-row {
-    width: 80%;
-    bottom: 10px;
-    padding-bottom: 120px;
-    position: fixed;
-    margin-bottom: 50px;
-    z-index: 98;
-}
-
-.add-item-button{
-    margin-top: -25px;
     width: 100%;
     bottom: 210px;
     position: fixed;
@@ -130,17 +120,4 @@ p.addbar {
 .add-icon{
     height: 50px;
     width: 50px;
-}
-
-/* css for the confirmation modal */
-.confirmation {
-    text-align: center;
-    margin-top: 650px;
-}
-
-.confirmation button {
-    height: 50px;
-    width: 100px;
-    border-width: 5px;
-    margin-bottom: 20px;
 }
