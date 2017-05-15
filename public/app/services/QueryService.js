@@ -238,16 +238,31 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
+    /**
+     * Sets a user's rank in the leaderboard.
+     *
+     * @param average The value to set
+     */
     function setRank(average) {
         DatabaseRef.leaderBoardScore().set(average);
     }
 
+    /**
+     * Gets a user's rank in the leaderboard.
+     *
+     * @param callback The callback function
+     */
     function getRank(callback) {
         DatabaseRef.leaderBoardScore().once("value").then(function(data) {
            callback(data.val());
         });
     }
 
+    /**
+     * Gets the 3 items with the highest averages.
+     *
+     * @param callback The callback function
+     */
     function getTopEfficient(callback) {
         DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
             var dataArray = [];
@@ -260,6 +275,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
+    /**
+     * Gets the 3 items with the lowest averages.
+     *
+     * @param callback The callback function
+     */
     function getBottomEfficient(callback) {
         DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
             var dataArray = [];
