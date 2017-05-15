@@ -117,3 +117,13 @@
 .input-bg li:first-child {
 	border: none;
 }
+
+.header-content a{
+	padding-left: 5%;
+	font-size: 900%;
+	float: left;
+	border: white thin solid;
+	color: white;
+	padding-right: 5%;
+	text-decoration: none;
+}
