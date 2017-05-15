@@ -1,7 +1,9 @@
 <div id="logwaste-popup">
 	<h4>How much did you use?</h4>
 
-	<input type="text" ng-model="test.input" placeholder="Type something here" style="width:80%"/>
+	<input ng-model="test.input" type="range" min="0" max="100" value="0"/>
+
+	<!-- <input type="text" ng-model="test.input" placeholder="Type something here" style="width:80%"/> -->
 
 	<button ng-click="back()">Submit</button>
 </div>
