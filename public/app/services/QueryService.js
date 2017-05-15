@@ -223,8 +223,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
-    function setOverallAverage() {
-        // TODO Use CalculationService to calculate average of all item averages and set in database
+    function setOverallAverage(average) {
+        DatabaseRef.overallAverage().set(average);
     }
 
     /**
@@ -234,6 +234,16 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
      */
     function getOverallAverage(callback) {
         DatabaseRef.overallAverage().once("value").then(function(data) {
+           callback(data.val());
+        });
+    }
+
+    function setRank(average) {
+        DatabaseRef.leaderBoardScore().set(average);
+    }
+
+    function getRank(callback) {
+        DatabaseRef.leaderBoardScore().once("value").then(function(data) {
            callback(data.val());
         });
     }
@@ -250,7 +260,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         getWasteData: getWasteData,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
-        getOverallAverage: getOverallAverage
+        setOverallAverage: setOverallAverage,
+        getOverallAverage: getOverallAverage,
+        setRank: setRank,
+        getRank: getRank
     }
 
 }]);
