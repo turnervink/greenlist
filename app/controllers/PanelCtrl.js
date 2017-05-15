@@ -20,8 +20,6 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
             open: true,
             position: position
         };
-
-
         /**
          * close the side nav
          */
@@ -34,10 +32,7 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
             placement: position,
             size: 'sm',
             backdrop: backdrop,
-
-            controller: function($scope, $uibModalInstance, UserInfo) {
-                $scope.userPic = UserInfo.getCurrentUser().photoUrl;
-                $scope.userName = UserInfo.getCurrentUser().displayName;
+            controller: function($scope, $uibModalInstance) {
                 $scope.ok = function(e) {
                     $uibModalInstance.close();
                     e.stopPropagation();

@@ -2,7 +2,7 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  function(DatabaseRef, $uibModal, $window) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  function(DatabaseRef, $modal, $window) {
 
     /**
      * Adds a new waste score for an item.
@@ -11,13 +11,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
      */
     function updateWasteScore(item) {
         // open modal
-        var uibmodalInstance = $uibModal.open({
+        var modalInstance = $modal.open({
             templateUrl: 'views/partials/modal.html',
             controller: 'ModalCtrl',
         });
 
         // get score from modal
-        uibmodalInstance.result.then(function (data) {
+        modalInstance.result.then(function (data) {
             var wasteScore = {
                 date: Date.now(),
                 score: parseInt(data)
