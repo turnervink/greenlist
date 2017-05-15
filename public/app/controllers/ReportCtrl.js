@@ -15,7 +15,6 @@ greenlistApp.controller("ReportCtrl",
         $scope.listBgImg = 'images/list-icon-off.png';
         $scope.histBgImg = 'images/hist-icon-off.png';
         $scope.reptBgImg = 'images/rept-icon-on.png';
-
         $scope.menuHeight = '320px';
         $scope.menuMargin = '0';
 
@@ -30,5 +29,4 @@ greenlistApp.controller("ReportCtrl",
             $scope.menuHeight = '320px';
             $scope.menuMargin = '0';
         }
-
 }]);

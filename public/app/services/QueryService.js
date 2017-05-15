@@ -170,6 +170,59 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         DatabaseRef.items().child(item.name).remove();
     }
 
+    /**
+     * Retreive all the waste scores for an item
+     * and put them into an array that is sent to
+     * the callback function.
+     *
+     * @param item The item to get waste scores for
+     * @param callback The callback function
+     */
+    function getWasteData(item, callback) {
+        DatabaseRef.wasteData(item).once("value").then(function(data) {
+           var dataArray = [];
+
+           data.forEach(function(score) {
+              dataArray.push(score.val().score);
+           });
+
+           callback(dataArray);
+        });
+    }
+
+    /**
+     * Calculates and stores the average for
+     * and item.
+     *
+     * @param item The item to calculate and store the average for
+     */
+    function setItemAverage(item) {
+        getWasteData(item, function(data) {
+            var sum = 0;
+            var count = 0;
+
+            data.forEach(function(score) {
+                sum += score;
+                count++;
+            });
+
+            DatabaseRef.items().child(item.name).update({"average": (sum / count)});
+        });
+    }
+
+    /**
+     * Gets the average for an items and passes
+     * it to the callback function.
+     *
+     * @param item The item to get the average for
+     * @param callback The callback function
+     */
+    function getItemAverage(item, callback) {
+        DatabaseRef.items().child(item.name).child("average").once("value").then(function(data) {
+           callback(data.val());
+        });
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -178,7 +231,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$modal", "$window",  func
         checkWasteDataStatus: checkWasteDataStatus,
         itemIsInHistory: itemIsInHistory,
         updateCheckedStatus: updateCheckedStatus,
-        deleteItem: deleteItem
+        deleteItem: deleteItem,
+        getWasteData: getWasteData,
+        setItemAverage: setItemAverage,
+        getItemAverage: getItemAverage
     }
 
 }]);
