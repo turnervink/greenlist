@@ -240,6 +240,28 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "DateRange", "$uibModal", 
         });
     }
 
+    /**
+     * Sends waste scores for an item within a given
+     * date range to a callback function.
+     *
+     * @param item The item to get waste scores for
+     * @param daysBack The number of days to search back
+     * @param callback The callback function
+     */
+    function getWasteScoresForRange(item, daysBack, callback) {
+        console.log("Getting data from " + DateRange.getRangeStart(daysBack) + " to " + DateRange.getDate());
+
+        DatabaseRef.wasteData(item).orderByChild("date").startAt(DateRange.getRangeStart(daysBack)).once("value").then(function(data) {
+            var dataArray = [];
+
+            data.forEach(function(score) {
+                dataArray.push(score.val().score);
+            });
+
+            callback(dataArray);
+        });
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -252,7 +274,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "DateRange", "$uibModal", 
         getWasteData: getWasteData,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
-        getOverallAverage: getOverallAverage
+        getOverallAverage: getOverallAverage,
+        getWasteScoresForRange: getWasteScoresForRange
     }
 
 }]);

@@ -33,31 +33,9 @@ greenlistApp.service("DateRange", ["DatabaseRef", function(DatabaseRef) {
         return date.getTime() / 1000;
     }
 
-    /**
-     * Sends waste scores for an item within a given
-     * date range to a callback function.
-     *
-     * @param item The item to get waste scores for
-     * @param daysBack The number of days to search back
-     * @param callback The callback function
-     */
-    function getWasteScoresForRange(item, daysBack, callback) {
-        console.log("Getting data from " + getRangeStart(daysBack) + " to " + getDate());
-
-        DatabaseRef.wasteData(item).orderByChild("date").startAt(getRangeStart(daysBack)).once("value").then(function(data) {
-            var dataArray = [];
-            
-            data.forEach(function(score) {
-               dataArray.push(score.val().score);
-            });
-
-            callback(dataArray);
-        });
-    }
-
     return {
         getDate: getDate,
-        getWasteScoresForRange: getWasteScoresForRange
+        getRangeStart: getRangeStart
     }
 
 }]);

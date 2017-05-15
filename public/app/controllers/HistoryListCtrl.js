@@ -60,7 +60,7 @@ greenlistApp.controller("HistoryListCtrl",
 
         // Date testing code
         $scope.getRangeData = function(item) {
-            DateRange.getWasteScoresForRange(item, 365, function(data) {
+            DatabaseQuery.getWasteScoresForRange(item, 365, function(data) {
                 console.log(data);
             });
         }
