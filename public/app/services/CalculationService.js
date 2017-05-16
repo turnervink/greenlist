@@ -16,8 +16,19 @@ greenlistApp.service("CalculationService", ["DatabaseRef", function(DatabaseRef)
 
     }
 
+    function colorCalc(percent){
+        if (percent < 50){
+            return 'red'
+        }
+        else{
+            return 'green'
+        }
+    }
+
+
 return{
         calAvg: calAvg,
+        colorCalc: colorCalc,
 }
 
 }]);
