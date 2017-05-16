@@ -4,20 +4,22 @@
 	<div class="row no-gutter">
 		<div class="container-fluid">
 			<!--an individal item -->
-			<div ng-repeat="food in historyItem" class="row topurchase">
-				<div class="col-xs-2 emptycb itemrow">
-					<input type="image" src="images/add-to-list.png" class="icon" ng-click="addToList(food)"/>
-				</div>
-				<div class="col-xs-8 itemname itemrow">
-					<p class="shopping-item">{{food.name}}</p>
-					<!-- Tempo waste bar -->
-					<div class="col-xs-12 colourbar">
-						<div class="innerbar" ng-style="getBarColor(food.average)">
+			<div class="row">
+				<div ng-repeat="food in historyItem" class="row topurchase">
+					<div class="col-xs-2 emptycb itemrow">
+						<input type="image" src="images/add-to-list.png" class="icon" ng-click="addToList(food)"/>
+					</div>
+					<div class="col-xs-8 itemname itemrow">
+						<p class="shopping-item">{{food.name}}</p>
+						<!-- Tempo waste bar -->
+						<div class="col-xs-12 colourbar">
+							<div class="innerbar" ng-style="getBarColor(food.average)">
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-xs-2 garbage itemrow">
-					<input type="image" src="images/log-waste.png" class="icon" ng-click="logWaste(food)" ng-hide="food.dataUpdated"/>
+					<div class="col-xs-2 garbage itemrow">
+						<input type="image" src="images/log-waste.png" class="icon" ng-click="logWaste(food)" ng-hide="food.dataUpdated"/>
+					</div>
 				</div>
 			</div>
 		</div>
