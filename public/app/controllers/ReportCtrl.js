@@ -27,7 +27,7 @@ greenlistApp.controller("ReportCtrl",
         $scope.setTopEff = $firebaseArray(DatabaseRef.topEfficient());
         // setTopEff.$bindTo($scope, "topItem");
 
-        $scope.setBottomEff = $firebaseArray(DatabaseRef.bottomEfficient());
+        $scope.setBotEff = $firebaseArray(DatabaseRef.bottomEfficient());
         // setBottomEff.$bindTo($scope, "botItem");
 
 

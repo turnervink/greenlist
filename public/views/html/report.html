@@ -20,12 +20,20 @@
         <!-- Solid line here -->
 
         <div id="top-food">
-            <h3 id="improvement-message">Food items you could improve upon</h3>
+            <h3 class="improvement-message">Your most efficient food items</h3>
             <ol>
                 <!-- Placeholder -->
-                <li ng-repeat="item in setTopEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
+                <li ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
 
             </ol>
+            <h3 class="improvement-message">Food items you could improve upon</h3>
+            <ol>
+                <!-- Placeholder -->
+                <li ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
+
+            </ol>
+
+
         </div>
     </div>
 
