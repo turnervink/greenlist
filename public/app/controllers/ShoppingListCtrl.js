@@ -1,6 +1,6 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$uibModal", "$window","DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $uibModal, $window,DatabaseQuery) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$uibModal", "$window","DatabaseQuery", "CalculationService",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $uibModal, $window,DatabaseQuery, CalculationService) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -119,5 +119,14 @@ greenlistApp.controller("ShoppingListCtrl",
 
                 });
         }
+
+        $scope.getBarColor = function(average) {
+            var color = CalculationService.colorCalc(average);
+            return {
+                "width":average +"%",
+                "background-color": color
+            }
+        }
+
 
 }]);

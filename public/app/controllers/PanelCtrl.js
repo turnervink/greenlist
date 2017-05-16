@@ -43,9 +43,9 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
 
                 };
                 /*$scope.cancel = function(e) {
-                    $uibModalInstance.dismiss();
-                    e.stopPropagation();
-                };*/
+                 $uibModalInstance.dismiss();
+                 e.stopPropagation();
+                 };*/
             }
         }).result.then(postClose, postClose);
     }

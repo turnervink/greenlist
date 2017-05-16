@@ -4,8 +4,8 @@
 	<!--First section for items in list -->
 	<div class="row no-gutter">
 		<div class="container-fluid">
+			<!--an individal item, whole thing repeated for each item added -->
 			<div class="row">
-				<!--an individal item, whole thing repeated for each item added -->
 				<div ng-repeat="item in uncheckedItems" class="row topurchase">
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
@@ -16,7 +16,7 @@
 						<p class="shopping-item">{{item.name}}</p>
 						<!-- Tempo waste bar -->
 						<div class="col-xs-12 colourbar">
-							<div class="innerbar">
+							<div class="innerbar" ng-style="getBarColor(item.average)">
 							</div>
 						</div>
 
@@ -30,20 +30,18 @@
 			<!-- individual item ends here -->
 		</div>
 	</div>
-	<div class="row">
-		<!--Second section for the clear list button -->
-		<div class="row no-gutter clearlist" ng-click="confirmModal()">
-			<div class="col-xs-5"></div>
-			<div class="col-xs-2">
-				<input type="image" src="images/archive2.png" class="archive"/>
-			</div>
+	<!--Second section for the clear list button -->
+	<div class="row clearlist">
+		<div class="col-xs-5"></div>
+		<div class="col-xs-2">
+			<input type="image" src="images/archive2.png" class="icon" ng-click="confirmModal()"/>
 		</div>
 	</div>
+	<!--Third section for the items purchased -->
 	<div class="row">
-		<!--Third section for the items purchased -->
-		<div class="row">
-			<div class="container-fluid">
-				<!--an individal item, whole thing repeated for each item added -->
+		<div class="container-fluid">
+			<!--an individal item, whole thing repeated for each item added -->
+			<div class="row">
 				<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
 					<div class="col-xs-2 itemrow fullcb">
 						<!-- checkbox -->
@@ -54,14 +52,14 @@
 						<p class="shopping-item">{{item.name}}</p>
 						<!-- Tempo waste bar -->
 						<div class="col-xs-10 colourbar">
-							<div class="innerbar">
+							<div class="innerbar"  ng-style="getBarColor(item.average)">
 							</div>
 						</div>
 
 					</div>
 				</div>
-				<!-- individual item ends here -->
 			</div>
+			<!-- individual item ends here -->
 		</div>
 	</div>
 
