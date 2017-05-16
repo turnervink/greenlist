@@ -2,11 +2,11 @@
  * Controller for the history view.
  */
 greenlistApp.controller("HistoryListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, DatabaseQuery) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "CalculationService", "$firebaseObject", "DatabaseQuery",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, CalculationService, $firebaseObject, DatabaseQuery) {
 
         // Set up user info with the UserInfo service
-        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Define style values for the header and nav bar
         $scope.heading = 'History';
@@ -35,7 +35,7 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.logWaste = function(food) {
 
             if (!food.dataUpdated) {
-                DatabaseQuery.updateWasteScore(food);
+                DatabaseQuery.updateWasteScore(food, function(gotData) {});
             }
 
         }
@@ -51,11 +51,14 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.addToList = function(food) {
 
             if (!food.dataUpdated) {
-                DatabaseQuery.updateWasteScore(food);
+                DatabaseQuery.updateWasteScore(food, function(gotData) {
+                    if (gotData) {
+                        DatabaseQuery.setItemList(food, "shopping");
+                    }
+                });
+            } else {
+                DatabaseQuery.setItemList(food, "shopping");
             }
-
-        	DatabaseQuery.setItemList(food, "shopping");
         }
-
 
 }]);

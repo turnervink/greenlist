@@ -2,14 +2,15 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  function(DatabaseRef, $uibModal, $window) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$uibModal", "$window",  function(DatabaseRef, CalculationService, $uibModal, $window) {
 
     /**
      * Adds a new waste score for an item.
      *
      * @param item The item to add a waste score for
+     * @param callback The callback function
      */
-    function updateWasteScore(item) {
+    function updateWasteScore(item, callback) {
         // open modal
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
@@ -19,16 +20,27 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
 
         // get score from modal
         modalInstance.result.then(function (data) {
-            var wasteScore = {
-                date: Date.now(),
-                score: parseInt(data)
-            };
 
-            var push = DatabaseRef.wasteData(item).push();
-            push.set(wasteScore);
-            updateWasteDataStatus(item, true);
+
+            if (data === null) {
+                console.error("null received from modal");
+                callback(false)
+            } else {
+                console.log("Got from modal:", data);
+                var wasteScore = {
+                    date: Date.now(),
+                    score: parseInt(data)
+                };
+
+                var push = DatabaseRef.wasteData(item).push();
+                push.set(wasteScore);
+                updateWasteDataStatus(item, true);
+                callback(true);
+            }
+        }).catch(function(error) {
+            console.error("Modal error!", error);
+            callback(false);
         });
-
 
     }
 
@@ -58,8 +70,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
                         checkWasteDataStatus(newItem, function(dataUpdated) {
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem);
-                                setItemList(newItem, "shopping");
+                                updateWasteScore(newItem, function(gotData) {
+                                    if (gotData) {
+                                        setItemList(newItem, "shopping");
+                                    }
+                                });
                             } else {
                                 setItemList(newItem, "shopping");
                             }
@@ -223,8 +238,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
-    function setOverallAverage() {
-        // TODO Use CalculationService to calculate average of all item averages and set in database
+    function getAllItemAverages(callback) {
+        DatabaseRef.items().once("value").then(function(data) {
+           var dataArray = [];
+
+           data.forEach(function(item) {
+              dataArray.push(item.val().average);
+           });
+
+           callback(dataArray);
+        });
+    }
+
+    function updateOverallAverage() {
+        getAllItemAverages(function(data) {
+            DatabaseRef.overallAverage().set(CalculationService.calAvg(data));
+        });
     }
 
     /**
@@ -235,6 +264,60 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
     function getOverallAverage(callback) {
         DatabaseRef.overallAverage().once("value").then(function(data) {
            callback(data.val());
+        });
+    }
+
+    /**
+     * Sets a user's rank in the leaderboard.
+     *
+     * @param average The value to set
+     */
+    function setRank(average) {
+        DatabaseRef.leaderBoardScore().set(average);
+    }
+
+    /**
+     * Gets a user's rank in the leaderboard.
+     *
+     * @param callback The callback function
+     */
+    function getRank(callback) {
+        DatabaseRef.leaderBoardScore().once("value").then(function(data) {
+           callback(data.val());
+        });
+    }
+
+    /**
+     * Gets the 3 items with the highest averages.
+     *
+     * @param callback The callback function
+     */
+    function getTopEfficient(callback) {
+        DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
+            var dataArray = [];
+
+            data.forEach(function(item) {
+                dataArray.push(item.val().name);
+            });
+
+            callback(dataArray);
+        });
+    }
+
+    /**
+     * Gets the 3 items with the lowest averages.
+     *
+     * @param callback The callback function
+     */
+    function getBottomEfficient(callback) {
+        DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
+            var dataArray = [];
+
+            data.forEach(function(item) {
+                dataArray.push(item.val().name);
+            });
+
+            callback(dataArray);
         });
     }
 
@@ -250,7 +333,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         getWasteData: getWasteData,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
-        getOverallAverage: getOverallAverage
+        getAllItemAverages: getAllItemAverages,
+        updateOverallAverage: updateOverallAverage,
+        getOverallAverage: getOverallAverage,
+        setRank: setRank,
+        getRank: getRank,
+        getTopEfficient: getTopEfficient,
+        getBottomEfficient: getBottomEfficient
     }
 
 }]);

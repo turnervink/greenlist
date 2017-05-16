@@ -1,8 +1,8 @@
 greenlistApp.controller("ReportCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "CalculationService",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, CalculationService) {
 
-    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Setting report page heading content and nav bar button style
         $scope.heading = 'Report';
@@ -17,6 +17,11 @@ greenlistApp.controller("ReportCtrl",
         $scope.reptBgImg = 'images/rept-icon-on.png';
         $scope.menuHeight = '320px';
         $scope.menuMargin = '0';
+
+        //array calc test
+        var array = [1, 2, 3, 4, 5];
+        var avgCal = CalculationService.calAvg(array);
+        $scope.calAverage = avgCal;
 
         $scope.dateRange = 'Last 2 Weeks';
 

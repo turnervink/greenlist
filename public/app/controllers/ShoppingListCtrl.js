@@ -2,7 +2,7 @@ greenlistApp.controller("ShoppingListCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$uibModal", "$window","DatabaseQuery",
     function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $uibModal, $window,DatabaseQuery) {
 
-        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+        UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Setting shopping list page heading content and nav bar button style
     	$scope.heading = 'Shopping List';

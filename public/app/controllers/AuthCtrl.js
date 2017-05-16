@@ -18,7 +18,6 @@ greenlistApp.controller("AuthCtrl", ["$scope", "$route", "$location", "UserInfo"
         }).catch(function(error) {
             console.error("Auth failed:", error);
         });
-        $location.url("/list"); // TODO this only works after the user has signed in at least once
     }
 
     /**
@@ -45,6 +44,7 @@ greenlistApp.controller("AuthCtrl", ["$scope", "$route", "$location", "UserInfo"
             if (firebaseUser) {
                 console.log("User is auth'd as " + firebaseUser.displayName);
                 UserInfo.initUser(firebaseUser.displayName, firebaseUser.uid, firebaseUser.photoURL, firebaseUser.email);
+                $location.url("list");
             } else {
                 console.error("Could not auth user");
             }
