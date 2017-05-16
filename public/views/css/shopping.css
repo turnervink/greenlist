@@ -17,7 +17,6 @@
 /* also for the progress bar*/
 .innerbar {
     background-color: lightgreen;
-    /*width: 80%; /* edit this with JS based on user's waste percentage*/
     padding: 7px;
     margin-left: 3px;
 }
