@@ -3,7 +3,6 @@
 <div class="container-fluid">	
 	<div class="row no-gutter">
 		<div class="container-fluid">
-			<div class="row">
 			<!--an individal item -->
 			<div ng-repeat="food in historyItem" class="row topurchase">
 				<div class="col-xs-2 emptycb itemrow">
@@ -16,9 +15,9 @@
 						<div class="innerbar" ng-style="getBarColor(item.average)">
 						</div>
 					</div>
-					<div class="col-xs-2 garbage itemrow">
-						<input type="image" src="images/log-waste.png" class="logwaste" ng-click="logWaste(food)" ng-hide="food.dataUpdated"/>
-					</div>
+				</div>
+				<div class="col-xs-2 garbage itemrow">
+					<input type="image" src="images/log-waste.png" class="icon" ng-click="logWaste(food)" ng-hide="food.dataUpdated"/>
 				</div>
 			</div>
 		</div>

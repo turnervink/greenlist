@@ -3,7 +3,6 @@
 }
 
 .clearlist {
-    height: 200px;
     background: lightslategray;
 }
 
@@ -65,26 +64,13 @@
 }
 
 /* css for the images */
-.archive {
-    margin: 0;
-    width: 150px;
-    height: 150px;
-    padding: 0;
-    margin-top: 25px;
-    margin-left: 20px;
-}
-
-.checkbox, .addtolist, .logwaste {
+.icon {
     margin: 0;
     width: 125px;
     height: 125px;
     padding: 0;
-    margin-top: 25px;
+    margin-top: 10px;
     margin-left: 20px;
-}
-
-.trashcan {
-
 }
 
 /* makes the add bar cool */
