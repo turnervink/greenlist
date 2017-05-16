@@ -1,4 +1,11 @@
-/* App views backgroud */ 
+/* THE CLASS NAMES FOR THE MODALS ARE:
+	log waste modal: logwaste-popup
+	aside menu: aside-popup
+	confirmation modal: confirmation
+	*/
+
+
+/* App views backgroud */
 body{
     font-family: 'Asap', sans-serif;
 }
@@ -62,6 +69,12 @@ body.HistoryListCtrl-page {
 	width: 100%;
 }
 
+.logwaste-popup p {
+	font-size: 300%;
+	margin: auto;
+	text-align: center;
+}
+
 /* Styling for the slider bar*/
 .logwaste-popup input[type=range]{
 	-webkit-appearance: none;
@@ -76,16 +89,17 @@ input[type=range]::-webkit-slider-runnable-track {
 	background-color: black;
 }
 
-/* the track for firefox*/
+/* the track for firefox*//*
 input[type=range]::-moz-range-track {
 	width: 200px;
 	height: 20px;
 	border-radius: 10px;
 	background-color: black;
 }
-
+*/
 /* the thing you grab to slide for google*/
 input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
 	border: none;
 	height: 32px;
 	width: 32px;
@@ -93,7 +107,7 @@ input[type=range]::-webkit-slider-thumb {
 	background: green;
 	margin-top: -4px;
 }
-
+/*
 input[type=range]::-moz-range-thumb {
 	border: none;
 	height: 32px;
@@ -102,7 +116,7 @@ input[type=range]::-moz-range-thumb {
 	background: green;
 	margin-top: -4px;
 }
-
+*/
 #aside-background {
 	background-color: white;
 	height: 100%;
