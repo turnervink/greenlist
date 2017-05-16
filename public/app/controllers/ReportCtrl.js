@@ -1,6 +1,6 @@
 greenlistApp.controller("ReportCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "CalculationService",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, CalculationService) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "CalculationService", "DatabaseQuery",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, CalculationService, DatabaseQuery) {
 
     	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -18,10 +18,27 @@ greenlistApp.controller("ReportCtrl",
         $scope.menuHeight = '320px';
         $scope.menuMargin = '0';
 
-        //array calc test
-        var array = [1, 2, 3, 4, 5];
-        var avgCal = CalculationService.calAvg(array);
-        $scope.calAverage = avgCal;
+
+
+
+        var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
+        setOverallAvg.$bindTo($scope, "calAverage");
+
+        $scope.setTopEff = $firebaseArray(DatabaseRef.topEfficient());
+        // setTopEff.$bindTo($scope, "topItem");
+
+        $scope.setBotEff = $firebaseArray(DatabaseRef.bottomEfficient());
+        // setBottomEff.$bindTo($scope, "botItem");
+
+
+        $scope.getTextColor = function(average) {
+            var color = CalculationService.colorCalc(average);
+            return {
+                "color": color
+            }
+        }
+
+
 
         $scope.dateRange = 'Last 2 Weeks';
 

@@ -24,6 +24,12 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when("/you-cant-have-egg-bacon-spam-and-sausage-with-the-spam", {
+            templateUrl: "views/html/you-cant-have-egg-bacon-spam-and-sausage-with-the-spam.html",
+            controller: "BadBoyCtrl"
+        })
+
         .when("/list", {
             templateUrl: "views/html/shopping.html",
             controller: "ShoppingListCtrl",
@@ -94,3 +100,8 @@ greenlistApp.factory("Auth", ["$firebaseAuth",
         return $firebaseAuth();
     }]);
 
+greenlistApp.filter('percentage', ['$filter', function ($filter) {
+    return function (input, decimals) {
+        return $filter('number')(input * 100, decimals) + '%';
+    };
+}]);
