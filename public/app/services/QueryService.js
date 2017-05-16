@@ -35,6 +35,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 var push = DatabaseRef.wasteData(item).push();
                 push.set(wasteScore);
                 updateWasteDataStatus(item, true);
+                setItemAverage(item);
+                updateOverallAverage();
                 callback(true);
             }
         }).catch(function(error) {
@@ -212,6 +214,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param item The item to calculate and store the average for
      */
     function setItemAverage(item) {
+        console.log("Setting avg for item");
         getWasteData(item, function(data) {
             var sum = 0;
             var count = 0;
@@ -251,6 +254,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
     }
 
     function updateOverallAverage() {
+        console.log("Setting overall avg");
         getAllItemAverages(function(data) {
             DatabaseRef.overallAverage().set(CalculationService.calAvg(data));
         });
