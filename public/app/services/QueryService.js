@@ -8,7 +8,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
      * Adds a new waste score for an item.
      *
      * @param item The item to add a waste score for
-     * @param bleh The callback function
+     * @param callback The callback function
      */
     function updateWasteScore(item, callback) {
         // open modal
