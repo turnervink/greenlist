@@ -1,8 +1,11 @@
 <div id="logwaste-popup">
 	<h4>How much did you use?</h4>
+	<!-- slider bar input, tied to test.input. needs javascript function to show the value the user is picking -->
+	<input ng-model="test.input" type="range" min="0" max="100" value="0" onchange="showValue(value)"/>
+	<span id="userin">0</span>
+	<script type="text/javascript">
 
-	<input ng-model="test.input" type="range" min="0" max="100" value="0"/>
-
+	</script>
 	<!-- <input type="text" ng-model="test.input" placeholder="Type something here" style="width:80%"/> -->
 
 	<button ng-click="back()">Submit</button>

@@ -62,15 +62,45 @@ body.HistoryListCtrl-page {
 	width: 100%;
 }
 
+/* Styling for the slider bar*/
 .logwaste-popup input[type=range]{
 	-webkit-appearance: none;
+	width: 80%;
 }
 
+/* the track for google*/
 input[type=range]::-webkit-slider-runnable-track {
 	width: 200px;
 	height: 20px;
 	border-radius: 10px;
 	background-color: black;
+}
+
+/* the track for firefox*/
+input[type=range]::-moz-range-track {
+	width: 200px;
+	height: 20px;
+	border-radius: 10px;
+	background-color: black;
+}
+
+/* the thing you grab to slide for google*/
+input[type=range]::-webkit-slider-thumb {
+	border: none;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	background: green;
+	margin-top: -4px;
+}
+
+input[type=range]::-moz-range-thumb {
+	border: none;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	background: green;
+	margin-top: -4px;
 }
 
 #aside-background {
