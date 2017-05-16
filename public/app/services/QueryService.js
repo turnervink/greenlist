@@ -20,16 +20,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
 
         // get score from modal
         modalInstance.result.then(function (data) {
-            console.log("Got from modal:", data);
-            var wasteScore = {
-                date: Date.now(),
-                score: parseInt(data)
-            };
 
-            var push = DatabaseRef.wasteData(item).push();
-            push.set(wasteScore);
-            updateWasteDataStatus(item, true);
-            callback(true);
+            if (data === null) {
+                console.error("null received from modal");
+                callback(false)
+            } else {
+                console.log("Got from modal:", data);
+                var wasteScore = {
+                    date: Date.now(),
+                    score: parseInt(data)
+                };
+
+                var push = DatabaseRef.wasteData(item).push();
+                push.set(wasteScore);
+                updateWasteDataStatus(item, true);
+                callback(true);
+            }
         }).catch(function(error) {
             console.error("Modal error!", error);
             callback(false);
