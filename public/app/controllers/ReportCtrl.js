@@ -31,6 +31,12 @@ greenlistApp.controller("ReportCtrl",
         // setBottomEff.$bindTo($scope, "botItem");
 
 
+        $scope.getTextColor = function(average) {
+            var color = CalculationService.colorCalc(average);
+            return {
+                "color": color
+            }
+        }
 
 
 

@@ -6,13 +6,13 @@
         <!-- Placeholder, will use Angular -->
         <div id="scores-section">
             <h2 id="efficiency-message">Your efficiency rating</h2>
-            <h1><span id="elo-rating">{{calAverage.$value * 20}}</span></h1>
+            <h1><span id="elo-rating">{{calAverage.$value * 20 | number: 0}}</span></h1>
             <br>
 
             <!-- Improvement stats -->
 
             <!-- Display ELO here, temporary -->
-            <p>You've used  <span id="efficiency-pct">{{calAverage.$value}}</span> of your groceries. <br>
+            <p>You've used  <span id="efficiency-pct">{{calAverage.$value / 100 | percentage: 1}}</span> of your groceries. <br>
             Keep it up!</p>
 
         </div>
@@ -23,13 +23,13 @@
             <h3 class="improvement-message">Your most efficient food items</h3>
             <ol>
                 <!-- Placeholder -->
-                <li ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
+                <li ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1" ng-style="getTextColor(item.average)">{{item.average / 100 | percentage: 1}}</span></li>
 
             </ol>
             <h3 class="improvement-message">Food items you could improve upon</h3>
             <ol>
                 <!-- Placeholder -->
-                <li ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
+                <li ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1" ng-style="getTextColor(item.average)">{{item.average / 100 | percentage: 1}}</span></li>
 
             </ol>
 
