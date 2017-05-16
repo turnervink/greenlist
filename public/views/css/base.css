@@ -148,6 +148,10 @@ body.HistoryListCtrl-page {
 }
 
 /* Styling for the slider bar*/
+.logwaste-popup .input-slider {
+	height: 100px;
+}
+
 .logwaste-popup input[type=range]{
 	-webkit-appearance: none;
 	width: 70vw;

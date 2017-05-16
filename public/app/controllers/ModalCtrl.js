@@ -15,4 +15,6 @@ greenlistApp.controller('ModalCtrl', function($scope, $uibModalInstance) {
     $scope.later = function() {
          $uibModalInstance.close(null); // Pass null if there isn't any data
      }
+
+
 });
