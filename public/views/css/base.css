@@ -1,4 +1,11 @@
-/* App views backgroud */ 
+/* THE CLASS NAMES FOR THE MODALS ARE:
+	log waste modal: logwaste-popup
+	aside menu: aside-popup
+	confirmation modal: confirmation
+	*/
+
+
+/* App views backgroud */
 body{
     font-family: 'Asap', sans-serif;
 }
@@ -115,8 +122,65 @@ body.HistoryListCtrl-page {
 	background-color: green;
 	color: white;
 	display: inline-block;
+	width: 100%;
+}
+
+.logwaste-popup p {
+	font-size: 300%;
+	margin: auto;
+	text-align: center;
+}
+
+/* Styling for the slider bar*/
+.logwaste-popup input[type=range]{
+	-webkit-appearance: none;
+	width: 80%;
+}
+
+/* the track for google*/
+input[type=range]::-webkit-slider-runnable-track {
+	width: 200px;
+	height: 20px;
+	border-radius: 10px;
+	background-color: black;
+}
+
+/* the track for firefox*//*
+input[type=range]::-moz-range-track {
+	width: 200px;
+	height: 20px;
+	border-radius: 10px;
+	background-color: black;
+}
+*/
+/* the thing you grab to slide for google*/
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	background: green;
+	margin-top: -4px;
+}
+/*
+input[type=range]::-moz-range-thumb {
+	border: none;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	background: green;
+	margin-top: -4px;
+}
+*/
+#aside-background {
+	background-color: white;
+	height: 100%;
+	margin-top: 0;
+	border: white solid 1px;
 	width: 50%;
 	border-bottom-left-radius: 30px;
+
 }
 
 .logwaste-popup .modal-dialog #ask-later-btn {
