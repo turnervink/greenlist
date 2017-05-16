@@ -2,8 +2,8 @@
  * Controller for the history view.
  */
 greenlistApp.controller("HistoryListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, DatabaseQuery) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "CalculationService", "$firebaseObject", "DatabaseQuery",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, CalculationService, $firebaseObject, DatabaseQuery) {
 
         // Set up user info with the UserInfo service
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
@@ -56,5 +56,5 @@ greenlistApp.controller("HistoryListCtrl",
 
         	DatabaseQuery.setItemList(food, "shopping");
         }
-        
+
 }]);

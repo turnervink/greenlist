@@ -2,7 +2,7 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  function(DatabaseRef, $uibModal, $window) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$uibModal", "$window",  function(DatabaseRef, CalculationService, $uibModal, $window) {
 
     /**
      * Adds a new waste score for an item.
@@ -27,6 +27,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
             var push = DatabaseRef.wasteData(item).push();
             push.set(wasteScore);
             updateWasteDataStatus(item, true);
+            setItemAverage(item);
+            updateOverallAverage();
         });
 
 
@@ -223,8 +225,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         });
     }
 
-    function setOverallAverage(average) {
-        DatabaseRef.overallAverage().set(average);
+    function getAllItemAverages(callback) {
+        DatabaseRef.items().once("value").then(function(data) {
+           var dataArray = [];
+
+           data.forEach(function(item) {
+              dataArray.push(item.val().average);
+           });
+
+           callback(dataArray);
+        });
+    }
+
+    function updateOverallAverage() {
+        getAllItemAverages(function(data) {
+            DatabaseRef.overallAverage().set(CalculationService.calAvg(data));
+        });
     }
 
     /**
@@ -304,7 +320,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
         getWasteData: getWasteData,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
-        setOverallAverage: setOverallAverage,
+        getAllItemAverages: getAllItemAverages,
+        updateOverallAverage: updateOverallAverage,
         getOverallAverage: getOverallAverage,
         setRank: setRank,
         getRank: getRank,
