@@ -5,6 +5,7 @@
 .clearlist {
     height: 200px;
     background: lightslategray;
+    text-align: center;
 }
 
 /* for the progress bar*/
@@ -35,6 +36,7 @@
     border-top: 2px;
     border-top-style: solid;
     border-top-color: black;
+    padding-top: 20px;
 }
 
 .topurchase {
@@ -74,13 +76,20 @@
     margin-left: 20px;
 }
 
-.checkbox, .addtolist, .logwaste {
+.garbage, .emptycb, .fullcb {
+    text-align: center;
+}
+
+.checkbox, .addtolist, .logwaste, .trashcan {
+    display: inline-block;
+    text-align: center;
     margin: 0;
     width: 125px;
     height: 125px;
     padding: 0;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .icon {
@@ -89,11 +98,9 @@
     height: 125px;
     padding: 0;
     margin-top: 10px;
-    margin-left: 20px;
-}
-
-.trashcan {
-
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 /* makes the add bar cool */
@@ -137,7 +144,7 @@ p.addbar {
 .shopping-item{
     font-size: 450%;
     font-weight: bold;
-    padding-bottom: 5%;
+    padding-bottom: 20px;
 }
 
 .add-icon{

@@ -105,6 +105,13 @@ body.HistoryListCtrl-page {
 	border-radius: 30px;
 }
 
+.logwaste-popup .modal-dialog {
+	width:80vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+}
+
 .logwaste-popup .modal-dialog h4 {
 	font-size: 300%;
 	text-align: center;
@@ -123,7 +130,9 @@ body.HistoryListCtrl-page {
 	color: white;
 	display: inline-block;
 	width: 50%;
+	height: 120px;
 	border-bottom-left-radius: 30px;
+	margin-top: 50px;
 }
 
 .logwaste-popup .modal-dialog #ask-later-btn {
@@ -141,15 +150,18 @@ body.HistoryListCtrl-page {
 /* Styling for the slider bar*/
 .logwaste-popup input[type=range]{
 	-webkit-appearance: none;
-	width: 80%;
+	width: 70vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
 }
 
 /* the track for google*/
 input[type=range]::-webkit-slider-runnable-track {
-	width: 200px;
-	height: 20px;
+	height: 1px;
 	border-radius: 10px;
 	background-color: black;
+	max-width: 1000px;
 }
 
 /* the track for firefox*/
@@ -168,7 +180,7 @@ input[type=range]::-webkit-slider-thumb {
 	width: 64px;
 	border-radius: 50%;
 	background: green;
-	margin-top: -16px;
+	margin-top: -32px;
 }
 
 input[type=range]::-moz-range-thumb {
