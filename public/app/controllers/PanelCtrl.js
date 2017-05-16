@@ -37,18 +37,15 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
                 $scope.userPic = UserInfo.getCurrentUser().photoUrl;
                 $scope.userName = UserInfo.getCurrentUser().displayName;
                 $scope.email = UserInfo.getCurrentUser().email;
-                $scope.close = function() {
+                $scope.ok = function(e) {
                     $uibModalInstance.close();
-                    //e.stopPropagation();
-
+                    e.stopPropagation();
                 };
-                /*$scope.cancel = function(e) {
+                $scope.cancel = function(e) {
                     $uibModalInstance.dismiss();
                     e.stopPropagation();
-                };*/
+                };
             }
         }).result.then(postClose, postClose);
     }
-
-
 });
