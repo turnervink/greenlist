@@ -18,11 +18,18 @@ greenlistApp.controller("ReportCtrl",
         $scope.menuHeight = '320px';
         $scope.menuMargin = '0';
 
-        //array calc test
+
 
 
             var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
             setOverallAvg.$bindTo($scope, "calAverage");
+
+            var setTopEff = $firebaseObject(DatabaseRef.topEfficient());
+            setTopEff.$bindTo($scope, "andrew");
+
+            var setBottomEff = $firebaseObject(DatabaseRef.bottomEfficient());
+            setBottomEff.$bindTo($scope, "andrew");
+
 
 
 
