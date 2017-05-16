@@ -13,6 +13,6 @@ greenlistApp.controller('ModalCtrl', function($scope, $uibModalInstance) {
      * close without logging waste
      */
     $scope.later = function() {
-         $uibModalInstance.close();
+         $uibModalInstance.close(null); // Pass null if there isn't any data
      }
 });
