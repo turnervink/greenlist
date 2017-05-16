@@ -35,7 +35,7 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.logWaste = function(food) {
 
             if (!food.dataUpdated) {
-                DatabaseQuery.updateWasteScore(food);
+                DatabaseQuery.updateWasteScore(food, function(gotData) {});
             }
 
         }
@@ -51,10 +51,14 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.addToList = function(food) {
 
             if (!food.dataUpdated) {
-                DatabaseQuery.updateWasteScore(food);
+                DatabaseQuery.updateWasteScore(food, function(gotData) {
+                    if (gotData) {
+                        DatabaseQuery.setItemList(food, "shopping");
+                    }
+                });
+            } else {
+                DatabaseQuery.setItemList(food, "shopping");
             }
-
-        	DatabaseQuery.setItemList(food, "shopping");
         }
 
 

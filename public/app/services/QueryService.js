@@ -8,8 +8,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
      * Adds a new waste score for an item.
      *
      * @param item The item to add a waste score for
+     * @param bleh The callback function
      */
-    function updateWasteScore(item) {
+    function updateWasteScore(item, callback) {
         // open modal
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
@@ -19,6 +20,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
 
         // get score from modal
         modalInstance.result.then(function (data) {
+            console.log("Got from modal:", data);
             var wasteScore = {
                 date: Date.now(),
                 score: parseInt(data)
@@ -27,8 +29,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
             var push = DatabaseRef.wasteData(item).push();
             push.set(wasteScore);
             updateWasteDataStatus(item, true);
+            callback(true);
+        }).catch(function(error) {
+            console.error("Modal error!", error);
+            callback(false);
         });
-
 
     }
 
@@ -58,8 +63,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "$uibModal", "$window",  f
                         checkWasteDataStatus(newItem, function(dataUpdated) {
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem);
-                                setItemList(newItem, "shopping");
+                                updateWasteScore(newItem, function(gotData) {
+                                    if (gotData) {
+                                        setItemList(newItem, "shopping");
+                                    }
+                                });
                             } else {
                                 setItemList(newItem, "shopping");
                             }
