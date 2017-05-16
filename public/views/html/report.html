@@ -23,7 +23,7 @@
             <h3 id="improvement-message">Food items you could improve upon</h3>
             <ol>
                 <!-- Placeholder -->
-                <li ng-repeat="item in topItem">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
+                <li ng-repeat="item in setTopEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1">{{item.average}}%</span></li>
 
             </ol>
         </div>

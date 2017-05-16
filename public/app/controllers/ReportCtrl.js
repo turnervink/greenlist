@@ -1,6 +1,6 @@
 greenlistApp.controller("ReportCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "CalculationService", "DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, CalculationService, DatabaseQuery) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "CalculationService", "DatabaseQuery",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, CalculationService, DatabaseQuery) {
 
     	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -21,14 +21,14 @@ greenlistApp.controller("ReportCtrl",
 
 
 
-            var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
-            setOverallAvg.$bindTo($scope, "calAverage");
+        var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
+        setOverallAvg.$bindTo($scope, "calAverage");
 
-        var setTopEff = $firebaseObject(DatabaseRef.topEfficient());
-        setTopEff.$bindTo($scope, "topItem");
+        $scope.setTopEff = $firebaseArray(DatabaseRef.topEfficient());
+        // setTopEff.$bindTo($scope, "topItem");
 
-        var setBottomEff = $firebaseObject(DatabaseRef.bottomEfficient());
-        setBottomEff.$bindTo($scope, "botItem");
+        $scope.setBottomEff = $firebaseArray(DatabaseRef.bottomEfficient());
+        // setBottomEff.$bindTo($scope, "botItem");
 
 
 
