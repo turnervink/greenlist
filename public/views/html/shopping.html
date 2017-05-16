@@ -4,59 +4,64 @@
 	<!--First section for items in list -->
 	<div class="row no-gutter">
 		<div class="container-fluid">
-			<!--an individal item, whole thing repeated for each item added -->
-			<div ng-repeat="item in uncheckedItems" class="row topurchase">
-				<div class="col-xs-2 emptycb itemrow">
-					<!-- checkbox -->
-					<input type="image" src="images/emptybox.png" class="icon" ng-click="toggleCheck(item, true)"/>
-				</div>
-				<div class="col-xs-8 itemname itemrow">
-					<!-- item name injected here-->
-					<p class="shopping-item">{{item.name}}</p>
-					<!-- Tempo waste bar -->
-					<div class="col-xs-12 colourbar">
-						<div class="innerbar">
-						</div>
+			<div class="row">
+				<!--an individal item, whole thing repeated for each item added -->
+				<div ng-repeat="item in uncheckedItems" class="row topurchase">
+					<div class="col-xs-2 emptycb itemrow">
+						<!-- checkbox -->
+						<input type="image" src="images/emptybox.png" class="checkbox" ng-click="toggleCheck(item, true)"/>
 					</div>
+					<div class="col-xs-8 itemname itemrow">
+						<!-- item name injected here-->
+						<p class="shopping-item">{{item.name}}</p>
+						<!-- Tempo waste bar -->
+						<div class="col-xs-12 colourbar">
+							<div class="innerbar">
+							</div>
+						</div>
 
-				</div>
-				<div class="col-xs-2 garbage itemrow">
-					<!-- delete button-->
-					<input type="image" src="images/garbagecan.png" class="icon" ng-click="deleteItem(item)"/>
+					</div>
+					<div class="col-xs-2 garbage itemrow">
+						<!-- delete button-->
+						<input type="image" src="images/garbagecan.png" class="trashcan" ng-click="deleteItem(item)"/>
+					</div>
 				</div>
 			</div>
-
 			<!-- individual item ends here -->
 		</div>
 	</div>
-	<!--Second section for the clear list button -->
-	<div class="row no-gutter clearlist">
-		<div class="col-xs-5"></div>
-		<div class="col-xs-2">
-			<input type="image" src="images/archive2.png" class="icon" ng-click="confirmModal()"/>
-		</div>
-	</div>
-	<!--Third section for the items purchased -->
 	<div class="row">
-		<div class="container-fluid">
-			<!--an individal item, whole thing repeated for each item added -->
-			<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
-				<div class="col-xs-2 itemrow fullcb">
-					<!-- checkbox -->
-					<img src="images/checkedbox.png" alt="checkbox" class="icon" ng-click="toggleCheck(item, false)">
-				</div>
-				<div class="col-xs-10 itemrow purchased">
-					<!-- item name injected here-->
-					<p class="shopping-item">{{item.name}}</p>
-					<!-- Tempo waste bar -->
-					<div class="col-xs-10 colourbar">
-						<div class="innerbar">
-						</div>
-					</div>
-
-				</div>
+		<!--Second section for the clear list button -->
+		<div class="row no-gutter clearlist" ng-click="confirmModal()">
+			<div class="col-xs-5"></div>
+			<div class="col-xs-2">
+				<input type="image" src="images/archive2.png" class="archive"/>
 			</div>
-			<!-- individual item ends here -->
+		</div>
+	</div>
+	<div class="row">
+		<!--Third section for the items purchased -->
+		<div class="row">
+			<div class="container-fluid">
+				<!--an individal item, whole thing repeated for each item added -->
+				<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
+					<div class="col-xs-2 itemrow fullcb">
+						<!-- checkbox -->
+						<img src="images/checkedbox.png" alt="checkbox" class="checkbox" ng-click="toggleCheck(item, false)">
+					</div>
+					<div class="col-xs-10 itemrow purchased">
+						<!-- item name injected here-->
+						<p class="shopping-item">{{item.name}}</p>
+						<!-- Tempo waste bar -->
+						<div class="col-xs-10 colourbar">
+							<div class="innerbar">
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- individual item ends here -->
+			</div>
 		</div>
 	</div>
 
