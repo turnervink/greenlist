@@ -25,11 +25,10 @@ greenlistApp.controller("ReportCtrl",
             setOverallAvg.$bindTo($scope, "calAverage");
 
         var setTopEff = $firebaseObject(DatabaseRef.topEfficient());
-        setTopEff.$bindTo($scope, "andrew");
+        setTopEff.$bindTo($scope, "topItem");
 
-        /*var setBottomEff = $firebaseObject(DatabaseRef.bottomEfficient());
-        setBottomEff.$bindTo($scope, "andrew");*/
-
+        var setBottomEff = $firebaseObject(DatabaseRef.bottomEfficient());
+        setBottomEff.$bindTo($scope, "botItem");
 
 
 
