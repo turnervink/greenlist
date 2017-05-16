@@ -5,12 +5,13 @@
     <h3>{{email}}</h3>
 </div>
 <ul>
-    <li><a href="#!/about">About</a></li>
-    <li><a href="#!/affiliates">Affiliates</a></li>
+    <li><a ng-click="close()" href="#!/about">About</a></li>
+    <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
 </ul>
+
 <div id="sign-out">
-    <a ng-controller="AuthCtrl" ng-click="signOut()">Sign&nbsp;out</a>
+    <a ng-controller="AuthCtrl" ng-click="signOut(); close()">Sign&nbsp;out</a>
 </div>
-<dir id="version">
+<div id="version">
     <p>v0.2</p>
-</dir>
+</div>
