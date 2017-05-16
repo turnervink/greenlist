@@ -24,6 +24,12 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when("/you-cant-have-egg-bacon-spam-and-sausage-with-the-spam", {
+            templateUrl: "views/html/you-cant-have-egg-bacon-spam-and-sausage-with-the-spam.html",
+            controller: "BadBoyCtrl"
+        })
+
         .when("/list", {
             templateUrl: "views/html/shopping.html",
             controller: "ShoppingListCtrl",
