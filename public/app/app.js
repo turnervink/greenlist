@@ -16,7 +16,13 @@ greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
 greenlistApp.config(["$routeProvider", function($routeProvider) {
     $routeProvider
         .when("/login", {
-            templateUrl: "views/html/login.html"
+            templateUrl: "views/html/login.html",
+            controller: "LoginCtrl",
+            resolve: {
+                "CurrentAuth": ["Auth", function(Auth) {
+                    return Auth.$waitForSignIn();
+                }]
+            }
         })
         .when("/list", {
             templateUrl: "views/html/shopping.html",
