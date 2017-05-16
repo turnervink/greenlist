@@ -41,16 +41,6 @@
 }
 
 .addrow-row {
-    width: 80%;
-    bottom: 10px;
-    padding-bottom: 120px;
-    position: fixed;
-    margin-bottom: 50px;
-    z-index: 98;
-}
-
-.add-item-button{
-    margin-top: -25px;
     width: 100%;
     bottom: 210px;
     position: fixed;

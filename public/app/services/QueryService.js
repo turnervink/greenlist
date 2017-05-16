@@ -8,8 +8,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * Adds a new waste score for an item.
      *
      * @param item The item to add a waste score for
+     * @param callback The callback function
      */
-    function updateWasteScore(item) {
+    function updateWasteScore(item, callback) {
         // open modal
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
@@ -19,18 +20,27 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
         // get score from modal
         modalInstance.result.then(function (data) {
-            var wasteScore = {
-                date: Date.now(),
-                score: parseInt(data)
-            };
 
-            var push = DatabaseRef.wasteData(item).push();
-            push.set(wasteScore);
-            updateWasteDataStatus(item, true);
-            setItemAverage(item);
-            updateOverallAverage();
+
+            if (data === null) {
+                console.error("null received from modal");
+                callback(false)
+            } else {
+                console.log("Got from modal:", data);
+                var wasteScore = {
+                    date: Date.now(),
+                    score: parseInt(data)
+                };
+
+                var push = DatabaseRef.wasteData(item).push();
+                push.set(wasteScore);
+                updateWasteDataStatus(item, true);
+                callback(true);
+            }
+        }).catch(function(error) {
+            console.error("Modal error!", error);
+            callback(false);
         });
-
 
     }
 
@@ -60,8 +70,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                         checkWasteDataStatus(newItem, function(dataUpdated) {
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem);
-                                setItemList(newItem, "shopping");
+                                updateWasteScore(newItem, function(gotData) {
+                                    if (gotData) {
+                                        setItemList(newItem, "shopping");
+                                    }
+                                });
                             } else {
                                 setItemList(newItem, "shopping");
                             }

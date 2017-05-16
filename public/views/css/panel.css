@@ -71,7 +71,8 @@
 }
 
 .header-content img {
-	float: left;
+	position: fixed;
+	top: 0;
 	width: 150px;
 	height: 150px;
 	margin-left: 20px;
@@ -85,10 +86,20 @@
 	font-size: 400%;
 	text-align: center;
 	margin: 0;
-	padding: 60px 160px 60px 60px;
+	padding: 60px;
 	font-weight: bold;
 }
 
+.header-content a {
+	position: fixed;
+	top: 60px;
+	text-decoration: none;
+	font-size: 300%;
+	color: white;
+	margin-left: 60px;
+}
+
+/* Input area background */
 .input-bg {
 	position: fixed;
 	bottom: 0;
@@ -116,14 +127,4 @@
 
 .input-bg li:first-child {
 	border: none;
-}
-
-.header-content a{
-	padding-left: 5%;
-	font-size: 900%;
-	float: left;
-	border: white thin solid;
-	color: white;
-	padding-right: 5%;
-	text-decoration: none;
 }
