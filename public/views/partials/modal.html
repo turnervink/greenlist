@@ -1,3 +1,4 @@
+
 <div id="logwaste-popup">
 	<h4>How much did you use?</h4>
 	<!-- slider bar input, tied to test.input. needs javascript function to show the value the user is picking -->
@@ -7,8 +8,9 @@
 		    document.getElementById("userin").innerHTML=num + "%";
 		}
 	</script>
-	<!-- <input type="text" ng-model="test.input" placeholder="Type something here" style="width:80%"/> -->
 
 	<p><span id="userin">50%</span></p>
 	<button ng-click="back()">Submit</button>
 </div>
+<button id="ask-later-btn" ng-click="later()">Ask me later</button>
+

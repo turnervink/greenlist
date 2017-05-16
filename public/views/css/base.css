@@ -27,26 +27,82 @@ body.HistoryListCtrl-page {
 }
 
 /* Side menu */
-.sidebar {
-    text-align: right;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0px;
-    background-color: black;
-    z-index: 2;
+.aside-popup .modal-content{
+	width: 80vw;
+}
+
+.aside-popup .modal-dialog .side-menu-header {
+	width: 100%;
+	background-color: green;
+}
+
+.aside-popup .modal-dialog img {
+	margin-top: 120px;
+	margin-left: 40px;
+	border-radius: 100%;
+	border: white solid 5px;
+	height: 200px;
+	width: 200px;
+}
+
+.aside-popup .modal-dialog h3 {
+	color: white;
+	font-size: 200%;
+	padding: 40px;
+}
+
+.aside-popup .modal-dialog h2 {
+	color: white;
+	font-size: 400%;
+	padding-left: 40px;
+}
+
+.aside-popup .modal-dialog ul {
+	display: block;
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 300%;
+	padding: 0;
+	margin: 0;
+}
+
+.aside-popup .modal-dialog a {
+	display: block;
+	padding: 60px;
+	color: black;
+	border-bottom: gray solid 1px;
+}
+
+.aside-popup .modal-dialog #sign-out {
+	font-size: 300%;
+	padding: 0;
+	margin:0;
+	width: 80vw;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+}
+
+.aside-popup .modal-dialog #sign-out a {
+	border: none;
+	color: red;
+}
+
+.aside-popup .modal-dialog #version {
+	font-size: 200%;
+	color: gray;
+	padding: 0;
+	margin:0;
+	width: 80vw;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
 }
 
 /* Log waste popup */
-#logwaste-popup {
-	margin-top: 650px !important;
-	background: white;
-}
-
 .logwaste-popup .modal-content {
-	background-color: transparent !important;
-	border: none !important;
+	margin-top: 40vh;
+	border-radius: 30px;
 }
 
 .logwaste-popup .modal-dialog h4 {
@@ -122,8 +178,13 @@ input[type=range]::-moz-range-thumb {
 	height: 100%;
 	margin-top: 0;
 	border: white solid 1px;
+	width: 50%;
+	border-bottom-left-radius: 30px;
+
 }
 
-.page-content{
-	padding-top: 1%;
+.logwaste-popup .modal-dialog #ask-later-btn {
+	float: right;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 30px;
 }
