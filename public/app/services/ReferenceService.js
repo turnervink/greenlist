@@ -55,6 +55,23 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
     }
 
     /**
+     * Reference to the top 3 item efficiency
+     *
+     * @returns firebase reference location to top 3 items
+     */
+    function topEfficient(){
+        return items().orderByChild("average").limitToLast(3).once("value");
+    }
+
+    /**
+     * Reference to the bottom 3 item efficiency
+     * @returns firebase reference location to bottom 3 items
+     */
+    function bottomEfficient(){
+        return items().orderByChild("average").limitToFirst(3).once("value");
+    }
+
+    /**
      * Reference to the item node with the child that stores status for logging waste data.
      *
      * @param item user object input
@@ -95,7 +112,9 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         wasteData: wasteData,
         leaderBoard: leaderBoard,
         leaderBoardScore: leaderBoardScore,
-        database: database
+        database: database,
+        bottomEfficient: bottomEfficient,
+        topEfficient: topEfficient
 
     }
 
