@@ -6,17 +6,15 @@
         <!-- Placeholder, will use Angular -->
         <div id="scores-section">
             <h2 id="efficiency-message">Your efficiency rating</h2>
-            <h1><span id="elo-rating">1756</span></h1>
+            <h1><span id="elo-rating">{{calAverage.$value * 20}}</span></h1>
             <br>
 
             <!-- Improvement stats -->
 
             <!-- Display ELO here, temporary -->
-            <p>You've used  <span id="efficiency-pct">76.2%</span> of your groceries. <br>
+            <p>You've used  <span id="efficiency-pct">{{calAverage.$value}}</span> of your groceries. <br>
             Keep it up!</p>
 
-            <!-- Demo average calculation -->
-            <p> Your average calculated: {{calAverage}}</p>
         </div>
         
         <!-- Solid line here -->
