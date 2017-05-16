@@ -1,12 +1,16 @@
-<div id="aside-background">
-    <!-- HTML for the slide in menu. -->
-    <h1 class="menu-header">Menu</h1>
-    <img id="userPic" ng-src="{{userPic}}" width="150" height="150">
-    <h3>{{userName}}</h3>
+<!-- HTML for the slide in menu. -->
+<div class="side-menu-header">
+    <img ng-src="{{userPic}}">
+    <h2>{{userName}}</h2>
     <h3>{{email}}</h3>
-    <ul>
-        <li class="menu-item"><a href="#!/about">About</a></li>
-        <li class="menu-item"><a href="#!/affiliates" >Affiliates</a></li>
-        <li class="menu-item"><a ng-controller="AuthCtrl" ng-click="signOut()" >Log out</a></li>
-    </ul>
 </div>
+<ul>
+    <li><a href="#!/about">About</a></li>
+    <li><a href="#!/affiliates">Affiliates</a></li>
+</ul>
+<div id="sign-out">
+    <a ng-controller="AuthCtrl" ng-click="signOut()">Sign&nbsp;out</a>
+</div>
+<dir id="version">
+    <p>v0.2</p>
+</dir>
