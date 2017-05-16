@@ -61,4 +61,12 @@ greenlistApp.controller("HistoryListCtrl",
             }
         }
 
+        $scope.getBarColor = function(average) {
+            var color = CalculationService.colorCalc(average);
+            return {
+                "width":average +"%",
+                "background-color": color
+            }
+        }
+
 }]);
