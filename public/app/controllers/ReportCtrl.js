@@ -2,7 +2,7 @@ greenlistApp.controller("ReportCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "CalculationService",
     function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, CalculationService) {
 
-    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL);
+    	UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Setting report page heading content and nav bar button style
         $scope.heading = 'Report';
