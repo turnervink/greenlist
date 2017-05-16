@@ -120,11 +120,8 @@ greenlistApp.controller("ShoppingListCtrl",
                 });
         }
 
-       $scope.colorSet = function(avg) {
-            return "red"
-
-        };
-
+        var colorPercent = "red";
+        $scope.colorSet = CalculationService.colorCalc(colorPercent);
 
 
 }]);
