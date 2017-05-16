@@ -17,11 +17,14 @@ greenlistApp.service("CalculationService", ["DatabaseRef", function(DatabaseRef)
     }
 
     function colorCalc(percent){
-        if (percent < 50){
-            return 'red'
-        }
-        else{
-            return 'green'
+        if (percent <= 25){
+            return "red";
+        } else if (percent <= 50) {
+            return "orange";
+        } else if (percent <= 75) {
+            return "yellow";
+        } else {
+            return "green";
         }
     }
 
