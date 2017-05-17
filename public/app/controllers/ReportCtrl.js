@@ -32,9 +32,9 @@ greenlistApp.controller("ReportCtrl",
 
 
         $scope.getTextColor = function(average) {
-            var light = 50 - (average-60)*0.5
+            var color = CalculationService.calBarColor(average);
             return {
-                "color": 'hsl(' + (average * 1.2) + ', 100%, ' + (light > 50 ? 50 : light) + '%)'
+                "color": color
             }
         }
 
