@@ -10,7 +10,7 @@
                     <h1 class="col-xs-12" id="efficiency-message">Your efficiency rating:</h1>
                     <h1 class="col-xs-12"><span id="elo-rating" ng-style="getTextColor(calAverage.$value)">{{calAverage.$value * 20 | number: 0}}</span></h1>
 
-                    <p>You're using <span id="efficiency-pct"  ng-style="">{{calAverage.$value / 100 | percentage: 1}}</span> of your groceries.</p>
+                    <p>You're using {{calAverage.$value / 100 | percentage: 1}} of your groceries.</p>
                     <p>{{motivationMsg}}</p>
                 </div>
             </div>
