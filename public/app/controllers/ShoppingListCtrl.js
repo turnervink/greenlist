@@ -12,9 +12,9 @@ greenlistApp.controller("ShoppingListCtrl",
     	$scope.listColor = 'white';
     	$scope.histColor = 'black';
     	$scope.reptColor = 'black';
-        $scope.listBgImg = 'images/list-icon-on.png';
-        $scope.histBgImg = 'images/hist-icon-off.png';
-        $scope.reptBgImg = 'images/rept-icon-off.png';
+        $scope.listBgImg = 'images/icons/cart-on.png';
+        $scope.histBgImg = 'images/icons/hist-icon-off.png';
+        $scope.reptBgImg = 'images/icons/reports-off.png';
 
       
         var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());

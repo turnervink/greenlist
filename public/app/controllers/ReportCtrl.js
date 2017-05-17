@@ -12,9 +12,9 @@ greenlistApp.controller("ReportCtrl",
     	$scope.listColor = 'black';
     	$scope.histColor = 'black';
     	$scope.reptColor = 'white';
-        $scope.listBgImg = 'images/list-icon-off.png';
-        $scope.histBgImg = 'images/hist-icon-off.png';
-        $scope.reptBgImg = 'images/rept-icon-on.png';
+        $scope.listBgImg = 'images/icons/cart-off.png';
+        $scope.histBgImg = 'images/icons/hist-icon-off.png';
+        $scope.reptBgImg = 'images/icons/reports-on.png';
         $scope.menuHeight = '320px';
         $scope.menuMargin = '0';
 
