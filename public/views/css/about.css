@@ -13,7 +13,7 @@
 }
 /* Header CSS */
 #about-page h1 {
-    font-size: 5vh;
+    font-size: 8.875vw;
     font-weight: bold;
     border-bottom: #000000 solid 2px;
     width: 60%;
@@ -21,7 +21,7 @@
 }
 
 #about-page h5 {
-    font-size: 3.5vh;
+    font-size: 6.2125vw;
     font-weight: bold;
     text-decoration: underline;
     text-align: left;
@@ -29,7 +29,7 @@
 }
 
 #about-page h4 {
-    font-size: 4vh;
+    font-size: 7.1vw;
     font-weight: bold;
     border-bottom: #000000 solid 2px;
     width: 60%;
@@ -39,20 +39,20 @@
 
 /* text css */
 #about-page p {
-    font-size: 3vh;
+    font-size: 5.325vw;
     width: 90%;
     margin: inherit;
 }
 
 #about-page .summary {
-    font-size: 3vh;
+    font-size: 5.325vw;
     width: 90%;
     text-align: left;
 }
 
 /* anchor link css */
 #about-page .return-link{
-    font-size: 3.1vh;
+    font-size: 5.5025vw;
     width: 90%;
     margin: inherit;
     text-align: center;
@@ -61,7 +61,7 @@
 
 /* logo css */
 #about-page img{
-    margin-top: 2vh;
+    margin-top: 3.55vw;
     width: 40%;
     height: 40%;
 }
