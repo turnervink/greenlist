@@ -3,6 +3,11 @@
 
 <div ng-animate id="shopping-page">
 <div class="container-fluid">
+	<!-- div for empty list message -->
+	<div class="row" ng-show="checkShopping.length == 0">
+		<p>This is a cool message!</p>
+	</div>
+
 	<!--First section for items in list -->
 	<div class="row no-gutter">
 		<div class="container-fluid">
@@ -35,7 +40,9 @@
 
 	</div>
 	<!--Second section for the clear list button -->
-	<div id="clear-list-button" class="row clearlist" ng-click="confirmModal()" ng-repeat="thing in checkShopping | limitTo: 1">
+
+  <div class="row clearlist" ng-click="confirmModal()" ng-show="checkShopping.length != 0">
+
 
 		<input type="image" src="images/icons/archive.png" class="icon clearicon" />
 
