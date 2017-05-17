@@ -1,6 +1,6 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$uibModal", "$window","DatabaseQuery", "CalculationService",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $uibModal, $window,DatabaseQuery, CalculationService) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "$uibModal", "$window","DatabaseQuery", "CalculationService",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -18,11 +18,14 @@ greenlistApp.controller("ShoppingListCtrl",
 
       
         var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());
-        uncheckedItems.$bindTo($scope, "uncheckedItems");
+        uncheckedItems.$bindTo($scope, "uncheckedItems").then(function() {
+            console.log(uncheckedItems);
+        });
 
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
         checkedItems.$bindTo($scope, "checkedItems");
 
+        $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
 
         // Bring up the modal for confirming the user wants to clear their list
         $scope.confirmModal = function() {

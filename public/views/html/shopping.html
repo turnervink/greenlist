@@ -31,7 +31,7 @@
 		</div>
 	</div>
 	<!--Second section for the clear list button -->
-	<div class="row clearlist" ng-click="confirmModal()">
+	<div class="row clearlist" ng-click="confirmModal()" ng-repeat="thing in checkShopping | limitTo: 1">
 
 			<input type="image" src="images/icons/archive.png" class="icon clearicon" />
 
