@@ -3,30 +3,33 @@
 #logo {
     width: 50%;
     height: 50%;
-    padding-left: 3vh;
+    padding-left: 50px;
+    padding-top: 5%;
+    padding-bottom: 2%;
     margin: inherit;
-    padding-bottom: 2vh;
 }
 
 /* CSS for the entire page, */
 
-#login-page {
+#login-page{
     background-color: #278518;
     color: #ffffff;
     text-align: center;
-    margin: auto;
+    margin:auto;
+    padding-bottom: 2%;
+
 }
 
 /* Page text CSS */
-#login-page p {
-    font-size: 2.5vh;
+#login-page p{
+    font-size: 400%;
     width: 75%;
-    margin: inherit;
+    margin:inherit;
 }
 
 /* Header CSS */
-#login-page h1 {
-    font-size: 5vh;
+#login-page h1{
+    font-size: 700%;
     font-weight: bold;
 }
 

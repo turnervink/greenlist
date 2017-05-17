@@ -37,48 +37,44 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog img {
-	margin-top: 7vh;
-	margin-left: 2.3vh;
+	margin-top: 120px;
+	margin-left: 40px;
 	border-radius: 100%;
-	border: white solid 2px;
-	height: 11.7vh;
-	width: 11.7vh;
+	border: white solid 5px;
+	height: 200px;
+	width: 200px;
 }
 
 .aside-popup .modal-dialog h3 {
-	margin: 0;
 	color: white;
-	font-size: 2.3vh;
-	padding-left: 2.3vh;
-	padding-bottom: 2.3vh;
+	font-size: 200%;
+	padding: 40px;
 }
 
 .aside-popup .modal-dialog h2 {
-	margin: 0;
 	color: white;
-	font-size: 4.5vh;
-	padding-left: 2.3vh;
-	padding-bottom: 2vh;
+	font-size: 400%;
+	padding-left: 40px;
 }
 
 .aside-popup .modal-dialog ul {
 	display: block;
 	list-style-type: none;
 	text-decoration: none;
-	font-size: 3vh;
+	font-size: 300%;
 	padding: 0;
 	margin: 0;
 }
 
 .aside-popup .modal-dialog a {
 	display: block;
-	padding: 3.5vh;
+	padding: 60px;
 	color: black;
 	border-bottom: gray solid 1px;
 }
 
 .aside-popup .modal-dialog #sign-out {
-	font-size: 3.5vh;
+	font-size: 300%;
 	padding: 0;
 	margin:0;
 	width: 80vw;
@@ -93,7 +89,7 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog #version {
-	font-size: 1.5vh;
+	font-size: 200%;
 	color: gray;
 	padding: 0;
 	margin:0;
@@ -106,7 +102,7 @@ body.HistoryListCtrl-page {
 /* Log waste popup */
 .logwaste-popup .modal-content {
 	margin-top: 40vh;
-	border-radius: 10px;
+	border-radius: 30px;
 }
 
 .logwaste-popup .modal-dialog {
@@ -117,44 +113,44 @@ body.HistoryListCtrl-page {
 }
 
 .logwaste-popup .modal-dialog h4 {
-	font-size: 3vh;
+	font-size: 300%;
 	text-align: center;
-	padding: 3vh;
+	padding: 50px;
 }
 
 .logwaste-popup .modal-dialog input {
-	font-size: 3vh;
-	margin: 3vh;
+	font-size: 300%;
+	margin: 50px;
 }
 
 .logwaste-popup .modal-dialog button {
-	font-size: 3vh;
+	font-size: 300%;
 	border: none;
 	background-color: green;
 	color: white;
 	display: inline-block;
 	width: 50%;
-	height: 7vh;
-	border-bottom-left-radius: 10px;
-	margin-top: 3vh;
+	height: 120px;
+	border-bottom-left-radius: 30px;
+	margin-top: 50px;
 }
 
 .logwaste-popup .modal-dialog #ask-later-btn {
 	float: right;
 	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 30px;
 	border-left: white solid 1px;
 }
 
 .logwaste-popup p {
-	font-size: 3vh;
+	font-size: 300%;
 	margin: auto;
 	text-align: center;
 }
 
 /* Styling for the slider bar*/
 .logwaste-popup .input-slider {
-	height: 6vh;
+	height: 100px;
 }
 
 .logwaste-popup input[type=range]{
@@ -169,16 +165,18 @@ body.HistoryListCtrl-page {
 input[type=range]::-webkit-slider-runnable-track {
 	height: 1px;
 	box-shadow: 0 5px 30px #000;
-	margin-top: 3.5vh;
-	margin-bottom: 3.5vh;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	border-radius: 10px;
 	background-color: black;
 	max-width: 1000px;
 }
 
 /* the track for firefox*/
 input[type=range]::-moz-range-track {
-	width: 11.7vh;
-	height: 1.1vh;
+	width: 200px;
+	height: 20px;
+	border-radius: 10px;
 	background-color: black;
 }
 
@@ -186,26 +184,26 @@ input[type=range]::-moz-range-track {
 input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	border: none;
-	height: 3.8vh;
-	width: 3.8vh;
+	height: 64px;
+	width: 64px;
 	border-radius: 50%;
 	background: green;
-	margin-top: -1.9vh;
+	margin-top: -32px;
 }
 
 input[type=range]::-moz-range-thumb {
 	border: none;
-	height: 3.8vh;
-	width: 3.8vh;
+	height: 64px;
+	width: 64px;
 	border-radius: 50%;
 	background: green;
-	margin-top: -1.9vh;
+	margin-top: -16px;
 }
 
 /* Archive confirmation pop up */
 .confirmation .modal-content {
 	margin-top: 40vh;
-	border-radius: 10px;
+	border-radius: 30px;
 }
 
 .confirmation .modal-dialog {
@@ -216,26 +214,26 @@ input[type=range]::-moz-range-thumb {
 }
 
 .confirmation .modal-dialog h4 {
-	font-size: 3vh;
+	font-size: 300%;
 	text-align: center;
-	padding: 3vh;
+	padding: 50px;
 }
 
 .confirmation .modal-dialog button {
-	font-size: 3vh;
+	font-size: 300%;
 	border: none;
 	background-color: green;
 	color: white;
 	display: inline-block;
 	width: 50%;
-	height: 7vh;
-	border-bottom-left-radius: 10px;
-	margin-top: 3vh;
+	height: 120px;
+	border-bottom-left-radius: 30px;
+	margin-top: 50px;
 }
 
 .confirmation .modal-dialog #no-btn {
 	float: right;
 	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 10px;
+	border-bottom-right-radius: 30px;
 	border-left: white solid 1px;
 }

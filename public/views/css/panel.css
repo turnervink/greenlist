@@ -2,8 +2,8 @@
 .content {
 	background-color: white;
 	width: 100%;
-	margin-top: 11.7vh;
-	margin-bottom: 18.5vh;
+	margin-top: 180px;
+	margin-bottom: 320px;
 }
 
 /* Nav bar */
@@ -28,13 +28,13 @@
 
 .nav-bar-content li {
 	margin: 0;
-	padding-top: 6.5vh;
-	font-size: 2vh;
+	padding-top: 110px;
+	font-size: xx-large;
 	display: inline-block;
-	height: 10.6vh;
+	height: 180px;
 	border-top: gray solid 1px;
 	background-position: top;
-	background-size: 7vh;
+	background-size: 120px;
 	background-repeat: no-repeat;
 }
 
@@ -51,39 +51,33 @@
 	width: 100%;
 }
 
-.header-content a {
-	padding-left: 2.5vh;
-	font-size: 3vh;
-	position: fixed;
-	top: 3.5vh;
-	margin-left: 2.5vh;
-	color: white;
-	text-decoration: none;
-	display: inline-block;
-	background-image: url('../../images/icons/back-arrow.png');
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: 3vh;
-}
-
 .header-content img {
 	position: fixed;
 	top: 0;
-	width: 9vh;
-	height: 9vh;
-	margin-left: 1vh;
-	margin-top: 1vh;
+	width: 150px;
+	height: 150px;
+	margin-left: 20px;
+	margin-top: 18px;
 	border-radius: 100%;
-	border: white solid 2px;
+	border: white solid 5px;
 }
 
 .header-content h3 {
 	color: white;
-	font-size: 4vh;
+	font-size: 400%;
 	text-align: center;
 	margin: 0;
-	padding: 3.5vh;
+	padding: 60px;
 	font-weight: bold;
+}
+
+.header-content a {
+	position: fixed;
+	top: 60px;
+	text-decoration: none;
+	font-size: 300%;
+	color: white;
+	margin-left: 60px;
 }
 
 /* Input area background */
@@ -91,7 +85,7 @@
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 19vh;
+	height: 320px;
 	background-color: white;
 	border-top: gray solid 1px;
 	transition: 0.3s;
@@ -100,12 +94,12 @@
 
 .input-bg ul {
 	padding: 0;
+	font-size: 300%;
 	list-style-type: none;
-	margin-top: 9.3vh;
+	margin-top: 160px;
 }
 
 .input-bg li {
-	font-size: 2vh;
 	display: inline-block;
 	width: 15.5%;
 	text-align: center;
