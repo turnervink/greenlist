@@ -10,16 +10,17 @@
 
 /* for the progress bar*/
 .colourbar {
-    background-color: darkgrey;
-    margin: auto;
-    padding: 7px;
+    background-color: lightgray;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 
 /* also for the progress bar*/
 .innerbar {
     background-color: lightgreen;
-    padding: 7px;
+    padding: 3px;
     margin-left: 3px;
 }
 

@@ -62,10 +62,10 @@ greenlistApp.controller("HistoryListCtrl",
         }
 
         $scope.getBarColor = function(average) {
-
+            var light = 50 - (average-50)*0.5
             return {
                 "width":average +"%",
-                "background-color": 'hsl(' + (average * 1.2) + ', 100%, 50%)'
+                "background-color": 'hsl(' + (average * 1.2) + ', 100%, ' + (light > 50 ? 50 : light) + '%)'
             }
         }
 
