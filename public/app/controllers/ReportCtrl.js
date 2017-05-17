@@ -32,7 +32,7 @@ greenlistApp.controller("ReportCtrl",
 
 
         $scope.getTextColor = function(average) {
-            var color = CalculationService.colorCalc(average);
+            var color = CalculationService.calBarColor(average);
             return {
                 "color": color
             }

@@ -123,8 +123,15 @@ greenlistApp.controller("ShoppingListCtrl",
                 });
         }
 
+        $scope.getBackColor = function(average) {
+            var color = CalculationService.calBackColor(average);
+            return {
+                "background-color": color
+            }
+        }
+
         $scope.getBarColor = function(average) {
-            var color = CalculationService.colorCalc(average);
+            var color = CalculationService.calBarColor(average);
             return {
                 "width":average +"%",
                 "background-color": color

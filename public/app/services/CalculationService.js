@@ -16,22 +16,20 @@ greenlistApp.service("CalculationService", ["DatabaseRef", function(DatabaseRef)
 
     }
 
-    function colorCalc(percent){
-        if (percent <= 25){
-            return "red";
-        } else if (percent <= 50) {
-            return "orange";
-        } else if (percent <= 75) {
-            return "yellow";
-        } else {
-            return "green";
-        }
+    function calBackColor(average) {
+
+      return 'hsl(' + (average * 1.2) + ', 100%, 90%)';
     }
 
+    function calBarColor(average) {
+      var light = 50 - (average - 60) * 0.5;
+      return 'hsl(' + (average * 1.2) + ', 100%, ' + (light > 50 ? 50 : light) + '%)';
+    }
 
 return{
         calAvg: calAvg,
-        colorCalc: colorCalc,
+        calBackColor: calBackColor,
+        calBarColor: calBarColor
 }
 
 }]);
