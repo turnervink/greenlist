@@ -1,5 +1,7 @@
 <!-- get the header and footer in here -->
 <ng-include src="'views/partials/panel.html'"></ng-include>
+
+<div ng-animate id="shopping-page">
 <div class="container-fluid">
 	<!-- div for empty list message -->
 	<div class="row" ng-show="checkShopping.length == 0">
@@ -38,7 +40,9 @@
 
 	</div>
 	<!--Second section for the clear list button -->
-	<div class="row clearlist" ng-click="confirmModal()" ng-show="checkShopping.length != 0">
+
+  <div class="row clearlist" ng-click="confirmModal()" ng-show="checkShopping.length != 0">
+
 
 		<input type="image" src="images/icons/archive.png" class="icon clearicon" />
 
@@ -85,3 +89,4 @@
 
 <!-- Input area background -->
 <div class="input-bg"></div>
+</div>
