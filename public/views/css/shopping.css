@@ -10,38 +10,25 @@
 
 /* for the progress bar*/
 .colourbar {
-    background-color: lightgray;
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 30px;
+    padding-top: 34px;
+    padding-bottom: 33px;
 }
 
 
 /* also for the progress bar*/
 .innerbar {
-    background-color: lightgreen;
-    padding: 3px;
-    margin-left: 3px;
-}
-
-.purchased, .fullcb {
-    background-color: lightgrey;
+    padding: 4px;
 }
 
 /* affects all rows where an item is in the list*/
 .itemrow {
     height: 200px;
-    border-bottom: 2px;
-    border-bottom-style: solid;
-    border-bottom-color: black;
-    border-top: 2px;
-    border-top-style: solid;
-    border-top-color: black;
+    border-bottom: black solid 3px;
     padding-top: 20px;
 }
 
-.topurchase {
-    border-type: solid;
+.checked-item {
+    color: #aaa;
 }
 
 .addrow-row {
@@ -150,7 +137,6 @@ p.addbar {
 .shopping-item{
     font-size: 450%;
     font-weight: bold;
-    padding-bottom: 20px;
 }
 
 .add-icon{
