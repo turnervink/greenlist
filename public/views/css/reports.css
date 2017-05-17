@@ -1,63 +1,49 @@
-#report-page{
+#report-page {
     margin: inherit;
     width: 100%;
     padding: 0% 10%;
     background-color: #ffffff;
     padding-top: 5%;
-    min-height: -webkit-calc(100vh - 600px);
-    min-height: -moz-calc(100vh - 600px);
-    min-height: calc(100vh - 600px);
+    min-height: 65vh;
 }
 
 #efficiency-message {
-    font-size: 500%;
+    font-size: 5vh;
     font-weight: bold;
 }
 
-#scores-section{
+#scores-section {
     margin: inherit;
     text-align: center;
     border-bottom: grey solid 1px;
 }
 
-#top-food{
+#top-food {
     margin: inherit;
 }
 
-#report-page p{
-    font-size: 300%;
+#report-page p {
+    font-size: 3vh;
     font-weight: bold;
 }
 
-.improvement-message{
-    font-size: 400%;
+.improvement-message {
+    font-size: 4vh;
     font-weight: bold;
 }
 
-#elo-rating{
+#elo-rating {
     font-weight: bold;
-    font-size: 300%;
+    font-size: 6vh;
     color:  #278518;
 }
 
-#report-page ol{
+#report-page ol {
     font-weight: bold;
-    font-size: 350%;
+    font-size: 3vh;
 }
 
-#efficiency-pct{
+#efficiency-pct {
     font-weight: bold;
     color:  #278518;
-}
-
-.bad-item1{
-    color: red;
-}
-
-.bad-item2{
-    color: red;
-}
-
-.bad-item3{
-    color: orange;
 }
