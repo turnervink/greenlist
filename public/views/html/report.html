@@ -10,28 +10,30 @@
                     <h1 class="col-xs-12" id="efficiency-message">Your efficiency rating:</h1>
                     <h1 class="col-xs-12"><span id="elo-rating" ng-style="getTextColor(calAverage.$value)">{{calAverage.$value * 20 | number: 0}}</span></h1>
 
-                    <p>You're using <span id="efficiency-pct"  ng-style="getTextColor(calAverage.$value)">{{calAverage.$value / 100 | percentage: 1}}</span> of your groceries.</p>
+                    <p>You're using <span id="efficiency-pct"  ng-style="">{{calAverage.$value / 100 | percentage: 1}}</span> of your groceries.</p>
                     <p>{{motivationMsg}}</p>
                 </div>
             </div>
 
-            <div id="top-items">
-                <div class="row">
-                    <h3 class="col-xs-12">Most Efficient:</h3>
-                </div>
-                <div class="row">
-                    <ol class="col-xs-12">
-                        <li ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}}&nbsp;&nbsp;&nbsp;<span class="bad-item1" ng-style="getTextColor(item.average)">{{item.average / 100 | percentage: 1}}</span></li>
-                    </ol>
-                </div>
+            <div class="row">
+                <div id="top-items">
+                    <div class="row">
+                        <h3 class="col-xs-12">Most Efficient:</h3>
+                    </div>
+                    <div class="row">
+                        <ol class="col-xs-12">
+                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                        </ol>
+                    </div>
 
-                <div class="row">
-                    <h3 class="col-xs-12">Least Efficient:</h3>
-                </div>
-                <div class="row">
-                    <ol class="col-xs-12">
-                        <li ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1" ng-style="getTextColor(item.average)">{{item.average / 100 | percentage: 1}}</span></li>
-                    </ol>
+                    <div class="row">
+                        <h3 class="col-xs-12">Least Efficient:</h3>
+                    </div>
+                    <div class="row">
+                        <ol class="col-xs-12">
+                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>

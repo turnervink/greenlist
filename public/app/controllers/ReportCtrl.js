@@ -62,6 +62,21 @@ greenlistApp.controller("ReportCtrl",
             }
         }
 
+        $scope.getBackgroundColor = function(average) {
+            var color = CalculationService.calBackColor(average);
+            var textcolor;
+
+            if (average == 100) {
+                textcolor = "white";
+            } else {
+                textcolor = "black";
+            }
+
+            return {
+                "background-color": color
+            }
+        }
+
 
 
         $scope.dateRange = 'Last 2 Weeks';

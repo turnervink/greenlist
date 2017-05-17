@@ -73,7 +73,6 @@
 
 #report-page #scores-section {
     padding-bottom: 13px;
-    border-bottom: 5px solid green;
 }
 
 #report-page #scores-section h1 {
@@ -90,9 +89,13 @@
     text-align: center;
 }
 
+#report-page #top-items {
+    margin: 0 5% 0 5%;
+}
+
 #report-page #top-items h3 {
     font-size: 5em;
-    text-align: center;
+    padding-bottom: 10px;
 }
 
 #report-page #top-items ol {
@@ -100,6 +103,11 @@
     list-style: none;
 }
 
+#report-page #top-items ol span {
+    min-width: 175px;
+    text-align: right;
+}
+
 #report-page #top-items li {
-    text-align: center;
+    text-align: left;
 }
