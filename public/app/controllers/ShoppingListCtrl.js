@@ -23,6 +23,8 @@ greenlistApp.controller("ShoppingListCtrl",
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
         checkedItems.$bindTo($scope, "checkedItems");
 
+        var checkShopping = $firebaseObject(DatabaseRef.getRefToSpecificList("shopping"));
+        checkShopping.$bindTo($scope, "isEmpty");
 
         // Bring up the modal for confirming the user wants to clear their list
         $scope.confirmModal = function() {
