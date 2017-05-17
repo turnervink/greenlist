@@ -288,17 +288,3 @@ li{
     transform: translateX(-10%);
 }
 
-#history-list li.ng-leave-stagger{
-    transition-delay: 0.05s;
-    transition-duration: 0s;
-}
-
-main.ng-enter{
-    transition: 0.3s;
-    opacity: 0;
-}
-
-
-main.ng-enter.ng-enter-active{
-    opacity: 1;
-}
