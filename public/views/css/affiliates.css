@@ -1,20 +1,19 @@
 
 /* page CSS */
-#affiliates-page{
+#affiliates-page {
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Content CSS */
-.affiliate-content{
-
+.affiliate-content {
     display: block;
     margin: inherit;
     text-align: center;
 }
 /* Header CSS */
-#affiliates-page h1{
-    font-size: 350%;
+#affiliates-page h1 {
+    font-size: 5vh;
     font-weight: bold;
     border-bottom: #000000 solid 2px;
     width: 60%;
@@ -22,15 +21,15 @@
 }
 
 /* text css */
-#affiliates-page p{
-    font-size: 350%;
+#affiliates-page p {
+    font-size: 3vh;
     width: 90%;
     margin: inherit;
 }
 
 /* anchor link css */
-#affiliates-page a{
-    font-size: 350%;
+#affiliates-page a {
+    font-size: 3vh;
     width: 90%;
     margin: inherit;
     text-align: center;
@@ -38,8 +37,8 @@
 }
 
 /* logo css */
-#affiliates-page img{
-    margin-top: 2%;
+#affiliates-page img {
+    margin-top: 2vh;
     width: 25%;
     height: 25%;
 }
