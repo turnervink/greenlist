@@ -5,7 +5,7 @@
 		<div class="container-fluid">
 			<!--an individal item -->
 			<ul id="history-list" class="row">
-				<li ng-repeat="food in historyItem" class="row">
+				<li ng-repeat="food in historyItem | itemSearch: query" class="row">
 					<div class="col-xs-2 emptycb itemrow">
 						<input type="image" src="images/icons/add-cart.png" class="addtolist" ng-click="addToList(food)"/>
 					</div>
@@ -30,7 +30,7 @@
 	<div class="row no-gutter addrow-row">
 		<form>
 			<div class="col-xs-8">
-				<input type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" class="addbar">
+				<input ng-model="query" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" class="addbar">
 			</div>
 			<div class="col-xs-4 button-to-right">
 				<button class="add-item-button">Search</button>
