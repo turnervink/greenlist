@@ -4,8 +4,8 @@
 	<div class="row no-gutter">
 		<div class="container-fluid">
 			<!--an individal item -->
-			<div class="row">
-				<div ng-repeat="food in historyItem" class="row">
+			<ul id="history-list" class="row">
+				<li ng-repeat="food in historyItem" class="row">
 					<div class="col-xs-2 emptycb itemrow">
 						<input type="image" src="images/icons/add-cart.png" class="addtolist" ng-click="addToList(food)"/>
 					</div>
@@ -21,8 +21,8 @@
 					<div class="col-xs-2 garbage itemrow">
 						<input type="image" src="images/icons/log-waste.png" class="logwaste" ng-click="logWaste(food)" ng-hide="food.dataUpdated"/>
 					</div>
-				</div>
-			</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 
