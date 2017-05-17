@@ -10,14 +10,15 @@
 
 /* for the progress bar*/
 .colourbar {
-    padding-top: 34px;
-    padding-bottom: 33px;
+    height: 60px;
+    text-align: right;
+    font-size: 300%;
 }
 
 
 /* also for the progress bar*/
 .innerbar {
-    padding: 4px;
+    padding: 5px;
 }
 
 /* affects all rows where an item is in the list*/
