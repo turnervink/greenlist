@@ -1,31 +1,31 @@
 .clearicon {
-    margin-top: 32px !important;
+    margin-top: 1.9vh !important;
 }
 
 .clearlist {
-    height: 200px;
+    height: 11.7vh;
     background: lightslategray;
     text-align: center;
 }
 
 /* for the progress bar*/
 .colourbar {
-    height: 70px;
+    height: 4vh;
     text-align: right;
-    font-size: 300%;
+    font-size: 3vh;
 }
 
 
 /* also for the progress bar*/
 .innerbar {
-    padding: 5px;
+    padding: 0.3vh;
 }
 
 /* affects all rows where an item is in the list*/
 .itemrow {
-    height: 200px;
-    border-bottom: black solid 3px;
-    padding-top: 20px;
+    height: 11.7vh;
+    border-bottom: black solid 1px;
+    padding-top: 1.2vh;
 }
 
 .checked-item {
@@ -34,7 +34,7 @@
 
 .addrow-row {
     width: 100%;
-    bottom: 210px;
+    bottom: 12.3vh;
     position: fixed;
     transition: 0.3s;
     z-index: 98;
@@ -45,24 +45,24 @@
 }
 
 .add-item-button{
-    width: 200px;
+    width: 11.7vh;
     padding: 0;
-    margin-right: 60px;
-    height: 80px;
-    font-size: 300%;
+    margin-right: 3.5vh;
+    height: 4.7vh;
+    font-size: 3vh;
     border: black solid 1px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: transparent;
 }
 
 /* css for the images */
 .archive {
     margin: 0;
-    width: 150px;
-    height: 150px;
+    width: 8.8vh;
+    height: 8.8vh;
     padding: 0;
-    margin-top: 25px;
-    margin-left: 20px;
+    margin-top: 1.5vh;
+    margin-left: 1.4vh;
 }
 
 .garbage, .emptycb, .fullcb {
@@ -73,25 +73,25 @@
     display: inline-block;
     text-align: center;
     margin: 0;
-    width: 150px;
-    height: 150px;
+    width: 8.8vh;
+    height: 8.8vh;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0.5vh;
     margin-left: auto;
     margin-right: auto;
 }
 
 .checkbox {
-    width: 125px;
-    height: 125px;
+    width: 7.3vh;
+    height: 7.3vh;
 }
 
 .icon {
     margin: 0;
-    width: 125px;
-    height: 125px;
+    width: 7.3vh;
+    height: 7.3vh;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0.5vh;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -101,9 +101,8 @@
 .addbar {
     width: 100%;
     border: none;
-    height: 80px;
-    padding-left: 20px;
-    font-size: 380%;
+    height: 4.7vh;
+    font-size: 3.5vh;
 }
 
 p.addbar {
@@ -136,13 +135,15 @@ p.addbar {
 }
 
 .shopping-item{
-    font-size: 450%;
+    margin: 0;
+    font-size: 4vh;
     font-weight: bold;
 }
 
 .add-icon{
-    height: 50px;
-    width: 50px;
+
+    height: 3vh;
+    width: 3vh;
 }
 
 .row{

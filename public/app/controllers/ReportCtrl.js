@@ -15,14 +15,38 @@ greenlistApp.controller("ReportCtrl",
         $scope.listBgImg = 'images/icons/cart-off.png';
         $scope.histBgImg = 'images/icons/hist-icon-off.png';
         $scope.reptBgImg = 'images/icons/reports-on.png';
-        $scope.menuHeight = '320px';
+        $scope.menuHeight = '19vh';
         $scope.menuMargin = '0';
 
 
 
 
         var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
-        setOverallAvg.$bindTo($scope, "calAverage");
+        setOverallAvg.$bindTo($scope, "calAverage").then(function() {
+            console.log("Bound", $scope.calAverage);
+            var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value * 20, 0, 3);
+            scoreAnim.start();
+
+            if ($scope.calAverage.$value < 10) {
+                $scope.motivationMsg = "We know you can do better!";
+            } else if ($scope.calAverage.$value < 25) {
+                $scope.motivationMsg = "Good job so far!";
+            } else if ($scope.calAverage.$value < 50) {
+                $scope.motivationMsg = "Almost halfway there!";
+            } else if ($scope.calAverage.$value == 50) {
+                $scope.motivationMsg = "Halfway there!";
+            } else if ($scope.calAverage.$value < 75) {
+                $scope.motivationMsg = "Keep it up!";
+            } else if ($scope.calAverage.$value <= 100) {
+                $scope.motivationMsg = "You're doing awesome!";
+            } else if ($scope.calAverage.$value == 9001) {
+                $scope.motivationMsg = "Dammit Nappa!";
+            } else {
+                $scope.motivationMsg = "Keep it up!";
+            }
+
+
+        });
 
         $scope.setTopEff = $firebaseArray(DatabaseRef.topEfficient());
         // setTopEff.$bindTo($scope, "topItem");
@@ -38,17 +62,32 @@ greenlistApp.controller("ReportCtrl",
             }
         }
 
+        $scope.getBackgroundColor = function(average) {
+            var color = CalculationService.calBackColor(average);
+            var textcolor;
+
+            if (average == 100) {
+                textcolor = "white";
+            } else {
+                textcolor = "black";
+            }
+
+            return {
+                "background-color": color
+            }
+        }
+
 
 
         $scope.dateRange = 'Last 2 Weeks';
 
         $scope.showDateMenu = function() {
-            $scope.menuHeight = '470px';
-            $scope.menuMargin = '150px';
+            $scope.menuHeight = '27.58vh';
+            $scope.menuMargin = '8.8vh';
         }
 
         $scope.hideDateMenu = function() {
-            $scope.menuHeight = '320px';
+            $scope.menuHeight = '19vh';
             $scope.menuMargin = '0';
         }
 }]);
