@@ -1,0 +1,239 @@
+/* THE CLASS NAMES FOR THE MODALS ARE:
+	log waste modal: logwaste-popup
+	aside menu: aside-popup
+	confirmation modal: confirmation
+	*/
+
+
+/* App views backgroud */
+body{
+    font-family: 'Asap', sans-serif;
+}
+
+body.LoginCtrl-page {
+    background-color: #278518;
+}
+
+body.ShoppingListCtrl-page {
+    background-color: white;
+}
+
+body.ReportCtrl-page {
+    background-color: white;
+}
+
+body.HistoryListCtrl-page {
+    background-color: white;
+}
+
+/* Side menu */
+.aside-popup .modal-content{
+	width: 80vw;
+}
+
+.aside-popup .modal-dialog .side-menu-header {
+	width: 100%;
+	background-color: green;
+}
+
+.aside-popup .modal-dialog img {
+	margin-top: 120px;
+	margin-left: 40px;
+	border-radius: 100%;
+	border: white solid 5px;
+	height: 200px;
+	width: 200px;
+}
+
+.aside-popup .modal-dialog h3 {
+	color: white;
+	font-size: 200%;
+	padding: 40px;
+}
+
+.aside-popup .modal-dialog h2 {
+	color: white;
+	font-size: 400%;
+	padding-left: 40px;
+}
+
+.aside-popup .modal-dialog ul {
+	display: block;
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 300%;
+	padding: 0;
+	margin: 0;
+}
+
+.aside-popup .modal-dialog a {
+	display: block;
+	padding: 60px;
+	color: black;
+	border-bottom: gray solid 1px;
+}
+
+.aside-popup .modal-dialog #sign-out {
+	font-size: 300%;
+	padding: 0;
+	margin:0;
+	width: 80vw;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+}
+
+.aside-popup .modal-dialog #sign-out a {
+	border: none;
+	color: red;
+}
+
+.aside-popup .modal-dialog #version {
+	font-size: 200%;
+	color: gray;
+	padding: 0;
+	margin:0;
+	width: 80vw;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+}
+
+/* Log waste popup */
+.logwaste-popup .modal-content {
+	margin-top: 40vh;
+	border-radius: 30px;
+}
+
+.logwaste-popup .modal-dialog {
+	width: 80vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+}
+
+.logwaste-popup .modal-dialog h4 {
+	font-size: 300%;
+	text-align: center;
+	padding: 50px;
+}
+
+.logwaste-popup .modal-dialog input {
+	font-size: 300%;
+	margin: 50px;
+}
+
+.logwaste-popup .modal-dialog button {
+	font-size: 300%;
+	border: none;
+	background-color: green;
+	color: white;
+	display: inline-block;
+	width: 50%;
+	height: 120px;
+	border-bottom-left-radius: 30px;
+	margin-top: 50px;
+}
+
+.logwaste-popup .modal-dialog #ask-later-btn {
+	float: right;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 30px;
+	border-left: white solid 1px;
+}
+
+.logwaste-popup p {
+	font-size: 300%;
+	margin: auto;
+	text-align: center;
+}
+
+/* Styling for the slider bar*/
+.logwaste-popup .input-slider {
+	height: 100px;
+}
+
+.logwaste-popup input[type=range]{
+	-webkit-appearance: none;
+	width: 70vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+}
+
+/* the track for google*/
+input[type=range]::-webkit-slider-runnable-track {
+	height: 1px;
+	box-shadow: 0 5px 30px #000;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	border-radius: 10px;
+	background-color: black;
+	max-width: 1000px;
+}
+
+/* the track for firefox*/
+input[type=range]::-moz-range-track {
+	width: 200px;
+	height: 20px;
+	border-radius: 10px;
+	background-color: black;
+}
+
+/* the thing you grab to slide for google*/
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+	background: green;
+	margin-top: -32px;
+}
+
+input[type=range]::-moz-range-thumb {
+	border: none;
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+	background: green;
+	margin-top: -16px;
+}
+
+/* Archive confirmation pop up */
+.confirmation .modal-content {
+	margin-top: 40vh;
+	border-radius: 30px;
+}
+
+.confirmation .modal-dialog {
+	width: 80vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+}
+
+.confirmation .modal-dialog h4 {
+	font-size: 300%;
+	text-align: center;
+	padding: 50px;
+}
+
+.confirmation .modal-dialog button {
+	font-size: 300%;
+	border: none;
+	background-color: green;
+	color: white;
+	display: inline-block;
+	width: 50%;
+	height: 120px;
+	border-bottom-left-radius: 30px;
+	margin-top: 50px;
+}
+
+.confirmation .modal-dialog #no-btn {
+	float: right;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 30px;
+	border-left: white solid 1px;
+}

@@ -1,0 +1,82 @@
+<!-- get the header and footer in here -->
+<ng-include src="'views/partials/panel.html'"></ng-include>
+<div class="container-fluid">
+	<!--First section for items in list -->
+	<div class="row no-gutter">
+		<div class="container-fluid">
+			<!--an individal item, whole thing repeated for each item added -->
+			<ul id="shopping-list" class="row">
+				<li ng-repeat="item in uncheckedItems" class="row">
+					<div class="col-xs-2 emptycb itemrow">
+						<!-- checkbox -->
+						<input type="image" src="images/icons/unchecked.png" class="checkbox" ng-click="toggleCheck(item, true)"/>
+					</div>
+					<div class="col-xs-8 itemrow">
+						<!-- item name injected here-->
+						<p class="shopping-item">{{item.name}}</p>
+						<!-- Waste bar -->
+						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
+							<div class="innerbar" ng-style="getBarColor(item.average)">
+							</div>
+							<p>{{item.average | number: 0}}%</p>
+						</div>
+					</div>
+					<div class="col-xs-2 garbage itemrow">
+						<!-- delete button-->
+						<input type="image" src="images/icons/trash.png" class="trashcan" ng-click="deleteItem(item)"/>
+					</div>
+				</li>
+
+			</ul>
+			<!-- individual item ends here -->
+		</div>
+
+	</div>
+	<!--Second section for the clear list button -->
+	<div class="row clearlist" ng-click="confirmModal()" ng-repeat="thing in checkShopping | limitTo: 1">
+
+		<input type="image" src="images/icons/archive.png" class="icon clearicon" />
+
+	</div>
+	<!--Third section for the items purchased -->
+	<div class="row">
+		<div class="container-fluid">
+			<!--an individal item, whole thing repeated for each item added -->
+			<ul id="clear-list" class="row">
+				<li ng-repeat="item in checkedItems" class="row no-gutter">
+					<div class="col-xs-2 fullcb itemrow">
+						<!-- checkbox -->
+						<img src="images/icons/checked.png" alt="checkbox" class="checkbox" ng-click="toggleCheck(item, false)">
+					</div>
+					<div class="col-xs-8 itemrow">
+						<!-- item name injected here-->
+						<p class="shopping-item checked-item">{{item.name}}</p>
+						<!-- Waste bar -->
+						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
+							<div class="innerbar"  ng-style="getBarColor(item.average)">
+							</div>
+							<p>{{item.average | number: 0}}%</p>
+						</div>
+					</div>
+					<div class="col-xs-2 itemrow"></div>
+				</li>
+			</ul>
+			<!-- individual item ends here -->
+		</div>
+	</div>
+
+	<!--Fourth section for adding new items -->
+	<div class="row no-gutter addrow-row">
+		<form>
+			<div class="col-xs-9">
+				<input ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" class="addbar">
+			</div>
+			<div class="col-xs-3 button-to-right">
+				<button class="add-item-button" ng-click="addItem(newItemName)">Add</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- Input area background -->
+<div class="input-bg"></div>

@@ -1,0 +1,255 @@
+.clearicon {
+    margin-top: 32px !important;
+}
+
+.clearlist {
+    height: 200px;
+    background: lightslategray;
+    text-align: center;
+}
+
+/* for the progress bar*/
+.colourbar {
+    height: 70px;
+    text-align: right;
+    font-size: 300%;
+}
+
+
+/* also for the progress bar*/
+.innerbar {
+    padding: 5px;
+}
+
+/* affects all rows where an item is in the list*/
+.itemrow {
+    height: 200px;
+    border-bottom: black solid 3px;
+    padding-top: 20px;
+}
+
+.checked-item {
+    color: #aaa;
+}
+
+.addrow-row {
+    width: 100%;
+    bottom: 210px;
+    position: fixed;
+    transition: 0.3s;
+    z-index: 98;
+}
+
+.button-to-right {
+    text-align: right;
+}
+
+.add-item-button{
+    width: 200px;
+    padding: 0;
+    margin-right: 60px;
+    height: 80px;
+    font-size: 300%;
+    border: black solid 1px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+/* css for the images */
+.archive {
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    padding: 0;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.garbage, .emptycb, .fullcb {
+    text-align: center;
+}
+
+.checkbox, .addtolist, .logwaste, .trashcan {
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 150px;
+    height: 150px;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkbox {
+    width: 125px;
+    height: 125px;
+}
+
+.icon {
+    margin: 0;
+    width: 125px;
+    height: 125px;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* makes the add bar cool */
+.addbar {
+    width: 100%;
+    border: none;
+    height: 80px;
+    padding-left: 20px;
+    font-size: 380%;
+}
+
+p.addbar {
+    margin: 0;
+}
+
+.addbar:focus {
+    outline-width: 0;
+}
+
+
+/* needed for the guttering to be removed. idk why*/
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* removes the spaces between bootstrap columns*/
+.row.no-gutter [class*='col-'],
+.row.no-gutter [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.stickyfooter {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}
+
+.shopping-item{
+    font-size: 450%;
+    font-weight: bold;
+}
+
+.add-icon{
+    height: 50px;
+    width: 50px;
+}
+
+.row{
+    padding: 0px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+}
+
+li{
+    margin: inherit
+}
+
+
+/* Animations */
+
+#shopping-list li.ng-enter{
+    transition: 0.2s linear all;
+    opacity: 0;
+    transform: translateX(-5%);
+}
+
+#shopping-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#shopping-list li.ng-enter-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#shopping-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#shopping-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateY(50%);
+}
+
+
+#shopping-list li.ng-enter{
+    transition: 0.2s linear all;
+    opacity: 0;
+    transform: translateX(-5%);
+}
+
+#shopping-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#shopping-list li.ng-enter-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#shopping-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#shopping-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(10%);
+}
+
+#shopping-list li.ng-leave-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#clear-list li.ng-enter{
+    transition: 0.2s linear all;
+    transition-delay: 0.3s;
+    opacity: 0;
+    transform: translateX(-10%);
+}
+
+#clear-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#clear-list li.ng-enter-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#clear-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#clear-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(10%);
+}
+
+#clear-list li.ng-leave-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
