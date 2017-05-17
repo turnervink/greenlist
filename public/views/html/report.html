@@ -4,37 +4,41 @@
     <div id="report-page" ng-click="hideDateMenu()">
 
         <!-- Placeholder, will use Angular -->
-        <div id="scores-section">
-            <h2 id="efficiency-message">Your efficiency rating</h2>
-            <h1><span id="elo-rating">{{calAverage.$value * 20 | number: 0}}</span></h1>
-            <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div id="scores-section" class="col-xs-12">
+                    <h1 class="col-xs-12" id="efficiency-message">Your efficiency rating:</h1>
+                    <h1 class="col-xs-12"><span id="elo-rating" ng-style="getTextColor(calAverage.$value)">{{calAverage.$value * 20 | number: 0}}</span></h1>
 
-            <!-- Improvement stats -->
+                    <p>You're using {{calAverage.$value / 100 | percentage: 1}} of your groceries.</p>
+                    <p>{{motivationMsg}}</p>
+                </div>
+            </div>
 
-            <!-- Display ELO here, temporary -->
-            <p>You've used  <span id="efficiency-pct">{{calAverage.$value / 100 | percentage: 1}}</span> of your groceries. <br>
-            Keep it up!</p>
+            <div class="row">
+                <div id="top-items">
+                    <div class="row">
+                        <h3 class="col-xs-12">Most Efficient:</h3>
+                    </div>
+                    <div class="row">
+                        <ol class="col-xs-12">
+                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                        </ol>
+                    </div>
 
+                    <div class="row">
+                        <h3 class="col-xs-12">Least Efficient:</h3>
+                    </div>
+                    <div class="row">
+                        <ol class="col-xs-12">
+                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                        </ol>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
         </div>
-        
-        <!-- Solid line here -->
 
-        <div id="top-food">
-            <h3 class="improvement-message">Your most efficient food items</h3>
-            <ol>
-                <!-- Placeholder -->
-                <li ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1" ng-style="getTextColor(item.average)">{{item.average / 100 | percentage: 1}}</span></li>
-
-            </ol>
-            <h3 class="improvement-message">Food items you could improve upon</h3>
-            <ol>
-                <!-- Placeholder -->
-                <li ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}}&nbsp;&nbsp;&nbsp;&nbsp;<span class="bad-item1" ng-style="getTextColor(item.average)">{{item.average / 100 | percentage: 1}}</span></li>
-
-            </ol>
-
-
-        </div>
     </div>
 
     <!-- Select data range -->

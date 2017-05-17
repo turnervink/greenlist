@@ -1,49 +1,44 @@
-#report-page {
-    margin: inherit;
-    width: 100%;
-    padding: 0% 10%;
-    background-color: #ffffff;
-    padding-top: 5%;
-    min-height: 65vh;
+#report-page .container-fluid {
+    padding: 0 !important;
 }
 
-#efficiency-message {
-    font-size: 5vh;
-    font-weight: bold;
+#report-page #scores-section {
+    padding-bottom: 0.8vh;
 }
 
-#scores-section {
-    margin: inherit;
-    text-align: center;
-    border-bottom: grey solid 1px;
-}
-
-#top-food {
-    margin: inherit;
-}
-
-#report-page p {
-    font-size: 3vh;
-    font-weight: bold;
-}
-
-.improvement-message {
-    font-size: 4vh;
-    font-weight: bold;
-}
-
-#elo-rating {
-    font-weight: bold;
+#report-page #scores-section h1 {
     font-size: 6vh;
-    color:  #278518;
+    text-align: center;
 }
 
-#report-page ol {
-    font-weight: bold;
+#report-page #elo-rating {
+    font-size: 14vh;
+}
+
+#report-page #scores-section p {
     font-size: 3vh;
+    text-align: center;
 }
 
-#efficiency-pct {
-    font-weight: bold;
-    color:  #278518;
+#report-page #top-items {
+    margin: 0 5% 0 5%;
+}
+
+#report-page #top-items h3 {
+    font-size: 5vh;
+    padding-bottom: 10px;
+}
+
+#report-page #top-items ol {
+    font-size: 3vh;
+    list-style: none;
+}
+
+#report-page #top-items ol span {
+    min-width: 10.3vh;
+    text-align: right;
+}
+
+#report-page #top-items li {
+    text-align: left;
 }
