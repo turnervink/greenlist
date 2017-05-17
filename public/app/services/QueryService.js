@@ -75,7 +75,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
             $location.url("/you-cant-have-egg-bacon-spam-and-sausage-with-the-spam");
         }
 
-        console.log("Looking for " + newItem.name + " in history...");
+        itemIsInShopping(newItem, function(shoppingical) {
+            if (shoppingical === true) {
+                console.log(newItem.name + " is already in shopping");
+            } else {
+                console.log("Looking for " + newItem.name + " in history...");
 
                 itemIsInHistory(newItem, function(historical) {
                     if (historical === true) {
@@ -98,6 +102,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                         DatabaseRef.items().child(newItem.name).set(newItem);
                     }
                 });
+            }
+        });
 
     }
 
@@ -176,6 +182,17 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                     && (data.child(item.name).val().list) === "history";
 
                 callback(isInHistory);
+            });
+    }
+
+    function itemIsInShopping(item, callback) {
+        DatabaseRef.items().once("value")
+            .then(function(data) {
+                console.log("Got data");
+                var isInShopping = data.hasChild(item.name)
+                && (data.child(item.name).val().list) === "shopping";
+
+                callback(isInShopping);
             });
     }
 
@@ -344,6 +361,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         updateWasteDataStatus: updateWasteDataStatus,
         checkWasteDataStatus: checkWasteDataStatus,
         itemIsInHistory: itemIsInHistory,
+        itemIsInShopping: itemIsInShopping,
         updateCheckedStatus: updateCheckedStatus,
         deleteItem: deleteItem,
         getWasteData: getWasteData,
