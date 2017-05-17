@@ -106,7 +106,7 @@ body.HistoryListCtrl-page {
 }
 
 .logwaste-popup .modal-dialog {
-	width:80vw;
+	width: 80vw;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1300px;
@@ -139,6 +139,7 @@ body.HistoryListCtrl-page {
 	float: right;
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 30px;
+	border-left: white solid 1px;
 }
 
 .logwaste-popup p {
@@ -162,7 +163,8 @@ body.HistoryListCtrl-page {
 
 /* the track for google*/
 input[type=range]::-webkit-slider-runnable-track {
-	height: 10px;
+	height: 1px;
+	box-shadow: 0 5px 30px #000;
 	margin-top: 60px;
 	margin-bottom: 60px;
 	border-radius: 10px;
@@ -198,3 +200,40 @@ input[type=range]::-moz-range-thumb {
 	margin-top: -16px;
 }
 
+/* Archive confirmation pop up */
+.confirmation .modal-content {
+	margin-top: 40vh;
+	border-radius: 30px;
+}
+
+.confirmation .modal-dialog {
+	width: 80vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+}
+
+.confirmation .modal-dialog h4 {
+	font-size: 300%;
+	text-align: center;
+	padding: 50px;
+}
+
+.confirmation .modal-dialog button {
+	font-size: 300%;
+	border: none;
+	background-color: green;
+	color: white;
+	display: inline-block;
+	width: 50%;
+	height: 120px;
+	border-bottom-left-radius: 30px;
+	margin-top: 50px;
+}
+
+.confirmation .modal-dialog #no-btn {
+	float: right;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 30px;
+	border-left: white solid 1px;
+}
