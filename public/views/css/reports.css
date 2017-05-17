@@ -3,20 +3,20 @@
 }
 
 #report-page #scores-section {
-    padding-bottom: 13px;
+    padding-bottom: 0.8vh;
 }
 
 #report-page #scores-section h1 {
-    font-size: 5.5em;
+    font-size: 6vh;
     text-align: center;
 }
 
 #report-page #elo-rating {
-    font-size: 3em;
+    font-size: 14vh;
 }
 
 #report-page #scores-section p {
-    font-size: 4em;
+    font-size: 3vh;
     text-align: center;
 }
 
@@ -25,17 +25,17 @@
 }
 
 #report-page #top-items h3 {
-    font-size: 5em;
+    font-size: 5vh;
     padding-bottom: 10px;
 }
 
 #report-page #top-items ol {
-    font-size: 4em;
+    font-size: 3vh;
     list-style: none;
 }
 
 #report-page #top-items ol span {
-    min-width: 175px;
+    min-width: 10.3vh;
     text-align: right;
 }
 
