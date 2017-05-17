@@ -6,20 +6,19 @@
 		<div class="container-fluid">
 			<!--an individal item, whole thing repeated for each item added -->
 			<div class="row">
-				<div ng-repeat="item in uncheckedItems" class="row topurchase">
+				<div ng-repeat="item in uncheckedItems" class="row">
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
 						<input type="image" src="images/icons/unchecked.png" class="checkbox" ng-click="toggleCheck(item, true)"/>
 					</div>
-					<div class="col-xs-8 itemname itemrow">
+					<div class="col-xs-8 itemrow">
 						<!-- item name injected here-->
 						<p class="shopping-item">{{item.name}}</p>
-						<!-- Tempo waste bar -->
-						<div class="col-xs-12 colourbar">
+						<!-- Waste bar -->
+						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar" ng-style="getBarColor(item.average)">
 							</div>
 						</div>
-
 					</div>
 					<div class="col-xs-2 garbage itemrow">
 						<!-- delete button-->
@@ -41,21 +40,21 @@
 		<div class="container-fluid">
 			<!--an individal item, whole thing repeated for each item added -->
 			<div class="row">
-				<div ng-repeat="item in checkedItems" class="row no-gutter purchased">
-					<div class="col-xs-2 itemrow fullcb">
+				<div ng-repeat="item in checkedItems" class="row no-gutter">
+					<div class="col-xs-2 fullcb itemrow">
 						<!-- checkbox -->
 						<img src="images/icons/checked.png" alt="checkbox" class="checkbox" ng-click="toggleCheck(item, false)">
 					</div>
-					<div class="col-xs-10 itemrow purchased">
+					<div class="col-xs-8 itemrow">
 						<!-- item name injected here-->
-						<p class="shopping-item">{{item.name}}</p>
-						<!-- Tempo waste bar -->
-						<div class="col-xs-10 colourbar">
+						<p class="shopping-item checked-item">{{item.name}}</p>
+						<!-- Waste bar -->
+						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar"  ng-style="getBarColor(item.average)">
 							</div>
 						</div>
-
 					</div>
+					<div class="col-xs-2 itemrow"></div>
 				</div>
 			</div>
 			<!-- individual item ends here -->
