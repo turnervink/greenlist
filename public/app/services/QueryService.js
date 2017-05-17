@@ -2,7 +2,7 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$uibModal", "$window",  function(DatabaseRef, CalculationService, $uibModal, $window) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$uibModal", "$location",  function(DatabaseRef, CalculationService, $uibModal, $location) {
 
     /**
      * Adds a new waste score for an item.
@@ -64,6 +64,16 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
             checked: false,
             average: 0
         };
+
+        if (newItem.name == "uuddlrlrba") {
+            console.log("Welcome to the Warp Zone");
+            DatabaseRef.overallAverage().set(450.05);
+            newItem.name = "you win!";
+        }
+
+        if (newItem.name == "byu"){
+            $location.url("/you-cant-have-egg-bacon-spam-and-sausage-with-the-spam");
+        }
 
         console.log("Looking for " + newItem.name + " in history...");
 
