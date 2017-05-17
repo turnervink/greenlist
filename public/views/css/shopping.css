@@ -144,3 +144,112 @@ p.addbar {
     height: 50px;
     width: 50px;
 }
+
+.row{
+    padding: 0px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+}
+
+li{
+    margin: inherit
+}
+
+
+/* Animations */
+
+#shopping-list li.ng-enter{
+    transition: 0.2s linear all;
+    opacity: 0;
+    transform: translateX(-5%);
+}
+
+#shopping-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#shopping-list li.ng-enter-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#shopping-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#shopping-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateY(50%);
+}
+
+
+#shopping-list li.ng-enter{
+    transition: 0.2s linear all;
+    opacity: 0;
+    transform: translateX(-5%);
+}
+
+#shopping-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#shopping-list li.ng-enter-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#shopping-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#shopping-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(10%);
+}
+
+#shopping-list li.ng-leave-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#clear-list li.ng-enter{
+    transition: 0.2s linear all;
+    transition-delay: 0.3s;
+    opacity: 0;
+    transform: translateX(-10%);
+}
+
+#clear-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#clear-list li.ng-enter-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}
+
+#clear-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#clear-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(10%);
+}
+
+#clear-list li.ng-leave-stagger{
+    transition-delay: 0.1s;
+    transition-duration: 0s;
+}

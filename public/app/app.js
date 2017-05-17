@@ -1,4 +1,4 @@
-var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase", "ui.bootstrap", 'ngAside']);
+var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase", "ui.bootstrap", 'ngAside', 'ngAnimate']);
 
 greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {

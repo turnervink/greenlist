@@ -5,8 +5,8 @@
 	<div class="row no-gutter">
 		<div class="container-fluid">
 			<!--an individal item, whole thing repeated for each item added -->
-			<div class="row">
-				<div ng-repeat="item in uncheckedItems" class="row">
+			<ul id="shopping-list" class="row">
+				<li ng-repeat="item in uncheckedItems" class="row">
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
 						<input type="image" src="images/icons/unchecked.png" class="checkbox" ng-click="toggleCheck(item, true)"/>
@@ -25,23 +25,25 @@
 						<!-- delete button-->
 						<input type="image" src="images/icons/trash.png" class="trashcan" ng-click="deleteItem(item)"/>
 					</div>
-				</div>
-			</div>
+				</li>
+
+			</ul>
 			<!-- individual item ends here -->
 		</div>
+
 	</div>
 	<!--Second section for the clear list button -->
 	<div class="row clearlist" ng-click="confirmModal()" ng-repeat="thing in checkShopping | limitTo: 1">
 
-			<input type="image" src="images/icons/archive.png" class="icon clearicon" />
+		<input type="image" src="images/icons/archive.png" class="icon clearicon" />
 
 	</div>
 	<!--Third section for the items purchased -->
 	<div class="row">
 		<div class="container-fluid">
 			<!--an individal item, whole thing repeated for each item added -->
-			<div class="row">
-				<div ng-repeat="item in checkedItems" class="row no-gutter">
+			<ul id="clear-list" class="row">
+				<li ng-repeat="item in checkedItems" class="row no-gutter">
 					<div class="col-xs-2 fullcb itemrow">
 						<!-- checkbox -->
 						<img src="images/icons/checked.png" alt="checkbox" class="checkbox" ng-click="toggleCheck(item, false)">
@@ -57,8 +59,8 @@
 						</div>
 					</div>
 					<div class="col-xs-2 itemrow"></div>
-				</div>
-			</div>
+				</li>
+			</ul>
 			<!-- individual item ends here -->
 		</div>
 	</div>
