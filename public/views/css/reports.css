@@ -1,63 +1,105 @@
-#report-page{
-    margin: inherit;
-    width: 100%;
-    padding: 0% 10%;
-    background-color: #ffffff;
-    padding-top: 5%;
-    min-height: -webkit-calc(100vh - 600px);
-    min-height: -moz-calc(100vh - 600px);
-    min-height: calc(100vh - 600px);
+/*#report-page{*/
+    /*margin: inherit;*/
+    /*width: 100%;*/
+    /*padding: 0% 10%;*/
+    /*background-color: #ffffff;*/
+    /*padding-top: 5%;*/
+    /*min-height: -webkit-calc(100vh - 600px);*/
+    /*min-height: -moz-calc(100vh - 600px);*/
+    /*min-height: calc(100vh - 600px);*/
+/*}*/
+
+/*#report-page .container-fluid {*/
+    /*padding: 0 !important;*/
+/*}*/
+
+/*#efficiency-message {*/
+    /*font-size: 5em;*/
+    /*font-weight: bold;*/
+/*}*/
+
+/*#scores-section{*/
+    /*margin: inherit;*/
+    /*text-align: center;*/
+    /*padding-bottom: 15px;*/
+    /*border-bottom: grey solid 1px;*/
+    /*background-color: blue;*/
+/*}*/
+
+/*#top-food{*/
+    /*margin: inherit;*/
+/*}*/
+
+/*.improvement-message{*/
+    /*font-size: 400%;*/
+    /*font-weight: bold;*/
+/*}*/
+
+/*#elo-rating{*/
+    /*font-weight: bold;*/
+    /*font-size: 5.5em;*/
+    /*color:  #278518;*/
+/*}*/
+
+/*#avg-display {*/
+    /*font-size: 3.5em;*/
+/*}*/
+
+/*#report-page ol{*/
+    /*font-weight: bold;*/
+    /*font-size: 350%;*/
+/*}*/
+
+/*#efficiency-pct{*/
+    /*font-weight: bold;*/
+    /*color:  #278518;*/
+/*}*/
+
+/*.bad-item1{*/
+    /*color: red;*/
+/*}*/
+
+/*.bad-item2{*/
+    /*color: red;*/
+/*}*/
+
+/*.bad-item3{*/
+    /*color: orange;*/
+/*}*/
+
+#report-page .container-fluid {
+    padding: 0 !important;
 }
 
-#efficiency-message {
-    font-size: 500%;
-    font-weight: bold;
+#report-page #scores-section {
+    padding-bottom: 13px;
+    border-bottom: 5px solid green;
 }
 
-#scores-section{
-    margin: inherit;
+#report-page #scores-section h1 {
+    font-size: 5.5em;
     text-align: center;
-    border-bottom: grey solid 1px;
 }
 
-#top-food{
-    margin: inherit;
+#report-page #elo-rating {
+    font-size: 3em;
 }
 
-#report-page p{
-    font-size: 300%;
-    font-weight: bold;
+#report-page #scores-section p {
+    font-size: 4em;
+    text-align: center;
 }
 
-.improvement-message{
-    font-size: 400%;
-    font-weight: bold;
+#report-page #top-items h3 {
+    font-size: 5em;
+    text-align: center;
 }
 
-#elo-rating{
-    font-weight: bold;
-    font-size: 300%;
-    color:  #278518;
+#report-page #top-items ol {
+    font-size: 4em;
+    list-style: none;
 }
 
-#report-page ol{
-    font-weight: bold;
-    font-size: 350%;
-}
-
-#efficiency-pct{
-    font-weight: bold;
-    color:  #278518;
-}
-
-.bad-item1{
-    color: red;
-}
-
-.bad-item2{
-    color: red;
-}
-
-.bad-item3{
-    color: orange;
+#report-page #top-items li {
+    text-align: center;
 }
