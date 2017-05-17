@@ -162,7 +162,9 @@ body.HistoryListCtrl-page {
 
 /* the track for google*/
 input[type=range]::-webkit-slider-runnable-track {
-	height: 1px;
+	height: 10px;
+	margin-top: 60px;
+	margin-bottom: 60px;
 	border-radius: 10px;
 	background-color: black;
 	max-width: 1000px;
