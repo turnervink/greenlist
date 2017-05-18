@@ -50,3 +50,8 @@
 #dataList li p {
     padding: 5vw;
 }
+
+#itemDataLink {
+    text-align: center;
+    color: green;
+}

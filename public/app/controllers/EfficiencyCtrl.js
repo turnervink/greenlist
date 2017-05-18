@@ -15,53 +15,62 @@ greenlistApp.controller("EfficiencyCtrl",
         var listFood = $firebaseObject(DatabaseRef.getRefToAllList());
         $scope.listItem = listFood;
 
-        $scope.confirmModal = function(data) {
-            var modalInstance = $uibModal.open({
-                templateUrl: 'views/partials/detailReportModal.html',
+        $scope.dataModal = function(item) {
+
+            DatabaseQuery.getWasteData(item, function(chartData) {
+                console.log(chartData);
+                var chartData = chartData;
+
+                DatabaseQuery.getWasteDates(item, function(dates) {
+                    console.log(dates);
+                    var labels = dates;
+
+                    var modalInstance = $uibModal.open({
+                        templateUrl: 'views/partials/detailReportModal.html',
+
+                        //controller for the modal
+                        controller: function($scope, $uibModalInstance){
+                            $scope.food = item;
+                            console.log(item);
+
+                            $scope.chartData = chartData;
+                            $scope.labels = labels;
 
 
-                //controller for the modal
-                controller: function($scope, $uibModalInstance){
-                    $scope.food = data;
-
-
-                        DatabaseQuery.getWasteData(data, function(data) {
-                            console.log(data);
-                            $scope.data = data;
-                        });
-
-                        DatabaseQuery.getWasteDates(data, function(data) {
-                            console.log(data);
-                            $scope.labels = data;
-                        });
-
-                        $scope.options = {
-                            scales: {
-                                yAxes: [
-                                    {
-                                        id: 'y-axis-1',
-                                        type: 'linear',
-                                        display: true,
-                                        position: 'left',
-                                        ticks: {
-                                            beginAtZero: true
+                            $scope.options = {
+                                scales: {
+                                    yAxes: [
+                                        {
+                                            id: 'y-axis-1',
+                                            type: 'linear',
+                                            display: true,
+                                            position: 'left',
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
                                         }
-                                    }
-                                ],
-                                xAxes: [
-                                    {
-                                        display: true
-                                    }
-                                ]
-                            }
-                        };
+                                    ],
+                                    xAxes: [
+                                        {
+                                            display: true
+                                        }
+                                    ]
+                                }
+                            };
+
+                            $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
+
+
+
+                        }
+
+                    })
+                });
+            });
 
 
 
 
-                }
-
-            })
 
 
         }
