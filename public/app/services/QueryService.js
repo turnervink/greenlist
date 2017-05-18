@@ -15,6 +15,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
             windowClass: 'logwaste-popup',
+
+            //controller for the modal
             controller:function($scope, $uibModalInstance){
                 if (status === true){
                     $scope.cancel = true;
@@ -45,7 +47,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         // get score from modal
         modalInstance.result.then(function (data) {
 
-
+            //set the modal button to cancel or ask me later
             if (data === null) {
 
                 console.error("null received from modal");
