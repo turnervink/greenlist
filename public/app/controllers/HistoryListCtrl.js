@@ -32,10 +32,12 @@ greenlistApp.controller("HistoryListCtrl",
          *
          * @param food The item to log waste for
          */
-        $scope.logWaste = function(food) {
+        $scope.logWaste = function(food, status) {
+            $scope.cancel = true;
+
 
             if (!food.dataUpdated) {
-                DatabaseQuery.updateWasteScore(food, function(gotData) {});
+                DatabaseQuery.updateWasteScore(food, status, function(gotData) {});
             }
 
         }
@@ -49,6 +51,7 @@ greenlistApp.controller("HistoryListCtrl",
          * @param food
          */
         $scope.addToList = function(food) {
+            $scope.cancel = true;
 
             if (!food.dataUpdated) {
                 DatabaseQuery.updateWasteScore(food, function(gotData) {

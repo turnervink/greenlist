@@ -146,6 +146,13 @@ body.HistoryListCtrl-page {
 	border-left: white solid 1px;
 }
 
+.logwaste-popup .modal-dialog #cancel-btn {
+	float: right;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 10px;
+	border-left: white solid 1px;
+}
+
 .logwaste-popup p {
 	font-size: 3vh;
 	margin: auto;
