@@ -24,8 +24,11 @@ greenlistApp.controller("ReportCtrl",
         setOverallAvg.$bindTo($scope, "calAverage").then(function() {
             console.log("Bound", $scope.calAverage);
             var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value * 20, 0, 1.5);
-            scoreAnim.start();
+            scoreAnim.start(); // Animate the efficiency score counting up
 
+            /*
+                Various motivational messages for the reports page.
+             */
             if ($scope.calAverage.$value < 10) {
                 $scope.motivationMsg = "We know you can do better!";
             } else if ($scope.calAverage.$value < 25) {
@@ -47,13 +50,17 @@ greenlistApp.controller("ReportCtrl",
 
         });
 
+        // Bind to the top and bottom 3 items in terms of efficiency
         $scope.setTopEff = $firebaseArray(DatabaseRef.topEfficient());
-        // setTopEff.$bindTo($scope, "topItem");
 
         $scope.setBotEff = $firebaseArray(DatabaseRef.bottomEfficient());
-        // setBottomEff.$bindTo($scope, "botItem");
 
-
+        /**
+         * Gets the correct text color for an average.
+         *
+         * @param average The average to colour
+         * @returns {{color: *}} ng-style object
+         */
         $scope.getTextColor = function(average) {
             var color = CalculationService.calBarColor(average);
             return {
@@ -61,6 +68,12 @@ greenlistApp.controller("ReportCtrl",
             }
         }
 
+        /**
+         * Gets the correct background color for an average.
+         *
+         * @param average The average to colour
+         * @returns {{color: *}} ng-style object
+         */
         $scope.getBackgroundColor = function(average) {
             var color = CalculationService.calBackColor(average);
             var textcolor;

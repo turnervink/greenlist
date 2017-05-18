@@ -17,6 +17,7 @@ greenlistApp.controller("EfficiencyCtrl",
 
         $scope.dataModal = function(item) {
 
+            // Get the needed data for graphing
             DatabaseQuery.getChartData(item, function(dates, scores, recentDates, recentScores) {
                 console.log("Got dates and scores", dates, scores, recentDates, recentScores);
 

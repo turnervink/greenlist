@@ -248,6 +248,7 @@ input[type=range]::-moz-range-thumb {
 	border-left: white solid 1px;
 }
 
+/* Centre modals vertically */
 .modal {
 	text-align: center;
 	padding: 0!important;
