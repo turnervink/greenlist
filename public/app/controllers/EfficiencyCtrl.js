@@ -17,66 +17,41 @@ greenlistApp.controller("EfficiencyCtrl",
 
         $scope.dataModal = function(item) {
 
-            DatabaseQuery.getWasteData(item, function(chartData) {
-                console.log(chartData);
-                var chartData = chartData;
+            DatabaseQuery.getChartData(item, function(dates, scores) {
+                console.log("Got dates and scores", dates, scores);
 
-                DatabaseQuery.getWasteDates(item, function(dates) {
-                    console.log(dates);
-                    var labels = dates;
+                var modalInstance = $uibModal.open({
+                    templateUrl: 'views/partials/detailReportModal.html',
+                    windowClass: 'dataModal',
 
-                    var modalInstance = $uibModal.open({
-                        templateUrl: 'views/partials/detailReportModal.html',
-                        windowClass: 'dataModal',
+                    // Controller for the modal
+                    controller: function($scope, $uibModalInstance){
+                        $scope.food = item;
 
-                        //controller for the modal
-                        controller: function($scope, $uibModalInstance){
-                            $scope.food = item;
-                            console.log(item);
-
-                            $scope.chartData = chartData;
-                            $scope.labels = labels;
-
-
-                            $scope.options = {
-                                scales: {
-                                    yAxes: [
-                                        {
-                                            id: 'y-axis-1',
-                                            type: 'linear',
-                                            display: true,
-                                            position: 'left',
-                                            ticks: {
-                                                beginAtZero: true,
-                                                max: 100
-                                            }
+                        // Chart variables
+                        $scope.labels = dates;
+                        $scope.chartData = scores;
+                        $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
+                        $scope.options = {
+                            scales: {
+                                yAxes: [
+                                    {
+                                        id: 'y-axis-1',
+                                        type: 'linear',
+                                        display: true,
+                                        position: 'left',
+                                        ticks: {
+                                            beginAtZero: true,
+                                            max: 100
                                         }
-                                    ],
-                                    xAxes: [
-                                        {
-                                            display: true
-                                        }
-                                    ]
-                                }
-                            };
+                                    }
+                                ],
+                                xAxes: [{display: true}]
+                            }
+                        };
+                    }
 
-                            $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
-
-
-
-                        }
-
-                    })
                 });
             });
-
-
-
-
-
-
         }
-
-
-
-        }]);
+}]);
