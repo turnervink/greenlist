@@ -14,9 +14,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         // open modal
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
-            /*controller: 'ModalCtrl',*/
             windowClass: 'logwaste-popup',
-
             controller:function($scope, $uibModalInstance){
                 if (status === true){
                     $scope.cancel = true;

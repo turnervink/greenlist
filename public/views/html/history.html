@@ -7,7 +7,7 @@
 			<ul id="history-list" class="row">
 				<li ng-repeat="food in historyItem | itemSearch: query" class="row">
 					<div class="col-xs-2 emptycb itemrow">
-						<input type="image" src="images/icons/add-cart.png" class="addtolist" ng-click="addToList(food)"/>
+						<input type="image" src="images/icons/add-cart.png" class="addtolist" ng-click="addToList(food, false)"/>
 					</div>
 					<div class="col-xs-8 itemrow">
 						<p class="shopping-item">{{food.name}}</p>
