@@ -251,11 +251,35 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getChartData(item, callback) {
-        DatabaseRef.wasteData(item).once("value").then(function(data) {
+        DatabaseRef.wasteData(item).orderByChild("date").once("value").then(function(data) {
             var scoresArray = [];
             var datesArray = [];
+            var recentScoresArray = [];
+            var recentDatesArray = [];
+
+            var rangeStart = new Date();
+            rangeStart.setDate(rangeStart.getDate() - 14);
+            var rangeStartStamp = rangeStart.getTime();
+            console.log(rangeStartStamp);
 
             data.forEach(function(score) {
+                // Get last two weeks
+                if (score.val().date >= rangeStartStamp) {
+                    console.log("In last 2 weeks");
+
+                    // Get date
+                    var date = new Date(score.val().date);
+
+                    var month = date.getMonth();
+                    var day = date.getDate();
+                    var year = date.getFullYear().toString().substr(-2);
+
+                    recentDatesArray.push(month + "/" + day + "/" + year);
+
+                    // Get score
+                    recentScoresArray.push(score.val().score);
+                }
+
                 // Get date
                 var date = new Date(score.val().date);
 
@@ -269,7 +293,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 scoresArray.push(score.val().score);
             });
 
-            callback(datesArray, scoresArray);
+            callback(datesArray, scoresArray, recentDatesArray, recentScoresArray);
         });
     }
 

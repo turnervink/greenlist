@@ -71,6 +71,6 @@
     margin-bottom: 2vw;
 }
 
-#dataModalInner #chartTitle {
+#dataModalInner .chartTitle {
     text-align: left;
 }

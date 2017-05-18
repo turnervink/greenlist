@@ -17,15 +17,15 @@ greenlistApp.controller("EfficiencyCtrl",
 
         $scope.dataModal = function(item) {
 
-            DatabaseQuery.getChartData(item, function(dates, scores) {
-                console.log("Got dates and scores", dates, scores);
+            DatabaseQuery.getChartData(item, function(dates, scores, recentDates, recentScores) {
+                console.log("Got dates and scores", dates, scores, recentDates, recentScores);
 
                 var modalInstance = $uibModal.open({
                     templateUrl: 'views/partials/detailReportModal.html',
                     windowClass: 'dataModal',
 
                     // Controller for the modal
-                    controller: function($scope, $uibModalInstance){
+                    controller: function($scope, $uibModalInstance) {
                         $scope.food = item;
 
                         // Chart variables
@@ -49,6 +49,10 @@ greenlistApp.controller("EfficiencyCtrl",
                                 xAxes: [{display: true}]
                             }
                         };
+
+                        // Recent chart variables
+                        $scope.recentLabels = recentDates;
+                        $scope.recentChartData = recentScores;
                     }
 
                 });
