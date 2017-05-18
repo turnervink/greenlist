@@ -32,7 +32,14 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
 
         //code for food tips
-        $scope.loadingScreenHint = FoodTipsService.randomizer()
+        $scope.$watch("checkShopping", function(foodArray){
+            if (foodArray.length === 0){
+                $scope.foodTip = FoodTipsService.getTips();
+                $scope.pls = $scope.foodTip[FoodTipsService.randomizer($scope.foodTip.length)];
+            }
+        }, true);
+
+        //$scope.tipIndex = FoodTipsService.randomizer($scope.foodTip.length);
         //$scope.loadingScreenHint;
 
         // Bring up the modal for confirming the user wants to clear their list
@@ -45,8 +52,6 @@ greenlistApp.controller("ShoppingListCtrl",
                 controller: function($scope, $uibModalInstance){
                     //archives the list items
                     $scope.archive = function() {
-                        $scope.loadingScreenHint = FoodTipsService.randomizer()
-                        alert($scope.loadingScreenHint)
                         //send items to history set the flag to require them to be updated
                         DatabaseRef.getCheckedItems()
                             .once("value")
