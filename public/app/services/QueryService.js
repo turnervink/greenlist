@@ -10,23 +10,47 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param item The item to add a waste score for
      * @param callback The callback function
      */
-    function updateWasteScore(item, callback) {
+    function updateWasteScore(item, status, callback) {
         // open modal
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
-            controller: 'ModalCtrl',
-            windowClass: 'logwaste-popup'
+            windowClass: 'logwaste-popup',
+            controller:function($scope, $uibModalInstance){
+                if (status === true){
+                    $scope.cancel = true;
+                }
+                else {
+                    $scope.cancel = false;
+                }
+
+                /**
+                 * Close the modal.
+                 */
+                $scope.back = function() {
+                    $uibModalInstance.close($scope.test.input);
+                };
+
+                /**
+                 * close without logging waste
+                 */
+                $scope.later = function() {
+                    $uibModalInstance.close(null); // Pass null if there isn't any data
+                }
+
+
+            }
         });
+
 
         // get score from modal
         modalInstance.result.then(function (data) {
 
 
             if (data === null) {
-                setItemList(item, "shopping");
+
                 console.error("null received from modal");
 
-                callback(false)
+                callback(null)
             } else {
                 console.log("Got from modal:", data);
                 var wasteScore = {

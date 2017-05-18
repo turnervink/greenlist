@@ -14,6 +14,7 @@
 
 
 	<button ng-click="back()">Submit</button>
-	<button id="ask-later-btn" ng-click="later()">Ask me later</button>
+	<button id="ask-later-btn" ng-click="later()" ng-hide="cancel">Ask me later</button>
+	<button id="cancel-btn" ng-click="later()"ng-show="cancel">Cancel</button>
 </div>
 
