@@ -45,10 +45,11 @@
 
 #dataList li {
     border-bottom: black solid 1px;
+    padding: 5vw 0 5vw 5vw;
 }
 
-#dataList li p {
-    padding: 5vw;
+#dataList ul {
+    padding: 0;
 }
 
 #itemDataLink {
