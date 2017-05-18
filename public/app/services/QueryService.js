@@ -262,7 +262,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 var month = date.getMonth();
                 var day = date.getDate();
                 var year = date.getFullYear().toString().substr(-2);
-                console.log(month + "/" + day + "/" + year);
 
                 datesArray.push(month + "/" + day + "/" + year);
 
