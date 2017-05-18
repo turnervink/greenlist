@@ -1,3 +1,6 @@
+/**
+ * Controller for detail report page
+ */
 greenlistApp.controller("EfficiencyCtrl",
     ["$scope", "$uibModal", "DatabaseQuery", "DatabaseRef", "$firebaseObject","UserInfo", "CurrentAuth",
         function($scope, $uibModal, DatabaseQuery, DatabaseRef, $firebaseObject, UserInfo, CurrentAuth) {
