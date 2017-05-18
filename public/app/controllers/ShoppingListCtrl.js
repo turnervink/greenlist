@@ -22,8 +22,6 @@ greenlistApp.controller("ShoppingListCtrl",
             console.log(uncheckedItems);
         });
 
-
-
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
         checkedItems.$bindTo($scope, "checkedItems");
 
@@ -38,9 +36,6 @@ greenlistApp.controller("ShoppingListCtrl",
                 $scope.pls = $scope.foodTip[FoodTipsService.randomizer($scope.foodTip.length)];
             }
         }, true);
-
-        //$scope.tipIndex = FoodTipsService.randomizer($scope.foodTip.length);
-        //$scope.loadingScreenHint;
 
         // Bring up the modal for confirming the user wants to clear their list
         $scope.confirmModal = function() {
@@ -158,17 +153,5 @@ greenlistApp.controller("ShoppingListCtrl",
                 "background-color": color
             }
         }
-
-        // $scope.randomizer = function(length){
-        //     return Math.floor(Math.random() * length);
-        // }
-        //
-        // $scope.foodTips = [
-        //     {
-        //         text:"Soft cheese should be stored in an airtight container, " +
-        //         "while semi-hard and hard cheese should be wrapped in wax/parchment paper"
-        //     },
-        // ]
-
 
 }]);
