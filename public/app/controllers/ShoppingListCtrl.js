@@ -75,6 +75,12 @@ greenlistApp.controller("ShoppingListCtrl",
                 }
 
             })
+
+            modalInstance.result.then(function(data) {
+                console.log("Modal got data", data);
+            }).catch(function(err) {
+                console.error(err);
+            })
         }
 
         $scope.toggleCheck = function(item, status) {
