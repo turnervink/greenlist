@@ -90,13 +90,19 @@ greenlistApp.controller("ReportCtrl",
         }
 
 
-
+        // tempo placeholder
         $scope.dateRange = 'Last 2 Weeks';
 
+        /**
+         * Show the date picker menu by increasing the bottom margin.
+         */
         $scope.showDateMenu = function() {
             $scope.menuMargin = '8.8vh';           
         }
 
+        /**
+         * Hide the date picker menu by decreasing the bottom margin.
+         */
         $scope.hideDateMenu = function() {
             $scope.menuMargin = '0';
         }

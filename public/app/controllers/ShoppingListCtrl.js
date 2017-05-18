@@ -139,6 +139,13 @@ greenlistApp.controller("ShoppingListCtrl",
                 });
         }
 
+        /** 
+         * Get the color for the background of food efficiency bar based
+         * on the average of the food efficiency.
+         * 
+         * @param average
+         *               average for food efficiency
+         */
         $scope.getBackColor = function(average) {
             var color = CalculationService.calBackColor(average);
             return {
@@ -146,6 +153,13 @@ greenlistApp.controller("ShoppingListCtrl",
             }
         }
 
+        /** 
+         * Get the color for the food efficiency bar based
+         * on the average of the food efficiency.
+         * 
+         * @param average
+         *               average for food efficiency
+         */
         $scope.getBarColor = function(average) {
             var color = CalculationService.calBarColor(average);
             return {
