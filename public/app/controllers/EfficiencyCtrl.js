@@ -4,7 +4,7 @@ greenlistApp.controller("EfficiencyCtrl",
 
     UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
-        $scope.heading = 'Detail Report';
+        $scope.heading = 'Item Data';
         $scope.listBtnColor = 'white';
         $scope.histBtnColor = 'green';
         $scope.reptBtnColor = 'white';

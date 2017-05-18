@@ -42,3 +42,11 @@
 #report-page #top-items li {
     text-align: left;
 }
+
+#dataList li {
+    border-bottom: black solid 1px;
+}
+
+#dataList li p {
+    padding: 5vw;
+}
