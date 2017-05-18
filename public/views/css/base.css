@@ -229,6 +229,10 @@ input[type=range]::-moz-range-thumb {
 	padding-bottom: 2vh;
 }
 
+.confirmation .modal-dialog p {
+	text-align: center;
+}
+
 .confirmation .modal-dialog button {
 	font-size: 3vh;
 	border: none;
