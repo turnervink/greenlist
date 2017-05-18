@@ -117,7 +117,7 @@
 	border: none;
 }
 
-@media only screen and (orientation : landscape) {
+@media only screen and (min-aspect-ratio: 14/10) and (orientation : landscape) {
 	/* Page view */
 	.content {
 		background-color: white;

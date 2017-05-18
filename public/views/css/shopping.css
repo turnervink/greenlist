@@ -160,7 +160,7 @@ li{
 }
 
 /* Landscape view */
-@media only screen and (orientation : landscape) {
+@media only screen and (min-aspect-ratio: 14/10) and (orientation : landscape) {
     .clearicon {
         margin-top: 1.9vh !important;
     }
