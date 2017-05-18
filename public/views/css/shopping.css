@@ -8,6 +8,13 @@
     text-align: center;
 }
 
+/* Styling for the random tips that appear on the shopping list */
+.foodtip {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
 /* for the progress bar*/
 .colourbar {
     height: 4vh;

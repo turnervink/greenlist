@@ -1,8 +1,19 @@
 greenlistApp.service("FoodTipsService", [ function(){
+    /**
+     * Get a random int from 0 to length - 1 inclusive
+     * intended to be used to get random index of array
+     * Use it for whatever tho
+     * @param length highest number + 1
+     * @returns random int from 0 to length - 1 inclusive
+     */
     function randomizer(length){
         return Math.floor(Math.random() * length);
     }
 
+    /**
+     * return all of the food tips in an array
+     * @returns Array of food tips
+     */
     function getTips(){
         var foodTips = [];
         foodTips = [
@@ -25,7 +36,7 @@ greenlistApp.service("FoodTipsService", [ function(){
             "with as much air removed as possible",
 
             "For best results, keep your fridge between 37\xB0 F and 40\xB0 F. " +
-            "Keep your freezer beetween 0 degrees F and 2 degrees F",
+            "Keep your freezer beetween 0\xB0 F and 2\xB0 F",
 
             "Use your fridge's crisper drawer. It helps keep many vegetables longer. If there is a humidity slider, " +
             "set it on high for leafy greens or low for non leafy vegetables",
@@ -35,9 +46,9 @@ greenlistApp.service("FoodTipsService", [ function(){
             "You can store apples in the fridge to extend shelf life, but for longer storage, " +
             "store in a carboard box covered with a damp towel",
 
-            "Store asparagus in the fridge. They'll last even longer if you trim the base of the stalks and " +
-            "place them upright in a jar filled with an inch of water. Alternatively, wrap the cut ends of the stalks " +
-            "in a moist paper towel or rag",
+            "Store asparagus in the fridge. They'll last longer if you trim the base of the stalks and " +
+            "place them upright in a jar with an inch of water. Alternatively, wrap the cut ends of the stalks " +
+            "in a moist paper towel or cloth",
 
             "Avacadoes can be ripened faster by placing in a paper bag, and placing an apple in with it. " +
             "Once ripe, store avacadoes in the fridge.",
@@ -97,9 +108,7 @@ greenlistApp.service("FoodTipsService", [ function(){
             "Freeze in ice cube trays then transfer cubes to an airtight container",
 
             "To test if an egg is still good, drop it in a glass of water. " +
-            "If it stays at the bottom flat or at an angle, it's fresh. " +
-            "If it stands on its pointed end at the bottom, it's safe to eat " +
-            "but should be used for baked goods or har boiling. If the egg floats it is rotten.",
+            "If the egg floats it is rotten.",
 
             "Keep flour in airtight containers in a cool, dark place",
 
@@ -112,7 +121,7 @@ greenlistApp.service("FoodTipsService", [ function(){
             "Mushrooms can be sautéed and then frozen",
 
             "Store whole onions in a cool, dark place somewhere slightly warmer than the fridge. " +
-            "Dont stack them to ensure good air circulation. Store partially used onions in the fridge " +
+            "Store partially used onions in the fridge " +
             "in an airtight container, leaving the papery outer layer on.",
 
             "Onions cause potatoes to sprout, so keep them separate",
