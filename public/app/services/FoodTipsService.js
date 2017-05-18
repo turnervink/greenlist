@@ -72,7 +72,7 @@ greenlistApp.service("FoodTipsService", [ function(){
             "Store brown sugar in an airtight container. Keep a few marshmallows or a slice of bread on top " +
             "to keep the sugar from drying out and getting hard",
 
-            "If brussel sprouts are on the stalk, leave them on and store in the fridge. If they are loose store in " +
+            "If brussels sprouts are on the stalk, leave them on and store in the fridge. If they are loose store in " +
             "an open container in the fridge with a damp towel on top",
 
             "Peel off outer leaves of cabbage as they start to wilt.",
