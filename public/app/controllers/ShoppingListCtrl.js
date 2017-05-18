@@ -1,6 +1,6 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "$uibModal", "$window","DatabaseQuery", "CalculationService",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService) {
+    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "$uibModal", "$window","DatabaseQuery", "CalculationService", "FoodTipsService",
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -22,10 +22,18 @@ greenlistApp.controller("ShoppingListCtrl",
             console.log(uncheckedItems);
         });
 
+
+
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
         checkedItems.$bindTo($scope, "checkedItems");
 
+        //array of items in the shopping list page
+        //used for showing/hiding the archive button and food tips
         $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
+
+        //code for food tips
+        $scope.loadingScreenHint = FoodTipsService.randomizer()
+        //$scope.loadingScreenHint;
 
         // Bring up the modal for confirming the user wants to clear their list
         $scope.confirmModal = function() {
@@ -37,6 +45,8 @@ greenlistApp.controller("ShoppingListCtrl",
                 controller: function($scope, $uibModalInstance){
                     //archives the list items
                     $scope.archive = function() {
+                        $scope.loadingScreenHint = FoodTipsService.randomizer()
+                        alert($scope.loadingScreenHint)
                         //send items to history set the flag to require them to be updated
                         DatabaseRef.getCheckedItems()
                             .once("value")
@@ -137,6 +147,17 @@ greenlistApp.controller("ShoppingListCtrl",
                 "background-color": color
             }
         }
+
+        // $scope.randomizer = function(length){
+        //     return Math.floor(Math.random() * length);
+        // }
+        //
+        // $scope.foodTips = [
+        //     {
+        //         text:"Soft cheese should be stored in an airtight container, " +
+        //         "while semi-hard and hard cheese should be wrapped in wax/parchment paper"
+        //     },
+        // ]
 
 
 }]);
