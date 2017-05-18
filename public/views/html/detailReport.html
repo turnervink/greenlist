@@ -1,0 +1,15 @@
+<ng-include src="'views/partials/detailReportPanel.html'"></ng-include>
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="container-fluid">
+            <!--an individal item -->
+            <ul id="history-list" class="row">
+                <li ng-repeat="food in listItem" class="row" ng-click="confirmModal(food.name)">
+                    <div class="col-xs-8 itemrow">
+                        <p class="shopping-item">{{food.name}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
