@@ -23,7 +23,7 @@ greenlistApp.controller("ReportCtrl",
         var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
         setOverallAvg.$bindTo($scope, "calAverage").then(function() {
             console.log("Bound", $scope.calAverage);
-            var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value * 20, 0, 3);
+            var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value * 20, 0, 1.5);
             scoreAnim.start();
 
             if ($scope.calAverage.$value < 10) {
