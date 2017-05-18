@@ -206,10 +206,6 @@ li{
     transform: translateX(10%);
 }
 
-#shopping-list li.ng-leave-stagger{
-    transition-delay: 0.2s;
-    transition-duration: 0s;
-}
 
 #clear-list li.ng-enter{
     transition: 0.2s linear all;
@@ -239,10 +235,6 @@ li{
     transform: translateX(10%);
 }
 
-#clear-list li.ng-leave-stagger{
-    transition-delay: 0.2s;
-    transition-duration: 0s;
-}
 
 
 #history-list li.ng-enter{
