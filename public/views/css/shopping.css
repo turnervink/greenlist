@@ -1,31 +1,31 @@
 .clearicon {
-    margin-top: 1.9vh !important;
+    margin-top: 3.3725vw !important;
 }
 
 .clearlist {
-    height: 11.7vh;
+    height: 20.7675vw;
     background: lightslategray;
     text-align: center;
 }
 
 /* for the progress bar*/
 .colourbar {
-    height: 4vh;
+    height: 7.1vw;
     text-align: right;
-    font-size: 3vh;
+    font-size: 5.325vw;
 }
 
 
 /* also for the progress bar*/
 .innerbar {
-    padding: 0.3vh;
+    padding: 0.5325vw;
 }
 
 /* affects all rows where an item is in the list*/
 .itemrow {
-    height: 11.7vh;
+    height: 20.7675vw;
     border-bottom: black solid 1px;
-    padding-top: 1.2vh;
+    padding-top: 2.13vw;
 }
 
 .checked-item {
@@ -34,7 +34,7 @@
 
 .addrow-row {
     width: 100%;
-    bottom: 12.3vh;
+    bottom: 21.8325vw;
     position: fixed;
     transition: 0.3s;
     z-index: 98;
@@ -45,11 +45,11 @@
 }
 
 .add-item-button{
-    width: 11.7vh;
+    width: 20.7675vw;
     padding: 0;
-    margin-right: 3.5vh;
-    height: 4.7vh;
-    font-size: 3vh;
+    margin-right: 6.2125vw;
+    height: 8.3425vw;
+    font-size: 5.325vw;
     border: black solid 1px;
     border-radius: 5px;
     background-color: transparent;
@@ -58,11 +58,11 @@
 /* css for the images */
 .archive {
     margin: 0;
-    width: 8.8vh;
-    height: 8.8vh;
+    width: 15.62vw;
+    height: 15.62vw;
     padding: 0;
-    margin-top: 1.5vh;
-    margin-left: 1.4vh;
+    margin-top: 2.6625vw;
+    margin-left: 2.485vw;
 }
 
 .garbage, .emptycb, .fullcb {
@@ -73,25 +73,25 @@
     display: inline-block;
     text-align: center;
     margin: 0;
-    width: 8.8vh;
-    height: 8.8vh;
+    width: 15.62vw;
+    height: 15.62vw;
     padding: 0;
-    margin-top: 0.5vh;
+    margin-top: 0.8875vw;
     margin-left: auto;
     margin-right: auto;
 }
 
 .checkbox {
-    width: 7.3vh;
-    height: 7.3vh;
+    width: 14.62vw;
+    height: 14.62vw;
 }
 
 .icon {
     margin: 0;
-    width: 7.3vh;
-    height: 7.3vh;
+    width: 14.62vw;
+    height: 14.62vw;
     padding: 0;
-    margin-top: 0.5vh;
+    margin-top: 0.8875vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -101,8 +101,8 @@
 .addbar {
     width: 100%;
     border: none;
-    height: 4.7vh;
-    font-size: 3.5vh;
+    height: 8.3425vw;
+    font-size: 6.2125vw;
 }
 
 p.addbar {
@@ -136,14 +136,14 @@ p.addbar {
 
 .shopping-item{
     margin: 0;
-    font-size: 4vh;
+    font-size: 7.1vw;
     font-weight: bold;
 }
 
 .add-icon{
 
-    height: 3vh;
-    width: 3vh;
+    height: 5.325vw;
+    width: 5.325vw;
 }
 
 .row{
@@ -288,17 +288,3 @@ li{
     transform: translateX(-10%);
 }
 
-#history-list li.ng-leave-stagger{
-    transition-delay: 0.05s;
-    transition-duration: 0s;
-}
-
-main.ng-enter{
-    transition: 0.3s;
-    opacity: 0;
-}
-
-
-main.ng-enter.ng-enter-active{
-    opacity: 1;
-}
