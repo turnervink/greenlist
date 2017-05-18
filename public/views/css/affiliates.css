@@ -28,7 +28,7 @@
 }
 
 /* anchor link css */
-#affiliates-page a {
+#affiliates-page .return-link {
     font-size: 3vh;
     width: 90%;
     margin: inherit;
