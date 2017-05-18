@@ -47,7 +47,8 @@ greenlistApp.controller("EfficiencyCtrl",
                                             display: true,
                                             position: 'left',
                                             ticks: {
-                                                beginAtZero: true
+                                                beginAtZero: true,
+                                                max: 100
                                             }
                                         }
                                     ],

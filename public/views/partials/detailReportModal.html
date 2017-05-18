@@ -2,13 +2,20 @@
     <div id="dataModalInner">
         <h1>{{food.name}}</h1>
 
-        <canvas ng-show="data.length != 0" id="line" class="chart chart-line" chart-data="chartData"
-                chart-labels="labels" chart-options="options" chart-colors="colors">
-        </canvas>
+        <div ng-show="chartData.length != 0">
+            <h3>Current efficiency: {{food.average / 100 | percentage: 1}}</h3>
+            <br>
+            <h3 id="chartTitle">Usage over time:</h3>
 
-        <div ng-show="data.length == 0">
-            <p>no data</p>
+            <canvas ng-show="data.length != 0" id="line" class="chart chart-line" chart-data="chartData"
+                    chart-labels="labels" chart-options="options" chart-colors="colors">
+            </canvas>
         </div>
+
+        <div ng-show="chartData.length == 0">
+            <h3>no data logged</h3>
+        </div>
+
     </div>
 </div>
 
