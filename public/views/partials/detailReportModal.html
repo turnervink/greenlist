@@ -1,12 +1,14 @@
 <div id="detailReport-popup">
-    <h1>{{food.name}}</h1>
+    <div id="dataModalInner">
+        <h1>{{food.name}}</h1>
 
-    <canvas ng-show="data.length != 0" id="line" class="chart chart-line" chart-data="chartData"
-            chart-labels="labels" chart-options="options" chart-colors="colors">
-    </canvas>
+        <canvas ng-show="data.length != 0" id="line" class="chart chart-line" chart-data="chartData"
+                chart-labels="labels" chart-options="options" chart-colors="colors">
+        </canvas>
 
-    <div ng-show="data.length == 0">
-        <p>no data</p>
+        <div ng-show="data.length == 0">
+            <p>no data</p>
+        </div>
     </div>
 </div>
 

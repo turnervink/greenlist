@@ -27,6 +27,7 @@ greenlistApp.controller("EfficiencyCtrl",
 
                     var modalInstance = $uibModal.open({
                         templateUrl: 'views/partials/detailReportModal.html',
+                        windowClass: 'dataModal',
 
                         //controller for the modal
                         controller: function($scope, $uibModalInstance){

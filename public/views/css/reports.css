@@ -55,3 +55,12 @@
     text-align: center;
     color: green;
 }
+
+.dataModal .modal-content {
+    margin-top: 30vh;
+    height: 200%;
+}
+
+#dataModalInner {
+    padding: 3vh;
+}
