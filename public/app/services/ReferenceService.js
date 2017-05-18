@@ -25,6 +25,10 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
             .equalTo(list);
     }
 
+    function getRefToAllList(){
+        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+            .orderByChild("list");
+    }
     /**
      * Reference to the checked child in item node that is set to false.
      * @returns database location for checked child
@@ -114,7 +118,8 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         leaderBoardScore: leaderBoardScore,
         database: database,
         bottomEfficient: bottomEfficient,
-        topEfficient: topEfficient
+        topEfficient: topEfficient,
+        getRefToAllList: getRefToAllList
 
     }
 
