@@ -1,0 +1,463 @@
+/* not being used since the button changed to text
+keep for now in case we go back to the button life*/
+.clearicon {
+    margin-top: 3.3725vw !important;
+}
+
+/* Styling for the clear list div */
+.clearlist {
+    height: 20.7675vw;
+    background: #cccccc;
+    text-align: center;
+}
+
+/*Styling for the clear list text*/
+.archiveText {
+    color: #6c6c6c;
+}
+
+/* Styling for the random tips that appear on the shopping list */
+.foodtip {
+    text-align: center;
+    margin-top: 7vw;
+}
+
+.foodtip p {
+    font-size: 2.25em;
+}
+
+.foodtip h2 {
+    opacity: 0.5;
+}
+
+/* for the progress bar*/
+.colourbar {
+    height: 7.1vw;
+    text-align: right;
+    font-size: 5.325vw;
+}
+
+
+/* also for the progress bar*/
+.innerbar {
+    padding: 0.5325vw;
+}
+
+/* affects all rows where an item is in the list*/
+.itemrow {
+    height: 20.7675vw;
+    border-bottom: black solid 1px;
+    padding-top: 2.13vw;
+}
+
+.checked-item {
+    color: #aaa;
+}
+
+.addrow-row {
+    width: 100%;
+    bottom: 21.8325vw;
+    position: fixed;
+    transition: 0.3s;
+    z-index: 98;
+}
+
+.button-to-right {
+    text-align: center;
+}
+
+.add-item-button {
+    width: 20.7675vw;
+    padding: 0;
+    margin-right: 6.2125vw;
+    height: 8.3425vw;
+    font-size: 5.325vw;
+    border: black solid 1px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+/* css for the images */
+.archive {
+    margin: 0;
+    width: 15.62vw;
+    height: 15.62vw;
+    padding: 0;
+    margin-top: 2.6625vw;
+    margin-left: 2.485vw;
+}
+
+/* style for centering delete button and checkboxes*/
+.garbage, .emptycb, .fullcb {
+    text-align: center;
+}
+
+/* style for all the buttons on the list/history items*/
+.checkbox, .addtolist, .logwaste, .trashcan {
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 15.62vw;
+    height: 15.62vw;
+    padding: 0;
+    margin-top: 0.8875vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkbox {
+    width: 14.62vw;
+    height: 14.62vw;
+}
+
+.icon {
+    margin: 0;
+    width: 14.62vw;
+    height: 14.62vw;
+    padding: 0;
+    margin-top: 0.8875vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* makes the add bar cool */
+.addbar {
+    width: 100%;
+    border: none;
+    height: 8.3425vw;
+    font-size: 6.2125vw;
+}
+
+p.addbar {
+    margin: 0;
+}
+
+.addbar:focus {
+    outline-width: 0;
+}
+
+
+/* needed for the guttering to be removed. idk why*/
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* removes the spaces between bootstrap columns*/
+.row.no-gutter [class*='col-'],
+.row.no-gutter [class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.stickyfooter {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+}
+
+.shopping-item{
+    margin: 0;
+    font-size: 7.1vw;
+    font-weight: bold;
+}
+
+.add-icon{
+
+    height: 5.325vw;
+    width: 5.325vw;
+}
+
+.row{
+    padding: 0px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0px;
+}
+
+li{
+    margin: inherit
+}
+
+/* Landscape view */
+@media only screen and (min-aspect-ratio: 14/10) {
+    .clearicon {
+        margin-top: 1.9vh !important;
+    }
+
+    .clearlist {
+        height: 11.7vh;
+        background: lightslategray;
+        text-align: center;
+    }
+
+    /* for the progress bar*/
+    .colourbar {
+        height: 4vh;
+        text-align: right;
+        font-size: 3vh;
+    }
+
+
+    /* also for the progress bar*/
+    .innerbar {
+        padding: 0.3vh;
+    }
+
+    /* affects all rows where an item is in the list*/
+    .itemrow {
+        height: 11.7vh;
+        border-bottom: black solid 1px;
+        padding-top: 1.2vh;
+    }
+
+    .checked-item {
+        color: #aaa;
+    }
+
+    .addrow-row {
+        width: 100%;
+        bottom: 12.3vh;
+        position: fixed;
+        transition: 0.3s;
+        z-index: 98;
+    }
+
+    .button-to-right {
+        text-align: right;
+    }
+
+    .add-item-button {
+        width: 11.7vh;
+        padding: 0;
+        margin-right: 10vh;
+        height: 4.7vh;
+        font-size: 3vh;
+        border: black solid 1px;
+        border-radius: 5px;
+        background-color: transparent;
+    }
+
+    /* css for the images */
+    .archive {
+        margin: 0;
+        width: 8.8vh;
+        height: 8.8vh;
+        padding: 0;
+        margin-top: 1.5vh;
+        margin-left: 1.4vh;
+    }
+
+    .garbage, .emptycb, .fullcb {
+        text-align: center;
+    }
+
+    .checkbox, .addtolist, .logwaste, .trashcan {
+        display: inline-block;
+        text-align: center;
+        margin: 0;
+        width: 8.8vh;
+        height: 8.8vh;
+        padding: 0;
+        margin-top: 0.5vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .icon {
+        margin: 0;
+        width: 8.8vh;
+        height: 8.8vh;
+        padding: 0;
+        margin-top: 0.5vh;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    /* makes the add bar cool */
+    .addbar {
+        width: 100%;
+        border: none;
+        height: 4.7vh;
+        font-size: 3.5vh;
+    }
+
+    p.addbar {
+        margin: 0;
+    }
+
+    .addbar:focus {
+        outline-width: 0;
+    }
+
+
+    /* needed for the guttering to be removed. idk why*/
+    .row.no-gutter {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* removes the spaces between bootstrap columns*/
+    .row.no-gutter [class*='col-'],
+    .row.no-gutter [class*='col-'] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .stickyfooter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .shopping-item{
+        margin: 0;
+        font-size: 4vh;
+        font-weight: bold;
+    }
+
+    .add-icon{
+        height: 3vh;
+        width: 3vh;
+    }
+
+    .row{
+        padding: 0px;
+    }
+
+    ul{
+        list-style-type: none;
+        margin: 0px;
+    }
+
+    li{
+        margin: inherit
+    }
+}
+
+
+/* Animations */
+
+#shopping-list li.ng-enter{
+    transition: 0.2s linear all;
+    transition-delay: 0.3s;
+    opacity: 0;
+    transform: translateX(-5%);
+}
+
+#shopping-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#shopping-list li.ng-enter-stagger{
+    transition-delay: 0.2s;
+    transition-duration: 0s;
+}
+
+#shopping-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#shopping-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateY(50%);
+}
+
+#shopping-list li.ng-enter-stagger{
+    transition-delay: 0.2s;
+    transition-duration: 0s;
+}
+
+#shopping-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#shopping-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(10%);
+}
+
+
+#clear-list li.ng-enter{
+    transition: 0.2s linear all;
+    transition-delay: 0.3s;
+    opacity: 0;
+    transform: translateX(-10%);
+}
+
+#clear-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#clear-list li.ng-enter-stagger{
+    transition-delay: 0.2s;
+    transition-duration: 0s;
+}
+
+#clear-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#clear-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(10%);
+}
+
+
+
+#history-list li.ng-enter{
+    transition: 0.2s linear all;
+    opacity: 0;
+    transform: translateX(-5%);
+}
+
+#history-list li.ng-enter.ng-enter-active{
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+#history-list li.ng-enter-stagger{
+    transition-delay: 0.2s;
+    transition-duration: 0s;
+}
+
+#history-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#history-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateY(50%);
+}
+
+#history-list li.ng-enter-stagger{
+    transition-delay: 0.05s;
+    transition-duration: 0s;
+}
+
+#history-list li.ng-leave{
+    transition: 0.2s linear all;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+#history-list li.ng-leave.ng-leave-active{
+    opacity: 0;
+    transform: translateX(-10%);
+}

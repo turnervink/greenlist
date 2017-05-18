@@ -1,0 +1,77 @@
+#report-page .container-fluid {
+    padding: 0 !important;
+}
+
+#report-page #scores-section {
+    padding-bottom: 0.8vh;
+}
+
+#report-page #scores-section h1 {
+    font-size: 6vh;
+    text-align: center;
+}
+
+#report-page #elo-rating {
+    font-size: 14vh;
+}
+
+#report-page #scores-section p {
+    font-size: 3vh;
+    text-align: center;
+}
+
+#report-page #top-items {
+    margin: 0 5% 0 5%;
+}
+
+#report-page #top-items h3 {
+    font-size: 5vh;
+    padding-bottom: 10px;
+}
+
+#report-page #top-items ol {
+    font-size: 3vh;
+    list-style: none;
+}
+
+#report-page #top-items ol span {
+    min-width: 10.3vh;
+    text-align: right;
+}
+
+#report-page #top-items li {
+    text-align: left;
+}
+
+#dataList li {
+    border-bottom: black solid 1px;
+    padding: 5vw 0 5vw 5vw;
+}
+
+#dataList ul {
+    padding: 0;
+}
+
+#itemDataLink {
+    text-align: center;
+    color: green;
+}
+
+.dataModal .modal-content {
+    /*margin-top: 30vh;*/
+    height: 200%;
+}
+
+#dataModalInner {
+    padding: 3vh;
+    text-align: center;
+}
+
+#dataModalInner h1, #dataModalInner h3 {
+    margin: 0;
+    margin-bottom: 2vw;
+}
+
+#dataModalInner .chartTitle {
+    text-align: left;
+}

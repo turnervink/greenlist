@@ -1,0 +1,10 @@
+#monty-python {
+    margin: auto;
+    text-align: center;
+    width: 80vw;
+    font-weight: 900;
+}
+
+#monty-python img{
+    border-radius: 100%;
+}

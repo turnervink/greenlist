@@ -1,0 +1,56 @@
+<ng-include src="'views/partials/panel.html'"></ng-include>
+<div class="container-fluid">
+    
+    <div id="report-page" ng-click="hideDateMenu()">
+
+        <!-- Placeholder, will use Angular -->
+        <div class="container-fluid">
+            <div class="row">
+                <div id="scores-section" class="col-xs-12">
+                    <h1 class="col-xs-12" id="efficiency-message">Your efficiency rating:</h1>
+                    <h1 class="col-xs-12"><span id="elo-rating" ng-style="getTextColor(calAverage.$value)">{{calAverage.$value * 20 | number: 0}}</span></h1>
+
+                    <p>You're using {{calAverage.$value / 100 | percentage: 1}} of your groceries.</p>
+                    <p>{{motivationMsg}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="top-items">
+                    <div class="row">
+                        <h3 class="col-xs-12">Most Efficient:</h3>
+                    </div>
+                    <div class="row">
+                        <ol class="col-xs-12">
+                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                        </ol>
+                    </div>
+
+                    <div class="row">
+                        <h3 class="col-xs-12">Least Efficient:</h3>
+                    </div>
+                    <div class="row">
+                        <ol class="col-xs-12">
+                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                        </ol>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Select data range -->
+    <div class="row addrow-row" style="margin-bottom: {{menuMargin}}">
+        <div class="col-xs-12">
+            <a href="#!/detailReports"><p class="addbar" id="itemDataLink">View Item Data</p></a>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!-- Input area background -->
+<div class="input-bg"></div>

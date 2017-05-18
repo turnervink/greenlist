@@ -1,0 +1,17 @@
+<!-- HTML for the slide in menu. -->
+<div class="side-menu-header">
+    <img ng-src="{{userPic}}">
+    <h2>{{userName}}</h2>
+    <h3>{{email}}</h3>
+</div>
+<ul>
+    <li><a ng-click="close()" href="#!/about">About</a></li>
+    <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
+</ul>
+
+<div id="sign-out">
+    <a ng-controller="AuthCtrl" ng-click="signOut(); close()">Sign&nbsp;out</a>
+</div>
+<div id="version">
+    <p>v0.3</p>
+</div>

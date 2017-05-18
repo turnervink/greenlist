@@ -1,0 +1,40 @@
+<ng-include src="'views/partials/panel.html'"></ng-include>
+
+<div class="container-fluid">	
+	<div class="row no-gutter">
+		<div class="container-fluid">
+			<!--an individal item -->
+			<ul id="history-list" class="row">
+				<li ng-repeat="food in historyItem | itemSearch: query" class="row">
+					<div class="col-xs-2 emptycb itemrow">
+						<input type="image" src="images/icons/add-cart.png" class="addtolist" ng-click="addToList(food, false)"/>
+					</div>
+					<div class="col-xs-8 itemrow">
+						<p class="shopping-item">{{food.name}}</p>
+						<!-- Waste bar -->
+						<div class="col-xs-12 colourbar" ng-style="getBackColor(food.average)">
+							<div class="innerbar" ng-style="getBarColor(food.average)">
+							</div>
+							<p>{{food.average | number: 0}}%</p>
+						</div>
+					</div>
+					<div class="col-xs-2 garbage itemrow">
+						<input type="image" src="images/icons/log-waste.png" class="logwaste" ng-click="logWaste(food, true)" ng-hide="food.dataUpdated"/>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Search bar -->
+	<div class="row no-gutter addrow-row">
+		<form>
+			<div class="col-xs-8">
+				<input ng-model="query" type="text" name="item" placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" class="addbar">
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- Input area background -->
+<div class="input-bg"></div>

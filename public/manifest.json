@@ -1,0 +1,26 @@
+{
+  "short_name": "greenlist",
+  "name": "greenlist",
+  "orientation": "portrait",
+  "display": "standalone",
+  "theme_color": "#278518",
+  "background_color": "#278518",
+  "icons": [
+    {
+      "src": "images/icons/icon48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "images/icons/icon96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/icons/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html"
+}

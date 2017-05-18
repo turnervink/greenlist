@@ -1,0 +1,15 @@
+<ng-include src="'views/partials/detailReportPanel.html'"></ng-include>
+
+<div id="dataList">
+    <div class="container-fluid">
+        <!--an individal item -->
+        <div class="row">
+            <ul class="col-xs-12">
+                <li ng-repeat="food in listItem" class="shopping-item" ng-click="dataModal(food)">
+                    {{food.name}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
