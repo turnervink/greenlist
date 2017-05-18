@@ -116,3 +116,7 @@
 .input-bg li:first-child {
 	border: none;
 }
+
+@media only screen and (orientation : landscape) {
+	
+}
