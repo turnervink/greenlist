@@ -1,5 +1,6 @@
 greenlistApp.controller("EfficiencyCtrl",
-    ["$scope", "$uibModal", "DatabaseQuery", "DatabaseRef", "$firebaseObject","UserInfo", "CurrentAuth", function($scope, $uibModal, DatabaseQuery, DatabaseRef, $firebaseObject, UserInfo, CurrentAuth) {
+    ["$scope", "$uibModal", "DatabaseQuery", "DatabaseRef", "$firebaseObject","UserInfo", "CurrentAuth",
+        function($scope, $uibModal, DatabaseQuery, DatabaseRef, $firebaseObject, UserInfo, CurrentAuth) {
 
     UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -21,18 +22,49 @@ greenlistApp.controller("EfficiencyCtrl",
 
                 //controller for the modal
                 controller: function($scope, $uibModalInstance){
-                    $scope.foodName = data;
+                    $scope.food = data;
+
+
+                        DatabaseQuery.getWasteData(data, function(data) {
+                            console.log(data);
+                            $scope.data = data;
+                        });
+
+                        DatabaseQuery.getWasteDates(data, function(data) {
+                            console.log(data);
+                            $scope.labels = data;
+                        });
+
+                        $scope.options = {
+                            scales: {
+                                yAxes: [
+                                    {
+                                        id: 'y-axis-1',
+                                        type: 'linear',
+                                        display: true,
+                                        position: 'left',
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                ],
+                                xAxes: [
+                                    {
+                                        display: true
+                                    }
+                                ]
+                            }
+                        };
+
+
+
 
                 }
 
             })
+
+
         }
-
-
-
-
-
-
 
 
 

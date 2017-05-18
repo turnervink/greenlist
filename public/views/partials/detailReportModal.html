@@ -1,9 +1,12 @@
 <div id="detailReport-popup">
-    <h1>{{foodName}}</h1>
-    <h4>HI TURNNNEERRRR</h4>
-    <h1> %%%%%%%%%%%%</h1>
-    <h1> GRAPH GRAPH GRAPH GRAPH</h1>
-    <h1> DATA DATA DATA DATA DATA</h1>
+    <h1>{{food.name}}</h1>
 
+    <canvas ng-show="data.length != 0" id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-options="options">
+    </canvas>
+
+    <div ng-show="data.length == 0">
+        <p>no data</p>
+    </div>
 </div>
 
