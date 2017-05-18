@@ -4,8 +4,9 @@
 <div ng-animate id="shopping-page">
 <div class="container-fluid">
 	<!-- div for empty list message -->
-	<div class="row" ng-show="checkShopping.length == 0">
-		<p>This is a cool message!</p>
+	<div class="row foodtip" ng-show="checkShopping.length == 0">
+		<h2 class="col-xs-12">Fun Food Fact</h2>
+		<p class="col-xs-12">{{pls}}</p>
 	</div>
 
 	<!--First section for items in list -->
