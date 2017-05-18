@@ -185,6 +185,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
             });
     }
 
+    /**
+     * Checks if an item is already in the
+     * shopping list.
+     *
+     * @param item The item to check for
+     * @param callback The callback function
+     */
     function itemIsInShopping(item, callback) {
         DatabaseRef.items().once("value")
             .then(function(data) {
@@ -237,6 +244,60 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
     }
 
     /**
+     * Gets waste scores and datestamp data for
+     * and item for displaying in a chart.
+     *
+     * @param item The item to get data for
+     * @param callback The callback function
+     */
+    function getChartData(item, callback) {
+        DatabaseRef.wasteData(item).orderByChild("date").once("value").then(function(data) {
+            var scoresArray = [];
+            var datesArray = [];
+            var recentScoresArray = [];
+            var recentDatesArray = [];
+
+            var rangeStart = new Date();
+            rangeStart.setDate(rangeStart.getDate() - 14);
+            var rangeStartStamp = rangeStart.getTime();
+            console.log(rangeStartStamp);
+
+            data.forEach(function(score) {
+                // Get last two weeks
+                if (score.val().date >= rangeStartStamp) {
+                    console.log("In last 2 weeks");
+
+                    // Get date
+                    var date = new Date(score.val().date);
+
+                    var month = date.getMonth();
+                    var day = date.getDate();
+                    var year = date.getFullYear().toString().substr(-2);
+
+                    recentDatesArray.push(month + "/" + day + "/" + year);
+
+                    // Get score
+                    recentScoresArray.push(score.val().score);
+                }
+
+                // Get date
+                var date = new Date(score.val().date);
+
+                var month = date.getMonth();
+                var day = date.getDate();
+                var year = date.getFullYear().toString().substr(-2);
+
+                datesArray.push(month + "/" + day + "/" + year);
+
+                // Get score
+                scoresArray.push(score.val().score);
+            });
+
+            callback(datesArray, scoresArray, recentDatesArray, recentScoresArray);
+        });
+    }
+
+    /**
      * Calculates and stores the average for
      * and item.
      *
@@ -270,6 +331,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    /**
+     * Gets all items averages for a user.
+     *
+     * @param callback The callback function
+     */
     function getAllItemAverages(callback) {
         DatabaseRef.items().once("value").then(function(data) {
            var dataArray = [];
@@ -282,6 +348,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    /**
+     * Updates a user's overall average.
+     */
     function updateOverallAverage() {
         console.log("Setting overall avg");
         getAllItemAverages(function(data) {
@@ -365,6 +434,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         updateCheckedStatus: updateCheckedStatus,
         deleteItem: deleteItem,
         getWasteData: getWasteData,
+        getChartData: getChartData,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
         getAllItemAverages: getAllItemAverages,

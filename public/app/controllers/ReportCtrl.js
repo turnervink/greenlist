@@ -87,4 +87,13 @@ greenlistApp.controller("ReportCtrl",
         $scope.hideDateMenu = function() {
             $scope.menuMargin = '0';
         }
+
+
+        // Chart test code
+        var item = {
+            "name": "bread"
+        };
+
+
+
 }]);

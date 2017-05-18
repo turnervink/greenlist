@@ -42,3 +42,35 @@
 #report-page #top-items li {
     text-align: left;
 }
+
+#dataList li {
+    border-bottom: black solid 1px;
+}
+
+#dataList li p {
+    padding: 5vw;
+}
+
+#itemDataLink {
+    text-align: center;
+    color: green;
+}
+
+.dataModal .modal-content {
+    /*margin-top: 30vh;*/
+    height: 200%;
+}
+
+#dataModalInner {
+    padding: 3vh;
+    text-align: center;
+}
+
+#dataModalInner h1, #dataModalInner h3 {
+    margin: 0;
+    margin-bottom: 2vw;
+}
+
+#dataModalInner .chartTitle {
+    text-align: left;
+}

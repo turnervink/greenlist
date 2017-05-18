@@ -1,4 +1,4 @@
-var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase", "ui.bootstrap", 'ngAside', 'ngAnimate']);
+var greenlistApp = angular.module("greenlistApp", ["ngRoute", "firebase", "ui.bootstrap", 'ngAside', 'ngAnimate', 'chart.js']);
 
 greenlistApp.run(["$rootScope", "$location", function($rootScope, $location) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
@@ -64,6 +64,18 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
+
+        .when("/detailReports",{
+            templateUrl: "views/html/detailReport.html",
+            controller: "EfficiencyCtrl",
+            resolve: {
+                "CurrentAuth": ["Auth", function(Auth) {
+                    return Auth.$requireSignIn();
+                }]
+            }
+
+
+    })
 
         .when("/affiliates", {
             templateUrl: "views/html/affiliates.html",

@@ -42,25 +42,15 @@
     </div>
 
     <!-- Select data range -->
-    <div class="row no-gutter addrow-row" style="margin-bottom: {{menuMargin}}">
-        <div class="col-xs-8">
-            <p class="addbar">Period: {{dateRange}}</p>
-        </div>
-        <div class="col-xs-4 button-to-right">
-            <button class="add-item-button" ng-click="showDateMenu()">Change</button>
+    <div class="row addrow-row" style="margin-bottom: {{menuMargin}}">
+        <div class="col-xs-12">
+            <a href="#!/detailReports"><p class="addbar" id="itemDataLink">View Item Data</p></a>
         </div>
     </div>
+
+
+
 </div>
 
 <!-- Input area background -->
-<div class="input-bg" style="margin-bottom: {{menuMargin}}">
-    <!-- Data range list -->
-    <ul ng-modle="dateRange">
-        <li ng-click="dateRange = 'Last 2 Weeks'; hideDateMenu()">2wks</li>
-        <li ng-click="dateRange = 'Last Month'; hideDateMenu()">1m</li>
-        <li ng-click="dateRange = 'Last 3 Months'; hideDateMenu()">3m</li>
-        <li ng-click="dateRange = 'Last 6 Months'; hideDateMenu()">6m</li>
-        <li ng-click="dateRange = 'Last Year'; hideDateMenu()">12m</li>
-        <li ng-click="dateRange = 'All Time'; hideDateMenu()">All</li>
-    </ul>
-</div>
+<div class="input-bg"></div>
