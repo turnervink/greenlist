@@ -24,7 +24,7 @@ greenlistApp.service("FoodTipsService", [ function(){
             "and leave an inch of space for expansion. When thawed, make sure to mix",
 
             "Store apples, bananas, citrus, and tomatoes separate from other produce. " +
-            "They give of ethylene gas that makes other produce ripen faster",
+            "They give off ethylene gas that makes other produce ripen faster",
 
             "Untie bunches (herbs, greens, etc) to allow produce to breathe",
 
