@@ -41,10 +41,10 @@
 }
 
 .button-to-right {
-    text-align: right;
+    text-align: center;
 }
 
-.add-item-button{
+.add-item-button {
     width: 20.7675vw;
     padding: 0;
     margin-right: 6.2125vw;
@@ -159,6 +159,164 @@ li{
     margin: inherit
 }
 
+/* Landscape view */
+@media only screen and (min-aspect-ratio: 14/10) {
+    .clearicon {
+        margin-top: 1.9vh !important;
+    }
+
+    .clearlist {
+        height: 11.7vh;
+        background: lightslategray;
+        text-align: center;
+    }
+
+    /* for the progress bar*/
+    .colourbar {
+        height: 4vh;
+        text-align: right;
+        font-size: 3vh;
+    }
+
+
+    /* also for the progress bar*/
+    .innerbar {
+        padding: 0.3vh;
+    }
+
+    /* affects all rows where an item is in the list*/
+    .itemrow {
+        height: 11.7vh;
+        border-bottom: black solid 1px;
+        padding-top: 1.2vh;
+    }
+
+    .checked-item {
+        color: #aaa;
+    }
+
+    .addrow-row {
+        width: 100%;
+        bottom: 12.3vh;
+        position: fixed;
+        transition: 0.3s;
+        z-index: 98;
+    }
+
+    .button-to-right {
+        text-align: right;
+    }
+
+    .add-item-button {
+        width: 11.7vh;
+        padding: 0;
+        margin-right: 10vh;
+        height: 4.7vh;
+        font-size: 3vh;
+        border: black solid 1px;
+        border-radius: 5px;
+        background-color: transparent;
+    }
+
+    /* css for the images */
+    .archive {
+        margin: 0;
+        width: 8.8vh;
+        height: 8.8vh;
+        padding: 0;
+        margin-top: 1.5vh;
+        margin-left: 1.4vh;
+    }
+
+    .garbage, .emptycb, .fullcb {
+        text-align: center;
+    }
+
+    .checkbox, .addtolist, .logwaste, .trashcan {
+        display: inline-block;
+        text-align: center;
+        margin: 0;
+        width: 8.8vh;
+        height: 8.8vh;
+        padding: 0;
+        margin-top: 0.5vh;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .icon {
+        margin: 0;
+        width: 8.8vh;
+        height: 8.8vh;
+        padding: 0;
+        margin-top: 0.5vh;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    /* makes the add bar cool */
+    .addbar {
+        width: 100%;
+        border: none;
+        height: 4.7vh;
+        font-size: 3.5vh;
+    }
+
+    p.addbar {
+        margin: 0;
+    }
+
+    .addbar:focus {
+        outline-width: 0;
+    }
+
+
+    /* needed for the guttering to be removed. idk why*/
+    .row.no-gutter {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* removes the spaces between bootstrap columns*/
+    .row.no-gutter [class*='col-'],
+    .row.no-gutter [class*='col-'] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .stickyfooter {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .shopping-item{
+        margin: 0;
+        font-size: 4vh;
+        font-weight: bold;
+    }
+
+    .add-icon{
+        height: 3vh;
+        width: 3vh;
+    }
+
+    .row{
+        padding: 0px;
+    }
+
+    ul{
+        list-style-type: none;
+        margin: 0px;
+    }
+
+    li{
+        margin: inherit
+    }
+}
+
 
 /* Animations */
 
@@ -206,10 +364,6 @@ li{
     transform: translateX(10%);
 }
 
-#shopping-list li.ng-leave-stagger{
-    transition-delay: 0.2s;
-    transition-duration: 0s;
-}
 
 #clear-list li.ng-enter{
     transition: 0.2s linear all;
@@ -239,10 +393,6 @@ li{
     transform: translateX(10%);
 }
 
-#clear-list li.ng-leave-stagger{
-    transition-delay: 0.2s;
-    transition-duration: 0s;
-}
 
 
 #history-list li.ng-enter{
@@ -287,4 +437,3 @@ li{
     opacity: 0;
     transform: translateX(-10%);
 }
-

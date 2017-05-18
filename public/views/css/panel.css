@@ -86,7 +86,7 @@
 	font-weight: bold;
 }
 
-/* Input area background */
+/* Date picker */
 .input-bg {
 	position: fixed;
 	bottom: 0;
@@ -115,4 +115,125 @@
 
 .input-bg li:first-child {
 	border: none;
+}
+
+@media only screen and (min-aspect-ratio: 14/10) {
+	/* Page view */
+	.content {
+		background-color: white;
+		width: 100%;
+		margin-top: 11.7vh;
+		margin-bottom: 18.5vh;
+	}
+
+	/* Nav bar */
+	.nav-bar {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		z-index: 99;
+	}
+
+	.nav-bar-content {
+		width: 100%;
+		text-align: center;
+	}
+
+	.nav-bar-content ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		display: inline-block;
+	}
+
+	.nav-bar-content li {
+		margin: 0;
+		padding-top: 6.5vh;
+		font-size: 2vh;
+		display: inline-block;
+		height: 10.6vh;
+		border-top: gray solid 1px;
+		background-position: top;
+		background-size: 7vh;
+		background-repeat: no-repeat;
+	}
+
+	/* Header */
+	.header {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 99;
+	}
+
+	.header-content {
+		background-color: green;
+		width: 100%;
+	}
+
+	.header-content a {
+		padding-left: 2.5vh;
+		font-size: 3vh;
+		position: fixed;
+		top: 3.5vh;
+		margin-left: 2.5vh;
+		color: white;
+		text-decoration: none;
+		display: inline-block;
+		background-image: url('../../images/icons/back-arrow.png');
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: 3vh;
+	}
+
+	.header-content img {
+		position: fixed;
+		top: 0;
+		width: 9vh;
+		height: 9vh;
+		margin-left: 1vh;
+		margin-top: 1vh;
+		border-radius: 100%;
+		border: white solid 2px;
+	}
+
+	.header-content h3 {
+		color: white;
+		font-size: 4vh;
+		text-align: center;
+		margin: 0;
+		padding: 3.5vh;
+		font-weight: bold;
+	}
+
+	/* Input area background */
+	.input-bg {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 19vh;
+		background-color: white;
+		border-top: gray solid 1px;
+		transition: 0.3s;
+		z-index: 97;
+	}
+
+	.input-bg ul {
+		padding: 0;
+		list-style-type: none;
+		margin-top: 9.3vh;
+	}
+
+	.input-bg li {
+		font-size: 2vh;
+		display: inline-block;
+		width: 15.5%;
+		text-align: center;
+		border-left: gray solid 1px;
+	}
+
+	.input-bg li:first-child {
+		border: none;
+	}
+
 }

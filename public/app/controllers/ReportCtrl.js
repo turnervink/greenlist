@@ -15,7 +15,6 @@ greenlistApp.controller("ReportCtrl",
         $scope.listBgImg = 'images/icons/cart-off.png';
         $scope.histBgImg = 'images/icons/hist-icon-off.png';
         $scope.reptBgImg = 'images/icons/reports-on.png';
-        $scope.menuHeight = '19vh';
         $scope.menuMargin = '0';
 
 
@@ -82,12 +81,10 @@ greenlistApp.controller("ReportCtrl",
         $scope.dateRange = 'Last 2 Weeks';
 
         $scope.showDateMenu = function() {
-            $scope.menuHeight = '27.58vh';
-            $scope.menuMargin = '8.8vh';
+            $scope.menuMargin = '8.8vh';           
         }
 
         $scope.hideDateMenu = function() {
-            $scope.menuHeight = '19vh';
             $scope.menuMargin = '0';
         }
 
