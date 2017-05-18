@@ -185,6 +185,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
             });
     }
 
+    /**
+     * Checks if an item is already in the
+     * shopping list.
+     *
+     * @param item The item to check for
+     * @param callback The callback function
+     */
     function itemIsInShopping(item, callback) {
         DatabaseRef.items().once("value")
             .then(function(data) {
@@ -236,27 +243,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
-    function getWasteDates(item, callback) {
-        DatabaseRef.wasteData(item).once("value").then(function(data) {
-           var dataArray = [];
-
-           data.forEach(function(score) {
-               console.log(score.val().date);
-               var date = new Date(score.val().date);
-               console.log(date);
-
-               var month = date.getMonth();
-               var day = date.getDate();
-               var year = date.getFullYear().toString().substr(-2);
-               console.log(month + "/" + day + "/" + year);
-
-               dataArray.push(month + "/" + day + "/" + year);
-           });
-
-           callback(dataArray);
-        });
-    }
-
+    /**
+     * Gets waste scores and datestamp data for
+     * and item for displaying in a chart.
+     *
+     * @param item The item to get data for
+     * @param callback The callback function
+     */
     function getChartData(item, callback) {
         DatabaseRef.wasteData(item).once("value").then(function(data) {
             var scoresArray = [];
@@ -315,6 +308,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    /**
+     * Gets all items averages for a user.
+     *
+     * @param callback The callback function
+     */
     function getAllItemAverages(callback) {
         DatabaseRef.items().once("value").then(function(data) {
            var dataArray = [];
@@ -327,6 +325,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    /**
+     * Updates a user's overall average.
+     */
     function updateOverallAverage() {
         console.log("Setting overall avg");
         getAllItemAverages(function(data) {
@@ -410,7 +411,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         updateCheckedStatus: updateCheckedStatus,
         deleteItem: deleteItem,
         getWasteData: getWasteData,
-        getWasteDates: getWasteDates,
         getChartData: getChartData,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
