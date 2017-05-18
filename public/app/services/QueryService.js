@@ -236,6 +236,27 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    function getWasteDates(item, callback) {
+        DatabaseRef.wasteData(item).once("value").then(function(data) {
+           var dataArray = [];
+
+           data.forEach(function(score) {
+               console.log(score.val().date);
+               var date = new Date(score.val().date);
+               console.log(date);
+
+               var month = date.getMonth();
+               var day = date.getDate();
+               var year = date.getFullYear().toString().substr(-2);
+               console.log(month + "/" + day + "/" + year);
+
+               dataArray.push(month + "/" + day + "/" + year);
+           });
+
+           callback(dataArray);
+        });
+    }
+
     /**
      * Calculates and stores the average for
      * and item.
@@ -365,6 +386,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         updateCheckedStatus: updateCheckedStatus,
         deleteItem: deleteItem,
         getWasteData: getWasteData,
+        getWasteDates: getWasteDates,
         setItemAverage: setItemAverage,
         getItemAverage: getItemAverage,
         getAllItemAverages: getAllItemAverages,

@@ -90,4 +90,46 @@ greenlistApp.controller("ReportCtrl",
             $scope.menuHeight = '19vh';
             $scope.menuMargin = '0';
         }
+
+
+        // Chart test code
+        var item = {
+            "name": "bread"
+        };
+
+        function getChart() {
+            DatabaseQuery.getWasteData(item, function(data) {
+                console.log(data);
+                $scope.data = data;
+            });
+
+            DatabaseQuery.getWasteDates(item, function(data) {
+                console.log(data);
+                $scope.labels = data;
+            });
+
+            $scope.options = {
+                scales: {
+                    yAxes: [
+                        {
+                            id: 'y-axis-1',
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }
+                    ],
+                    xAxes: [
+                        {
+                            display: true
+                        }
+                    ]
+                }
+            };
+        }
+
+        getChart();
+
 }]);
