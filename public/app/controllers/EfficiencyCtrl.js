@@ -33,6 +33,9 @@ greenlistApp.controller("EfficiencyCtrl",
                         $scope.chartData = scores;
                         $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
                         $scope.options = {
+                            elements: {
+                                point: {}
+                            },
                             scales: {
                                 yAxes: [
                                     {
@@ -42,11 +45,24 @@ greenlistApp.controller("EfficiencyCtrl",
                                         position: 'left',
                                         ticks: {
                                             beginAtZero: true,
-                                            max: 100
+                                            max: 100,
+                                            stepSize: 50,
+                                            fontSize: 16,
+                                            fontFamily: "Asap"
                                         }
                                     }
                                 ],
-                                xAxes: [{display: true}]
+                                xAxes: [
+                                    {
+                                        display: true,
+                                        ticks: {
+                                            maxTicksLimit: 5,
+                                            fontSize: 16,
+                                            minRotation: 45,
+                                            fontFamily: "Asap"
+                                        }
+                                    }
+                                ]
                             }
                         };
 
