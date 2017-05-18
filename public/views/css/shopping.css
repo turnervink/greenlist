@@ -11,8 +11,15 @@
 /* Styling for the random tips that appear on the shopping list */
 .foodtip {
     text-align: center;
-    font-size: 2em;
-    margin-top: 20px;
+    margin-top: 7vw;
+}
+
+.foodtip p {
+    font-size: 2.25em;
+}
+
+.foodtip h2 {
+    opacity: 0.5;
 }
 
 /* for the progress bar*/
