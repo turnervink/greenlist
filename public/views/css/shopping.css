@@ -4,8 +4,12 @@
 
 .clearlist {
     height: 20.7675vw;
-    background: lightslategray;
+    background: #cccccc;
     text-align: center;
+}
+
+.archiveText {
+    color: #6c6c6c;
 }
 
 /* Styling for the random tips that appear on the shopping list */
