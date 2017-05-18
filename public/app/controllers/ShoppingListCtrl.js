@@ -22,8 +22,6 @@ greenlistApp.controller("ShoppingListCtrl",
             console.log(uncheckedItems);
         });
 
-
-
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
         checkedItems.$bindTo($scope, "checkedItems");
 

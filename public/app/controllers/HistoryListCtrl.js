@@ -22,7 +22,6 @@ greenlistApp.controller("HistoryListCtrl",
 
         // Create a database reference to items in the history list
         var historyFood = $firebaseObject(DatabaseRef.getRefToSpecificList('history'));
-
         $scope.historyItem = historyFood;
 
         /**
@@ -31,6 +30,7 @@ greenlistApp.controller("HistoryListCtrl",
          * service if the item needs a data update.
          *
          * @param food The item to log waste for
+         * @status boolean for showing cancel or ask later button
          */
         $scope.logWaste = function(food, status) {
             if (!food.dataUpdated) {
@@ -46,6 +46,7 @@ greenlistApp.controller("HistoryListCtrl",
          * the shopping list.
          *
          * @param food
+         * @status boolean for showing cancel or ask later button
          */
         $scope.addToList = function(food, status) {
             if (!food.dataUpdated) {
