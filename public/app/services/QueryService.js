@@ -23,10 +23,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
 
             if (data === null) {
-                setItemList(item, "shopping");
+
                 console.error("null received from modal");
 
-                callback(false)
+                callback(null)
             } else {
                 console.log("Got from modal:", data);
                 var wasteScore = {
