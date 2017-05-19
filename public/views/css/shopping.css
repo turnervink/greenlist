@@ -123,6 +123,7 @@ keep for now in case we go back to the button life*/
 
 /* makes the add bar cool */
 .addbar {
+    padding: 0;
     width: 100%;
     border: none;
     height: 8.3425vw;
