@@ -51,9 +51,9 @@ greenlistApp.service("FoodTipsService", [ function(){
             "in a moist paper towel or cloth",
 
             "Avacadoes can be ripened faster by placing in a paper bag, and placing an apple in with it. " +
-            "Once ripe, store avacadoes in the fridge.",
+            "Once ripe, store avocados in the fridge.",
 
-            "You can freeze bananas with or with or without the peel, " +
+            "You can freeze bananas with or without the peel, " +
             "and use them later in baked goods or smoothies",
 
             "basil should be stored on the counter in a glass of water like a cut flower, " +
