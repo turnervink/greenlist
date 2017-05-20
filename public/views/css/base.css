@@ -252,6 +252,10 @@ input[type=range]::-moz-range-thumb {
 	border-left: white solid 1px;
 }
 
+#detailReport-popup {
+	width: 90vw;
+}
+
 /* Centre modals vertically */
 .modal {
 	text-align: center;
