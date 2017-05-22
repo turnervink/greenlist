@@ -13,6 +13,13 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(UserInfo.getCurrentUser().uid + "/items");
     }
 
+    function onlyFoodItems(){
+        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+            .orderByChild("NonFood")
+            .equalTo(false);
+    }
+
+
     /**
      * Reference to a specific child (based on input list) under the item node.
      *
@@ -23,6 +30,10 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(UserInfo.getCurrentUser().uid + "/items")
             .orderByChild("list")
             .equalTo(list);
+    }
+
+    function setNonFoodStatus (food, status) {
+        database.ref(UserInfo.getCurrentUser().uid + "/items").child(food.name).update({"NonFood": status});
     }
 
     function getRefToAllList(){
@@ -64,7 +75,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns firebase reference location to top 3 items
      */
     function topEfficient(){
-        return items().orderByChild("average").limitToLast(3);
+        return onlyFoodItems().limitToLast(3);
     }
 
     /**
@@ -72,7 +83,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns firebase reference location to bottom 3 items
      */
     function bottomEfficient(){
-        return items().orderByChild("average").limitToFirst(3);
+        return onlyFoodItems().limitToFirst(3);
     }
 
     /**
@@ -119,7 +130,9 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         database: database,
         bottomEfficient: bottomEfficient,
         topEfficient: topEfficient,
-        getRefToAllList: getRefToAllList
+        getRefToAllList: getRefToAllList,
+        setNonFoodStatus: setNonFoodStatus,
+        onlyFoodItems: onlyFoodItems
 
     }
 

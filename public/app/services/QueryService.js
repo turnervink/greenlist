@@ -18,6 +18,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
             //controller for the modal
             controller:function($scope, $uibModalInstance){
+
+                $scope.nonFood = item.NonFood;
+
+
                 if (status === true){
                     $scope.cancel = true;
                 }
@@ -25,6 +29,11 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                     $scope.cancel = false;
                 }
 
+                $scope.setNonFood = function(status){
+                    DatabaseRef.setNonFoodStatus(item, status);
+
+
+                }
                 /**
                  * Close the modal.
                  */
@@ -88,7 +97,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
             list: "shopping",
             name: itemName.toLowerCase(),
             checked: false,
-            average: 0
+            average: 0,
+            NonFood: false
         };
 
         if (newItem.name == "uuddlrlrba") {
@@ -363,7 +373,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getAllItemAverages(callback) {
-        DatabaseRef.items().once("value").then(function(data) {
+        DatabaseRef.onlyFoodItems().once("value").then(function(data) {
            var dataArray = [];
 
            data.forEach(function(item) {
@@ -421,7 +431,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getTopEfficient(callback) {
-        DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
+        DatabaseRef.onlyFoodItems().orderByChild("average").limitToLast(3).once("value").then(function(data) {
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -438,7 +448,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getBottomEfficient(callback) {
-        DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
+        DatabaseRef.onlyFoodItems().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
             var dataArray = [];
 
             data.forEach(function(item) {

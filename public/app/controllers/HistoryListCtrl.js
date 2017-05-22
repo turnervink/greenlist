@@ -60,6 +60,8 @@ greenlistApp.controller("HistoryListCtrl",
             }
         }
 
+
+
         /** 
          * Get the color for the background of food efficiency bar based
          * on the average of the food efficiency.
@@ -88,5 +90,7 @@ greenlistApp.controller("HistoryListCtrl",
                 "background-color": color
             }
         }
+
+
 
 }]);
