@@ -80,10 +80,10 @@
 
 
 	<!--Fourth section for adding new items -->
-	<div class="row no-gutter addrow-row">
+	<div class="row no-gutter addrow-row" style="margin-bottom: {{inputHeight}}">
 		<form>
 			<div class="col-xs-8">
-				<input ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" class="addbar">
+				<input ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" ng-click="navDisplay = 'none'; inputHeight = '-20vw'" ng-blur="navDisplay = 'block'; inputHeight = '0'" class="addbar">
 			</div>
 			<div class="col-xs-4 button-to-right">
 				<button class="add-item-button" ng-click="addItem(newItemName)">Add</button>
@@ -94,5 +94,5 @@
 
 
 <!-- Input area background -->
-<div class="input-bg"></div>
+<div class="input-bg" style="margin-bottom: {{inputHeight}}"></div>
 </div>

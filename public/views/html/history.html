@@ -27,14 +27,14 @@
 	</div>
 
 	<!-- Search bar -->
-	<div class="row no-gutter addrow-row">
+	<div class="row no-gutter addrow-row" style="margin-bottom: {{inputHeight}}">
 		<form>
 			<div class="col-xs-8">
-				<input ng-model="query" type="text" name="item" placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" class="addbar">
+				<input ng-model="query" type="text" name="item" placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" ng-click="navDisplay = 'none'; inputHeight = '-20vw'" ng-blur="navDisplay = 'block'; inputHeight = '0'" class="addbar">
 			</div>
 		</form>
 	</div>
 </div>
 
 <!-- Input area background -->
-<div class="input-bg"></div>
+<div class="input-bg" style="margin-bottom: {{inputHeight}}"></div>
