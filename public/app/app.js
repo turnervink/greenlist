@@ -83,10 +83,6 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
             controller: "AboutCtrl"
         })
 
-        .when("/feedback", {
-            templateUrl:"views/html/feedback.html"
-        })
-
         .otherwise({
             redirectTo: "/list"
         });
