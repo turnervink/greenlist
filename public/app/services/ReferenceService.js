@@ -138,6 +138,9 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(uid + "/sharedLists");
     }
 
+    function emails() {
+        return database.ref("emails");
+    }
     /**
      * return all the functions
      */
@@ -160,7 +163,8 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         getAllShareList: getAllShareList,
         sharedLists: sharedLists,
         userSharedLists: userSharedLists,
-        friendSharedLists: friendSharedLists
+        friendSharedLists: friendSharedLists,
+        emails: emails
     }
 
 

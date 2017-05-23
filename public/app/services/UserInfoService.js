@@ -12,6 +12,7 @@ greenlistApp.service("UserInfo", function() {
      * @param displayName The user's display name
      * @param uid The user's unique ID
      * @param photoUrl URL to the user's Google account picture
+     * @param email The user's gmail address
      */
     function initUser(displayName, uid, photoUrl, email) {
         console.log("Setting up user");
@@ -19,6 +20,8 @@ greenlistApp.service("UserInfo", function() {
         currentUser.uid = uid;
         currentUser.photoUrl = photoUrl;
         currentUser.email = email;
+
+        firebase.database().ref("emails").child(uid).set(email);
     }
 
     /**
