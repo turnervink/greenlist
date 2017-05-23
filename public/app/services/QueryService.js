@@ -449,6 +449,71 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    /**
+     * Erases all data at the root of a user's
+     * database node.
+     */
+    function eraseData() {
+
+        // First modal to confirm decision
+        var modalInstance = $uibModal.open({
+            templateUrl: 'views/partials/cleardatamodal.html',
+            windowClass: 'logwaste-popup',
+            controller:function($scope, $uibModalInstance){
+
+                /**
+                 * Fired if user confirms the deletion the first time.
+                 */
+                $scope.yes = function() {
+                    console.log("yes");
+                    $uibModalInstance.close(null);
+
+                    // Confirm a second time
+                    var confirmModalInstance = $uibModal.open({
+                        templateUrl: 'views/partials/cleardatamodalconfirm.html',
+                        windowClass: 'logwaste-popup',
+
+                        controller:function($scope, $uibModalInstance){
+
+                            /**
+                             * Fired if user confirms the deletion the second time.
+                             * Deletes all user data.
+                             */
+                            $scope.yes = function() {
+                                console.log("yes");
+                                $uibModalInstance.close(null);
+                                DatabaseRef.root().remove().then(function() {
+                                    console.log("Deleted user data");
+                                    $location.url("/goodbye");
+                                });
+                            };
+
+                            /**
+                             * Fired if user doesn't confirm the deletion.
+                             */
+                            $scope.no = function() {
+                                console.log("no");
+                                $uibModalInstance.close(null);
+                            }
+
+
+                        }
+                    });
+                };
+
+                /**
+                 * Fired if user doesn't confirm the deletion.
+                 */
+                $scope.no = function() {
+                    console.log("no");
+                    $uibModalInstance.close(null);
+                }
+
+
+            }
+        });
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -469,7 +534,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         setRank: setRank,
         getRank: getRank,
         getTopEfficient: getTopEfficient,
-        getBottomEfficient: getBottomEfficient
+        getBottomEfficient: getBottomEfficient,
+        eraseData: eraseData
     }
 
 }]);

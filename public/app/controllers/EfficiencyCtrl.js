@@ -67,6 +67,15 @@ greenlistApp.controller("EfficiencyCtrl",
                                         }
                                     }
                                 ]
+                            },
+                            pan: {
+                                enabled: true,
+                                mode: "x"
+                            },
+                            zoom: {
+                                enabled: true,
+                                drag: false,
+                                mode: "x"
                             }
                         };
 

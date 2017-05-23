@@ -9,11 +9,15 @@ keep for now in case we go back to the button life*/
     height: 20.7675vw;
     background: #cccccc;
     text-align: center;
+    cursor: pointer;
 }
 
 /*Styling for the clear list text*/
 .archiveText {
     color: #6c6c6c;
+    font-size: 8vw;
+    margin: 0;
+    margin-top: 5vw;
 }
 
 /* Styling for the random tips that appear on the shopping list */
@@ -23,7 +27,7 @@ keep for now in case we go back to the button life*/
 }
 
 .foodtip p {
-    font-size: 2.25em;
+    font-size: 1.5em;
 }
 
 .foodtip h2 {
@@ -123,6 +127,7 @@ keep for now in case we go back to the button life*/
 
 /* makes the add bar cool */
 .addbar {
+    padding: 0;
     width: 100%;
     border: none;
     height: 8.3425vw;
@@ -191,8 +196,16 @@ li{
 
     .clearlist {
         height: 11.7vh;
-        background: lightslategray;
+        background: #ccc;
         text-align: center;
+    }
+
+    /*Styling for the clear list text*/
+    .archiveText {
+        color: #6c6c6c;
+        font-size: 5vh;
+        margin: 0;
+        margin-top: 2.5vh;
     }
 
     /* for the progress bar*/
@@ -215,20 +228,12 @@ li{
         padding-top: 1.2vh;
     }
 
-    .checked-item {
-        color: #aaa;
-    }
-
     .addrow-row {
         width: 100%;
         bottom: 12.3vh;
         position: fixed;
         transition: 0.3s;
         z-index: 98;
-    }
-
-    .button-to-right {
-        text-align: right;
     }
 
     .add-item-button {
@@ -252,10 +257,6 @@ li{
         margin-left: 1.4vh;
     }
 
-    .garbage, .emptycb, .fullcb {
-        text-align: center;
-    }
-
     .checkbox, .addtolist, .logwaste, .trashcan {
         display: inline-block;
         text-align: center;
@@ -266,6 +267,7 @@ li{
         margin-top: 0.5vh;
         margin-left: auto;
         margin-right: auto;
+        cursor: pointer;
     }
 
     .icon {
@@ -287,35 +289,6 @@ li{
         font-size: 3.5vh;
     }
 
-    p.addbar {
-        margin: 0;
-    }
-
-    .addbar:focus {
-        outline-width: 0;
-    }
-
-
-    /* needed for the guttering to be removed. idk why*/
-    .row.no-gutter {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    /* removes the spaces between bootstrap columns*/
-    .row.no-gutter [class*='col-'],
-    .row.no-gutter [class*='col-'] {
-        padding-right: 0;
-        padding-left: 0;
-    }
-
-    .stickyfooter {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
     .shopping-item{
         margin: 0;
         font-size: 4vh;
@@ -327,18 +300,6 @@ li{
         width: 3vh;
     }
 
-    .row{
-        padding: 0px;
-    }
-
-    ul{
-        list-style-type: none;
-        margin: 0px;
-    }
-
-    li{
-        margin: inherit
-    }
 }
 
 
