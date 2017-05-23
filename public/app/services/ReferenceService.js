@@ -48,9 +48,9 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
 
     }
 
-    function setShareList(){
-        database.set(shareList);
-    }
+    // function setShareList(){
+    //     database.set(shareList);
+    // }
 
     /**
      * Reference to the checked child in item node that is set to false.
@@ -126,6 +126,18 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref("leaderboard").child(UserInfo.getCurrentUser().uid);
     }
 
+    function sharedLists() {
+        return database.ref("sharedLists");
+    }
+
+    function userSharedLists() {
+        return database.ref(UserInfo.getCurrentUser().uid + "/sharedLists")
+    }
+
+    function friendSharedLists(uid) {
+        return database.ref(uid + "/sharedLists");
+    }
+
     /**
      * return all the functions
      */
@@ -145,8 +157,10 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         getRefToAllList: getRefToAllList,
         setNonFoodStatus: setNonFoodStatus,
         onlyFoodItems: onlyFoodItems,
-        getAllShareList: getAllShareList
-
+        getAllShareList: getAllShareList,
+        sharedLists: sharedLists,
+        userSharedLists: userSharedLists,
+        friendSharedLists: friendSharedLists
     }
 
 
