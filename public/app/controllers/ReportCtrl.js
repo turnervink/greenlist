@@ -49,16 +49,16 @@ greenlistApp.controller("ReportCtrl",
 
             if ($scope.calAverage.$value < 40) {
                 $scope.grade = "D";
-            } else if ($scope.calAverage.$value < 63) {
+            } else if ($scope.calAverage.$value <= 63) {
                 $scope.grade = "C";
-            } else if ($scope.calAverage.$value == 73) {
+            } else if ($scope.calAverage.$value <= 73) {
                 $scope.grade = "B";
-            } else if ($scope.calAverage.$value < 86) {
+            } else if ($scope.calAverage.$value <= 83) {
                 $scope.grade = "A";
-            } else if ($scope.calAverage.$value <= 92) {
-                $scope.grade = "S";
-            } else if ($scope.calAverage.$value >= 100) {
-                $scope.grade = "SS";
+            } else if ($scope.calAverage.$value <= 86) {
+                $scope.grade = "A+";
+            } else if ($scope.calAverage.$value <= 100) {
+                $scope.grade = "A++";
             } else if ($scope.calAverage.$value === 450) {
                 $scope.grade = "Over 9000";
             }
