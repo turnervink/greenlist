@@ -195,6 +195,7 @@
 		margin-top: 1vh;
 		border-radius: 100%;
 		border: white solid 2px;
+		cursor: pointer;
 	}
 
 	.header-content h3 {

@@ -9,6 +9,7 @@ keep for now in case we go back to the button life*/
     height: 20.7675vw;
     background: #cccccc;
     text-align: center;
+    cursor: pointer;
 }
 
 /*Styling for the clear list text*/
@@ -266,6 +267,7 @@ li{
         margin-top: 0.5vh;
         margin-left: auto;
         margin-right: auto;
+        cursor: pointer;
     }
 
     .icon {
