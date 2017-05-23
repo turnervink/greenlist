@@ -72,7 +72,7 @@ function handleFormSubmit(event) {  // handles form submit withtout any jquery
 function loaded() {
     console.log('contact form submission handler loaded successfully');
     // bind to the submit event of our form
-    var form = document.getElementById('gform');
+    var form = document.getElementById('emailform');
     form.addEventListener("submit", handleFormSubmit, false);
 };
 document.addEventListener('DOMContentLoaded', loaded, false);
