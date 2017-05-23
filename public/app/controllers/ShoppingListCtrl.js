@@ -15,7 +15,8 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.listBgImg = 'images/icons/cart-on.png';
         $scope.histBgImg = 'images/icons/hist-icon-off.png';
         $scope.reptBgImg = 'images/icons/reports-off.png';
-
+        $scope.navDisplay = 'block';
+        $scope.inputHeight = '0';
       
         var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());
         uncheckedItems.$bindTo($scope, "uncheckedItems").then(function() {
