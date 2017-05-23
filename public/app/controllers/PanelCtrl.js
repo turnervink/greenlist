@@ -1,7 +1,7 @@
 /**
  * Brings out side nav by injecting new view with modal.
  */
-greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, DatabaseRef, $firebaseObject) {
+greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, DatabaseRef, $firebaseObject, $uibModal) {
     $scope.userPic = UserInfo.getCurrentUser().photoUrl;
 
     $scope.asideState = {
@@ -39,7 +39,6 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
                 $scope.close = function() {
                     $uibModalInstance.close();
                     //e.stopPropagation();
-
                 };
                 /*$scope.cancel = function(e) {
                  $uibModalInstance.dismiss();
@@ -49,20 +48,69 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
                 allShareList.$bindTo($scope, "allLists");
 
                 $scope.addNewList= function(list){
-                    var newListKey = firebase.database().ref().child('sharedList').push().key;
 
-                    var listEntry = {
-                        name: list,
-                        listKey: newListKey,
+                    if (list === undefined){
+
+                    }
+                    else{var newListKey = firebase.database().ref().child('sharedList').push().key;
+
+                        var listEntry = {
+                            name: list,
+                            listKey: newListKey,
+                        }
+
+
+                        var updates = {};
+                        updates['/sharedLists/' + '/' + newListKey + '/'] = listEntry;
+                        updates[UserInfo.getCurrentUser().uid + "/sharedLists/" + '/' + newListKey + '/'] = listEntry;
+
+                        firebase.database().ref().update(updates);}
+
+
+                }
+
+                $scope.deleteList = function(listID){
+
+                    var delList ={
+                        name: null,
+                        listKey: null,
+
                     }
 
+                    var removes = {};
+                    removes['/sharedLists/' + '/' + listID + '/'] = delList;
+                    removes[UserInfo.getCurrentUser().uid + "/sharedLists/" + '/' + listID + '/'] = delList;
+                    firebase.database().ref().update(removes);
 
-                    var updates = {};
-                    updates['/sharedLists/' + '/' + newListKey + '/'] = listEntry;
-                    updates[UserInfo.getCurrentUser().uid + "/sharedLists/" + '/' + list + '/'] = listEntry;
+                }
 
-                    firebase.database().ref().update(updates);
+                $scope.shareThisList = function(listKey){
+                    $uibModal.open({
+                        templateUrl: 'views/partials/shareList.html',
+                        controller: function($scope, $uibModalInstance, UserInfo){
+                            $scope.addUserEmail = function(email){
 
+                                var shareUID = firebase.database().ref('/emails').child(email);
+                                shareUID.once("value", function(snapshot) {
+                                    var addList={
+                                        name: UserInfo.getCurrentUser().displayName + "'s list",
+                                        listKey: listKey,
+                                    }
+                                    var addShareList ={};
+                                    addShareList[snapshot.val() + "/sharedLists/"] = addList;
+                                    firebase.database().ref().update(addShareList);
+                                });
+
+
+
+                               // firebae.databse().ref().update
+
+                            }
+                        }
+                        }
+
+
+                    )
                 }
 
             }
