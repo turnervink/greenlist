@@ -83,10 +83,10 @@
 	<div class="row no-gutter addrow-row" style="margin-bottom: {{inputHeight}}">
 		<form>
 			<div class="col-xs-8">
-				<input ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" ng-click="navDisplay = 'none'; inputHeight = '-20vw'" ng-blur="navDisplay = 'block'; inputHeight = '0'" class="addbar">
+				<input id="addItemInput" ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" ng-focus="navDisplay = 'none'; inputHeight = '-20vw'" ng-blur="navDisplay = 'block'; inputHeight = '0'" class="addbar">
 			</div>
 			<div class="col-xs-4 button-to-right">
-				<button class="add-item-button" ng-click="addItem(newItemName)">Add</button>
+				<button class="add-item-button" ng-click="addItem(newItemName)" onfocus="document.getElementById('addItemInput').focus(); return false;">Add</button>
 			</div>
 		</form>
 	</div>
