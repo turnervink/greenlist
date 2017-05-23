@@ -36,7 +36,6 @@ greenlistApp.controller("HistoryListCtrl",
             if (!food.dataUpdated) {
                 DatabaseQuery.updateWasteScore(food, status, function(gotData) {});
             }
-
         }
 
         /**

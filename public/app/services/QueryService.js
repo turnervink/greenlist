@@ -15,13 +15,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
             windowClass: 'logwaste-popup',
-
             //controller for the modal
             controller:function($scope, $uibModalInstance){
-
                 $scope.nonFood = item.NonFood;
-
-
                 if (status === true){
                     $scope.cancel = true;
                 }
@@ -31,9 +27,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
                 $scope.setNonFood = function(status){
                     DatabaseRef.setNonFoodStatus(item, status);
-
-
                 }
+
                 /**
                  * Close the modal.
                  */
@@ -47,20 +42,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 $scope.later = function() {
                     $uibModalInstance.close(null); // Pass null if there isn't any data
                 }
-
-
             }
         });
 
 
         // get score from modal
         modalInstance.result.then(function (data) {
-
             //set the modal button to cancel or ask me later
             if (data === null) {
-
                 console.error("null received from modal");
-
                 callback(null)
             } else {
                 console.log("Got from modal:", data);
@@ -68,7 +58,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                     date: Date.now(),
                     score: parseInt(data)
                 };
-
                 var push = DatabaseRef.wasteData(item).push();
                 push.set(wasteScore);
                 updateWasteDataStatus(item, true);
@@ -116,18 +105,14 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 console.log(newItem.name + " is already in shopping");
             } else {
                 console.log("Looking for " + newItem.name + " in history...");
-
                 itemIsInHistory(newItem, function(historical) {
                     if (historical === true) {
                         console.log(newItem.name + " exists in history!");
-
                         checkWasteDataStatus(newItem, function(dataUpdated) {
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem, function(gotData) {
-                                    if (gotData) {
+                                updateWasteScore(newItem, false, function(gotData) {
                                         setItemList(newItem, "shopping");
-                                    }
                                 });
                             } else {
                                 setItemList(newItem, "shopping");

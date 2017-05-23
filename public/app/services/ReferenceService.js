@@ -40,6 +40,18 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref(UserInfo.getCurrentUser().uid + "/items")
             .orderByChild("list");
     }
+
+    function getAllShareList(){
+        return database.ref(UserInfo.getCurrentUser().uid + "/sharedLists")
+            .orderByChild("name");
+
+
+    }
+
+    function setShareList(){
+        database.set(shareList);
+    }
+
     /**
      * Reference to the checked child in item node that is set to false.
      * @returns database location for checked child
@@ -132,7 +144,8 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         topEfficient: topEfficient,
         getRefToAllList: getRefToAllList,
         setNonFoodStatus: setNonFoodStatus,
-        onlyFoodItems: onlyFoodItems
+        onlyFoodItems: onlyFoodItems,
+        getAllShareList: getAllShareList
 
     }
 

@@ -1,8 +1,7 @@
 /**
  * Brings out side nav by injecting new view with modal.
  */
-greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
-
+greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, DatabaseRef, $firebaseObject) {
     $scope.userPic = UserInfo.getCurrentUser().photoUrl;
 
     $scope.asideState = {
@@ -46,6 +45,26 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo) {
                  $uibModalInstance.dismiss();
                  e.stopPropagation();
                  };*/
+                var allShareList = $firebaseObject(DatabaseRef.getAllShareList());
+                allShareList.$bindTo($scope, "allLists");
+
+                $scope.addNewList= function(list){
+                    var newListKey = firebase.database().ref().child('sharedList').push().key;
+
+                    var listEntry = {
+                        name: list,
+                        listKey: newListKey,
+                    }
+
+
+                    var updates = {};
+                    updates['/sharedLists/' + '/' + newListKey + '/'] = listEntry;
+                    updates[UserInfo.getCurrentUser().uid + "/sharedLists/" + '/' + list + '/'] = listEntry;
+
+                    firebase.database().ref().update(updates);
+
+                }
+
             }
         }).result.then(postClose, postClose);
     }
