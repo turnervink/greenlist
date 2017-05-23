@@ -50,6 +50,14 @@ keep for now in case we go back to the button life*/
     padding-top: 2.13vw;
 }
 
+/* Affects the quantity input on each item */
+.qty {
+    border-style: hidden;
+    float: right;
+    height: 1.25em;
+    font-size: 6vw;
+}
+
 .checked-item {
     color: #aaa;
 }
