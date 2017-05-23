@@ -18,7 +18,7 @@
 				<li ng-repeat="item in uncheckedItems" class="row">
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
-						<input type="image" src="images/icons/unchecked.png" class="checkbox" ng-click="toggleCheck(item, true)"/>
+						<input type="image" src="images/icons/unchecked.png" class="checkbox" onclick="this.src = 'images/icons/checked.png'" ng-click="toggleCheck(item, true)"/>
 					</div>
 					<div class="col-xs-8 itemrow">
 						<!-- item name injected here-->
