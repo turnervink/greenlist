@@ -17,10 +17,10 @@
     margin-top: 3px;
 }
 
-.logwaste-popup .modal-dialog button {
-    background-color: white;
-    color: black;
-    border-top: 1px solid lightgray;
+button.basic-btn {
+    background-color: white !important;
+    color: black !important;
+    border-top: 1px solid lightgray !important;
 }
 
 .logwaste-popup .modal-dialog .danger-btn {
