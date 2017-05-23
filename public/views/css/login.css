@@ -31,10 +31,14 @@
 }
 
 /* CSS for sign in button. */
-#sign-in{
-    display: block;
-    margin: inherit;
+#sign-in img{
     width: 55%;
     height: 55%;
     cursor: pointer;
+}
+
+#sign-in {
+    padding-top: 25%;
+    display: block;
+    margin: inherit;
 }
