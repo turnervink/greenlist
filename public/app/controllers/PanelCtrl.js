@@ -55,7 +55,7 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
                     else{var newListKey = firebase.database().ref().child('sharedList').push().key;
 
                         var listEntry = {
-                            name: list,
+                            name: list + " (" + UserInfo.getCurrentUser().displayName + ")",
                             listKey: newListKey,
                         }
 
@@ -78,27 +78,44 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
                     }
 
                     var removes = {};
-                    removes['/sharedLists/' + '/' + listID + '/'] = delList;
+                    // removes['/sharedLists/' + '/' + listID + '/'] = delList;
                     removes[UserInfo.getCurrentUser().uid + "/sharedLists/" + '/' + listID + '/'] = delList;
                     firebase.database().ref().update(removes);
 
                 }
 
-                $scope.shareThisList = function(listKey){
+                $scope.shareThisList = function(listKey, listName){
                     $uibModal.open({
                         templateUrl: 'views/partials/shareList.html',
                         controller: function($scope, $uibModalInstance, UserInfo){
                             $scope.addUserEmail = function(email){
 
-                                var shareUID = firebase.database().ref('/emails').child(email);
+                                var newEmail;
+
+                                var shareUID = firebase.database().ref('/emails');
+
                                 shareUID.once("value", function(snapshot) {
-                                    var addList={
-                                        name: UserInfo.getCurrentUser().displayName + "'s list",
+                                    // console.log(snapshot.val());
+
+                                    snapshot.forEach(function(data) {
+                                       console.log(data.val());
+
+                                       if (data.val() === email) {
+                                           newEmail = data.getKey();
+                                       }
+                                    });
+
+                                    console.log(newEmail);
+
+                                    var addList = {
+                                        name: listName,
                                         listKey: listKey,
                                     }
+
                                     var addShareList ={};
-                                    addShareList[snapshot.val() + "/sharedLists/"] = addList;
+                                    addShareList[newEmail + "/sharedLists/" + listKey] = addList;
                                     firebase.database().ref().update(addShareList);
+
                                 });
 
 

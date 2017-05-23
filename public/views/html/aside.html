@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <ul id="clear-list" class="row">
             <li ng-repeat="lists in allLists" class="row no-gutter">
-                <div class="col-xs-8 itemrow" ng-click="shareThisList(lists.listKey)">
+                <div class="col-xs-8 itemrow" ng-click="shareThisList(lists.listKey, lists.name)">
                     <!-- item name injected here-->
                     <p>{{lists.name}}</p>
                 </div>
