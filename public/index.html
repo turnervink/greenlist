@@ -70,5 +70,9 @@
 <body class="{{bodyClass}}" ng-controller="GlobalCtrl">
         <main class="content" ng-view></main>
 
-</body>
+        <script data-cfasync="false" type="text/javascript">
+            var loc =  "../../app/scripts/submitemail.js";
+            $.getScript(loc);
+        </script>
+        </body>
 </html>
