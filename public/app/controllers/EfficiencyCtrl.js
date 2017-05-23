@@ -74,6 +74,7 @@ greenlistApp.controller("EfficiencyCtrl",
                             },
                             zoom: {
                                 enabled: true,
+                                drag: false,
                                 mode: "x"
                             }
                         };
