@@ -57,7 +57,6 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                 }]
             }
         })
-
         .when("/detailReports",{
             templateUrl: "views/html/detailReport.html",
             controller: "EfficiencyCtrl",
@@ -66,10 +65,20 @@ greenlistApp.config(["$routeProvider", function($routeProvider) {
                     return Auth.$requireSignIn();
                 }]
             }
-
-
-    })
-
+        })
+        .when("/settings", {
+            templateUrl: "views/html/settings.html",
+            controller: "SettingsCtrl",
+            resolve: {
+                "CurrentAuth": ["Auth", function(Auth) {
+                    return Auth.$requireSignIn();
+                }]
+            }
+        })
+        .when("/goodbye", {
+            templateUrl: "views/html/goodbye.html",
+            controller: "AuthCtrl",
+        })
         .when("/affiliates", {
             templateUrl: "views/html/affiliates.html",
             controller: "AffiliatesCtrl"

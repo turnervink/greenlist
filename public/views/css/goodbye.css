@@ -1,0 +1,17 @@
+#goodbye-page {
+    text-align: center;
+}
+
+#goodbye-page input {
+    background-color: green;
+    color: white;
+    border: 0;
+    width: 75%;
+    height: 3em;
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+#goodbye-page textarea {
+    border: 1px solid black;
+}

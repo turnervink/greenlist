@@ -5,6 +5,15 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
     var database = firebase.database();
 
     /**
+     * Reference to the root of a user's data.
+     *
+     * @returns database reference
+     */
+    function root() {
+        return database.ref(UserInfo.getCurrentUser().uid);
+    }
+
+    /**
      * Reference to database location for "items".
      *
      * @returns database location for item node
@@ -107,6 +116,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * return all the functions
      */
     return {
+        root: root,
         items: items,
         overallAverage: overallAverage,
         getRefToSpecificList: getRefToSpecificList,
