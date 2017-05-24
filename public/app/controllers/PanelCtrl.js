@@ -3,6 +3,7 @@
  */
 greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, DatabaseRef, $firebaseObject, $uibModal, DatabaseQuery) {
     $scope.userPic = UserInfo.getCurrentUser().photoUrl;
+    $scope.currentList = UserInfo.getCurrentList().name;
 
     $scope.asideState = {
         open: false
@@ -57,6 +58,18 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
 
                 $scope.shareThisList = function(listKey, listName) {
                     DatabaseQuery.shareList(listKey, listName);
+                }
+
+                $scope.switchList = function(list) {
+
+                    if (list === "main") {
+                        UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+                    } else {
+                        UserInfo.setCurrentList(list.listKey, list.name);
+                    }
+
+                    $scope.currentList = UserInfo.getCurrentList().name; // TODO check this works
+
                 }
 
             }

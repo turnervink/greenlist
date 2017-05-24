@@ -23,6 +23,7 @@ greenlistApp.service("UserInfo", function() {
         currentUser.email = email;
 
         firebase.database().ref("emails").child(uid).set(email);
+
     }
 
     /**
@@ -46,12 +47,13 @@ greenlistApp.service("UserInfo", function() {
         console.log("Setting current list");
 
         if (listKey == currentUser.uid) {
-            currentList.key = listKey;
+            currentList.listKey = listKey;
+            currentList.name = "My List";
         } else {
-            currentList.key = "sharedLists/" + listKey;
+            currentList.listKey = "sharedLists/" + listKey;
+            currentList.name = listName;
         }
 
-        currentList.name = listName;
         console.log(currentList);
     }
 

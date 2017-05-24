@@ -31,19 +31,24 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
 
         var allShareListName = $firebaseObject(DatabaseRef.getAllShareList());
-        allShareListName.$bindTo($scope, "shareListName");
+        allShareListName.$bindTo($scope, "shareListName").then(function() {
+            console.log("Setting list", UserInfo.getCurrentList());
+        });
 
-        $scope.currentListName = function(){
-            var currentList = UserInfo.getCurrentList();
-            $scope.currentList = "TURNNERRRRR";
+        $scope.getList = function() {
+            $scope.listName = UserInfo.getCurrentList();
         }
 
-
-
         $scope.switchToList = function(list){
-            UserInfo.setCurrentList(list.listKey, list.name);
-            var currentList = UserInfo.getCurrentList();
-                alert(currentList.name)
+            console.log(list);
+
+            if (list == null) {
+                UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+            } else {
+                UserInfo.setCurrentList(list.listKey, list.name);
+            }
+
+
         }
 
 

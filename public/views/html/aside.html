@@ -14,8 +14,14 @@
 
     <div id="shared-list" ng-show="listButton">
         <ul>
+            <li id="list-name" class="row no-gutter">
+                <div class="col-xs-10" ng-click="switchList('main')">
+                    <!-- item name injected here-->
+                    <p>My List</p>
+                </div>
+            </li>
             <li id="list-name" ng-repeat="lists in allLists" class="row no-gutter">
-                <div class="col-xs-10" ng-click="shareThisList(lists.listKey, lists.name)">
+                <div class="col-xs-10" ng-click="switchList(lists)">
                     <!-- item name injected here-->
                     <p>{{lists.name}}</p>
                 </div>
