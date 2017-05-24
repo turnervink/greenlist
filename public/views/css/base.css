@@ -160,6 +160,9 @@ body.HistoryListCtrl-page {
 	text-align: center;
 }
 
+.logwaste-popup h4 {
+}
+
 /* Styling for the slider bar*/
 .logwaste-popup .input-slider {
 	height: 6vh;
