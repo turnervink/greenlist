@@ -5,6 +5,7 @@
 greenlistApp.service("UserInfo", function() {
     // Object to store user info
     var currentUser = {};
+    var currentList = {};
 
     /**
      * Initialize the user object.
@@ -29,6 +30,7 @@ greenlistApp.service("UserInfo", function() {
      */
     function clearUser() {
         currentUser = {};
+        currentList = {};
     }
 
     /**
@@ -40,9 +42,28 @@ greenlistApp.service("UserInfo", function() {
         return currentUser;
     }
 
+    function setCurrentList(listKey, listName, isShared) {
+        console.log("Setting current list");
+
+        if (isShared) {
+            currentList.key = "sharedLists/" + listKey;
+        } else {
+            currentList.key = listKey;
+        }
+
+        currentList.name = listName;
+        console.log(currentList);
+    }
+
+    function getCurrentList() {
+        return currentList;
+    }
+
     return {
         initUser: initUser,
         clearUser: clearUser,
-        getCurrentUser: getCurrentUser
+        getCurrentUser: getCurrentUser,
+        setCurrentList: setCurrentList,
+        getCurrentList: getCurrentList
     }
 });
