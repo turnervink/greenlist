@@ -11,6 +11,7 @@
     margin: inherit;
     text-align: center;
 }
+
 /* Header CSS */
 #about-page h1 {
     font-size: 8.875vw;
@@ -34,6 +35,8 @@
     border-bottom: #000000 solid 2px;
     width: 60%;
     margin: inherit;
+    margin-top: 10vw;
+    margin-bottom: 5vw;
 }
 
 
@@ -51,7 +54,7 @@
 }
 
 /* anchor link css */
-#about-page .return-link{
+#about-page .return-link {
     font-size: 5.5025vw;
     width: 90%;
     margin: inherit;
@@ -60,8 +63,69 @@
 }
 
 /* logo css */
-#about-page img{
+#about-page img {
     margin-top: 3.55vw;
     width: 40%;
     height: 40%;
+}
+
+/* Landscape view */
+@media only screen and (orientation : landscape) {
+
+    /* Header CSS */
+    #about-page h1 {
+        font-size: 5vh;
+        font-weight: bold;
+        border-bottom: #000000 solid 2px;
+        width: 50%;
+        margin: inherit;
+    }
+
+    #about-page h5 {
+        font-size: 3.5vh;
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: left;
+        padding-left: 25%;
+    }
+
+    #about-page h4 {
+        font-size: 4vh;
+        font-weight: bold;
+        border-bottom: #000000 solid 2px;
+        width: 50%;
+        margin: inherit;
+        margin-top: 8vh;
+        margin-bottom: 4vh;
+    }
+
+
+    /* text css */
+    #about-page p {
+        font-size: 3vh;
+        width: 50%;
+        margin: inherit;
+    }
+
+    #about-page .summary {
+        font-size: 3vh;
+        width: 50%;
+        text-align: left;
+    }
+
+    /* anchor link css */
+    #about-page .return-link {
+        font-size: 3.1vh;
+        width: 50%;
+        margin: inherit;
+        text-align: center;
+        border-top: black thin solid;
+    }
+
+    /* logo css */
+    #about-page img {
+        margin-top: 2vh;
+        width: 30vh;
+        height: 30vh;
+    }
 }

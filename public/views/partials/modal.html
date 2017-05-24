@@ -1,18 +1,16 @@
 <div class="logwaste-popup">
 
-	<script type="text/javascript">
-        $("#rangevalue").mousemove(function () {
-            $("#fun").text($("#rangevalue").val())
-        })
-	</script>
-
 	<h4>How much did you use?</h4>
 
 	<p><span id="userin">{{derp}}%</span>
-		<div class="input-slider">
-			<!-- slider bar input, tied to test.input. needs javascript function to show the value the user is picking -->
-			<input ng-model="derp" id="rangevalue" ng-model="test.input" type="range" min="0" max="100" value="0"/>
-		</div>
+  <div class="input-slider">
+    <!-- slider bar input, tied to test.input. needs javascript function to show the value the user is picking -->
+    <input ng-model="derp" id="rangevalue" ng-model="test.input" type="range" min="0" max="100" value="0"/>
+  </div>
+
+	<div>
+		<input type="checkbox" src="images/icons/unchecked.png" class="checkboxNonFood" ng-model="nonFood" ng-click="setNonFood(nonFood)" ng-checked="nonFood"> Non-food item</div>
+
 	</div>
 
 	<button ng-click="back()">Submit</button>

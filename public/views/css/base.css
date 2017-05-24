@@ -178,7 +178,7 @@ body.HistoryListCtrl-page {
 }
 
 /* the track for google*/
-input[type=range]::-webkit-slider-runnable-track {
+.logwaste-popup input[type=range]::-webkit-slider-runnable-track {
 	height: 1px;
 	box-shadow: 0 5px 30px #000;
 	margin-top: 3.5vh;
@@ -189,7 +189,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* the track for firefox*/
-input[type=range]::-moz-range-track {
+.logwaste-popup input[type=range]::-moz-range-track {
 	width: 11.7vh;
 	height: 1.1vh;
 	background-color: black;
@@ -197,7 +197,7 @@ input[type=range]::-moz-range-track {
 }
 
 /* the thing you grab to slide for google*/
-input[type=range]::-webkit-slider-thumb {
+.logwaste-popup input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	border: none;
 	height: 3.8vh;
@@ -208,6 +208,7 @@ input[type=range]::-webkit-slider-thumb {
 	cursor: pointer;
 }
 
+/* .logwaste-popup input[type=range]::-moz-range-thumb { */
 /* the thing you grab to slide for firefox*/
 input[type=range]::-moz-range-thumb {
 	border: none;
