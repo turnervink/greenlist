@@ -5,13 +5,13 @@ greenlistApp.controller("ShoppingListCtrl",
 
         // Setting shopping list page heading content and nav bar button style
         $scope.shoppingListHide = true;
-    	$scope.heading = 'Shopping List';
-    	$scope.listBtnColor = 'green';
-    	$scope.histBtnColor = 'white';
-    	$scope.reptBtnColor = 'white';
-    	$scope.listColor = 'white';
-    	$scope.histColor = 'black';
-    	$scope.reptColor = 'black';
+        $scope.heading = 'Shopping List';
+        $scope.listBtnColor = 'green';
+        $scope.histBtnColor = 'white';
+        $scope.reptBtnColor = 'white';
+        $scope.listColor = 'white';
+        $scope.histColor = 'black';
+        $scope.reptColor = 'black';
         $scope.listBgImg = 'images/icons/cart-on.png';
         $scope.histBgImg = 'images/icons/hist-icon-off.png';
         $scope.reptBgImg = 'images/icons/reports-off.png';
@@ -192,6 +192,12 @@ greenlistApp.controller("ShoppingListCtrl",
                 "width":average +"%",
                 "background-color": color
             }
+
+
+        }
+
+        $scope.setQty = function(item, qty) {
+            DatabaseQuery.setQuantity(item, qty);
         }
 
 });

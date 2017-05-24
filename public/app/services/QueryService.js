@@ -104,6 +104,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             list: "shopping",
             name: itemName.toLowerCase(),
             checked: false,
+            average: 0,
+            quantity: "qty"
             NonFood: false
         };
 
@@ -164,6 +166,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 .child(item.name)
                 .child("checked")
                 .remove();
+            DatabaseRef.items()
+                .child(item.name)
+                .child("quantity")
+                .remove();
         }
 
         if (list == "shopping") {
@@ -171,6 +177,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 .child(item.name)
                 .child("checked")
                 .set(false);
+            DatabaseRef.items()
+                .child(item.name)
+                .child("quantity")
+                .set("qty");
         }
 
         DatabaseRef.items()
@@ -472,6 +482,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         });
     }
 
+    function setQuantity(item, qty){
+        DatabaseRef.quantity(item).set(qty);
+    }
     /**
      * Creates a new shared list and adds it to
      * the user's sharedLists node as well as the
@@ -612,7 +625,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         DatabaseRef.userSharedLists().child(listKey).remove();
     }
 
-
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -634,6 +646,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         getRank: getRank,
         getTopEfficient: getTopEfficient,
         getBottomEfficient: getBottomEfficient,
+        setQuantity: setQuantity
         createNewList: createNewList,
         shareList: shareList,
         deleteSharedList: deleteSharedList,

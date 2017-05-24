@@ -16,13 +16,14 @@
 			<!--an individal item, whole thing repeated for each item added -->
 			<ul id="shopping-list" class="row">
 				<li ng-repeat="item in uncheckedItems" class="row">
+
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
 						<input type="image" src="images/icons/unchecked.png" class="checkbox" onclick="this.src = 'images/icons/checked.png'" ng-click="toggleCheck(item, true)"/>
 					</div>
 					<div class="col-xs-8 itemrow">
 						<!-- item name injected here-->
-						<p class="shopping-item">{{item.name}}</p>
+						<p class="shopping-item">{{item.name}} <input ng-model="qty" ng-change="setQty(item, qty)" type="number" placeholder="{{item.quantity}}" class="qty"/></p>
 						<!-- Waste bar -->
 						<div ng-show="item.average != null" class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar" ng-style="getBarColor(item.average)">

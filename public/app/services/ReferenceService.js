@@ -136,6 +136,11 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref("leaderboard").child(UserInfo.getCurrentUser().uid);
     }
 
+    function quantity(item){
+        return items().child(item.name).child("quantity");
+    }
+
+
     function sharedLists() {
         return database.ref("sharedLists");
     }
@@ -151,6 +156,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
     function emails() {
         return database.ref("emails");
     }
+  
     /**
      * return all the functions
      */
@@ -169,6 +175,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         bottomEfficient: bottomEfficient,
         topEfficient: topEfficient,
         getRefToAllList: getRefToAllList,
+        quantity: quantity
         setNonFoodStatus: setNonFoodStatus,
         onlyFoodItems: onlyFoodItems,
         getAllShareList: getAllShareList,
@@ -177,6 +184,4 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         friendSharedLists: friendSharedLists,
         emails: emails
     }
-
-
 }]);
