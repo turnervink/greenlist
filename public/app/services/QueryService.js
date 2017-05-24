@@ -26,7 +26,14 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 }
 
                 $scope.setNonFood = function(status){
+                    console.log(status);
+
                     DatabaseRef.setNonFoodStatus(item, status);
+
+                    if (status) {
+                        $uibModalInstance.close(null);
+                    }
+
                 }
 
                 /**
@@ -118,13 +125,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 itemIsInHistory(newItem, function(historical) {
                     if (historical === true) {
                         console.log(newItem.name + " exists in history!");
-                        checkWasteDataStatus(newItem, function(dataUpdated) {
-                            if (!dataUpdated) {
+                        checkWasteDataStatus(newItem, function(dataUpdated, nonFood) {
+                            console.log("Nonfood is", nonFood);
+                            if (!dataUpdated && !nonFood) {
                                 // TODO Show modal and ask user for waste data
                                 updateWasteScore(newItem, false, function(gotData) {
 
                                     if (gotData) {
                                         setItemList(newItem, "shopping");
+                                    }
                                 });
                             } else {
                                 setItemList(newItem, "shopping");
@@ -196,7 +205,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         check.once("value")
             .then(function(value){
                 console.log("Got " + value.val().dataUpdated);
-                callback(value.val().dataUpdated);
+                callback(value.val().dataUpdated, value.val().NonFood);
             });
     }
 
@@ -527,6 +536,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         });
     }
                 
+    /**
      * Erases all data at the root of a user's
      * database node.
      */
@@ -626,7 +636,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         getBottomEfficient: getBottomEfficient,
         createNewList: createNewList,
         shareList: shareList,
-        deleteSharedList: deleteSharedList
+        deleteSharedList: deleteSharedList,
         eraseData: eraseData
     }
 

@@ -50,7 +50,7 @@ greenlistApp.controller("HistoryListCtrl",
          * @status boolean for showing cancel or ask later button
          */
         $scope.addToList = function(food, status) {
-            if (!food.dataUpdated) {
+            if (!food.dataUpdated && !food.NonFood) {
                 DatabaseQuery.updateWasteScore(food, status, function(gotData) {
                     if (gotData || gotData === null) {
                         DatabaseQuery.setItemList(food, "shopping");

@@ -43,6 +43,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
 
     function setNonFoodStatus (food, status) {
         database.ref(UserInfo.getCurrentList().listKey + "/items").child(food.name).update({"NonFood": status});
+        database.ref(UserInfo.getCurrentList().listKey + "/items").child(food.name).child("average").remove();
     }
 
     function getRefToAllList(){
@@ -96,7 +97,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns firebase reference location to top 3 items
      */
     function topEfficient(){
-        return onlyFoodItems().orderByChild("average").startAt(0).limitToLast(3);
+        return items().orderByChild("average").startAt(0).limitToLast(3);
     }
 
     /**
@@ -104,7 +105,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns firebase reference location to bottom 3 items
      */
     function bottomEfficient(){
-        return onlyFoodItems().orderByChild("average").startAt(0).limitToFirst(3);
+        return items().orderByChild("average").startAt(0).limitToFirst(3);
     }
 
     /**
