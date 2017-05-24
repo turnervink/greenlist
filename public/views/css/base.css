@@ -32,7 +32,10 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog .side-menu-header {
-	width: 100%;
+	position: fixed;
+	top: 0;
+	width: 80vw;
+	height: 30vh;
 	background-color: green;
 }
 
@@ -75,6 +78,26 @@ body.HistoryListCtrl-page {
 	padding: 3.5vh;
 	color: black;
 	border-bottom: gray solid 1px;
+}
+
+.aside-popup .modal-dialog #aside-footer {
+	position: fixed;
+	bottom: 0;
+	z-index: 97;
+	height: 15vh;
+	width: 80vw;
+	background-color: white;
+}
+
+.aside-popup .modal-dialog #aside-content {
+	margin-bottom: 18vh;
+	margin-top: 30vh;
+}
+
+.aside-popup .modal-dialog .add-list {
+	position: fixed;
+	bottom: 10vh;
+	z-index: 98;
 }
 
 .aside-popup .modal-dialog #sign-out {

@@ -4,14 +4,15 @@
     <h2>{{userName}}</h2>
     <h3>{{email}}</h3>
 </div>
-<ul>
-    <li><a ng-click="close()" href="#!/about">About</a></li>
-    <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
-    <li><a ng-click="close()" href="#!/settings">Settings</a></li>
-    <li><a ng-click="close()" href="mailto:greenlistapp@gmail.com?subject=Feedback">Feedback</a></li>
-    <li><a ng-click="listButton = !listButton">Switch List</a></li>
-</ul>
 
+<div id="aside-content">
+    <ul>
+        <li><a ng-click="close()" href="#!/about">About</a></li>
+        <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
+        <li><a ng-click="close()" href="#!/settings">Settings</a></li>
+        <li><a ng-click="close()" href="mailto:greenlistapp@gmail.com?subject=Feedback">Feedback</a></li>
+        <li><a ng-click="listButton = !listButton">Switch List</a></li>
+    </ul>
 
     <div id="shared-list" ng-show="listButton">
         <ul>
@@ -33,7 +34,7 @@
                     <input id="delete-list-btn" type="image" src="images/icons/trash.png" ng-click="deleteList(lists.listKey)"/>
                 </div>
             </li>
-            <li class="row no-gutter addrow-row" ng-show="listButton">
+            <li class="row no-gutter add-list" ng-show="listButton">
                 <form>
                     <div class="col-xs-7">
                         <input ng-model="newListName" type="text" name="newShareListName" placeholder="Enter New List Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter New List Name'">
@@ -45,6 +46,7 @@
             </li>
         </ul>
     </div>
+</div>
 
 <div id="aside-footer">
     <div id="sign-out">
@@ -53,4 +55,4 @@
     <div id="version">
         <p>v0.3</p>
     </div>
-<div>
+</div>
