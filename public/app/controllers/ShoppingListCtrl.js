@@ -15,6 +15,7 @@ greenlistApp.controller("ShoppingListCtrl",
         $scope.listBgImg = 'images/icons/cart-on.png';
         $scope.histBgImg = 'images/icons/hist-icon-off.png';
         $scope.reptBgImg = 'images/icons/reports-off.png';
+        $scope.amount = 0;
 
       
         var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());
@@ -36,6 +37,10 @@ greenlistApp.controller("ShoppingListCtrl",
                 $scope.pls = $scope.foodTip[FoodTipsService.randomizer($scope.foodTip.length)];
             }
         }, true);
+
+        $scope.updateQty = function(number, name){
+            name = number;
+        }
 
         // Bring up the modal for confirming the user wants to clear their list
         $scope.confirmModal = function() {
@@ -166,6 +171,8 @@ greenlistApp.controller("ShoppingListCtrl",
                 "width":average +"%",
                 "background-color": color
             }
+
+
         }
 
 }]);
