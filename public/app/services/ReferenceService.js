@@ -43,7 +43,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
 
     function getAllShareList(){
         return database.ref(UserInfo.getCurrentUser().uid + "/sharedLists")
-            .orderByChild("name");
+            /*.orderByChild("name")*/;
 
 
     }

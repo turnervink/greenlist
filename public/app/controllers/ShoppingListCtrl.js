@@ -33,9 +33,17 @@ greenlistApp.controller("ShoppingListCtrl",
         var allShareListName = $firebaseObject(DatabaseRef.getAllShareList());
         allShareListName.$bindTo($scope, "shareListName");
 
-        $scope.currentList = UserInfo.getCurrentList().name;
+        $scope.currentListName = function(){
+            var currentList = UserInfo.getCurrentList();
+            $scope.currentList = "TURNNERRRRR";
+        }
+
+
+
         $scope.switchToList = function(list){
             UserInfo.setCurrentList(list.listKey, list.name);
+            var currentList = UserInfo.getCurrentList();
+                alert(currentList.name)
         }
 
 
