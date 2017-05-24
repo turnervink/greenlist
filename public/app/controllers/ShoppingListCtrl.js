@@ -5,6 +5,7 @@ greenlistApp.controller("ShoppingListCtrl",
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Setting shopping list page heading content and nav bar button style
+        $scope.shoppingListHide = true;
     	$scope.heading = 'Shopping List';
     	$scope.listBtnColor = 'green';
     	$scope.histBtnColor = 'white';
@@ -28,6 +29,12 @@ greenlistApp.controller("ShoppingListCtrl",
         //array of items in the shopping list page
         //used for showing/hiding the archive button and food tips
         $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
+
+        var allShareListName = $firebaseObject(DatabaseRef.getAllShareList());
+        allShareListName.$bindTo($scope, "shareListName");
+
+        $scope.currentList = "MyList";
+
 
         //code for food tips
         $scope.$watch("checkShopping", function(foodArray){
