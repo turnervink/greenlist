@@ -42,13 +42,13 @@ greenlistApp.service("UserInfo", function() {
         return currentUser;
     }
 
-    function setCurrentList(listKey, listName, isShared) {
+    function setCurrentList(listKey, listName) {
         console.log("Setting current list");
 
-        if (isShared) {
-            currentList.key = "sharedLists/" + listKey;
-        } else {
+        if (listKey == currentUser.uid) {
             currentList.key = listKey;
+        } else {
+            currentList.key = "sharedLists/" + listKey;
         }
 
         currentList.name = listName;
