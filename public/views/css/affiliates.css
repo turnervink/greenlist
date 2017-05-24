@@ -11,6 +11,7 @@
     margin: inherit;
     text-align: center;
 }
+
 /* Header CSS */
 #affiliates-page h1 {
     font-size: 5vh;
@@ -41,4 +42,39 @@
     margin-top: 2vh;
     width: 25%;
     height: 25%;
+}
+
+/* Landscape view */
+@media only screen and (orientation : landscape) {
+    /* Header CSS */
+    #affiliates-page h1 {
+        font-size: 5vh;
+        font-weight: bold;
+        border-bottom: #000000 solid 2px;
+        width: 50%;
+        margin: inherit;
+    }
+
+    /* text css */
+    #affiliates-page p {
+        font-size: 3vh;
+        width: 50%;
+        margin: inherit;
+    }
+
+    /* anchor link css */
+    #affiliates-page .return-link {
+        font-size: 3vh;
+        width: 50%;
+        margin: inherit;
+        text-align: center;
+        border-top: black thin solid;
+    }
+
+    /* logo css */
+    #affiliates-page img {
+        margin-top: 2vh;
+        width: 20%;
+        height: 20%;
+    }
 }

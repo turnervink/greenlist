@@ -3,10 +3,12 @@
  */
 greenlistApp.controller("HistoryListCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "CalculationService", "$firebaseObject", "DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, CalculationService, $firebaseObject, DatabaseQuery) {
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, CalculationService, $firebaseObject, DatabaseQuery, $route) {
 
         // Set up user info with the UserInfo service
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
+
+
 
         // Define style values for the header and nav bar
         $scope.heading = 'History';
@@ -19,6 +21,8 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.listBgImg = 'images/icons/cart-off.png';
         $scope.histBgImg = 'images/icons/hist-icon-on.png';
         $scope.reptBgImg = 'images/icons/reports-off.png';
+        $scope.navDisplay = 'block';
+        $scope.inputHeight = '0';
 
         // Create a database reference to items in the history list
         var historyFood = $firebaseObject(DatabaseRef.getRefToSpecificList('history'));
@@ -36,7 +40,6 @@ greenlistApp.controller("HistoryListCtrl",
             if (!food.dataUpdated) {
                 DatabaseQuery.updateWasteScore(food, status, function(gotData) {});
             }
-
         }
 
         /**
@@ -49,7 +52,7 @@ greenlistApp.controller("HistoryListCtrl",
          * @status boolean for showing cancel or ask later button
          */
         $scope.addToList = function(food, status) {
-            if (!food.dataUpdated) {
+            if (!food.dataUpdated && !food.NonFood) {
                 DatabaseQuery.updateWasteScore(food, status, function(gotData) {
                     if (gotData || gotData === null) {
                         DatabaseQuery.setItemList(food, "shopping");
@@ -59,6 +62,8 @@ greenlistApp.controller("HistoryListCtrl",
                 DatabaseQuery.setItemList(food, "shopping");
             }
         }
+
+
 
         /** 
          * Get the color for the background of food efficiency bar based
@@ -88,5 +93,7 @@ greenlistApp.controller("HistoryListCtrl",
                 "background-color": color
             }
         }
+
+
 
 }]);

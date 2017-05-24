@@ -19,13 +19,13 @@
 
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
-						<input type="image" src="images/icons/unchecked.png" class="checkbox" ng-click="toggleCheck(item, true)"/>
+						<input type="image" src="images/icons/unchecked.png" class="checkbox" onclick="this.src = 'images/icons/checked.png'" ng-click="toggleCheck(item, true)"/>
 					</div>
 					<div class="col-xs-8 itemrow">
 						<!-- item name injected here-->
 						<p class="shopping-item">{{item.name}} <input ng-model="qty" ng-change="setQty(item, qty)" type="number" placeholder="{{item.quantity}}" class="qty"/></p>
 						<!-- Waste bar -->
-						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
+						<div ng-show="item.average != null" class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar" ng-style="getBarColor(item.average)">
 							</div>
 							<p>{{item.average | number: 0}}%</p>
@@ -45,9 +45,9 @@
 
 
 	<!--Second section for the clear list button -->
-  <div class="row clearlist" ng-click="confirmModal()" ng-show="checkShopping.length != 0">
+  	<div class="row clearlist" ng-click="confirmModal()" ng-show="checkShopping.length != 0">
 		<!-- <input type="image" src="images/icons/archive.png" class="icon clearicon" /> -->
-	    <h3 class="archiveText">Clear List</h3>
+	    <p class="archiveText">Clear List</p>
 
 	</div>
 
@@ -66,7 +66,7 @@
 						<!-- item name injected here-->
 						<p class="shopping-item checked-item">{{item.name}}</p>
 						<!-- Waste bar -->
-						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
+						<div ng-show="item.average != null" class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar"  ng-style="getBarColor(item.average)">
 							</div>
 							<p>{{item.average | number: 0}}%</p>
@@ -81,13 +81,13 @@
 
 
 	<!--Fourth section for adding new items -->
-	<div class="row no-gutter addrow-row">
+	<div class="row no-gutter addrow-row" style="margin-bottom: {{inputHeight}}">
 		<form>
 			<div class="col-xs-8">
-				<input ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" class="addbar">
+				<input id="addItemInput" ng-model="newItemName" type="text" name="item" placeholder="Enter an item" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an item'" ng-focus="navDisplay = 'none'; inputHeight = '-20vw'" ng-blur="navDisplay = 'block'; inputHeight = '0'" class="addbar">
 			</div>
 			<div class="col-xs-4 button-to-right">
-				<button class="add-item-button" ng-click="addItem(newItemName)">Add</button>
+				<button class="add-item-button" ng-click="addItem(newItemName)" onfocus="document.getElementById('addItemInput').focus(); return false;">Add</button>
 			</div>
 		</form>
 	</div>
@@ -95,5 +95,5 @@
 
 
 <!-- Input area background -->
-<div class="input-bg"></div>
+<div class="input-bg" style="margin-bottom: {{inputHeight}}"></div>
 </div>

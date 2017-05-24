@@ -32,7 +32,10 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog .side-menu-header {
-	width: 100%;
+	position: fixed;
+	top: 0;
+	width: 80vw;
+	height: 30vh;
 	background-color: green;
 }
 
@@ -77,6 +80,26 @@ body.HistoryListCtrl-page {
 	border-bottom: gray solid 1px;
 }
 
+.aside-popup .modal-dialog #aside-footer {
+	position: fixed;
+	bottom: 0;
+	z-index: 97;
+	height: 15vh;
+	width: 80vw;
+	background-color: white;
+}
+
+.aside-popup .modal-dialog #aside-content {
+	margin-bottom: 18vh;
+	margin-top: 30vh;
+}
+
+.aside-popup .modal-dialog .add-list {
+	position: fixed;
+	bottom: 10vh;
+	z-index: 98;
+}
+
 .aside-popup .modal-dialog #sign-out {
 	font-size: 3.5vh;
 	padding: 0;
@@ -90,6 +113,7 @@ body.HistoryListCtrl-page {
 .aside-popup .modal-dialog #sign-out a {
 	border: none;
 	color: red;
+	cursor: pointer;
 }
 
 .aside-popup .modal-dialog #version {
@@ -159,6 +183,9 @@ body.HistoryListCtrl-page {
 	text-align: center;
 }
 
+.logwaste-popup h4 {
+}
+
 /* Styling for the slider bar*/
 .logwaste-popup .input-slider {
 	height: 6vh;
@@ -170,27 +197,30 @@ body.HistoryListCtrl-page {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
+	cursor: pointer;
 }
 
 /* the track for google*/
-input[type=range]::-webkit-slider-runnable-track {
+.logwaste-popup input[type=range]::-webkit-slider-runnable-track {
 	height: 1px;
 	box-shadow: 0 5px 30px #000;
 	margin-top: 3.5vh;
 	margin-bottom: 3.5vh;
 	background-color: black;
 	max-width: 1000px;
+	cursor: pointer;
 }
 
 /* the track for firefox*/
-input[type=range]::-moz-range-track {
+.logwaste-popup input[type=range]::-moz-range-track {
 	width: 11.7vh;
 	height: 1.1vh;
 	background-color: black;
+	cursor: pointer;
 }
 
 /* the thing you grab to slide for google*/
-input[type=range]::-webkit-slider-thumb {
+.logwaste-popup input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	border: none;
 	height: 3.8vh;
@@ -198,8 +228,11 @@ input[type=range]::-webkit-slider-thumb {
 	border-radius: 50%;
 	background: green;
 	margin-top: -1.9vh;
+	cursor: pointer;
 }
 
+/* .logwaste-popup input[type=range]::-moz-range-thumb { */
+/* the thing you grab to slide for firefox*/
 input[type=range]::-moz-range-thumb {
 	border: none;
 	height: 3.8vh;
@@ -207,6 +240,7 @@ input[type=range]::-moz-range-thumb {
 	border-radius: 50%;
 	background: green;
 	margin-top: -1.9vh;
+	cursor: pointer;
 }
 
 /* Archive confirmation pop up */
@@ -250,6 +284,10 @@ input[type=range]::-moz-range-thumb {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 10px;
 	border-left: white solid 1px;
+}
+
+#detailReport-popup {
+	width: 90vw;
 }
 
 /* Centre modals vertically */

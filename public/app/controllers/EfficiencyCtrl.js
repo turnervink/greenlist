@@ -30,6 +30,10 @@ greenlistApp.controller("EfficiencyCtrl",
 
                     // Controller for the modal
                     controller: function($scope, $uibModalInstance) {
+                        $scope.close = function() {
+                            $uibModalInstance.close();
+                        }
+
                         $scope.food = item;
 
                         // Chart variables
@@ -67,6 +71,15 @@ greenlistApp.controller("EfficiencyCtrl",
                                         }
                                     }
                                 ]
+                            },
+                            pan: {
+                                enabled: true,
+                                mode: "x"
+                            },
+                            zoom: {
+                                enabled: true,
+                                drag: false,
+                                mode: "x"
                             }
                         };
 

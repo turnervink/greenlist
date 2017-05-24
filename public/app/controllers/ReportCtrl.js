@@ -23,7 +23,8 @@ greenlistApp.controller("ReportCtrl",
         var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
         setOverallAvg.$bindTo($scope, "calAverage").then(function() {
             console.log("Bound", $scope.calAverage);
-            var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value * 20, 0, 1.5);
+
+            var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value, 0, 1.5);
             scoreAnim.start(); // Animate the efficiency score counting up
 
             /*
@@ -41,12 +42,39 @@ greenlistApp.controller("ReportCtrl",
                 $scope.motivationMsg = "Keep it up!";
             } else if ($scope.calAverage.$value <= 100) {
                 $scope.motivationMsg = "You're doing awesome!";
-            } else if ($scope.calAverage.$value == 9001) {
+            } else if ($scope.calAverage.$value === 450) {
                 $scope.motivationMsg = "Dammit Nappa!";
             } else {
-                $scope.motivationMsg = "Keep it up!";
+                $scope.motivationMsg = "Dammit Nappa!";
             }
 
+            if ($scope.calAverage.$value < 40) {
+                $scope.grade = "D";
+            } else if ($scope.calAverage.$value <= 63) {
+                $scope.grade = "C";
+            } else if ($scope.calAverage.$value <= 73) {
+                $scope.grade = "B";
+            } else if ($scope.calAverage.$value <= 83) {
+                $scope.grade = "A";
+            } else if ($scope.calAverage.$value <= 86) {
+                $scope.grade = "A+";
+            } else if ($scope.calAverage.$value <= 100) {
+                $scope.grade = "A++";
+            } else if ($scope.calAverage.$value === 450.05) {
+                $scope.grade = "Over 9000";
+            }
+
+            if($scope.calAverage.$value > 86) {
+                $scope.confetti = true;
+            } else {
+                $scope.confetti = false;
+            }
+
+            if ($scope.calAverage.$value === null) {
+                $scope.tweetText = "I just started using greenlist to work on reducing my food waste! Try it today at greenl.ist -"
+            } else {
+                $scope.tweetText = "My food efficiency grade is " + $scope.grade + " on greenlist! Try it today at greenl.ist -";
+            }
 
         });
 
