@@ -27,16 +27,13 @@ body.HistoryListCtrl-page {
 }
 
 /* Side menu */
-.aside-popup .modal-content {
+.aside-popup .modal-content{
 	width: 80vw;
 }
 
 .aside-popup .modal-dialog .side-menu-header {
-	width: 80vw;
+	width: 100%;
 	background-color: green;
-	position: fixed;
-	top: 0;
-	z-index: 99;
 }
 
 .aside-popup .modal-dialog img {
@@ -74,41 +71,10 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog a {
-	text-decoration: none;
 	display: block;
 	padding: 3.5vh;
 	color: black;
 	border-bottom: gray solid 1px;
-}
-
-.aside-popup .modal-dialog #aside-content {
-	margin-top: 30vh;
-	margin-bottom: 20vh;
-}
-
-.aside-popup .modal-dialog #aside-footer {
-	position: fixed;
-	bottom: 0;
-	height: 20vh;
-	width: 80vw;
-	background-color: white;
-}
-
-.aside-popup .modal-dialog #shared-list p {
-	margin: 0;
-	padding-top: 1vh;
-}
-
-.aside-popup .modal-dialog #shared-list #delete-list-btn {
-	margin-top: 1vh;
-	height: 4vh;
-	width: 4vh;
-}
-
-.aside-popup .modal-dialog #shared-list #list-name {
-	margin: 0;
-	padding: 0;
-	padding-left: 5vh;
 }
 
 .aside-popup .modal-dialog #sign-out {
