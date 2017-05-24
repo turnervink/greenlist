@@ -23,6 +23,7 @@ greenlistApp.controller("ReportCtrl",
         var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
         setOverallAvg.$bindTo($scope, "calAverage").then(function() {
             console.log("Bound", $scope.calAverage);
+
             var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value, 0, 1.5);
             scoreAnim.start(); // Animate the efficiency score counting up
 
@@ -67,6 +68,12 @@ greenlistApp.controller("ReportCtrl",
                 $scope.confetti = true;
             } else {
                 $scope.confetti = false;
+            }
+
+            if ($scope.calAverage.$value === null) {
+                $scope.tweetText = "I just started using greenlist to work on reducing my food waste! Try it today at greenl.ist -"
+            } else {
+                $scope.tweetText = "My food efficiency grade is " + $scope.grade + " on greenlist! Try it today at greenl.ist -";
             }
 
         });
