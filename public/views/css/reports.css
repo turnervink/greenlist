@@ -12,12 +12,21 @@
 }
 
 #report-page #elo-rating {
-    font-size: 14vh;
+    font-size: 2em;
+}
+
+#grade {
+    margin-top: -25px;
+    font-size: 2em;
 }
 
 #report-page #scores-section p {
     font-size: 3vh;
     text-align: center;
+}
+
+#report-page .twitter-share-button {
+    font-size: 2.5vh;
 }
 
 #report-page #top-items {
@@ -74,4 +83,8 @@
 
 #dataModalInner .chartTitle {
     text-align: left;
+}
+
+#confetti {
+    position: fixed;
 }

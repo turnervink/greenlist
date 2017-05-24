@@ -1,0 +1,29 @@
+#settings-page button {
+    font-size: 4vh;
+    border: 1px solid grey;
+    border-left: 0;
+    border-right: 0;
+    background-color: white;
+    padding: 5px;
+}
+
+#settings-page .danger-btn {
+    color: red;
+}
+
+#settings-page .button-desc {
+    text-align: center;
+    color: grey;
+    margin-top: 3px;
+}
+
+button.basic-btn {
+    background-color: white !important;
+    color: black !important;
+    border-top: 1px solid lightgray !important;
+}
+
+.logwaste-popup .modal-dialog .danger-btn {
+    background-color: red;
+    color: white;
+}

@@ -75,8 +75,7 @@
 	height: 15.975vw;
 	margin-left: 1.775vw;
 	margin-top: 1.775vw;
-	border-radius: 100%;
-	border: white solid 2px;
+	cursor: pointer;
 }
 
 .header-content h3 {
@@ -195,8 +194,7 @@
 		height: 9vh;
 		margin-left: 1vh;
 		margin-top: 1vh;
-		border-radius: 100%;
-		border: white solid 2px;
+		cursor: pointer;
 	}
 
 	.header-content h3 {

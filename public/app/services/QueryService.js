@@ -18,7 +18,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             //controller for the modal
             controller:function($scope, $uibModalInstance){
                 $scope.nonFood = item.NonFood;
-                if (status === true){
+                if (status){
                     $scope.cancel = true;
                 }
                 else {
@@ -40,7 +40,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                  * close without logging waste
                  */
                 $scope.later = function() {
-                    $uibModalInstance.close(null); // Pass null if there isn't any data
+
+                    if (status) {
+                        $uibModalInstance.close(null); // Pass null if there isn't any data
+                    } else {
+                        $uibModalInstance.close("deferred");
+                    }
+
                 }
             }
         });
@@ -54,16 +60,21 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 callback(null)
             } else {
                 console.log("Got from modal:", data);
-                var wasteScore = {
-                    date: Date.now(),
-                    score: parseInt(data)
-                };
-                var push = DatabaseRef.wasteData(item).push();
-                push.set(wasteScore);
-                updateWasteDataStatus(item, true);
-                setItemAverage(item);
-                updateOverallAverage();
-                callback(true);
+
+                if (data !== "deferred") {
+                    var wasteScore = {
+                        date: Date.now(),
+                        score: parseInt(data)
+                    };
+
+                    var push = DatabaseRef.wasteData(item).push();
+                    push.set(wasteScore);
+                    updateWasteDataStatus(item, true);
+                    setItemAverage(item);
+                    updateOverallAverage();
+                }
+
+              callback(true);
             }
         }).catch(function(error) {
             console.error("Modal error!", error);
@@ -86,7 +97,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             list: "shopping",
             name: itemName.toLowerCase(),
             checked: false,
-            average: 0,
             NonFood: false
         };
 
@@ -112,6 +122,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
                                 updateWasteScore(newItem, false, function(gotData) {
+
+                                    if (gotData) {
                                         setItemList(newItem, "shopping");
                                 });
                             } else {
@@ -271,7 +283,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      * @param item The item to get data for
      * @param callback The callback function
      */
-    function getChartData(item, callback) {
+    function getChartData(item, status, callback) {
         DatabaseRef.wasteData(item).orderByChild("date").once("value").then(function(data) {
             var scoresArray = [];
             var datesArray = [];
@@ -362,7 +374,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
            var dataArray = [];
 
            data.forEach(function(item) {
-              dataArray.push(item.val().average);
+
+               if (item.val().average != null) {
+                   console.log("Adding " + item.val().average);
+                   dataArray.push(item.val().average);
+               }
+
            });
 
            callback(dataArray);
@@ -416,7 +433,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      * @param callback The callback function
      */
     function getTopEfficient(callback) {
-        DatabaseRef.onlyFoodItems().orderByChild("average").limitToLast(3).once("value").then(function(data) {
+        DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
+            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -433,7 +451,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      * @param callback The callback function
      */
     function getBottomEfficient(callback) {
-        DatabaseRef.onlyFoodItems().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
+        DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
+            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -504,6 +523,69 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                     });
 
                 }
+             }
+        });
+    }
+                
+     * Erases all data at the root of a user's
+     * database node.
+     */
+    function eraseData() {
+
+        // First modal to confirm decision
+        var modalInstance = $uibModal.open({
+            templateUrl: 'views/partials/cleardatamodal.html',
+            windowClass: 'logwaste-popup',
+            controller:function($scope, $uibModalInstance){
+
+                /**
+                 * Fired if user confirms the deletion the first time.
+                 */
+                $scope.yes = function() {
+                    console.log("yes");
+                    $uibModalInstance.close(null);
+
+                    // Confirm a second time
+                    var confirmModalInstance = $uibModal.open({
+                        templateUrl: 'views/partials/cleardatamodalconfirm.html',
+                        windowClass: 'logwaste-popup',
+
+                        controller:function($scope, $uibModalInstance){
+
+                            /**
+                             * Fired if user confirms the deletion the second time.
+                             * Deletes all user data.
+                             */
+                            $scope.yes = function() {
+                                console.log("yes");
+                                $uibModalInstance.close(null);
+                                DatabaseRef.root().remove().then(function() {
+                                    console.log("Deleted user data");
+                                    $location.url("/goodbye");
+                                });
+                            };
+
+                            /**
+                             * Fired if user doesn't confirm the deletion.
+                             */
+                            $scope.no = function() {
+                                console.log("no");
+                                $uibModalInstance.close(null);
+                            }
+
+
+                        }
+                    });
+                };
+
+                /**
+                 * Fired if user doesn't confirm the deletion.
+                 */
+                $scope.no = function() {
+                    console.log("no");
+                    $uibModalInstance.close(null);
+                }
+
             }
         });
     }
@@ -519,6 +601,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
     function deleteSharedList(listKey) {
         DatabaseRef.userSharedLists().child(listKey).remove();
     }
+
 
     return {
         updateWasteScore: updateWasteScore,
@@ -544,6 +627,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
         createNewList: createNewList,
         shareList: shareList,
         deleteSharedList: deleteSharedList
+        eraseData: eraseData
     }
 
 }]);

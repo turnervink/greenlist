@@ -19,6 +19,8 @@ greenlistApp.controller("HistoryListCtrl",
         $scope.listBgImg = 'images/icons/cart-off.png';
         $scope.histBgImg = 'images/icons/hist-icon-on.png';
         $scope.reptBgImg = 'images/icons/reports-off.png';
+        $scope.navDisplay = 'block';
+        $scope.inputHeight = '0';
 
         // Create a database reference to items in the history list
         var historyFood = $firebaseObject(DatabaseRef.getRefToSpecificList('history'));

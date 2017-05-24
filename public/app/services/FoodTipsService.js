@@ -51,9 +51,9 @@ greenlistApp.service("FoodTipsService", [ function(){
             "in a moist paper towel or cloth",
 
             "Avacadoes can be ripened faster by placing in a paper bag, and placing an apple in with it. " +
-            "Once ripe, store avacadoes in the fridge.",
+            "Once ripe, store avocados in the fridge.",
 
-            "You can freeze bananas with or with or without the peel, " +
+            "You can freeze bananas with or without the peel, " +
             "and use them later in baked goods or smoothies",
 
             "basil should be stored on the counter in a glass of water like a cut flower, " +
@@ -148,12 +148,20 @@ greenlistApp.service("FoodTipsService", [ function(){
 
             "Store sweet potatoes in a cool, dark, well ventilated place. Never refrigerate",
 
-            "Tomatoes can be frozen either raw or cooked. Tomatoes should be stored on the counter unless very ripe, at which point transfer them to the fridge"
+            "Tomatoes can be frozen either raw or cooked. Tomatoes should be stored on the counter " +
+            "unless very ripe, at which point transfer them to the fridge",
 
+            "Potatoes turning green? put a garbage bag over them",
 
+            "You can regrow lettuce if u have the root end. " +
+            "Some leaves will regrow if put in water",
 
+            "Pinapples ripen faster if stored upside down",
 
+            "A pinapple is ripe if you can smell it easily",
 
+            "Ground beef or steak that turns brown is still ok to eat. A good " +
+            "way to tell if it's gone bad is if it smells bad"
         ]
         return foodTips;
     }

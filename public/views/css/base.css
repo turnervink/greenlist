@@ -124,6 +124,7 @@ body.HistoryListCtrl-page {
 .aside-popup .modal-dialog #sign-out a {
 	border: none;
 	color: red;
+	cursor: pointer;
 }
 
 .aside-popup .modal-dialog #version {
@@ -204,6 +205,7 @@ body.HistoryListCtrl-page {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
+	cursor: pointer;
 }
 
 /* the track for google*/
@@ -214,6 +216,7 @@ body.HistoryListCtrl-page {
 	margin-bottom: 3.5vh;
 	background-color: black;
 	max-width: 1000px;
+	cursor: pointer;
 }
 
 /* the track for firefox*/
@@ -221,6 +224,7 @@ body.HistoryListCtrl-page {
 	width: 11.7vh;
 	height: 1.1vh;
 	background-color: black;
+	cursor: pointer;
 }
 
 /* the thing you grab to slide for google*/
@@ -232,15 +236,19 @@ body.HistoryListCtrl-page {
 	border-radius: 50%;
 	background: green;
 	margin-top: -1.9vh;
+	cursor: pointer;
 }
 
-.logwaste-popup input[type=range]::-moz-range-thumb {
+/* .logwaste-popup input[type=range]::-moz-range-thumb { */
+/* the thing you grab to slide for firefox*/
+input[type=range]::-moz-range-thumb {
 	border: none;
 	height: 3.8vh;
 	width: 3.8vh;
 	border-radius: 50%;
 	background: green;
 	margin-top: -1.9vh;
+	cursor: pointer;
 }
 
 /* Archive confirmation pop up */
@@ -284,6 +292,10 @@ body.HistoryListCtrl-page {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 10px;
 	border-left: white solid 1px;
+}
+
+#detailReport-popup {
+	width: 90vw;
 }
 
 /* Centre modals vertically */
