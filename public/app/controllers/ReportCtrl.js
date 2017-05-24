@@ -59,7 +59,7 @@ greenlistApp.controller("ReportCtrl",
                 $scope.grade = "A+";
             } else if ($scope.calAverage.$value <= 100) {
                 $scope.grade = "A++";
-            } else if ($scope.calAverage.$value === 450) {
+            } else if ($scope.calAverage.$value === 450.05) {
                 $scope.grade = "Over 9000";
             }
 

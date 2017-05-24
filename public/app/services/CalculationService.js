@@ -27,7 +27,11 @@ greenlistApp.service("CalculationService", ["DatabaseRef", function(DatabaseRef)
      */
     function calBackColor(average) {
 
-      return 'hsl(' + (average * 1.2) + ', 100%, 90%)';
+        if (average === 450.05) {
+            return "purple";
+        }
+
+        return 'hsl(' + (average * 1.2) + ', 100%, 90%)';
     }
 
     /**
@@ -36,8 +40,12 @@ greenlistApp.service("CalculationService", ["DatabaseRef", function(DatabaseRef)
      * reduces when average goes above 60.
      */
     function calBarColor(average) {
-      var light = 50 - (average - 60) * 0.5;
-      return 'hsl(' + (average * 1.2) + ', 100%, ' + (light > 50 ? 50 : light) + '%)';
+        if (average === 450.05) {
+            return "purple";
+        }
+
+        var light = 50 - (average - 60) * 0.5;
+        return 'hsl(' + (average * 1.2) + ', 100%, ' + (light > 50 ? 50 : light) + '%)';
     }
 
 return{
