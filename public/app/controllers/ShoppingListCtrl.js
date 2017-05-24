@@ -63,10 +63,6 @@ greenlistApp.controller("ShoppingListCtrl",
             }
         }, true);
 
-        $scope.updateQty = function(number, name){
-            name = number;
-        }
-
         // Bring up the modal for confirming the user wants to clear their list
         $scope.confirmModal = function() {
             var modalInstance = $uibModal.open({
