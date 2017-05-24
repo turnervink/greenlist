@@ -4,7 +4,15 @@
 	<header class="header">
 		<div class="header-content">
 			<img id="userPic" ng-click="openAside('left', true)" ng-swipe-right="openAside(left, true)" ng-src="{{userPic}}">
-			<h3>{{heading}}</h3>
+			<h3 ng-hide="shoppingListHide">{{heading}}</h3>
+
+			<select ng-show="shoppingListHide" style="color: black; margin-left: 25vw;" >
+				<option >{{currentList}}</option>
+				<option ng-repeat="list in shareListName">{{list.name}}</option>
+			</select>
+
+
+
 		</div>
 	</header>
 
