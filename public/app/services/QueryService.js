@@ -18,7 +18,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
             //controller for the modal
             controller:function($scope, $uibModalInstance){
-                if (status === true){
+                if (status){
                     $scope.cancel = true;
                 }
                 else {
@@ -36,7 +36,13 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                  * close without logging waste
                  */
                 $scope.later = function() {
-                    $uibModalInstance.close(null); // Pass null if there isn't any data
+
+                    if (status) {
+                        $uibModalInstance.close(null); // Pass null if there isn't any data
+                    } else {
+                        $uibModalInstance.close("deferred");
+                    }
+
                 }
 
 
@@ -46,7 +52,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
         // get score from modal
         modalInstance.result.then(function (data) {
-
+            console.log(data);
             //set the modal button to cancel or ask me later
             if (data === null) {
 
@@ -55,16 +61,20 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 callback(null)
             } else {
                 console.log("Got from modal:", data);
-                var wasteScore = {
-                    date: Date.now(),
-                    score: parseInt(data)
-                };
 
-                var push = DatabaseRef.wasteData(item).push();
-                push.set(wasteScore);
-                updateWasteDataStatus(item, true);
-                setItemAverage(item);
-                updateOverallAverage();
+                if (data !== "deferred") {
+                    var wasteScore = {
+                        date: Date.now(),
+                        score: parseInt(data)
+                    };
+
+                    var push = DatabaseRef.wasteData(item).push();
+                    push.set(wasteScore);
+                    updateWasteDataStatus(item, true);
+                    setItemAverage(item);
+                    updateOverallAverage();
+                }
+
                 callback(true);
             }
         }).catch(function(error) {
@@ -87,8 +97,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         var newItem = {
             list: "shopping",
             name: itemName.toLowerCase(),
-            checked: false,
-            average: 0
+            checked: false
         };
 
         if (newItem.name == "uuddlrlrba") {
@@ -114,7 +123,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                         checkWasteDataStatus(newItem, function(dataUpdated) {
                             if (!dataUpdated) {
                                 // TODO Show modal and ask user for waste data
-                                updateWasteScore(newItem, function(gotData) {
+                                updateWasteScore(newItem, false, function(gotData) {
                                     if (gotData) {
                                         setItemList(newItem, "shopping");
                                     }
@@ -276,7 +285,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param item The item to get data for
      * @param callback The callback function
      */
-    function getChartData(item, callback) {
+    function getChartData(item, status, callback) {
         DatabaseRef.wasteData(item).orderByChild("date").once("value").then(function(data) {
             var scoresArray = [];
             var datesArray = [];
@@ -367,7 +376,12 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
            var dataArray = [];
 
            data.forEach(function(item) {
-              dataArray.push(item.val().average);
+
+               if (item.val().average != null) {
+                   console.log("Adding " + item.val().average);
+                   dataArray.push(item.val().average);
+               }
+
            });
 
            callback(dataArray);
@@ -421,7 +435,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getTopEfficient(callback) {
-        DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
+        DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
+            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -438,7 +453,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getBottomEfficient(callback) {
-        DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
+        DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
+            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {

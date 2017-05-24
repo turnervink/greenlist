@@ -12,7 +12,7 @@
 					<div class="col-xs-8 itemrow">
 						<p class="shopping-item">{{food.name}}</p>
 						<!-- Waste bar -->
-						<div class="col-xs-12 colourbar" ng-style="getBackColor(food.average)">
+						<div ng-show="food.average != null" class="col-xs-12 colourbar" ng-style="getBackColor(food.average)">
 							<div class="innerbar" ng-style="getBarColor(food.average)">
 							</div>
 							<p>{{food.average | number: 0}}%</p>
