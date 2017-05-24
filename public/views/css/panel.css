@@ -69,12 +69,10 @@
 .header-content img {
 	position: fixed;
 	top: 0;
-	width: 15.975vw;
+	width: 18vw;
 	height: 15.975vw;
 	margin-left: 1.775vw;
 	margin-top: 1.775vw;
-	border-radius: 100%;
-	border: white solid 2px;
 }
 
 .header-content h3 {
