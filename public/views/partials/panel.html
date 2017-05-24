@@ -3,9 +3,27 @@
 	<!-- App header panel -->
 	<header class="header">
 		<div class="header-content">
-			<img id="userPic" ng-click="openAside('left', true)" ng-swipe-right="openAside(left, true)" src="images/icons/hamburger-menu.png">
-			<h3>{{heading}}</h3>
+			<div style="text-align: center;" ng-show="shoppingListHide">
+			    <span class="dropdownList"  dropdown>
+                    <h3 ng-init="getList()" href="" class="dropdown-toggle-list" dropdown-toggle >{{currentList}}</h3>
+
+                    <ul style="transform: translate(-50%, 0); text-align: left;" class="dropdown-menu" dropdown-menu>
+                        <li>
+                            <a ng-click="switchToList('main')">My List</a>
+                        </li>
+
+                        <li ng-repeat="list in shareListName">
+                            <a style="color: black;" ng-click="switchToList(list)">{{list.name}}</a>
+                        </li>
+                    </ul>
+              </span>
+			</div>
+
+            <img id="userPic" ng-click="openAside('left', true)" ng-swipe-right="openAside(left, true)" ng-src="{{userPic}}">
+            <h3 ng-hide="shoppingListHide">{{heading}}</h3>
 		</div>
+
+
 	</header>
 
 	<!-- App nav panel -->

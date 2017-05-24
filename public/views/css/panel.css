@@ -116,6 +116,10 @@
 	border: none;
 }
 
+#delete-list-btn {
+	max-width: 25px;
+}
+
 @media only screen and (min-aspect-ratio: 14/10) {
 	/* Page view */
 	.content {

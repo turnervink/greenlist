@@ -38,7 +38,6 @@ greenlistApp.controller("HistoryListCtrl",
             if (!food.dataUpdated) {
                 DatabaseQuery.updateWasteScore(food, status, function(gotData) {});
             }
-
         }
 
         /**
@@ -51,7 +50,7 @@ greenlistApp.controller("HistoryListCtrl",
          * @status boolean for showing cancel or ask later button
          */
         $scope.addToList = function(food, status) {
-            if (!food.dataUpdated) {
+            if (!food.dataUpdated && !food.NonFood) {
                 DatabaseQuery.updateWasteScore(food, status, function(gotData) {
                     if (gotData || gotData === null) {
                         DatabaseQuery.setItemList(food, "shopping");
@@ -61,6 +60,8 @@ greenlistApp.controller("HistoryListCtrl",
                 DatabaseQuery.setItemList(food, "shopping");
             }
         }
+
+
 
         /** 
          * Get the color for the background of food efficiency bar based
@@ -90,5 +91,7 @@ greenlistApp.controller("HistoryListCtrl",
                 "background-color": color
             }
         }
+
+
 
 }]);

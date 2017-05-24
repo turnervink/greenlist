@@ -1,10 +1,10 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "$uibModal", "$window","DatabaseQuery", "CalculationService", "FoodTipsService",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService) {
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService, $route) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Setting shopping list page heading content and nav bar button style
+        $scope.shoppingListHide = true;
     	$scope.heading = 'Shopping List';
     	$scope.listBtnColor = 'green';
     	$scope.histBtnColor = 'white';
@@ -29,6 +29,38 @@ greenlistApp.controller("ShoppingListCtrl",
         //array of items in the shopping list page
         //used for showing/hiding the archive button and food tips
         $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
+
+        var allShareListName = $firebaseObject(DatabaseRef.getAllShareList());
+        allShareListName.$bindTo($scope, "shareListName").then(function() {
+            console.log("Setting list", UserInfo.getCurrentList());
+        });
+
+        $scope.getList = function() {
+
+            if (UserInfo.getCurrentList().name === undefined){
+
+                UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+                $scope.currentList = UserInfo.getCurrentList().name;
+            }
+            else{
+                $scope.currentList = UserInfo.getCurrentList().name;
+            }
+
+        }
+
+        $scope.switchToList = function(list){
+            console.log(list);
+            if (list === "main") {
+                UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+            } else {
+                UserInfo.setCurrentList(list.listKey, list.name);
+            }
+            $scope.currentList = UserInfo.getCurrentList().name;
+            $route.reload();
+
+
+        }
+
 
         //code for food tips
         $scope.$watch("checkShopping", function(foodArray){
@@ -169,4 +201,4 @@ greenlistApp.controller("ShoppingListCtrl",
             }
         }
 
-}]);
+});

@@ -19,8 +19,15 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns database location for item node
      */
     function items() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items");
+        return database.ref(UserInfo.getCurrentList().listKey + "/items");
     }
+
+    function onlyFoodItems(){
+        return database.ref(UserInfo.getCurrentList().listKey + "/items")
+            .orderByChild("NonFood")
+            .equalTo(false);
+    }
+
 
     /**
      * Reference to a specific child (based on input list) under the item node.
@@ -29,21 +36,38 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns database location for child list
      */
     function getRefToSpecificList(list) {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+        return database.ref(UserInfo.getCurrentList().listKey + "/items")
             .orderByChild("list")
             .equalTo(list);
     }
 
+    function setNonFoodStatus (food, status) {
+        database.ref(UserInfo.getCurrentList().listKey + "/items").child(food.name).update({"NonFood": status});
+        database.ref(UserInfo.getCurrentList().listKey + "/items").child(food.name).child("average").remove();
+    }
+
     function getRefToAllList(){
-        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+        return database.ref(UserInfo.getCurrentList().listKey + "/items")
             .orderByChild("list");
     }
+
+    function getAllShareList(){
+        return database.ref(UserInfo.getCurrentUser().uid + "/sharedLists")
+            /*.orderByChild("name")*/;
+
+
+    }
+
+    // function setShareList(){
+    //     database.set(shareList);
+    // }
+
     /**
      * Reference to the checked child in item node that is set to false.
      * @returns database location for checked child
      */
     function getUncheckedItems() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+        return database.ref(UserInfo.getCurrentList().listKey + "/items")
             .orderByChild("checked")
             .equalTo(false);
     }
@@ -54,7 +78,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns database location for checked child
      */
     function getCheckedItems() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items")
+        return database.ref(UserInfo.getCurrentList().listKey + "/items")
             .orderByChild("checked")
             .equalTo(true);
     }
@@ -64,7 +88,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns database location to overallAverage node
      */
     function overallAverage() {
-        return database.ref(UserInfo.getCurrentUser().uid + "/overallAverage");
+        return database.ref(UserInfo.getCurrentList().listKey + "/overallAverage");
     }
 
     /**
@@ -91,7 +115,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns database location for child in item
      */
     function wasteDataStatus(item) {
-        return database.ref(UserInfo.getCurrentUser().uid + "/items").child(item.name);
+        return database.ref(UserInfo.getCurrentList().listKey + "/items").child(item.name);
     }
 
     /**
@@ -101,7 +125,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns database location for wasteData node user defined child
      */
     function wasteData(item){
-        return database.ref(UserInfo.getCurrentUser().uid + "/wasteData").child(item.name);
+        return database.ref(UserInfo.getCurrentList().listKey + "/wasteData").child(item.name);
     }
 
     function leaderBoard() {
@@ -112,6 +136,21 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref("leaderboard").child(UserInfo.getCurrentUser().uid);
     }
 
+    function sharedLists() {
+        return database.ref("sharedLists");
+    }
+
+    function userSharedLists() {
+        return database.ref(UserInfo.getCurrentUser().uid + "/sharedLists")
+    }
+
+    function friendSharedLists(uid) {
+        return database.ref(uid + "/sharedLists");
+    }
+
+    function emails() {
+        return database.ref("emails");
+    }
     /**
      * return all the functions
      */
@@ -129,8 +168,14 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         database: database,
         bottomEfficient: bottomEfficient,
         topEfficient: topEfficient,
-        getRefToAllList: getRefToAllList
-
+        getRefToAllList: getRefToAllList,
+        setNonFoodStatus: setNonFoodStatus,
+        onlyFoodItems: onlyFoodItems,
+        getAllShareList: getAllShareList,
+        sharedLists: sharedLists,
+        userSharedLists: userSharedLists,
+        friendSharedLists: friendSharedLists,
+        emails: emails
     }
 
 

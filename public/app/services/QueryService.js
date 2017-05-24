@@ -2,7 +2,7 @@
  * Contains functions to perform common database
  * related tasks.
  */
-greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$uibModal", "$location",  function(DatabaseRef, CalculationService, $uibModal, $location) {
+greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationService", "$uibModal", "$location",  function(DatabaseRef, UserInfo, CalculationService, $uibModal, $location) {
 
     /**
      * Adds a new waste score for an item.
@@ -15,14 +15,25 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         var modalInstance = $uibModal.open({
             templateUrl: 'views/partials/modal.html',
             windowClass: 'logwaste-popup',
-
             //controller for the modal
             controller:function($scope, $uibModalInstance){
+                $scope.nonFood = item.NonFood;
                 if (status){
                     $scope.cancel = true;
                 }
                 else {
                     $scope.cancel = false;
+                }
+
+                $scope.setNonFood = function(status){
+                    console.log(status);
+
+                    DatabaseRef.setNonFoodStatus(item, status);
+
+                    if (status) {
+                        $uibModalInstance.close(null);
+                    }
+
                 }
 
                 /**
@@ -44,20 +55,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                     }
 
                 }
-
-
             }
         });
 
 
         // get score from modal
         modalInstance.result.then(function (data) {
-            console.log(data);
             //set the modal button to cancel or ask me later
             if (data === null) {
-
                 console.error("null received from modal");
-
                 callback(null)
             } else {
                 console.log("Got from modal:", data);
@@ -75,7 +81,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                     updateOverallAverage();
                 }
 
-                callback(true);
+              callback(true);
             }
         }).catch(function(error) {
             console.error("Modal error!", error);
@@ -97,7 +103,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         var newItem = {
             list: "shopping",
             name: itemName.toLowerCase(),
-            checked: false
+            checked: false,
+            NonFood: false
         };
 
         if (newItem.name == "uuddlrlrba") {
@@ -115,15 +122,15 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 console.log(newItem.name + " is already in shopping");
             } else {
                 console.log("Looking for " + newItem.name + " in history...");
-
                 itemIsInHistory(newItem, function(historical) {
                     if (historical === true) {
                         console.log(newItem.name + " exists in history!");
-
-                        checkWasteDataStatus(newItem, function(dataUpdated) {
-                            if (!dataUpdated) {
+                        checkWasteDataStatus(newItem, function(dataUpdated, nonFood) {
+                            console.log("Nonfood is", nonFood);
+                            if (!dataUpdated && !nonFood) {
                                 // TODO Show modal and ask user for waste data
                                 updateWasteScore(newItem, false, function(gotData) {
+
                                     if (gotData) {
                                         setItemList(newItem, "shopping");
                                     }
@@ -198,7 +205,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         check.once("value")
             .then(function(value){
                 console.log("Got " + value.val().dataUpdated);
-                callback(value.val().dataUpdated);
+                callback(value.val().dataUpdated, value.val().NonFood);
             });
     }
 
@@ -372,7 +379,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getAllItemAverages(callback) {
-        DatabaseRef.items().once("value").then(function(data) {
+        DatabaseRef.onlyFoodItems().once("value").then(function(data) {
            var dataArray = [];
 
            data.forEach(function(item) {
@@ -466,6 +473,70 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
     }
 
     /**
+     * Creates a new shared list and adds it to
+     * the user's sharedLists node as well as the
+     * global sharedLists node.
+     *
+     * @param name the name of the new list
+     */
+    function createNewList(name) {
+        if (name === undefined){
+            console.error("No list name entered!");
+        } else {
+
+            var newListKey = DatabaseRef.sharedLists().push().key;
+
+            var listEntry = {
+                name: name + " (" + UserInfo.getCurrentUser().displayName + ")",
+                listKey: newListKey,
+            }
+
+            DatabaseRef.sharedLists().child(newListKey).update(listEntry);
+            DatabaseRef.userSharedLists().child(newListKey).update(listEntry);
+        }
+    }
+
+    /**
+     * Adds a user to a shared list.
+     *
+     * @param listKey the key of the list to add someone to
+     * @param listName the name of the list to add someone to
+     */
+    function shareList(listKey, listName) {
+        $uibModal.open({
+            templateUrl: 'views/partials/shareList.html',
+            controller: function($scope, $uibModalInstance, UserInfo){
+                $scope.addUserEmail = function(friendEmail){
+
+                    var friendUID;
+
+                    var userEmails = firebase.database().ref('/emails');
+
+                    userEmails.once("value", function(snapshot) {
+
+                        snapshot.forEach(function(data) {
+                            console.log(data.val());
+
+                            if (data.val() === friendEmail) {
+                                friendUID = data.getKey();
+                            }
+                        });
+
+                        var addList = {
+                            name: listName,
+                            listKey: listKey,
+                        };
+
+                        DatabaseRef.friendSharedLists(friendUID).child(listKey).update(addList);
+
+                    });
+
+                }
+             }
+        });
+    }
+                
+    /**
      * Erases all data at the root of a user's
      * database node.
      */
@@ -525,10 +596,22 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                     $uibModalInstance.close(null);
                 }
 
-
             }
         });
     }
+
+    /**
+     * Deletes a user's reference to a shared list.
+     * List data remains in the database.
+     * (Orphaned lists are not auto-removed. This
+     * will be fixed in the future).
+     *
+     * @param listKey the key of the list to remove
+     */
+    function deleteSharedList(listKey) {
+        DatabaseRef.userSharedLists().child(listKey).remove();
+    }
+
 
     return {
         updateWasteScore: updateWasteScore,
@@ -551,6 +634,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         getRank: getRank,
         getTopEfficient: getTopEfficient,
         getBottomEfficient: getBottomEfficient,
+        createNewList: createNewList,
+        shareList: shareList,
+        deleteSharedList: deleteSharedList,
         eraseData: eraseData
     }
 
