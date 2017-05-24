@@ -97,8 +97,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         var newItem = {
             list: "shopping",
             name: itemName.toLowerCase(),
-            checked: false,
-            average: -1
+            checked: false
         };
 
         if (newItem.name == "uuddlrlrba") {
@@ -378,7 +377,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
 
            data.forEach(function(item) {
 
-               if (item.val().average != -1) {
+               if (item.val().average != null) {
                    console.log("Adding " + item.val().average);
                    dataArray.push(item.val().average);
                }
@@ -436,7 +435,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getTopEfficient(callback) {
-        DatabaseRef.items().orderByChild("average").limitToLast(3).once("value").then(function(data) {
+        DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
+            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -453,7 +453,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
      * @param callback The callback function
      */
     function getBottomEfficient(callback) {
-        DatabaseRef.items().orderByChild("average").limitToFirst(3).once("value").then(function(data) {
+        DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
+            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {

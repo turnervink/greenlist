@@ -73,7 +73,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns firebase reference location to top 3 items
      */
     function topEfficient(){
-        return items().orderByChild("average").limitToLast(3);
+        return items().orderByChild("average").startAt(0).limitToLast(3);
     }
 
     /**
@@ -81,7 +81,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
      * @returns firebase reference location to bottom 3 items
      */
     function bottomEfficient(){
-        return items().orderByChild("average").limitToFirst(3);
+        return items().orderByChild("average").startAt(0).limitToFirst(3);
     }
 
     /**
