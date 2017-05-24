@@ -24,7 +24,7 @@
 						<!-- item name injected here-->
 						<p class="shopping-item">{{item.name}}</p>
 						<!-- Waste bar -->
-						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
+						<div ng-show="item.average != -1" class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar" ng-style="getBarColor(item.average)">
 							</div>
 							<p>{{item.average | number: 0}}%</p>
@@ -65,7 +65,7 @@
 						<!-- item name injected here-->
 						<p class="shopping-item checked-item">{{item.name}}</p>
 						<!-- Waste bar -->
-						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
+						<div ng-show="item.average != -1" class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar"  ng-style="getBarColor(item.average)">
 							</div>
 							<p>{{item.average | number: 0}}%</p>
