@@ -175,7 +175,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         bottomEfficient: bottomEfficient,
         topEfficient: topEfficient,
         getRefToAllList: getRefToAllList,
-        quantity: quantity
+        quantity: quantity,
         setNonFoodStatus: setNonFoodStatus,
         onlyFoodItems: onlyFoodItems,
         getAllShareList: getAllShareList,
