@@ -44,6 +44,7 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
                  $uibModalInstance.dismiss();
                  e.stopPropagation();
                  };*/
+
                 var allShareList = $firebaseObject(DatabaseRef.getAllShareList());
                 allShareList.$bindTo($scope, "allLists");
 
