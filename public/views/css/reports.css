@@ -85,6 +85,14 @@
     text-align: left;
 }
 
+#dataModalInner .chartModalTitle {
+
+}
+
+#dataModalInner button {
+    font-size: 2em;
+}
+
 #confetti {
     position: fixed;
 }
