@@ -88,7 +88,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
             list: "shopping",
             name: itemName.toLowerCase(),
             checked: false,
-            average: 0
+            average: 0,
+            quantity: "qty"
         };
 
         if (newItem.name == "uuddlrlrba") {
@@ -148,6 +149,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 .child(item.name)
                 .child("checked")
                 .remove();
+            DatabaseRef.items()
+                .child(item.name)
+                .child("quantity")
+                .remove();
         }
 
         if (list == "shopping") {
@@ -155,6 +160,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
                 .child(item.name)
                 .child("checked")
                 .set(false);
+            DatabaseRef.items()
+                .child(item.name)
+                .child("quantity")
+                .set("qty");
         }
 
         DatabaseRef.items()
@@ -449,6 +458,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         });
     }
 
+    function setQuantity(item, qty){
+        DatabaseRef.quantity(item).set(qty);
+    }
+
     return {
         updateWasteScore: updateWasteScore,
         addItem: addItem,
@@ -469,7 +482,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "CalculationService", "$ui
         setRank: setRank,
         getRank: getRank,
         getTopEfficient: getTopEfficient,
-        getBottomEfficient: getBottomEfficient
+        getBottomEfficient: getBottomEfficient,
+        setQuantity: setQuantity
     }
 
 }]);

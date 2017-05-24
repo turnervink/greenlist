@@ -103,6 +103,10 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         return database.ref("leaderboard").child(UserInfo.getCurrentUser().uid);
     }
 
+    function quantity(item){
+        return items().child(item.name).child("quantity");
+    }
+
     /**
      * return all the functions
      */
@@ -119,8 +123,8 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
         database: database,
         bottomEfficient: bottomEfficient,
         topEfficient: topEfficient,
-        getRefToAllList: getRefToAllList
-
+        getRefToAllList: getRefToAllList,
+        quantity: quantity
     }
 
 

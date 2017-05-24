@@ -15,8 +15,7 @@
 		<div class="container-fluid">
 			<!--an individal item, whole thing repeated for each item added -->
 			<ul id="shopping-list" class="row">
-				<li ng-repeat="item in uncheckedItems" class="row" ng-init="{{item.name}}+p">
-					{{item.name}}+p
+				<li ng-repeat="item in uncheckedItems" class="row">
 
 					<div class="col-xs-2 emptycb itemrow">
 						<!-- checkbox -->
@@ -24,8 +23,7 @@
 					</div>
 					<div class="col-xs-8 itemrow">
 						<!-- item name injected here-->
-						<p class="shopping-item">{{item.name}} <input ng-blur="updateQty(number, item.name+p)" ng-model="number" type="text" size="2" placeholder="Qty" class="qty"/></p>
-
+						<p class="shopping-item">{{item.name}} <input ng-model="qty" ng-change="setQty(item, qty)" type="number" placeholder="{{item.quantity}}" class="qty"/></p>
 						<!-- Waste bar -->
 						<div class="col-xs-12 colourbar" ng-style="getBackColor(item.average)">
 							<div class="innerbar" ng-style="getBarColor(item.average)">

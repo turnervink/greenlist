@@ -175,4 +175,8 @@ greenlistApp.controller("ShoppingListCtrl",
 
         }
 
+        $scope.setQty = function(item, qty) {
+            DatabaseQuery.setQuantity(item, qty);
+        }
+
 }]);
