@@ -24,6 +24,7 @@ greenlistApp.service("UserInfo", function() {
 
         firebase.database().ref("emails").child(uid).set(email);
 
+        console.log(currentList);
     }
 
     /**
