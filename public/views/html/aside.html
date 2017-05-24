@@ -4,27 +4,27 @@
     <h2>{{userName}}</h2>
     <h3>{{email}}</h3>
 </div>
-<ul>
-    <li><a ng-click="close()" href="#!/about">About</a></li>
-    <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
-    <li><a ng-click="listButton = !listButton">Share List</a></li>
+<div id="aside-content">
+    <ul>
+        <li><a ng-click="close()" href="#!/about">About</a></li>
+        <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
+        <li><a ng-click="listButton = !listButton">Shared List</a></li>
 
-</ul>
+    </ul>
 
-<div class="row" ng-show="listButton">
-    <div class="container-fluid">
-        <ul id="clear-list" class="row">
-            <li ng-repeat="lists in allLists" class="row no-gutter">
-                <div class="col-xs-8 itemrow" ng-click="shareThisList(lists.listKey)">
+    <div id="shared-list" ng-show="listButton">
+        <ul>
+            <li id="list-name" ng-repeat="lists in allLists" class="row no-gutter">
+                <div class="col-xs-10" ng-click="shareThisList(lists.listKey)">
                     <!-- item name injected here-->
                     <p>{{lists.name}}</p>
                 </div>
-                <div class="col-xs-2 button-to-right">
-                    <button class="delete-List-button" ng-click="deleteList(lists.listKey)">Delete</button>
+                <div class="col-xs-2">
+                    <input id="delete-list-btn" type="image" src="images/icons/trash.png" ng-click="deleteList(lists.listKey)"/>
                 </div>
             </li>
             <li class="row no-gutter addrow-row" ng-show="listButton">
-                <form >
+                <form>
                     <div class="col-xs-7">
                         <input ng-model="newListName" type="text" name="newShareListName" placeholder="Enter New List Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter New List Name'">
                     </div>
@@ -37,11 +37,11 @@
     </div>
 </div>
 
-
-
-<div id="sign-out">
-    <a ng-controller="AuthCtrl" ng-click="signOut(); close()">Sign&nbsp;out</a>
-</div>
-<div id="version">
-    <p>v0.3</p>
-</div>
+<div id="aside-footer">
+    <div id="sign-out">
+        <a ng-controller="AuthCtrl" ng-click="signOut(); close()">Sign&nbsp;out</a>
+    </div>
+    <div id="version">
+        <p>v0.3</p>
+    </div>
+<div>
