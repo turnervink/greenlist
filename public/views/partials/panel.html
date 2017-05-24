@@ -7,8 +7,9 @@
 			<h3 ng-hide="shoppingListHide">{{heading}}</h3>
 
 			<select ng-show="shoppingListHide" style="color: black; margin-left: 25vw;" >
-				<option >{{currentList}}</option>
-				<option ng-repeat="list in shareListName">{{list.name}}</option>
+				<option>{{currentList}}</option>
+				<option ng-click="switchToList(false)">MyList</option>
+				<option ng-click="switchToList(list)" ng-repeat="list in shareListName">{{list.name}}</option>
 			</select>
 
 
