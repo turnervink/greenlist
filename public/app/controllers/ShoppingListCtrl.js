@@ -36,16 +36,8 @@ greenlistApp.controller("ShoppingListCtrl",
         });
 
         $scope.getList = function() {
-
-            if (UserInfo.getCurrentList().name === undefined){
-
-                UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
                 $scope.currentList = UserInfo.getCurrentList().name;
-                $route.reload();
-            }
-            else{
-                $scope.currentList = UserInfo.getCurrentList().name;
-            }
+
 
         }
 

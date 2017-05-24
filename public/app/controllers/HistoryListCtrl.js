@@ -3,10 +3,12 @@
  */
 greenlistApp.controller("HistoryListCtrl",
     ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "CalculationService", "$firebaseObject", "DatabaseQuery",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, CalculationService, $firebaseObject, DatabaseQuery) {
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, CalculationService, $firebaseObject, DatabaseQuery, $route) {
 
         // Set up user info with the UserInfo service
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
+
+
 
         // Define style values for the header and nav bar
         $scope.heading = 'History';

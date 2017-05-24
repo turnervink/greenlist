@@ -2,7 +2,7 @@
  * Service to manage information about the
  * currently logged in user.
  */
-greenlistApp.service("UserInfo", function() {
+greenlistApp.service("UserInfo", function($route) {
     // Object to store user info
     var currentUser = {};
     var currentList = {};
@@ -25,6 +25,11 @@ greenlistApp.service("UserInfo", function() {
         firebase.database().ref("emails").child(uid).set(email);
 
         console.log(currentList);
+
+        if (getCurrentList().name === undefined){
+            setCurrentList(getCurrentUser().uid, "My List");
+            $route.reload();
+        }
     }
 
     /**
