@@ -27,13 +27,16 @@ body.HistoryListCtrl-page {
 }
 
 /* Side menu */
-.aside-popup .modal-content{
+.aside-popup .modal-content {
 	width: 80vw;
 }
 
 .aside-popup .modal-dialog .side-menu-header {
-	width: 100%;
+	width: 80vw;
 	background-color: green;
+	position: fixed;
+	top: 0;
+	z-index: 99;
 }
 
 .aside-popup .modal-dialog img {
@@ -71,10 +74,41 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog a {
+	text-decoration: none;
 	display: block;
 	padding: 3.5vh;
 	color: black;
 	border-bottom: gray solid 1px;
+}
+
+.aside-popup .modal-dialog #aside-content {
+	margin-top: 30vh;
+	margin-bottom: 20vh;
+}
+
+.aside-popup .modal-dialog #aside-footer {
+	position: fixed;
+	bottom: 0;
+	height: 20vh;
+	width: 80vw;
+	background-color: white;
+}
+
+.aside-popup .modal-dialog #shared-list p {
+	margin: 0;
+	padding-top: 1vh;
+}
+
+.aside-popup .modal-dialog #shared-list #delete-list-btn {
+	margin-top: 1vh;
+	height: 4vh;
+	width: 4vh;
+}
+
+.aside-popup .modal-dialog #shared-list #list-name {
+	margin: 0;
+	padding: 0;
+	padding-left: 5vh;
 }
 
 .aside-popup .modal-dialog #sign-out {
@@ -173,7 +207,7 @@ body.HistoryListCtrl-page {
 }
 
 /* the track for google*/
-input[type=range]::-webkit-slider-runnable-track {
+.logwaste-popup input[type=range]::-webkit-slider-runnable-track {
 	height: 1px;
 	box-shadow: 0 5px 30px #000;
 	margin-top: 3.5vh;
@@ -183,14 +217,14 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* the track for firefox*/
-input[type=range]::-moz-range-track {
+.logwaste-popup input[type=range]::-moz-range-track {
 	width: 11.7vh;
 	height: 1.1vh;
 	background-color: black;
 }
 
 /* the thing you grab to slide for google*/
-input[type=range]::-webkit-slider-thumb {
+.logwaste-popup input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	border: none;
 	height: 3.8vh;
@@ -200,7 +234,7 @@ input[type=range]::-webkit-slider-thumb {
 	margin-top: -1.9vh;
 }
 
-input[type=range]::-moz-range-thumb {
+.logwaste-popup input[type=range]::-moz-range-thumb {
 	border: none;
 	height: 3.8vh;
 	width: 3.8vh;
