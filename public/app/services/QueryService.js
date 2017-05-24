@@ -292,7 +292,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      * @param item The item to get data for
      * @param callback The callback function
      */
-    function getChartData(item, status, callback) {
+    function getChartData(item, callback) {
         DatabaseRef.wasteData(item).orderByChild("date").once("value").then(function(data) {
             var scoresArray = [];
             var datesArray = [];
