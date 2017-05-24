@@ -4,10 +4,10 @@
 	<header class="header">
 		<div class="header-content">
 			<div style="text-align: center;" ng-show="shoppingListHide">
-			    <span class="dropdownList"  dropdown>
-                    <h3 ng-init="getList()" href="" class="dropdown-toggle-list" dropdown-toggle >{{currentList}}</h3>
+			    <span class="dropdownList"  uib-dropdown>
+                    <h3 ng-init="getList()" href="" class="dropdown-toggle-list" uib-dropdown-toggle >{{currentList}}</h3>
 
-                    <ul style="transform: translate(-50%, 0); text-align: left;" class="dropdown-menu" dropdown-menu>
+                    <ul style="transform: translate(-50%, 0); text-align: left;" class="uib-dropdown-menu" dropdown-menu>
                         <li>
                             <a ng-click="switchToList('main')">My List</a>
                         </li>
