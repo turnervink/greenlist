@@ -12,7 +12,11 @@
 }
 
 #report-page #elo-rating {
-    font-size: 14vh;
+    font-size: 2em;
+}
+
+#grade {
+    font-size: 2em;
 }
 
 #report-page #scores-section p {
@@ -78,4 +82,8 @@
 
 #dataModalInner .chartTitle {
     text-align: left;
+}
+
+#confetti {
+    position: fixed;
 }
