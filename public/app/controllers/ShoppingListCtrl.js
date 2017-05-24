@@ -36,8 +36,17 @@ greenlistApp.controller("ShoppingListCtrl",
         });
 
         $scope.getList = function() {
-                $scope.currentList = UserInfo.getCurrentList().name;
 
+            var listObj = UserInfo.getCurrentList();
+                
+            if (listObj.listKey === UserInfo.getCurrentUser().uid) {
+                $scope.listType = "My List";
+                $scope.currentList = "";
+                
+            } else{
+                $scope.listType = "Shared List";
+                $scope.currentList = listObj.name;
+            }
 
         }
 

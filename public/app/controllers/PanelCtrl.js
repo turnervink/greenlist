@@ -54,6 +54,9 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
 
                 $scope.deleteList = function(listKey){
                     DatabaseQuery.deleteSharedList(listKey);
+                    UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+                    $scope.currentList = UserInfo.getCurrentList().name;
+                    $route.reload();
                 }
 
                 $scope.shareThisList = function(listKey, listName) {
