@@ -52,15 +52,17 @@
 }
 
 .header-content a {
-	padding-left: 4.4375vw;
-	font-size: 5.325vw;
-	position: fixed;
-	top: 6.2125vw;
-	margin-left: 4.4375vw;
+	/*!*!*padding-left: 4.4375vw;
+	!*font-size: 5.325vw;*!*!
+	font-size: 9vm;
+	!*position: fixed;*!
+	!*top: 6.2125vw;*!
+	!*margin-left: 4.4375vw;*!*/
+	/*text-align: center;*/
 	color: white;
 	text-decoration: none;
-	display: inline-block;
-	background-image: url('../../images/icons/back-arrow.png');
+	/*display: inline-block;*/
+	/*background-image: url('../../images/icons/back-arrow.png');*/
 	background-position: left;
 	background-repeat: no-repeat;
 	background-size: 5.325vw;

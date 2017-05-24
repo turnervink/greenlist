@@ -1,6 +1,5 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "$uibModal", "$window","DatabaseQuery", "CalculationService", "FoodTipsService",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService) {
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService, $route) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
@@ -36,17 +35,27 @@ greenlistApp.controller("ShoppingListCtrl",
         });
 
         $scope.getList = function() {
-            $scope.listName = UserInfo.getCurrentList();
+
+            if (UserInfo.getCurrentList().name === undefined){
+
+                UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+                $scope.currentList = UserInfo.getCurrentList().name;
+            }
+            else{
+                $scope.currentList = UserInfo.getCurrentList().name;
+            }
+
         }
 
         $scope.switchToList = function(list){
             console.log(list);
-
-            if (list == null) {
+            if (list === "main") {
                 UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
             } else {
                 UserInfo.setCurrentList(list.listKey, list.name);
             }
+            $scope.currentList = UserInfo.getCurrentList().name;
+            $route.reload();
 
 
         }
@@ -191,4 +200,4 @@ greenlistApp.controller("ShoppingListCtrl",
             }
         }
 
-}]);
+});

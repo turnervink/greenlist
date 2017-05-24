@@ -6,10 +6,23 @@
 			<img id="userPic" ng-click="openAside('left', true)" ng-swipe-right="openAside(left, true)" ng-src="{{userPic}}">
 			<h3 ng-hide="shoppingListHide">{{heading}}</h3>
 
-			<select ng-init="currentListName()" ng-options="list as list.name for list in shareListName" ng-model="listName" ng-change=" switchToList(listName)" ng-show="shoppingListHide" style="color: black; margin-left: 25vw;" >
-			<option value=""> {{currentList}}</option>
-			</select>
+			<div style="text-align: center;">
+			<span class="dropdownList"  dropdown>
+        <h3 ng-init="getList()" href="" class="dropdown-toggle-list" dropdown-toggle >{{currentList}}</h3>
+        <ul style="transform: translate(-50%, 0);" style="text-align: left;" class="dropdown-menu" dropdown-menu>
+			<li>
+				<a  ng-click="switchToList('main')">My List</a>
+			</li>
+          <li ng-repeat="list in shareListName">
+            <a style="color: black;" ng-click="switchToList(list)">{{list.name}}</a>
+          </li>
+        </ul>
+      </span>
+			</div>
+
 		</div>
+
+
 	</header>
 
 	<!-- App nav panel -->
