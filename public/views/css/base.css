@@ -39,6 +39,7 @@ body.HistoryListCtrl-page {
 	max-width: 400px;
 	height: 30vh;
 	background-color: green;
+	z-index: 99;
 }
 
 .aside-popup .modal-dialog img {
@@ -88,16 +89,13 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog #shared-list li {
-	margin-left: 10vw;
-	font-size: 12px;
+	margin-top: 10px;
+	margin-left: 25px;
+	font-size: 15px;
 }
 
 .aside-popup .modal-dialog #shared-list .list-item {
 	height: 25px;
-}
-
-.aside-popup .modal-dialog #shared-list .list-item-name {
-
 }
 
 .aside-popup .modal-dialog #aside-footer {
@@ -115,7 +113,21 @@ body.HistoryListCtrl-page {
 	margin-top: 30vh;
 }
 
+.aside-popup .modal-dialog .add-list {
+	margin-top: 20px !important;
+	border-bottom: none !important;
+}
 
+.aside-popup .modal-dialog .add-list input {
+	border: none;
+}
+
+.aside-popup .modal-dialog .add-list img {
+	margin: 0;
+	width: 25px;
+	height: 25px;
+	margin-bottom: 2px;
+}
 
 .aside-popup .modal-dialog #sign-out {
 	font-size: 15px;

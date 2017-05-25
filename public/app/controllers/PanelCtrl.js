@@ -50,6 +50,7 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
 
                 $scope.addNewList= function(list){
                     DatabaseQuery.createNewList(list);
+                    $scope.newListName = "";
                 }
 
                 $scope.deleteList = function(listKey){

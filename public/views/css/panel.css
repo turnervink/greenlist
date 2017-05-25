@@ -81,7 +81,7 @@
 	text-align: center;
 }
 
-.header-content img {
+.header-content img#userPic {
 	position: fixed;
 	top: 0;
 	width: 15.975vw;
@@ -89,6 +89,13 @@
 	margin-left: 1.775vw;
 	margin-top: 1.775vw;
 	cursor: pointer;
+}
+
+.header-content img#down-arrow {
+	position: fixed;
+	top: 8vw;
+	left: 70vw;
+	width: 8vw;
 }
 
 .header-content h3 {
@@ -212,7 +219,7 @@
 		background-size: 3vh;
 	}
 
-	.header-content img {
+	.header-content img#userPic {
 		position: fixed;
 		top: 0;
 		width: 9vh;
@@ -220,6 +227,13 @@
 		margin-left: 1vh;
 		margin-top: 1vh;
 		cursor: pointer;
+	}
+
+	.header-content img#down-arrow {
+		position: fixed;
+		top: 4.5vh;
+		left: 56vw;
+		width: 4.5vh;
 	}
 
 	.header-content h3 {
