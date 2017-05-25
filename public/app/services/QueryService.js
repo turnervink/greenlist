@@ -105,7 +105,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             name: itemName.toLowerCase(),
             checked: false,
             average: 0,
-            quantity: "qty",
+            quantity: "#",
             NonFood: false
         };
 
