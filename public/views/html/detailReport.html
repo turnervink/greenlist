@@ -5,7 +5,12 @@
         <!--an individal item -->
         <div class="row">
             <ul class="col-xs-12">
-                <li ng-repeat="food in listItem" class="shopping-item" ng-click="dataModal(food)">
+                <li class="col-xs-12" style="position: fixed; bottom: 0; background-color: white; border-top: 1px solid black; border-bottom: 0;">
+                    <form>
+                        <input ng-model="query" type="text" name="item" placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'" ng-click="navDisplay = 'none'; inputHeight = '-20vw'" ng-blur="navDisplay = 'block'; inputHeight = '0'" class="addbar">
+                    </form>
+                </li>
+                <li ng-repeat="food in listItem | itemSearch: query" class="shopping-item" ng-click="dataModal(food)">
                     {{food.name}}
                 </li>
             </ul>

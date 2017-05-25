@@ -22,14 +22,20 @@
 
     <div id="dataModalInner" class="container">
         <div class="row">
-            <a ng-click="close()"><img src="images/icons/trash.png" class="col-xs-3 pull-right"></a>
+            <a ng-click="close()"><img src="images/icons/trash.png" class="pull-right" id="close-modal-btn"></a>
+            <h1 class="col-xs-12">{{food.name}}</h1>
+        </div>
+        <div class="row" ng-show="chartData.length == 0">
+            <h3 class="col-xs-12 chartModalTitle">no data logged</h3>
+        </div>
+        <div class="row" ng-show="chartData.length != 0">
             <h3 class="col-xs-12 chartModalTitle">Average efficiency: {{food.average / 100 | percentage: 1}}</h3>
         </div>
         <br>
-        <div class="row">
+        <div class="row" ng-show="chartData.length != 0">
             <h3 class="chartTitle col-xs-12">Usage over time:</h3>
 
-            <canvas ng-show="chartData.length != 0" class="chart chart-line col-xs-12" chart-data="chartData"
+            <canvas class="chart chart-line col-xs-12" chart-data="chartData"
                     chart-labels="labels" chart-options="options" chart-colors="colors">
             </canvas>
         </div>
