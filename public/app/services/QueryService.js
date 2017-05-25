@@ -517,7 +517,9 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
     function shareList(listKey, listName) {
         $uibModal.open({
             templateUrl: 'views/partials/shareList.html',
+            windowClass: 'shareList-popup',
             controller: function($scope, $uibModalInstance, UserInfo){
+
                 $scope.addUserEmail = function(friendEmail){
 
                     var friendUID;
@@ -527,19 +529,25 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                     userEmails.once("value", function(snapshot) {
 
                         snapshot.forEach(function(data) {
-                            console.log(data.val());
 
                             if (data.val() === friendEmail) {
                                 friendUID = data.getKey();
                             }
                         });
 
-                        var addList = {
-                            name: listName,
-                            listKey: listKey,
-                        };
+                        if (friendUID === undefined) {
+                            $scope.errorMsg = "Sorry! We couldn't find that email.";
+                        } else {
+                            var addList = {
+                                name: listName,
+                                listKey: listKey,
+                            };
 
-                        DatabaseRef.friendSharedLists(friendUID).child(listKey).update(addList);
+                            DatabaseRef.friendSharedLists(friendUID).child(listKey).update(addList);
+                            $uibModalInstance.close();
+                        }
+
+
 
                     });
 
