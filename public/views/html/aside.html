@@ -9,43 +9,44 @@
     <ul>
         <li><a ng-click="close()" href="#!/about">About</a></li>
         <li><a ng-click="close()" href="#!/affiliates">Affiliates</a></li>
+        <li><a ng-click="listButton = !listButton">Lists</a></li>
+            <div id="shared-list" ng-show="listButton">
+                <ul>
+                    <li class="row no-gutter">
+                        <div class="col-xs-10 list-item-name" ng-click="switchList('main')">
+                            <!-- item name injected here-->
+                            My List
+                        </div>
+                    </li>
+                    <li ng-repeat="lists in allLists" class="row no-gutter">
+                        <div class="col-xs-8 list-item-name" ng-click="switchList(lists)">
+                            <!-- item name injected here-->
+                            {{lists.name}}
+                        </div>
+                        <div class="col-xs-2 list-item">
+                            <input id="delete-list-btn" type="image" src="images/icons/android-share.png" width="20" ng-click="shareThisList(lists.listKey, lists.name)"/>
+                        </div>
+                        <div class="col-xs-2 list-item">
+                            <input id="delete-list-btn" type="image" src="images/icons/trash.png" width="20" ng-click="deleteList(lists.listKey)"/>
+                        </div>
+                    </li>
+                    <li class="row no-gutter add-list" ng-show="listButton">
+                        <form>
+                            <div class="col-xs-9">
+                                <input ng-model="newListName" type="text" name="newShareListName" placeholder="Enter New List Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter New List Name'">
+                            </div>
+                            <div class="col-xs-2">
+                                <img alt="add new list" src="images/icons/add1.png" class="add-newList-button" ng-click="addNewList(newListName)"/>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
         <li><a ng-click="close()" href="#!/settings">Settings</a></li>
         <li><a ng-click="close()" href="mailto:greenlistapp@gmail.com?subject=Feedback">Feedback</a></li>
-        <li><a ng-click="listButton = !listButton">Switch List</a></li>
     </ul>
 
-    <div id="shared-list" ng-show="listButton">
-        <ul>
-            <li id="list-name" class="row no-gutter">
-                <div class="col-xs-10" ng-click="switchList('main')">
-                    <!-- item name injected here-->
-                    <p>My List</p>
-                </div>
-            </li>
-            <li id="list-name" ng-repeat="lists in allLists" class="row no-gutter">
-                <div class="col-xs-8" ng-click="switchList(lists)">
-                    <!-- item name injected here-->
-                    <p>{{lists.name}}</p>
-                </div>
-                <div class="col-xs-2">
-                    <input id="delete-list-btn" type="image" src="images/icons/android-share.png" ng-click="shareThisList(lists.listKey, lists.name)"/>
-                </div>
-                <div class="col-xs-2">
-                    <input id="delete-list-btn" type="image" src="images/icons/trash.png" ng-click="deleteList(lists.listKey)"/>
-                </div>
-            </li>
-            <li class="row no-gutter add-list" ng-show="listButton">
-                <form>
-                    <div class="col-xs-7">
-                        <input ng-model="newListName" type="text" name="newShareListName" placeholder="Enter New List Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter New List Name'">
-                    </div>
-                    <div class="col-xs-2 button-to-right">
-                        <button class="add-newList-button" ng-click="addNewList(newListName)">Add</button>
-                    </div>
-                </form>
-            </li>
-        </ul>
-    </div>
+
 </div>
 
 <div id="aside-footer">
@@ -53,6 +54,6 @@
         <a ng-controller="AuthCtrl" ng-click="signOut(); close()">Sign&nbsp;out</a>
     </div>
     <div id="version">
-        <p>v0.3</p>
+        v0.3
     </div>
 </div>

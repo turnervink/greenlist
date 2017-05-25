@@ -51,7 +51,15 @@
 	width: 100%;
 }
 
-.header-content a {
+.header-content #list-name {
+	position: fixed;
+	top: 15vw;
+	font-size: 4vw;
+	width: 100%;
+	margin-left: -50vw;
+}
+
+.header-content .go-back-btn {
 	padding-left: 4.4375vw;
 	font-size: 5.325vw;
 	position: fixed;
@@ -59,14 +67,21 @@
 	margin-left: 4.4375vw;
 	color: white;
 	text-decoration: none;
-	display: inline-block;
 	background-image: url('../../images/icons/back-arrow.png');
 	background-position: left;
 	background-repeat: no-repeat;
 	background-size: 5.325vw;
 }
 
-.header-content img {
+.header-content .uib-dropdown-menu {
+	margin: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	width: 100vw;
+	text-align: center;
+}
+
+.header-content img#userPic {
 	position: fixed;
 	top: 0;
 	width: 15.975vw;
@@ -74,6 +89,13 @@
 	margin-left: 1.775vw;
 	margin-top: 1.775vw;
 	cursor: pointer;
+}
+
+.header-content img#down-arrow {
+	position: fixed;
+	top: 8vw;
+	left: 70vw;
+	width: 8vw;
 }
 
 .header-content h3 {
@@ -174,7 +196,15 @@
 		width: 100%;
 	}
 
-	.header-content a {
+	.header-content #list-name {
+		position: fixed;
+		top: 8.45vh;
+		font-size: 2.25vh;
+		width: 100%;
+		margin-left: -50vw;
+	}
+
+	.header-content .go-back-btn {
 		padding-left: 2.5vh;
 		font-size: 3vh;
 		position: fixed;
@@ -189,7 +219,7 @@
 		background-size: 3vh;
 	}
 
-	.header-content img {
+	.header-content img#userPic {
 		position: fixed;
 		top: 0;
 		width: 9vh;
@@ -197,6 +227,13 @@
 		margin-left: 1vh;
 		margin-top: 1vh;
 		cursor: pointer;
+	}
+
+	.header-content img#down-arrow {
+		position: fixed;
+		top: 4.5vh;
+		left: 56vw;
+		width: 4.5vh;
 	}
 
 	.header-content h3 {
