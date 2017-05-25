@@ -26,7 +26,7 @@
                     </div>
                     <div class="row">
                         <ol class="col-xs-12">
-                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                            <li ng-click="dataModal(item)" ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
                         </ol>
                     </div>
 
@@ -35,7 +35,7 @@
                     </div>
                     <div class="row">
                         <ol class="col-xs-12">
-                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                            <li ng-click="dataModal(item)" ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
                         </ol>
                     </div>
                     <br><br>

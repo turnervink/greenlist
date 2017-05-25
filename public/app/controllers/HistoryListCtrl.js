@@ -96,4 +96,6 @@ greenlistApp.controller("HistoryListCtrl",
 
 
 
+
+
 }]);
