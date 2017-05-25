@@ -29,12 +29,14 @@ body.HistoryListCtrl-page {
 /* Side menu */
 .aside-popup .modal-content{
 	width: 80vw;
+	max-width: 400px;
 }
 
 .aside-popup .modal-dialog .side-menu-header {
 	position: fixed;
 	top: 0;
 	width: 80vw;
+	max-width: 400px;
 	height: 30vh;
 	background-color: green;
 }
@@ -68,43 +70,59 @@ body.HistoryListCtrl-page {
 	display: block;
 	list-style-type: none;
 	text-decoration: none;
-	font-size: 3vh;
+	font-size: 15px;
 	padding: 0;
 	margin: 0;
 }
 
 .aside-popup .modal-dialog a {
+	text-decoration: none;
 	display: block;
-	padding: 3.5vh;
+	padding: 15px;
 	color: black;
+	border-top: gray solid 1px;
+}
+
+.aside-popup .modal-dialog li:last-child {
 	border-bottom: gray solid 1px;
+}
+
+.aside-popup .modal-dialog #shared-list li {
+	margin-left: 10vw;
+	font-size: 12px;
+}
+
+.aside-popup .modal-dialog #shared-list .list-item {
+	height: 25px;
+}
+
+.aside-popup .modal-dialog #shared-list .list-item-name {
+
 }
 
 .aside-popup .modal-dialog #aside-footer {
 	position: fixed;
 	bottom: 0;
 	z-index: 97;
-	height: 15vh;
+	height: 70px;
 	width: 80vw;
+	max-width: 400px;
 	background-color: white;
 }
 
 .aside-popup .modal-dialog #aside-content {
-	margin-bottom: 18vh;
+	margin-bottom: 70px;
 	margin-top: 30vh;
 }
 
-.aside-popup .modal-dialog .add-list {
-	position: fixed;
-	bottom: 10vh;
-	z-index: 98;
-}
+
 
 .aside-popup .modal-dialog #sign-out {
-	font-size: 3.5vh;
+	font-size: 15px;
 	padding: 0;
 	margin:0;
 	width: 80vw;
+	max-width: 400px;
 	text-align: center;
 	position: fixed;
 	bottom: 0;
@@ -117,11 +135,12 @@ body.HistoryListCtrl-page {
 }
 
 .aside-popup .modal-dialog #version {
-	font-size: 1.5vh;
+	font-size: 8px;
 	color: gray;
 	padding: 0;
 	margin:0;
 	width: 80vw;
+	max-width: 400px;
 	text-align: center;
 	position: fixed;
 	bottom: 0;
