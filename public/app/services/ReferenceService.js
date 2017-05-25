@@ -142,7 +142,7 @@ greenlistApp.service("DatabaseRef", ["UserInfo", function(UserInfo) {
 
 
     function sharedLists() {
-        return database.ref("sharedLists");
+        return database.ref("deploy/sharedLists");
     }
 
     function userSharedLists() {

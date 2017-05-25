@@ -22,7 +22,7 @@ greenlistApp.service("UserInfo", function($route) {
         currentUser.photoUrl = photoUrl;
         currentUser.email = email;
 
-        firebase.database().ref("emails").child(uid).set(email);
+        firebase.database().ref("deploy").child("emails").child(uid).set(email);
 
         if (getCurrentList().name === undefined){
             setCurrentList(getCurrentUser().uid, "My List");
