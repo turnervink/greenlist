@@ -123,6 +123,7 @@ body.HistoryListCtrl-page {
 .aside-popup .modal-dialog .add-list {
 	margin-top: 20px !important;
 	border-bottom: none !important;
+	margin-bottom: 5px;
 }
 
 .aside-popup .modal-dialog .add-list input {

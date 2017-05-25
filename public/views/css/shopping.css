@@ -50,17 +50,20 @@ keep for now in case we go back to the button life*/
 /* affects all rows where an item is in the list*/
 .itemrow {
     height: 60px;
-    border-bottom: black solid 1px;
-    padding-top: 10px;
+    border-bottom: #ccc solid 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* Affects the quantity input on each item */
 .qty {
-    border-style: hidden;
+    border: none;
     float: right;
     font-size: 18px;
-    width: 20px;
+    width: 30px;
     text-align: right;
+    padding: 0;
+    margin: 0;
 }
 
 .checked-item {
@@ -110,18 +113,18 @@ keep for now in case we go back to the button life*/
     display: inline-block;
     text-align: center;
     margin: 0;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     padding: 0;
-    margin-top: 5px;
+    margin-top: 8px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .logwaste, .addtolist {
     margin-top: 0;
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
 }
 
 .icon {
@@ -173,28 +176,28 @@ p.addbar {
     right: 0;
 }
 
-.shopping-item{
+.shopping-item {
     margin: 0;
     font-size: 20px;
     font-weight: bold;
 }
 
-.add-icon{
+.add-icon {
 
     height: 5.325vw;
     width: 5.325vw;
 }
 
-.row{
+.row {
     padding: 0px;
 }
 
-ul{
+ul {
     list-style-type: none;
     margin: 0px;
 }
 
-li{
+li {
     margin: inherit
 }
 
@@ -248,11 +251,13 @@ li{
 
     /* Affects the quantity input on each item */
     .qty {
-        border-style: hidden;
+        border: none;
         float: right;
         font-size: 3.38vh;
-        width: 4vh;
+        width: 6vh;
         text-align: right;
+        padding: 0;
+        margin: 0;
     }
 
 
