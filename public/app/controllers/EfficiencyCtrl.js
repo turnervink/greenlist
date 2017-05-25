@@ -39,6 +39,7 @@ greenlistApp.controller("EfficiencyCtrl",
                         // Chart variables
                         $scope.labels = dates;
                         $scope.chartData = scores;
+                        console.log("Labels length, data lenght", $scope.labels.length, $scope.chartData.length);
                         $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
                         $scope.options = {
                             elements: {

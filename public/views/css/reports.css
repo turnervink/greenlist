@@ -96,3 +96,8 @@
 #confetti {
     position: fixed;
 }
+
+#close-modal-btn {
+    width: 32px;
+    margin-right: 15px;
+}
