@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="greenlistApp">
 <head>
+    <title>greenlist</title>
+    <link rel="icon" href="images/icons/icon48.png">
+
     <!-- jQuery -->
     <script src="app/lib/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap -->
@@ -31,6 +34,7 @@
     <script src="app/controllers/ShoppingListCtrl.js"></script>
     <script src="app/controllers/AffiliatesCtrl.js"></script>
     <script src="app/controllers/AboutCtrl.js"></script>
+    <script src="app/controllers/SettingsCtrl.js"></script>
     <script src="app/services/QueryService.js"></script>
     <script src="app/services/ReferenceService.js"></script>
     <script src="app/services/UserInfoService.js"></script>
@@ -44,6 +48,12 @@
     <script src="app/lib/Chart.min.js"></script>
     <script src="app/lib/angular-chart.min.js"></script>
     <script src="app/controllers/EfficiencyCtrl.js"></script>
+    <script src="app/lib/hammer.min.js"></script>
+    <script src="app/lib/chartjs-plugin-zoom.min.js"></script>
+
+
+    <!-- Twitter -->
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
     <!-- Stylesheets -->
     <link href="views/css/login.css" rel="stylesheet">
@@ -54,6 +64,8 @@
     <link href="views/css/panel.css" rel="stylesheet">
     <link href="views/css/about.css" rel="stylesheet">
     <link href="views/css/badboy.css" rel="stylesheet">
+    <link href="views/css/settings.css" rel="stylesheet">
+    <link href="views/css/goodbye.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet">
@@ -70,5 +82,5 @@
 <body class="{{bodyClass}}" ng-controller="GlobalCtrl">
         <main class="content" ng-view></main>
 
-</body>
+        </body>
 </html>

@@ -3,13 +3,31 @@
 	<!-- App header panel -->
 	<header class="header">
 		<div class="header-content">
-			<img id="userPic" ng-click="openAside('left', true)" ng-swipe-right="openAside(left, true)" ng-src="{{userPic}}">
-			<h3>{{heading}}</h3>
+			<div ng-show="shoppingListHide">
+			    <span uib-dropdown>
+                    <h3 ng-init="getList()" class="dropdown-toggle-list" uib-dropdown-toggle>{{listType}}<br><img id="down-arrow" src="../../images/icons/down-arrow.png" alt="show list"/><span id="list-name">{{currentList}}</span></h3>
+
+                    <ul class="uib-dropdown-menu" dropdown-menu>
+                        <li>
+                            <a ng-click="switchToList('main')">My List</a>
+                        </li>
+
+                        <li ng-repeat="list in shareListName">
+                            <a ng-click="switchToList(list)">{{list.name}}</a>
+                        </li>
+                    </ul>
+                </span>
+			</div>
+
+            <img id="userPic" ng-click="openAside('left', true)" ng-swipe-right="openAside(left, true)" ng-src="images/icons/hamburger-menu.png">
+            <h3 ng-hide="shoppingListHide">{{heading}}</h3>
 		</div>
+
+
 	</header>
 
 	<!-- App nav panel -->
-	<nav class="nav-bar">
+	<nav class="nav-bar" style="display: {{navDisplay}}">
 		<div class="nav-bar-content">
 			<ul class="col-xs-12">
 				<a href="#!/list"><li class="col-xs-4" style="background-color: {{listBtnColor}}; color: {{listColor}}; background-image: url({{listBgImg}});">Shopping List</li></a>

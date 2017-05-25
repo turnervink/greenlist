@@ -1,25 +1,25 @@
 greenlistApp.controller("ShoppingListCtrl",
-    ["CurrentAuth", "$scope", "UserInfo", "DatabaseRef", "$firebaseObject", "$firebaseArray", "$uibModal", "$window","DatabaseQuery", "CalculationService", "FoodTipsService",
-    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService) {
+    function(CurrentAuth, $scope, UserInfo, DatabaseRef, $firebaseObject, $firebaseArray, $uibModal, $window,DatabaseQuery, CalculationService, FoodTipsService, $route) {
 
         UserInfo.initUser(CurrentAuth.displayName, CurrentAuth.uid, CurrentAuth.photoURL, CurrentAuth.email);
 
         // Setting shopping list page heading content and nav bar button style
-    	$scope.heading = 'Shopping List';
-    	$scope.listBtnColor = 'green';
-    	$scope.histBtnColor = 'white';
-    	$scope.reptBtnColor = 'white';
-    	$scope.listColor = 'white';
-    	$scope.histColor = 'black';
-    	$scope.reptColor = 'black';
+        $scope.shoppingListHide = true;
+        $scope.heading = 'Shopping List';
+        $scope.listBtnColor = 'green';
+        $scope.histBtnColor = 'white';
+        $scope.reptBtnColor = 'white';
+        $scope.listColor = 'white';
+        $scope.histColor = 'black';
+        $scope.reptColor = 'black';
         $scope.listBgImg = 'images/icons/cart-on.png';
         $scope.histBgImg = 'images/icons/hist-icon-off.png';
         $scope.reptBgImg = 'images/icons/reports-off.png';
-
+        $scope.navDisplay = 'block';
+        $scope.inputHeight = '0';
       
         var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());
         uncheckedItems.$bindTo($scope, "uncheckedItems").then(function() {
-            console.log(uncheckedItems);
         });
 
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
@@ -28,6 +28,38 @@ greenlistApp.controller("ShoppingListCtrl",
         //array of items in the shopping list page
         //used for showing/hiding the archive button and food tips
         $scope.checkShopping = $firebaseArray(DatabaseRef.getRefToSpecificList("shopping"));
+
+        var allShareListName = $firebaseObject(DatabaseRef.getAllShareList());
+        allShareListName.$bindTo($scope, "shareListName").then(function() {
+        });
+
+        $scope.getList = function() {
+
+            var listObj = UserInfo.getCurrentList();
+                
+            if (listObj.listKey === UserInfo.getCurrentUser().uid) {
+                $scope.listType = "My List";
+                $scope.currentList = "";
+                
+            } else{
+                $scope.listType = "Shared List";
+                $scope.currentList = listObj.name;
+            }
+
+        }
+
+        $scope.switchToList = function(list){
+            if (list === "main") {
+                UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
+            } else {
+                UserInfo.setCurrentList(list.listKey, list.name);
+            }
+            $scope.currentList = UserInfo.getCurrentList().name;
+            $route.reload();
+
+
+        }
+
 
         //code for food tips
         $scope.$watch("checkShopping", function(foodArray){
@@ -87,7 +119,6 @@ greenlistApp.controller("ShoppingListCtrl",
             })
 
             modalInstance.result.then(function(data) {
-                console.log("Modal got data", data);
             }).catch(function(err) {
                 console.error(err);
             })
@@ -166,6 +197,12 @@ greenlistApp.controller("ShoppingListCtrl",
                 "width":average +"%",
                 "background-color": color
             }
+
+
         }
 
-}]);
+        $scope.setQty = function(item, qty) {
+            DatabaseQuery.setQuantity(item, qty);
+        }
+
+});

@@ -22,7 +22,6 @@ greenlistApp.controller("EfficiencyCtrl",
 
             // Get the needed data for graphing
             DatabaseQuery.getChartData(item, function(dates, scores, recentDates, recentScores) {
-                console.log("Got dates and scores", dates, scores, recentDates, recentScores);
 
                 var modalInstance = $uibModal.open({
                     templateUrl: 'views/partials/detailReportModal.html',
@@ -30,6 +29,10 @@ greenlistApp.controller("EfficiencyCtrl",
 
                     // Controller for the modal
                     controller: function($scope, $uibModalInstance) {
+                        $scope.close = function() {
+                            $uibModalInstance.close();
+                        }
+
                         $scope.food = item;
 
                         // Chart variables
@@ -67,6 +70,15 @@ greenlistApp.controller("EfficiencyCtrl",
                                         }
                                     }
                                 ]
+                            },
+                            pan: {
+                                enabled: true,
+                                mode: "x"
+                            },
+                            zoom: {
+                                enabled: true,
+                                drag: false,
+                                mode: "x"
                             }
                         };
 

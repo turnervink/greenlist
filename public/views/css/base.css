@@ -29,11 +29,17 @@ body.HistoryListCtrl-page {
 /* Side menu */
 .aside-popup .modal-content{
 	width: 80vw;
+	max-width: 400px;
 }
 
 .aside-popup .modal-dialog .side-menu-header {
-	width: 100%;
+	position: fixed;
+	top: 0;
+	width: 80vw;
+	max-width: 400px;
+	height: 30vh;
 	background-color: green;
+	z-index: 99;
 }
 
 .aside-popup .modal-dialog img {
@@ -65,23 +71,77 @@ body.HistoryListCtrl-page {
 	display: block;
 	list-style-type: none;
 	text-decoration: none;
-	font-size: 3vh;
+	font-size: 15px;
 	padding: 0;
 	margin: 0;
 }
 
 .aside-popup .modal-dialog a {
+	text-decoration: none;
 	display: block;
-	padding: 3.5vh;
+	padding: 15px;
 	color: black;
+	border-top: gray solid 1px;
+}
+
+.aside-popup .modal-dialog li:last-child {
 	border-bottom: gray solid 1px;
 }
 
+.aside-popup .modal-dialog #shared-list li {
+	margin-top: 10px;
+	margin-left: 25px;
+	font-size: 15px;
+}
+
+.aside-popup .modal-dialog #shared-list .list-item {
+	height: 25px;
+}
+
+.aside-popup .modal-dialog #aside-footer {
+	position: fixed;
+	bottom: 0;
+	z-index: 97;
+	height: 70px;
+	width: 80vw;
+	max-width: 400px;
+	background-color: white;
+}
+
+.aside-popup .modal-dialog #aside-content {
+	margin-bottom: 70px;
+	margin-top: 30vh;
+}
+
+.aside-popup .modal-dialog #feedback-icon {
+	background-image: url('../../images/icons/share.png');
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 30px;
+}
+
+.aside-popup .modal-dialog .add-list {
+	margin-top: 20px !important;
+	border-bottom: none !important;
+}
+
+.aside-popup .modal-dialog .add-list input {
+	border: none;
+}
+
+.aside-popup .modal-dialog .add-list img {
+	margin: 0;
+	width: 25px;
+	height: 25px;
+	margin-bottom: 2px;
+}
+
 .aside-popup .modal-dialog #sign-out {
-	font-size: 3.5vh;
+	font-size: 15px;
 	padding: 0;
 	margin:0;
 	width: 80vw;
+	max-width: 400px;
 	text-align: center;
 	position: fixed;
 	bottom: 0;
@@ -90,17 +150,46 @@ body.HistoryListCtrl-page {
 .aside-popup .modal-dialog #sign-out a {
 	border: none;
 	color: red;
+	cursor: pointer;
 }
 
 .aside-popup .modal-dialog #version {
-	font-size: 1.5vh;
+	font-size: 8px;
 	color: gray;
 	padding: 0;
 	margin:0;
 	width: 80vw;
+	max-width: 400px;
 	text-align: center;
 	position: fixed;
 	bottom: 0;
+}
+
+/*.shareList-popup .modal-dialog {*/
+	/*width: 80vw;*/
+	/*height: 50vh;*/
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	/*max-width: 1300px;*/
+	/*background-color: white;*/
+/*}*/
+
+.shareList-popup h4 {
+	border:none;
+}
+
+.shareList-popup .modal-content {
+	width: 80vw;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+	background-color: white;
+	text-align: center;
+}
+
+.shareList-popup .enter {
+	display: inline-block;
+	margin:auto;
 }
 
 /* Log waste popup */
@@ -159,6 +248,9 @@ body.HistoryListCtrl-page {
 	text-align: center;
 }
 
+.logwaste-popup h4 {
+}
+
 /* Styling for the slider bar*/
 .logwaste-popup .input-slider {
 	height: 6vh;
@@ -170,27 +262,30 @@ body.HistoryListCtrl-page {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1000px;
+	cursor: pointer;
 }
 
 /* the track for google*/
-input[type=range]::-webkit-slider-runnable-track {
+.logwaste-popup input[type=range]::-webkit-slider-runnable-track {
 	height: 1px;
 	box-shadow: 0 5px 30px #000;
 	margin-top: 3.5vh;
 	margin-bottom: 3.5vh;
 	background-color: black;
 	max-width: 1000px;
+	cursor: pointer;
 }
 
 /* the track for firefox*/
-input[type=range]::-moz-range-track {
+.logwaste-popup input[type=range]::-moz-range-track {
 	width: 11.7vh;
 	height: 1.1vh;
 	background-color: black;
+	cursor: pointer;
 }
 
 /* the thing you grab to slide for google*/
-input[type=range]::-webkit-slider-thumb {
+.logwaste-popup input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	border: none;
 	height: 3.8vh;
@@ -198,8 +293,11 @@ input[type=range]::-webkit-slider-thumb {
 	border-radius: 50%;
 	background: green;
 	margin-top: -1.9vh;
+	cursor: pointer;
 }
 
+/* .logwaste-popup input[type=range]::-moz-range-thumb { */
+/* the thing you grab to slide for firefox*/
 input[type=range]::-moz-range-thumb {
 	border: none;
 	height: 3.8vh;
@@ -207,6 +305,7 @@ input[type=range]::-moz-range-thumb {
 	border-radius: 50%;
 	background: green;
 	margin-top: -1.9vh;
+	cursor: pointer;
 }
 
 /* Archive confirmation pop up */
@@ -250,6 +349,10 @@ input[type=range]::-moz-range-thumb {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 10px;
 	border-left: white solid 1px;
+}
+
+#detailReport-popup {
+	width: 90vw;
 }
 
 /* Centre modals vertically */

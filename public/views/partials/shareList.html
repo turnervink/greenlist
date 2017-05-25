@@ -1,0 +1,13 @@
+<div id="shareList-popup">
+    <h4>Please enter the email of the user you would like to share this list with</h4>
+    <h4>{{errorMsg}}</h4>
+    <form class="enter">
+        <div class="col-xs-7">
+            <input ng-model="shareEmail" type="text" name="emailShare" placeholder="Enter an email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter an email'">
+        </div>
+        <div class="col-xs-2 button-to-right">
+            <button class="share-list-button" ng-click="addUserEmail(shareEmail)">Add</button>
+        </div>
+    </form>
+</div>
+

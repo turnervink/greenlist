@@ -1,4 +1,3 @@
-
 /* Logo css */
 #logo {
     width: 50%;
@@ -31,9 +30,43 @@
 }
 
 /* CSS for sign in button. */
-#sign-in{
-    display: block;
-    margin: inherit;
+#sign-in img {
     width: 55%;
     height: 55%;
+    cursor: pointer;
+}
+
+#sign-in {
+    padding-top: 25%;
+    display: block;
+    margin: inherit;
+}
+
+/* Landscape view */
+@media only screen and (orientation : landscape) {
+    /* Logo css */
+    #logo {
+        width: 20%;
+        height: 20%;
+        margin: inherit;
+    }
+
+    #login-page h1 {
+        font-size: 5vh;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    /* CSS for sign in button. */
+    #sign-in img {
+        width: 20%;
+        height: 20%;
+        cursor: pointer;
+    }
+
+    #sign-in {
+        padding-top: 1%;
+        display: block;
+        margin: inherit;
+    }
 }

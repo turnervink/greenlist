@@ -1,27 +1,44 @@
-<div id="detailReport-popup">
-    <div id="dataModalInner">
-        <h1>{{food.name}}</h1>
+<!--<div id="detailReport-popup">-->
+    <!--<div id="dataModalInner">-->
+        <!--<h1>{{food.name}}</h1>-->
 
-        <div ng-show="chartData.length != 0">
-            <h3>Current efficiency: {{food.average / 100 | percentage: 1}}</h3>
-            <br>
-            <h3 class="chartTitle">Last two weeks:</h3>
+        <!--<div ng-show="chartData.length != 0">-->
+            <!--<h3>Current efficiency: {{food.average / 100 | percentage: 1}}</h3>-->
+            <!--<br>-->
+            <!--&lt;!&ndash;<h3 class="chartTitle">Last two weeks:</h3>&ndash;&gt;-->
 
-            <canvas ng-show="recentChartData.length != 0" class="chart chart-line" chart-data="recentChartData"
-                    chart-labels="recentLabels" chart-options="options" chart-colors="colors">
-            </canvas>
+            <!--&lt;!&ndash;<canvas ng-show="recentChartData.length != 0" class="chart chart-line" chart-data="recentChartData"&ndash;&gt;-->
+                    <!--&lt;!&ndash;chart-labels="recentLabels" chart-options="options" chart-colors="colors">&ndash;&gt;-->
+            <!--&lt;!&ndash;</canvas>&ndash;&gt;-->
 
-            <h3 class="chartTitle">Usage over time:</h3>
 
-            <canvas ng-show="chartData.length != 0" class="chart chart-line" chart-data="chartData"
+        <!--</div>-->
+
+        <!--<div ng-show="chartData.length == 0">-->
+            <!--<h3>no data logged</h3>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <div id="dataModalInner" class="container">
+        <div class="row">
+            <a ng-click="close()"><img src="images/icons/trash.png" class="pull-right" id="close-modal-btn"></a>
+            <h1 class="col-xs-12">{{food.name}}</h1>
+        </div>
+        <div class="row" ng-show="chartData.length == 0">
+            <h3 class="col-xs-12 chartModalTitle">no data logged</h3>
+        </div>
+        <div class="row" ng-show="chartData.length != 0">
+            <h3 class="col-xs-12 chartModalTitle">Average efficiency: {{food.average / 100 | percentage: 1}}</h3>
+        </div>
+        <br>
+        <div class="row" ng-show="chartData.length != 0">
+            <h3 class="chartTitle col-xs-12">Usage over time:</h3>
+
+            <canvas class="chart chart-line col-xs-12" chart-data="chartData"
                     chart-labels="labels" chart-options="options" chart-colors="colors">
             </canvas>
         </div>
-
-        <div ng-show="chartData.length == 0">
-            <h3>no data logged</h3>
-        </div>
-
     </div>
-</div>
+<!--</div>-->
 

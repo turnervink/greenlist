@@ -1,6 +1,6 @@
 <ng-include src="'views/partials/panel.html'"></ng-include>
 <div class="container-fluid">
-    
+    <div id="confetti" ng-show="confetti"><img src="images/confetti.gif"></div>
     <div id="report-page" ng-click="hideDateMenu()">
 
         <!-- Placeholder, will use Angular -->
@@ -8,10 +8,14 @@
             <div class="row">
                 <div id="scores-section" class="col-xs-12">
                     <h1 class="col-xs-12" id="efficiency-message">Your efficiency rating:</h1>
-                    <h1 class="col-xs-12"><span id="elo-rating" ng-style="getTextColor(calAverage.$value)">{{calAverage.$value * 20 | number: 0}}</span></h1>
+                    <h1 class="col-xs-12">
+                        <div id="grade" ng-style="getTextColor(calAverage.$value)">{{grade}}</div>
+                        <p>Your current usage rate for your groceries:</p>
+                        <span id="elo-rating" ng-style="getTextColor(calAverage.$value)">{{calAverage.$value}}</span><span ng-style="getTextColor(calAverage.$value)">%</span></h1>
 
-                    <p>You're using {{calAverage.$value / 100 | percentage: 1}} of your groceries.</p>
                     <p>{{motivationMsg}}</p>
+
+                    <p><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{tweetText}}&via=greenlistapp">Share on Twitter</a></p>
                 </div>
             </div>
 
@@ -22,7 +26,7 @@
                     </div>
                     <div class="row">
                         <ol class="col-xs-12">
-                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                            <li ng-click="dataModal(item)" ng-style="getBackgroundColor(item.average)" ng-repeat="item in setTopEff | orderBy: item.average:true">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
                         </ol>
                     </div>
 
@@ -31,7 +35,7 @@
                     </div>
                     <div class="row">
                         <ol class="col-xs-12">
-                            <li ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
+                            <li ng-click="dataModal(item)" ng-style="getBackgroundColor(item.average)" ng-repeat="item in setBotEff | orderBy: item.average">{{item.name}} <span class="pull-right" ng-style="">{{item.average / 100 | percentage: 1}}</span></li>
                         </ol>
                     </div>
                     <br><br>
