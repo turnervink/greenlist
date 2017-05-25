@@ -113,6 +113,13 @@ body.HistoryListCtrl-page {
 	margin-top: 30vh;
 }
 
+.aside-popup .modal-dialog #feedback-icon {
+	background-image: url('../../images/icons/share.png');
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: 30px;
+}
+
 .aside-popup .modal-dialog .add-list {
 	margin-top: 20px !important;
 	border-bottom: none !important;
