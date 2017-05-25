@@ -20,7 +20,6 @@ greenlistApp.controller("ShoppingListCtrl",
       
         var uncheckedItems = $firebaseObject(DatabaseRef.getUncheckedItems());
         uncheckedItems.$bindTo($scope, "uncheckedItems").then(function() {
-            console.log(uncheckedItems);
         });
 
         var checkedItems = $firebaseObject(DatabaseRef.getCheckedItems());
@@ -32,7 +31,6 @@ greenlistApp.controller("ShoppingListCtrl",
 
         var allShareListName = $firebaseObject(DatabaseRef.getAllShareList());
         allShareListName.$bindTo($scope, "shareListName").then(function() {
-            console.log("Setting list", UserInfo.getCurrentList());
         });
 
         $scope.getList = function() {
@@ -51,7 +49,6 @@ greenlistApp.controller("ShoppingListCtrl",
         }
 
         $scope.switchToList = function(list){
-            console.log(list);
             if (list === "main") {
                 UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
             } else {
@@ -122,7 +119,6 @@ greenlistApp.controller("ShoppingListCtrl",
             })
 
             modalInstance.result.then(function(data) {
-                console.log("Modal got data", data);
             }).catch(function(err) {
                 console.error(err);
             })

@@ -26,7 +26,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 }
 
                 $scope.setNonFood = function(status){
-                    console.log(status);
 
                     DatabaseRef.setNonFoodStatus(item, status);
 
@@ -66,7 +65,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                 console.error("null received from modal");
                 callback(null)
             } else {
-                console.log("Got from modal:", data);
 
                 if (data !== "deferred") {
                     var wasteScore = {
@@ -120,14 +118,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
 
         itemIsInShopping(newItem, function(shoppingical) {
             if (shoppingical === true) {
-                console.log(newItem.name + " is already in shopping");
             } else {
-                console.log("Looking for " + newItem.name + " in history...");
                 itemIsInHistory(newItem, function(historical) {
                     if (historical === true) {
-                        console.log(newItem.name + " exists in history!");
                         checkWasteDataStatus(newItem, function(dataUpdated, nonFood) {
-                            console.log("Nonfood is", nonFood);
                             if (!dataUpdated && !nonFood) {
                                 // TODO Show modal and ask user for waste data
                                 updateWasteScore(newItem, false, function(gotData) {
@@ -141,7 +135,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                             }
                         });
                     } else {
-                        console.log(newItem.name + " is brand new!");
                         DatabaseRef.items().child(newItem.name).set(newItem);
                     }
                 });
@@ -228,7 +221,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
     function itemIsInHistory(item, callback) {
         DatabaseRef.items().once("value")
             .then(function(data) {
-                console.log("Got data");
                 var isInHistory = data.hasChild(item.name)
                     && (data.child(item.name).val().list) === "history";
 
@@ -246,7 +238,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
     function itemIsInShopping(item, callback) {
         DatabaseRef.items().once("value")
             .then(function(data) {
-                console.log("Got data");
                 var isInShopping = data.hasChild(item.name)
                 && (data.child(item.name).val().list) === "shopping";
 
@@ -311,12 +302,10 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             var rangeStart = new Date();
             rangeStart.setDate(rangeStart.getDate() - 14);
             var rangeStartStamp = rangeStart.getTime();
-            console.log(rangeStartStamp);
 
             data.forEach(function(score) {
                 // Get last two weeks
                 if (score.val().date >= rangeStartStamp) {
-                    console.log("In last 2 weeks");
 
                     // Get date
                     var date = new Date(score.val().date);
@@ -355,7 +344,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      * @param item The item to calculate and store the average for
      */
     function setItemAverage(item) {
-        console.log("Setting avg for item");
         getWasteData(item, function(data) {
             var sum = 0;
             var count = 0;
@@ -394,7 +382,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
            data.forEach(function(item) {
 
                if (item.val().average != null) {
-                   console.log("Adding " + item.val().average);
                    dataArray.push(item.val().average);
                }
 
@@ -408,7 +395,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      * Updates a user's overall average.
      */
     function updateOverallAverage() {
-        console.log("Setting overall avg");
         getAllItemAverages(function(data) {
             DatabaseRef.overallAverage().set(CalculationService.calAvg(data));
         });
@@ -452,7 +438,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      */
     function getTopEfficient(callback) {
         DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
-            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -470,7 +455,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
      */
     function getBottomEfficient(callback) {
         DatabaseRef.items().orderByChild("average").once("value").then(function(data) {
-            console.log(data.val());
             var dataArray = [];
 
             data.forEach(function(item) {
@@ -572,7 +556,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                  * Fired if user confirms the deletion the first time.
                  */
                 $scope.yes = function() {
-                    console.log("yes");
                     $uibModalInstance.close(null);
 
                     // Confirm a second time
@@ -587,10 +570,8 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                              * Deletes all user data.
                              */
                             $scope.yes = function() {
-                                console.log("yes");
                                 $uibModalInstance.close(null);
                                 DatabaseRef.root().remove().then(function() {
-                                    console.log("Deleted user data");
                                     $location.url("/goodbye");
                                 });
                             };
@@ -599,7 +580,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                              * Fired if user doesn't confirm the deletion.
                              */
                             $scope.no = function() {
-                                console.log("no");
                                 $uibModalInstance.close(null);
                             }
 
@@ -612,7 +592,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
                  * Fired if user doesn't confirm the deletion.
                  */
                 $scope.no = function() {
-                    console.log("no");
                     $uibModalInstance.close(null);
                 }
 

@@ -22,7 +22,6 @@ greenlistApp.controller("EfficiencyCtrl",
 
             // Get the needed data for graphing
             DatabaseQuery.getChartData(item, function(dates, scores, recentDates, recentScores) {
-                console.log("Got dates and scores", dates, scores, recentDates, recentScores);
 
                 var modalInstance = $uibModal.open({
                     templateUrl: 'views/partials/detailReportModal.html',
@@ -39,7 +38,6 @@ greenlistApp.controller("EfficiencyCtrl",
                         // Chart variables
                         $scope.labels = dates;
                         $scope.chartData = scores;
-                        console.log("Labels length, data lenght", $scope.labels.length, $scope.chartData.length);
                         $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
                         $scope.options = {
                             elements: {

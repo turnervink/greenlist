@@ -22,7 +22,6 @@ greenlistApp.controller("ReportCtrl",
 
         var setOverallAvg = $firebaseObject(DatabaseRef.overallAverage());
         setOverallAvg.$bindTo($scope, "calAverage").then(function() {
-            console.log("Bound", $scope.calAverage);
 
             var scoreAnim = new CountUp("elo-rating", 0, $scope.calAverage.$value, 0, 1.5);
             scoreAnim.start(); // Animate the efficiency score counting up
@@ -139,7 +138,6 @@ greenlistApp.controller("ReportCtrl",
 
             // Get the needed data for graphing
             DatabaseQuery.getChartData(item, function(dates, scores, recentDates, recentScores) {
-                console.log("Got dates and scores", dates, scores, recentDates, recentScores);
 
                 var modalInstance = $uibModal.open({
                     templateUrl: 'views/partials/detailReportModal.html',
@@ -156,7 +154,6 @@ greenlistApp.controller("ReportCtrl",
                         // Chart variables
                         $scope.labels = dates;
                         $scope.chartData = scores;
-                        console.log("Labels length, data lenght", $scope.labels.length, $scope.chartData.length);
                         $scope.colors = ['#278518', '#278518', '#278518', '#278518'];
                         $scope.options = {
                             elements: {
