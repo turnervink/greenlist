@@ -505,6 +505,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
     function shareList(listKey, listName) {
         $uibModal.open({
             templateUrl: 'views/partials/shareList.html',
+            windowClass: 'shareList-popup',
             controller: function($scope, $uibModalInstance, UserInfo){
                 $scope.addUserEmail = function(friendEmail){
 
