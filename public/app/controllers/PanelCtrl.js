@@ -65,7 +65,6 @@ greenlistApp.controller('PanelCtrl', function($scope, $aside, UserInfo, Database
                 }
 
                 $scope.switchList = function(list) {
-                    console.log("Switching to", list);
                     if (list === "main") {
                         UserInfo.setCurrentList(UserInfo.getCurrentUser().uid, "My List");
                     } else {

@@ -24,8 +24,6 @@ greenlistApp.service("UserInfo", function($route) {
 
         firebase.database().ref("emails").child(uid).set(email);
 
-        console.log(currentList);
-
         if (getCurrentList().name === undefined){
             setCurrentList(getCurrentUser().uid, "My List");
             $route.reload();
@@ -50,7 +48,7 @@ greenlistApp.service("UserInfo", function($route) {
     }
 
     function setCurrentList(listKey, listName) {
-        console.log("Setting current list");
+        console.log("Setting current list:", listName);
 
         if (listKey == currentUser.uid) {
             currentList.listKey = listKey;
@@ -60,7 +58,6 @@ greenlistApp.service("UserInfo", function($route) {
             currentList.name = listName;
         }
 
-        console.log(currentList);
     }
 
     function getCurrentList() {

@@ -5,6 +5,5 @@ greenlistApp.controller("BadBoyCtrl", ["$scope", "UserInfo", function($scope, Us
     $scope.playAudio = function() {
         var audio = new Audio('images/monty.wav')
         audio.play();
-        console.log("play stuff");
     };
 }]);

@@ -50,6 +50,7 @@ greenlistApp.controller("HistoryListCtrl",
          *
          * @param food
          * @status boolean for showing cancel or ask later button
+         * @status boolean for showing cancel or ask later button
          */
         $scope.addToList = function(food, status) {
             if (!food.dataUpdated && !food.NonFood) {
