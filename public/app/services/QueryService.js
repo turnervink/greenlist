@@ -508,7 +508,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
 
                     var friendUID;
 
-                    var userEmails = firebase.database().ref('/emails');
+                    var userEmails = DatabaseRef.emails();
 
                     userEmails.once("value", function(snapshot) {
 
