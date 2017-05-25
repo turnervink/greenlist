@@ -179,7 +179,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             DatabaseRef.items()
                 .child(item.name)
                 .child("quantity")
-                .set("qty");
+                .set("#");
         }
 
         DatabaseRef.items()
