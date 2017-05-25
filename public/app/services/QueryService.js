@@ -104,7 +104,6 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             list: "shopping",
             name: itemName.toLowerCase(),
             checked: false,
-            average: 0,
             quantity: "#",
             NonFood: false
         };
@@ -180,7 +179,7 @@ greenlistApp.service("DatabaseQuery", ["DatabaseRef", "UserInfo", "CalculationSe
             DatabaseRef.items()
                 .child(item.name)
                 .child("quantity")
-                .set("qty");
+                .set("#");
         }
 
         DatabaseRef.items()
